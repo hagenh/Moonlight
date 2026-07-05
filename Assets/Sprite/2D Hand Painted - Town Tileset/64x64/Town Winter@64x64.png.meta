@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 655291032f49b524d91286a5b9923bd2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3655501917202352468
+    second: Town Winter@64x64_0
+  - first:
+      213: 2359733723368595431
+    second: Town Winter@64x64_1
+  - first:
+      213: 5783679974202481947
+    second: Town Winter@64x64_2
+  - first:
+      213: -3931653171697638639
+    second: Town Winter@64x64_3
+  - first:
+      213: -8480593955158000140
+    second: Town Winter@64x64_4
+  - first:
+      213: 6913161328055733314
+    second: Town Winter@64x64_5
+  - first:
+      213: -7545162038507436110
+    second: Town Winter@64x64_6
+  - first:
+      213: -999016932470833727
+    second: Town Winter@64x64_7
+  - first:
+      213: -8980447367002417320
+    second: Town Winter@64x64_8
+  - first:
+      213: -8478512607177203946
+    second: Town Winter@64x64_9
+  - first:
+      213: 5859829503423284436
+    second: Town Winter@64x64_10
+  - first:
+      213: 3582105186670053841
+    second: Town Winter@64x64_11
+  - first:
+      213: -6962098923837653984
+    second: Town Winter@64x64_12
+  - first:
+      213: -7093680569127272008
+    second: Town Winter@64x64_13
+  - first:
+      213: 4721375243389510176
+    second: Town Winter@64x64_14
+  - first:
+      213: -7457461091843520903
+    second: Town Winter@64x64_15
+  - first:
+      213: 6667868911978956537
+    second: Town Winter@64x64_16
+  - first:
+      213: -6258956599799261963
+    second: Town Winter@64x64_17
+  - first:
+      213: -5909329446742246878
+    second: Town Winter@64x64_18
+  - first:
+      213: 4962547126189930359
+    second: Town Winter@64x64_19
+  - first:
+      213: -47464272728685231
+    second: Town Winter@64x64_20
+  - first:
+      213: 2608827804804708973
+    second: Town Winter@64x64_21
+  - first:
+      213: -906879065007567242
+    second: Town Winter@64x64_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Town Winter@64x64_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 449
+        width: 462
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4590b9240a3fab230800000000000000
+      internalID: 3655501917202352468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_1
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 641
+        width: 577
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef15e9a1557fb020800000000000000
+      internalID: 2359733723368595431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_2
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 717
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d11e41b42c34050800000000000000
+      internalID: 5783679974202481947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_3
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 594
+        width: 95
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 113ace86546ff69c0800000000000000
+      internalID: -3931653171697638639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_4
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 255
+        width: 513
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd7b7adab0ee4a80800000000000000
+      internalID: -8480593955158000140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 453
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ccab1b99b70ff50800000000000000
+      internalID: 6913161328055733314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_6
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 320
+        width: 101
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7800a1a133a4790800000000000000
+      internalID: -7545162038507436110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 257
+        width: 61
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cdb9779467c222f0800000000000000
+      internalID: -999016932470833727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_8
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 138
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8579abd33ba0f5380800000000000000
+      internalID: -8980447367002417320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_9
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 195
+        width: 98
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f188174b5465a80800000000000000
+      internalID: -8478512607177203946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_10
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 195
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d406ebf2eb425150800000000000000
+      internalID: 5859829503423284436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_11
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 185
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d98d8f30b136b130800000000000000
+      internalID: 3582105186670053841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_12
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 0
+        width: 64
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02cf6816ae7a16f90800000000000000
+      internalID: -6962098923837653984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_13
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 0
+        width: 127
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b104173b1f2e8d90800000000000000
+      internalID: -7093680569127272008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_14
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 126
+        width: 61
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0222e89d4c1b58140800000000000000
+      internalID: 4721375243389510176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_15
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 200
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976ce56f5a6c18890800000000000000
+      internalID: -7457461091843520903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_16
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 127
+        width: 43
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f640639277098c50800000000000000
+      internalID: 6667868911978956537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_17
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 100
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f4d0644228b329a0800000000000000
+      internalID: -6258956599799261963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_18
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 86
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22a3c2a5d28ddfda0800000000000000
+      internalID: -5909329446742246878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_19
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 0
+        width: 63
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777bfad81528ed440800000000000000
+      internalID: 4962547126189930359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_20
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 4
+        width: 56
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1550c74de7f575ff0800000000000000
+      internalID: -47464272728685231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_21
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 0
+        width: 66
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6afb89f01b643420800000000000000
+      internalID: 2608827804804708973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Winter@64x64_22
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 78
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e4cf39b4e1a63f0800000000000000
+      internalID: -906879065007567242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Town Winter@64x64_0: 3655501917202352468
+      Town Winter@64x64_1: 2359733723368595431
+      Town Winter@64x64_10: 5859829503423284436
+      Town Winter@64x64_11: 3582105186670053841
+      Town Winter@64x64_12: -6962098923837653984
+      Town Winter@64x64_13: -7093680569127272008
+      Town Winter@64x64_14: 4721375243389510176
+      Town Winter@64x64_15: -7457461091843520903
+      Town Winter@64x64_16: 6667868911978956537
+      Town Winter@64x64_17: -6258956599799261963
+      Town Winter@64x64_18: -5909329446742246878
+      Town Winter@64x64_19: 4962547126189930359
+      Town Winter@64x64_2: 5783679974202481947
+      Town Winter@64x64_20: -47464272728685231
+      Town Winter@64x64_21: 2608827804804708973
+      Town Winter@64x64_22: -906879065007567242
+      Town Winter@64x64_3: -3931653171697638639
+      Town Winter@64x64_4: -8480593955158000140
+      Town Winter@64x64_5: 6913161328055733314
+      Town Winter@64x64_6: -7545162038507436110
+      Town Winter@64x64_7: -999016932470833727
+      Town Winter@64x64_8: -8980447367002417320
+      Town Winter@64x64_9: -8478512607177203946
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

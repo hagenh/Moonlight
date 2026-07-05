@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 998898a71f1ac3d43968e9c610335313
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4399244564738399474
+    second: TownColor3@128x128_0
+  - first:
+      213: 5592914267533711332
+    second: TownColor3@128x128_1
+  - first:
+      213: -1600864522103047525
+    second: TownColor3@128x128_2
+  - first:
+      213: 2129142293776296604
+    second: TownColor3@128x128_3
+  - first:
+      213: 413654523088196662
+    second: TownColor3@128x128_4
+  - first:
+      213: 7892578322400013521
+    second: TownColor3@128x128_5
+  - first:
+      213: -7853077144398289934
+    second: TownColor3@128x128_6
+  - first:
+      213: -4890291373517694360
+    second: TownColor3@128x128_7
+  - first:
+      213: -4055043739556665205
+    second: TownColor3@128x128_8
+  - first:
+      213: 1588550989526484002
+    second: TownColor3@128x128_9
+  - first:
+      213: -4418125451136833238
+    second: TownColor3@128x128_10
+  - first:
+      213: 18722093029120302
+    second: TownColor3@128x128_11
+  - first:
+      213: 8398923604642184988
+    second: TownColor3@128x128_12
+  - first:
+      213: -3604891147830050131
+    second: TownColor3@128x128_13
+  - first:
+      213: 2890728116648671646
+    second: TownColor3@128x128_14
+  - first:
+      213: -4513126826259641449
+    second: TownColor3@128x128_15
+  - first:
+      213: 8046917549668013264
+    second: TownColor3@128x128_16
+  - first:
+      213: 7994277406032453194
+    second: TownColor3@128x128_17
+  - first:
+      213: 3105754677957401201
+    second: TownColor3@128x128_18
+  - first:
+      213: -6009407607633548404
+    second: TownColor3@128x128_19
+  - first:
+      213: 2014737615218279302
+    second: TownColor3@128x128_20
+  - first:
+      213: 7305313702704300449
+    second: TownColor3@128x128_21
+  - first:
+      213: 3926290985780960981
+    second: TownColor3@128x128_22
+  - first:
+      213: 3176894837029664404
+    second: TownColor3@128x128_23
+  - first:
+      213: -4178478171628995615
+    second: TownColor3@128x128_24
+  - first:
+      213: 5290367278099315439
+    second: TownColor3@128x128_25
+  - first:
+      213: 2669667548827676369
+    second: TownColor3@128x128_26
+  - first:
+      213: 1580471879291466860
+    second: TownColor3@128x128_27
+  - first:
+      213: 7895419680540164451
+    second: TownColor3@128x128_28
+  - first:
+      213: -4579797210923398556
+    second: TownColor3@128x128_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TownColor3@128x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 898
+        width: 900
+        height: 1147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fcdc499f914d0d30800000000000000
+      internalID: 4399244564738399474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_1
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2038
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e79f8fc4e50e9d40800000000000000
+      internalID: 5592914267533711332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_2
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1919
+        width: 130
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ab58ae23698c9e0800000000000000
+      internalID: -1600864522103047525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_3
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 1282
+        width: 900
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9aebc0b2ab3c8d10800000000000000
+      internalID: 2129142293776296604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_4
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1666
+        width: 357
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634d76cd8989db500800000000000000
+      internalID: 413654523088196662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_5
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1319
+        width: 252
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dce994ea22188d60800000000000000
+      internalID: 7892578322400013521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1434
+        width: 128
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3a66ec1f3440390800000000000000
+      internalID: -7853077144398289934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_7
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1188
+        width: 188
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a1259d7e1322cb0800000000000000
+      internalID: -4890291373517694360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_8
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 511
+        width: 1025
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88ad03143799b7c0800000000000000
+      internalID: -4055043739556665205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 905
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224425e55baab0610800000000000000
+      internalID: 1588550989526484002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_10
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 641
+        width: 201
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2960e77f4aafa2c0800000000000000
+      internalID: -4418125451136833238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_11
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 515
+        width: 122
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29d378f4a3824000800000000000000
+      internalID: 18722093029120302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_12
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 276
+        width: 129
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f375ed488fe8470800000000000000
+      internalID: 8398923604642184988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_13
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 391
+        width: 194
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2c3afb99ad8fdc0800000000000000
+      internalID: -3604891147830050131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_14
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 391
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99f31708eded1820800000000000000
+      internalID: 2890728116648671646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_15
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 384
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b028620172e51c0800000000000000
+      internalID: -4513126826259641449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_16
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 0
+        width: 126
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d491d480e46caf60800000000000000
+      internalID: 8046917549668013264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_17
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 0
+        width: 251
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ede7ef1f061fe60800000000000000
+      internalID: 7994277406032453194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_18
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 252
+        width: 120
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a9823bc6bd91b20800000000000000
+      internalID: 3105754677957401201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_19
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1
+        width: 397
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8be87cbe9b4a9ca0800000000000000
+      internalID: -6009407607633548404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_20
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 255
+        width: 83
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68304bebf29c5fb10800000000000000
+      internalID: 2014737615218279302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_21
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 220
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1cb7e7b10b16560800000000000000
+      internalID: 7305313702704300449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_22
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 223
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5deda4469dcfc7630800000000000000
+      internalID: 3926290985780960981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_23
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 207
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496fce9b509961c20800000000000000
+      internalID: 3176894837029664404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_24
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 183
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb745ecd301306c0800000000000000
+      internalID: -4178478171628995615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_25
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 0
+        width: 125
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feab57682092b6940800000000000000
+      internalID: 5290367278099315439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_26
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 156
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dee24cbd709c0520800000000000000
+      internalID: 2669667548827676369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_27
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 172
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6479aeecc6fee510800000000000000
+      internalID: 1580471879291466860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_28
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 9
+        width: 111
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36189332e5a229d60800000000000000
+      internalID: 7895419680540164451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor3@128x128_29
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 130
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a069393ba4170c0800000000000000
+      internalID: -4579797210923398556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TownColor3@128x128_0: 4399244564738399474
+      TownColor3@128x128_1: 5592914267533711332
+      TownColor3@128x128_10: -4418125451136833238
+      TownColor3@128x128_11: 18722093029120302
+      TownColor3@128x128_12: 8398923604642184988
+      TownColor3@128x128_13: -3604891147830050131
+      TownColor3@128x128_14: 2890728116648671646
+      TownColor3@128x128_15: -4513126826259641449
+      TownColor3@128x128_16: 8046917549668013264
+      TownColor3@128x128_17: 7994277406032453194
+      TownColor3@128x128_18: 3105754677957401201
+      TownColor3@128x128_19: -6009407607633548404
+      TownColor3@128x128_2: -1600864522103047525
+      TownColor3@128x128_20: 2014737615218279302
+      TownColor3@128x128_21: 7305313702704300449
+      TownColor3@128x128_22: 3926290985780960981
+      TownColor3@128x128_23: 3176894837029664404
+      TownColor3@128x128_24: -4178478171628995615
+      TownColor3@128x128_25: 5290367278099315439
+      TownColor3@128x128_26: 2669667548827676369
+      TownColor3@128x128_27: 1580471879291466860
+      TownColor3@128x128_28: 7895419680540164451
+      TownColor3@128x128_29: -4579797210923398556
+      TownColor3@128x128_3: 2129142293776296604
+      TownColor3@128x128_4: 413654523088196662
+      TownColor3@128x128_5: 7892578322400013521
+      TownColor3@128x128_6: -7853077144398289934
+      TownColor3@128x128_7: -4890291373517694360
+      TownColor3@128x128_8: -4055043739556665205
+      TownColor3@128x128_9: 1588550989526484002
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

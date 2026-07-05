@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: bac7ed647e3acda468b0e3d5a342f239
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5344211495784913573
+    second: Town Fall@128x128_0
+  - first:
+      213: 2981307241300234240
+    second: Town Fall@128x128_1
+  - first:
+      213: -2621385120257427065
+    second: Town Fall@128x128_2
+  - first:
+      213: 9190222313402413449
+    second: Town Fall@128x128_3
+  - first:
+      213: 256534441430434991
+    second: Town Fall@128x128_4
+  - first:
+      213: -3957170685153419126
+    second: Town Fall@128x128_5
+  - first:
+      213: 3174560974236372414
+    second: Town Fall@128x128_6
+  - first:
+      213: -4935609701631682122
+    second: Town Fall@128x128_7
+  - first:
+      213: 4954069822783837755
+    second: Town Fall@128x128_8
+  - first:
+      213: 7202590657555695480
+    second: Town Fall@128x128_9
+  - first:
+      213: 4030133592924878769
+    second: Town Fall@128x128_10
+  - first:
+      213: -8554227112726547183
+    second: Town Fall@128x128_11
+  - first:
+      213: -5536623387059703559
+    second: Town Fall@128x128_12
+  - first:
+      213: -8002744094527138850
+    second: Town Fall@128x128_13
+  - first:
+      213: 3047254938097244092
+    second: Town Fall@128x128_14
+  - first:
+      213: -8018071213174480022
+    second: Town Fall@128x128_15
+  - first:
+      213: 2332547176438315646
+    second: Town Fall@128x128_16
+  - first:
+      213: 8483180119981474243
+    second: Town Fall@128x128_17
+  - first:
+      213: 5727368238520649930
+    second: Town Fall@128x128_18
+  - first:
+      213: 6880822126071173855
+    second: Town Fall@128x128_19
+  - first:
+      213: -3803952475948022763
+    second: Town Fall@128x128_20
+  - first:
+      213: -2656331722622741220
+    second: Town Fall@128x128_21
+  - first:
+      213: -15446352460910666
+    second: Town Fall@128x128_22
+  - first:
+      213: -572084361080547745
+    second: Town Fall@128x128_23
+  - first:
+      213: -8498847656146135115
+    second: Town Fall@128x128_24
+  - first:
+      213: -2233067149456320564
+    second: Town Fall@128x128_25
+  - first:
+      213: -1008026192307522751
+    second: Town Fall@128x128_26
+  - first:
+      213: 8588474248662479424
+    second: Town Fall@128x128_27
+  - first:
+      213: -596420668543170706
+    second: Town Fall@128x128_28
+  - first:
+      213: -3849667925216091995
+    second: Town Fall@128x128_29
+  - first:
+      213: -8091214670857353609
+    second: Town Fall@128x128_30
+  - first:
+      213: -142213222731185310
+    second: Town Fall@128x128_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Town Fall@128x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 898
+        width: 900
+        height: 1147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa91d26a047a2a40800000000000000
+      internalID: 5344211495784913573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1947
+        width: 128
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 000100ce32bbf5920800000000000000
+      internalID: 2981307241300234240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_2
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2038
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 789bf8f2f18fe9bd0800000000000000
+      internalID: -2621385120257427065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1919
+        width: 130
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981383d808a3a8f70800000000000000
+      internalID: 9190222313402413449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_4
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1282
+        width: 898
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa44d1e17b46f8300800000000000000
+      internalID: 256534441430434991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_5
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1666
+        width: 357
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8067d35a3e4519c0800000000000000
+      internalID: -3957170685153419126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_6
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1319
+        width: 252
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd4d23f26e4e0c20800000000000000
+      internalID: 3174560974236372414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1434
+        width: 128
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b995485021318bb0800000000000000
+      internalID: -4935609701631682122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_8
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1188
+        width: 188
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36538b814460c440800000000000000
+      internalID: 4954069822783837755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_9
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 511
+        width: 1025
+        height: 909
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8778726ca0eb4f360800000000000000
+      internalID: 7202590657555695480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 905
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7f7a37629ede730800000000000000
+      internalID: 4030133592924878769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_11
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 641
+        width: 201
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1153be163c7494980800000000000000
+      internalID: -8554227112726547183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_12
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 515
+        width: 122
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0bf2f1d56f923b0800000000000000
+      internalID: -5536623387059703559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_13
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 276
+        width: 132
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed3da5975aa80f090800000000000000
+      internalID: -8002744094527138850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_14
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 391
+        width: 194
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7575d98360a4a20800000000000000
+      internalID: 3047254938097244092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_15
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 391
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6323f296b61ab090800000000000000
+      internalID: -8018071213174480022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_16
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 384
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a32717c4fde5020800000000000000
+      internalID: 2332547176438315646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_17
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 0
+        width: 126
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c1c6219f5f4ab570800000000000000
+      internalID: 8483180119981474243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_18
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 0
+        width: 251
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8c0ea6113bb7f40800000000000000
+      internalID: 5727368238520649930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_19
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 252
+        width: 120
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2de1b74479d7f50800000000000000
+      internalID: 6880822126071173855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_20
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 357
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51486a89065a53bc0800000000000000
+      internalID: -3803952475948022763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_21
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1
+        width: 397
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1558734f50d22bd0800000000000000
+      internalID: -2656331722622741220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_22
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 255
+        width: 83
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfed70df9f19cff0800000000000000
+      internalID: -15446352460910666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_23
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 220
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56dc3cfd4c8f08f0800000000000000
+      internalID: -572084361080547745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_24
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 223
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b79f37e5170e0a80800000000000000
+      internalID: -8498847656146135115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_25
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 207
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7df05424d8201e0800000000000000
+      internalID: -2233067149456320564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_26
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 183
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1437833d485c202f0800000000000000
+      internalID: -1008026192307522751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_27
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 0
+        width: 125
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 042fd1253d3603770800000000000000
+      internalID: 8588474248662479424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_28
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 156
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6788cadf8619b7f0800000000000000
+      internalID: -596420668543170706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 172
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0a74e1b6b339ac0800000000000000
+      internalID: -3849667925216091995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_30
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 9
+        width: 111
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7764e1e302b36bf80800000000000000
+      internalID: -8091214670857353609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Fall@128x128_31
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 130
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2638eb0d3d1c60ef0800000000000000
+      internalID: -142213222731185310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Town Fall@128x128_0: 5344211495784913573
+      Town Fall@128x128_1: 2981307241300234240
+      Town Fall@128x128_10: 4030133592924878769
+      Town Fall@128x128_11: -8554227112726547183
+      Town Fall@128x128_12: -5536623387059703559
+      Town Fall@128x128_13: -8002744094527138850
+      Town Fall@128x128_14: 3047254938097244092
+      Town Fall@128x128_15: -8018071213174480022
+      Town Fall@128x128_16: 2332547176438315646
+      Town Fall@128x128_17: 8483180119981474243
+      Town Fall@128x128_18: 5727368238520649930
+      Town Fall@128x128_19: 6880822126071173855
+      Town Fall@128x128_2: -2621385120257427065
+      Town Fall@128x128_20: -3803952475948022763
+      Town Fall@128x128_21: -2656331722622741220
+      Town Fall@128x128_22: -15446352460910666
+      Town Fall@128x128_23: -572084361080547745
+      Town Fall@128x128_24: -8498847656146135115
+      Town Fall@128x128_25: -2233067149456320564
+      Town Fall@128x128_26: -1008026192307522751
+      Town Fall@128x128_27: 8588474248662479424
+      Town Fall@128x128_28: -596420668543170706
+      Town Fall@128x128_29: -3849667925216091995
+      Town Fall@128x128_3: 9190222313402413449
+      Town Fall@128x128_30: -8091214670857353609
+      Town Fall@128x128_31: -142213222731185310
+      Town Fall@128x128_4: 256534441430434991
+      Town Fall@128x128_5: -3957170685153419126
+      Town Fall@128x128_6: 3174560974236372414
+      Town Fall@128x128_7: -4935609701631682122
+      Town Fall@128x128_8: 4954069822783837755
+      Town Fall@128x128_9: 7202590657555695480
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

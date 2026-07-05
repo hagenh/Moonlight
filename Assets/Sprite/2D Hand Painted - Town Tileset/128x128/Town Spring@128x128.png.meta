@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: 1c60595a0cab6bb439d0b116aae10173
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8265522387086096819
+    second: Town Spring@128x128_0
+  - first:
+      213: 1345936587655829135
+    second: Town Spring@128x128_1
+  - first:
+      213: -6817308302769528808
+    second: Town Spring@128x128_2
+  - first:
+      213: -8024236581572475762
+    second: Town Spring@128x128_3
+  - first:
+      213: -1151005858838256012
+    second: Town Spring@128x128_4
+  - first:
+      213: 1519414742403057516
+    second: Town Spring@128x128_5
+  - first:
+      213: 1692302884561767919
+    second: Town Spring@128x128_6
+  - first:
+      213: -2959119518585915456
+    second: Town Spring@128x128_7
+  - first:
+      213: 9086433350632614510
+    second: Town Spring@128x128_8
+  - first:
+      213: 4151588595351623040
+    second: Town Spring@128x128_9
+  - first:
+      213: -3788555507300026126
+    second: Town Spring@128x128_10
+  - first:
+      213: -4696063384450432202
+    second: Town Spring@128x128_11
+  - first:
+      213: 6819277776013773299
+    second: Town Spring@128x128_12
+  - first:
+      213: -2492957333412984647
+    second: Town Spring@128x128_13
+  - first:
+      213: 61214147363987522
+    second: Town Spring@128x128_14
+  - first:
+      213: -1752270527122455902
+    second: Town Spring@128x128_15
+  - first:
+      213: -3716769092609788998
+    second: Town Spring@128x128_16
+  - first:
+      213: 391602593141076115
+    second: Town Spring@128x128_17
+  - first:
+      213: -6565854343433606803
+    second: Town Spring@128x128_18
+  - first:
+      213: 2475465389168165209
+    second: Town Spring@128x128_19
+  - first:
+      213: 2567273852628114767
+    second: Town Spring@128x128_20
+  - first:
+      213: 2469845891821054249
+    second: Town Spring@128x128_21
+  - first:
+      213: -4481469353145465512
+    second: Town Spring@128x128_22
+  - first:
+      213: 2262716361133153042
+    second: Town Spring@128x128_23
+  - first:
+      213: 4825669821850999361
+    second: Town Spring@128x128_24
+  - first:
+      213: -5048323105810960144
+    second: Town Spring@128x128_25
+  - first:
+      213: 9176022408470856405
+    second: Town Spring@128x128_26
+  - first:
+      213: -2248906809756608569
+    second: Town Spring@128x128_27
+  - first:
+      213: -2631558272772614390
+    second: Town Spring@128x128_28
+  - first:
+      213: -6492830809401240596
+    second: Town Spring@128x128_29
+  - first:
+      213: -2612017086997770672
+    second: Town Spring@128x128_30
+  - first:
+      213: -3023678078118524129
+    second: Town Spring@128x128_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Town Spring@128x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 898
+        width: 900
+        height: 1147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b93e4581d805b270800000000000000
+      internalID: 8265522387086096819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1947
+        width: 128
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f865d65023abda210800000000000000
+      internalID: 1345936587655829135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_2
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2038
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810e911e73e0461a0800000000000000
+      internalID: -6817308302769528808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1919
+        width: 130
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e848da1e75f24a090800000000000000
+      internalID: -8024236581572475762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_4
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1282
+        width: 898
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4766d89054ec600f0800000000000000
+      internalID: -1151005858838256012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_5
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1666
+        width: 357
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c670d6378ab061510800000000000000
+      internalID: 1519414742403057516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_6
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1319
+        width: 252
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed4caed1844c7710800000000000000
+      internalID: 1692302884561767919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1434
+        width: 128
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7f2c6d9781fe6d0800000000000000
+      internalID: -2959119518585915456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_8
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1188
+        width: 188
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a28bb8dfe791e70800000000000000
+      internalID: 9086433350632614510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_9
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 511
+        width: 1025
+        height: 909
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0851f77d4d76d9930800000000000000
+      internalID: 4151588595351623040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 905
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f83887b6d85c6bc0800000000000000
+      internalID: -3788555507300026126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_11
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 641
+        width: 201
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6330d1f8b3b34deb0800000000000000
+      internalID: -4696063384450432202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_12
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 515
+        width: 122
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f94408d101f2ae50800000000000000
+      internalID: 6819277776013773299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_13
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 276
+        width: 132
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8c6b5738c376dd0800000000000000
+      internalID: -2492957333412984647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_14
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 391
+        width: 194
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240ebd451f979d000800000000000000
+      internalID: 61214147363987522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_15
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 391
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2ca705d3faea7e0800000000000000
+      internalID: -1752270527122455902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_16
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 384
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3b7dad3326b6cc0800000000000000
+      internalID: -3716769092609788998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_17
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 0
+        width: 126
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390bb41db704f6500800000000000000
+      internalID: 391602593141076115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_18
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 0
+        width: 251
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d692fa4134661e4a0800000000000000
+      internalID: -6565854343433606803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_19
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 252
+        width: 120
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9518427e7ae9a5220800000000000000
+      internalID: 2475465389168165209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_20
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 357
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d1c0b87f9c0a320800000000000000
+      internalID: 2567273852628114767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_21
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1
+        width: 397
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 929a3f7b0c7a64220800000000000000
+      internalID: 2469845891821054249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_22
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 255
+        width: 83
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85507fdfd5f9ec1c0800000000000000
+      internalID: -4481469353145465512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_23
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 220
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b5ec4ca88c66f10800000000000000
+      internalID: 2262716361133153042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_24
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 223
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a50cea22938f240800000000000000
+      internalID: 4825669821850999361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_25
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 207
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0bdb6e1e0c0f9b0800000000000000
+      internalID: -5048323105810960144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_26
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 183
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d20eeb83c7c75f70800000000000000
+      internalID: 9176022408470856405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_27
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 0
+        width: 125
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c71087fb274ac0e0800000000000000
+      internalID: -2248906809756608569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_28
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 156
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07d5a981b3da7bd0800000000000000
+      internalID: -2631558272772614390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 172
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce35de287c4d4e5a0800000000000000
+      internalID: -6492830809401240596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_30
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 9
+        width: 111
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e4f366c4040cbd0800000000000000
+      internalID: -2612017086997770672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Spring@128x128_31
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 130
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b0c9edeccb906d0800000000000000
+      internalID: -3023678078118524129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Town Spring@128x128_0: 8265522387086096819
+      Town Spring@128x128_1: 1345936587655829135
+      Town Spring@128x128_10: -3788555507300026126
+      Town Spring@128x128_11: -4696063384450432202
+      Town Spring@128x128_12: 6819277776013773299
+      Town Spring@128x128_13: -2492957333412984647
+      Town Spring@128x128_14: 61214147363987522
+      Town Spring@128x128_15: -1752270527122455902
+      Town Spring@128x128_16: -3716769092609788998
+      Town Spring@128x128_17: 391602593141076115
+      Town Spring@128x128_18: -6565854343433606803
+      Town Spring@128x128_19: 2475465389168165209
+      Town Spring@128x128_2: -6817308302769528808
+      Town Spring@128x128_20: 2567273852628114767
+      Town Spring@128x128_21: 2469845891821054249
+      Town Spring@128x128_22: -4481469353145465512
+      Town Spring@128x128_23: 2262716361133153042
+      Town Spring@128x128_24: 4825669821850999361
+      Town Spring@128x128_25: -5048323105810960144
+      Town Spring@128x128_26: 9176022408470856405
+      Town Spring@128x128_27: -2248906809756608569
+      Town Spring@128x128_28: -2631558272772614390
+      Town Spring@128x128_29: -6492830809401240596
+      Town Spring@128x128_3: -8024236581572475762
+      Town Spring@128x128_30: -2612017086997770672
+      Town Spring@128x128_31: -3023678078118524129
+      Town Spring@128x128_4: -1151005858838256012
+      Town Spring@128x128_5: 1519414742403057516
+      Town Spring@128x128_6: 1692302884561767919
+      Town Spring@128x128_7: -2959119518585915456
+      Town Spring@128x128_8: 9086433350632614510
+      Town Spring@128x128_9: 4151588595351623040
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: d762f61010d8af84c93f724c93148c42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5074091360697708525
+    second: TownColor2@128x128_0
+  - first:
+      213: -7799014424682857578
+    second: TownColor2@128x128_1
+  - first:
+      213: 877665758737545715
+    second: TownColor2@128x128_2
+  - first:
+      213: 7837307753819113066
+    second: TownColor2@128x128_3
+  - first:
+      213: -1620582386438492055
+    second: TownColor2@128x128_4
+  - first:
+      213: -3864462194468952167
+    second: TownColor2@128x128_5
+  - first:
+      213: 9062856036394716187
+    second: TownColor2@128x128_6
+  - first:
+      213: -8583375946767499564
+    second: TownColor2@128x128_7
+  - first:
+      213: 5371179326438916264
+    second: TownColor2@128x128_8
+  - first:
+      213: 2186573241965198849
+    second: TownColor2@128x128_9
+  - first:
+      213: -8570820605235373093
+    second: TownColor2@128x128_10
+  - first:
+      213: -6326284206572015822
+    second: TownColor2@128x128_11
+  - first:
+      213: 839553529260251073
+    second: TownColor2@128x128_12
+  - first:
+      213: 2173306237024173083
+    second: TownColor2@128x128_13
+  - first:
+      213: -4825064400256475198
+    second: TownColor2@128x128_14
+  - first:
+      213: -284126324077368947
+    second: TownColor2@128x128_15
+  - first:
+      213: 5661170580989065123
+    second: TownColor2@128x128_16
+  - first:
+      213: 5171180778445853323
+    second: TownColor2@128x128_17
+  - first:
+      213: -7458668770949757846
+    second: TownColor2@128x128_18
+  - first:
+      213: -6796845587046549441
+    second: TownColor2@128x128_19
+  - first:
+      213: -6262768535283577695
+    second: TownColor2@128x128_20
+  - first:
+      213: -8780572487496200946
+    second: TownColor2@128x128_21
+  - first:
+      213: -5536700845507784887
+    second: TownColor2@128x128_22
+  - first:
+      213: -4537213617107848756
+    second: TownColor2@128x128_23
+  - first:
+      213: 5495694490467178124
+    second: TownColor2@128x128_24
+  - first:
+      213: -3714222501060119844
+    second: TownColor2@128x128_25
+  - first:
+      213: 2341407942627060342
+    second: TownColor2@128x128_26
+  - first:
+      213: -3688389334372921401
+    second: TownColor2@128x128_27
+  - first:
+      213: -5161875956828191514
+    second: TownColor2@128x128_28
+  - first:
+      213: 3189766829055397620
+    second: TownColor2@128x128_29
+  - first:
+      213: 8064286531882537791
+    second: TownColor2@128x128_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TownColor2@128x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 898
+        width: 900
+        height: 1147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: defe348753bca6640800000000000000
+      internalID: 5074091360697708525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_1
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2038
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b71a2a3b554c390800000000000000
+      internalID: -7799014424682857578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_2
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1919
+        width: 130
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f933158b581e2c00800000000000000
+      internalID: 877665758737545715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_3
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 1282
+        width: 900
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a668dc5d0e5b3cc60800000000000000
+      internalID: 7837307753819113066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_4
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1666
+        width: 357
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960341fd7e88289e0800000000000000
+      internalID: -1620582386438492055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_5
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1319
+        width: 252
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99760c2eb1cae5ac0800000000000000
+      internalID: -3864462194468952167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1434
+        width: 128
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ccfcb4c8bb5cd70800000000000000
+      internalID: 9062856036394716187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_7
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1188
+        width: 188
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de7a479d09b1e880800000000000000
+      internalID: -8583375946767499564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_8
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 511
+        width: 1025
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a04051c3234a8a40800000000000000
+      internalID: 5371179326438916264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 905
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10eb5b257c4485e10800000000000000
+      internalID: 2186573241965198849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_10
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 641
+        width: 201
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdbd857d1145e0980800000000000000
+      internalID: -8570820605235373093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_11
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 515
+        width: 122
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f6c1f38068438a0800000000000000
+      internalID: -6326284206572015822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_12
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 276
+        width: 132
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c79b799c71b6ab00800000000000000
+      internalID: 839553529260251073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_13
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 391
+        width: 194
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c77f50282292e10800000000000000
+      internalID: 2173306237024173083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_14
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 391
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf54540e7de90db0800000000000000
+      internalID: -4825064400256475198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_15
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 384
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89e7061d949e0cf0800000000000000
+      internalID: -284126324077368947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_16
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 0
+        width: 126
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7beb436a4809e40800000000000000
+      internalID: 5661170580989065123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_17
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 0
+        width: 251
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82d7981589b3c740800000000000000
+      internalID: 5171180778445853323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_18
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 252
+        width: 120
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a648d32454c7d7890800000000000000
+      internalID: -7458668770949757846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_19
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 357
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38b8e623f0cca1a0800000000000000
+      internalID: -6796845587046549441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1
+        width: 397
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1accdefd23d2619a0800000000000000
+      internalID: -6262768535283577695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_21
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 255
+        width: 83
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d883618d3252680800000000000000
+      internalID: -8780572487496200946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_22
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 220
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f47eb6aefa923b0800000000000000
+      internalID: -5536700845507784887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_23
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 223
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc1b83221449801c0800000000000000
+      internalID: -4537213617107848756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_24
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 207
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c861e5a8501a44c40800000000000000
+      internalID: 5495694490467178124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_25
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 183
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd27c87605e647cc0800000000000000
+      internalID: -3714222501060119844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_26
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 0
+        width: 125
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a60965e1a5e7020800000000000000
+      internalID: 2341407942627060342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_27
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 156
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfcc5b317530dcc0800000000000000
+      internalID: -3688389334372921401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_28
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 172
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e440a28a255d58b0800000000000000
+      internalID: -5161875956828191514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_29
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 9
+        width: 111
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fecb2ae704544c20800000000000000
+      internalID: 3189766829055397620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownColor2@128x128_30
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 130
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3353d3dfd91aef60800000000000000
+      internalID: 8064286531882537791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TownColor2@128x128_0: 5074091360697708525
+      TownColor2@128x128_1: -7799014424682857578
+      TownColor2@128x128_10: -8570820605235373093
+      TownColor2@128x128_11: -6326284206572015822
+      TownColor2@128x128_12: 839553529260251073
+      TownColor2@128x128_13: 2173306237024173083
+      TownColor2@128x128_14: -4825064400256475198
+      TownColor2@128x128_15: -284126324077368947
+      TownColor2@128x128_16: 5661170580989065123
+      TownColor2@128x128_17: 5171180778445853323
+      TownColor2@128x128_18: -7458668770949757846
+      TownColor2@128x128_19: -6796845587046549441
+      TownColor2@128x128_2: 877665758737545715
+      TownColor2@128x128_20: -6262768535283577695
+      TownColor2@128x128_21: -8780572487496200946
+      TownColor2@128x128_22: -5536700845507784887
+      TownColor2@128x128_23: -4537213617107848756
+      TownColor2@128x128_24: 5495694490467178124
+      TownColor2@128x128_25: -3714222501060119844
+      TownColor2@128x128_26: 2341407942627060342
+      TownColor2@128x128_27: -3688389334372921401
+      TownColor2@128x128_28: -5161875956828191514
+      TownColor2@128x128_29: 3189766829055397620
+      TownColor2@128x128_3: 7837307753819113066
+      TownColor2@128x128_30: 8064286531882537791
+      TownColor2@128x128_4: -1620582386438492055
+      TownColor2@128x128_5: -3864462194468952167
+      TownColor2@128x128_6: 9062856036394716187
+      TownColor2@128x128_7: -8583375946767499564
+      TownColor2@128x128_8: 5371179326438916264
+      TownColor2@128x128_9: 2186573241965198849
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
