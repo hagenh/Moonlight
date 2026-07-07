@@ -32,7 +32,8 @@ public class MoveState : PlayerState
 
     public override void OnInteractPerformed()
     {
-        ChangeState(new InteractState(controller));
+        if (controller.CurrentInteractable != null)
+            ChangeState(new InteractState(controller));
     }
 
     public override void OnSprintPerformed()

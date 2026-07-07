@@ -20,10 +20,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     private Vector2 moveInput;
     private bool isSprintHeld;
     
-    [SerializeField] private Vector2 interactBoxSize = new Vector2(1, 1);
+    [SerializeField] private Vector2 interactBoxSize = new Vector2(0.25f, 0.25f);
     [SerializeField] private LayerMask interactableLayer;
 
     public IInteractable CurrentInteractable { get; private set; }
+    public bool IsMenuOpen { get; set; }
 
     public Rigidbody2D RB => rb;
     public float WalkSpeed => walkSpeed;
@@ -64,13 +65,17 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     private void Update()
     {
-        UpdateInteractDetection();
+        if (!IsMenuOpen)
+            UpdateInteractDetection();
         currentState.LogicUpdate();
     }
 
     private void FixedUpdate()
     {
-        currentState.PhysicsUpdate();
+        if (IsMenuOpen)
+            rb.linearVelocity = Vector2.zero;
+        else
+            currentState.PhysicsUpdate();
     }
 
     public void ChangeState(PlayerState newState)
@@ -124,6 +129,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (IsMenuOpen) return;
         if (context.performed)
         {
             moveInput = context.ReadValue<Vector2>();
@@ -140,6 +146,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public void OnSprint(InputAction.CallbackContext context)
     {
+        if (IsMenuOpen) return;
         if (context.performed)
         {
             isSprintHeld = true;
@@ -158,6 +165,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     {
         if (context.performed)
         {
+            if (IsMenuOpen)
+            {
+                GameEvents.OnMenuCloseRequested();
+                return;
+            }
             currentState.OnInteractPerformed();
         }
     }
@@ -197,10 +209,10 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     {
         return facingDirection switch
         {
-            FacingDirection.Down => new Vector2(0, -1),
-            FacingDirection.Up => new Vector2(0, 1),
-            FacingDirection.Left => new Vector2(-1, 0),
-            FacingDirection.Right => new Vector2(1, 0),
+            FacingDirection.Down => new Vector2(0, -0.5f),
+            FacingDirection.Up => new Vector2(0, 0.5f),
+            FacingDirection.Left => new Vector2(-0.5f, 0),
+            FacingDirection.Right => new Vector2(0.5f, 0),
             _ => Vector2.zero
         };
     }

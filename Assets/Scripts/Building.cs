@@ -36,6 +36,8 @@ public class Building : MonoBehaviour, IInteractable
 
     private Coroutine _punchCoroutine;
 
+    private Transform VisualTransform => facadeRenderer != null ? facadeRenderer.transform : transform;
+
     private void Start()
     {
         RefreshVisuals();
@@ -68,6 +70,8 @@ public class Building : MonoBehaviour, IInteractable
 
     private IEnumerator PunchScale()
     {
+        var vt = VisualTransform;
+        Vector3 baseScale = vt.localScale;
         float t;
 
         t = 0f;
@@ -75,10 +79,10 @@ public class Building : MonoBehaviour, IInteractable
         {
             t += Time.deltaTime;
             float p = Mathf.SmoothStep(0f, 1f, t / 0.08f);
-            transform.localScale = new Vector3(
-                Mathf.Lerp(1f, 0.7f, p),
-                Mathf.Lerp(1f, 1.3f, p),
-                1f
+            vt.localScale = new Vector3(
+                Mathf.Lerp(baseScale.x, baseScale.x * 0.7f, p),
+                Mathf.Lerp(baseScale.y, baseScale.y * 1.3f, p),
+                baseScale.z
             );
             yield return null;
         }
@@ -88,10 +92,10 @@ public class Building : MonoBehaviour, IInteractable
         {
             t += Time.deltaTime;
             float p = Mathf.SmoothStep(0f, 1f, t / 0.1f);
-            transform.localScale = new Vector3(
-                Mathf.Lerp(0.7f, 1.15f, p),
-                Mathf.Lerp(1.3f, 0.9f, p),
-                1f
+            vt.localScale = new Vector3(
+                Mathf.Lerp(baseScale.x * 0.7f, baseScale.x * 1.15f, p),
+                Mathf.Lerp(baseScale.y * 1.3f, baseScale.y * 0.9f, p),
+                baseScale.z
             );
             yield return null;
         }
@@ -101,15 +105,15 @@ public class Building : MonoBehaviour, IInteractable
         {
             t += Time.deltaTime;
             float p = Mathf.SmoothStep(0f, 1f, t / 0.1f);
-            transform.localScale = new Vector3(
-                Mathf.Lerp(1.15f, 1f, p),
-                Mathf.Lerp(0.9f, 1f, p),
-                1f
+            vt.localScale = new Vector3(
+                Mathf.Lerp(baseScale.x * 1.15f, baseScale.x, p),
+                Mathf.Lerp(baseScale.y * 0.9f, baseScale.y, p),
+                baseScale.z
             );
             yield return null;
         }
 
-        transform.localScale = Vector3.one;
+        vt.localScale = baseScale;
         _punchCoroutine = null;
     }
 

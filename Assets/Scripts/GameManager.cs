@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int startingCash = 500;
     public int Cash { get; private set; }
-    public int Day { get; private set; } = 1;
     public int Heat { get; private set; }
     public int Reputation { get; private set; }
 
@@ -33,6 +32,8 @@ public class GameManager : MonoBehaviour
         Cash += amount;
     }
 
+    public void AddHeat(int delta) => SetHeat(Heat + delta);
+
     public void SetHeat(int value)
     {
         int old = Heat;
@@ -45,12 +46,5 @@ public class GameManager : MonoBehaviour
         int old = Reputation;
         Reputation = value;
         if (Reputation != old) GameEvents.OnRepChanged(Reputation, old);
-    }
-
-    public void AdvanceDay()
-    {
-        GameEvents.OnDayEnded(Day);
-        Day++;
-        GameEvents.OnToastRequested($"Day {Day} begins");
     }
 }

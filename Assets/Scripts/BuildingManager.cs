@@ -18,6 +18,9 @@ public class BuildingManager : MonoBehaviour
         }
 
         Instance = this;
+
+        foreach (var building in FindObjectsByType<Building>(FindObjectsSortMode.None))
+            Register(building);
     }
 
     private void OnEnable()

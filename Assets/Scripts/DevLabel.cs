@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DevLabel : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro label;
+    [SerializeField] private TextMeshProUGUI label;
     [SerializeField] private Building building;
 
     private void Start() => Refresh();

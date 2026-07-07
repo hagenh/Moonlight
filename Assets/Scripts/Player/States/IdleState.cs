@@ -33,6 +33,7 @@ public class IdleState : PlayerState
 
     public override void OnInteractPerformed()
     {
-        ChangeState(new InteractState(controller));
+        if (controller.CurrentInteractable != null)
+            ChangeState(new InteractState(controller));
     }
 }

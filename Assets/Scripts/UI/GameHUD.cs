@@ -8,6 +8,11 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI cashText;
     [SerializeField] private TMPro.TextMeshProUGUI dayText;
     [SerializeField] private TMPro.TextMeshProUGUI toastText;
+    [SerializeField] private TMPro.TextMeshProUGUI heatText;
+    [SerializeField] private TMPro.TextMeshProUGUI repText;
+    [SerializeField] private TMPro.TextMeshProUGUI clockText;
+    [SerializeField] private TMPro.TextMeshProUGUI inventoryText;
+    [SerializeField] private TMPro.TextMeshProUGUI cartStatusText;
     [SerializeField] private float toastDuration = 2f;
 
     private float _toastTimer;
@@ -18,24 +23,42 @@ public class GameHUD : MonoBehaviour
         Instance = this;
         if (promptText != null) promptText.gameObject.SetActive(false);
         if (toastText != null) toastText.gameObject.SetActive(false);
+        if (heatText != null) heatText.text = "Heat: 0";
+        if (repText != null) repText.text = "Rep: 0";
+        if (clockText != null) clockText.text = "06:00";
+        if (dayText != null) dayText.text = "Day 1";
+        if (inventoryText != null) inventoryText.text = "";
     }
 
     private void OnEnable()
     {
         GameEvents.ToastRequested += OnToastRequested;
         GameEvents.DayEnded += OnDayEnded;
+        GameEvents.HourChanged += OnHourChanged;
+        GameEvents.HeatChanged += OnHeatChanged;
+        GameEvents.RepChanged += OnRepChanged;
+        GameEvents.InventoryChanged += OnInventoryChanged;
+        GameEvents.SellerArrived += OnSellerArrived;
+        GameEvents.SellerLeft += OnSellerLeft;
     }
 
     private void OnDisable()
     {
         GameEvents.ToastRequested -= OnToastRequested;
         GameEvents.DayEnded -= OnDayEnded;
+        GameEvents.HourChanged -= OnHourChanged;
+        GameEvents.HeatChanged -= OnHeatChanged;
+        GameEvents.RepChanged -= OnRepChanged;
+        GameEvents.InventoryChanged -= OnInventoryChanged;
+        GameEvents.SellerArrived -= OnSellerArrived;
+        GameEvents.SellerLeft -= OnSellerLeft;
     }
 
     private void Update()
     {
         UpdateInteractPrompt();
         UpdateCashDisplay();
+        UpdateClockDisplay();
         UpdateToast();
     }
 
@@ -47,6 +70,59 @@ public class GameHUD : MonoBehaviour
     private void OnDayEnded(int day)
     {
         if (dayText != null) dayText.text = $"Day {day + 1}";
+    }
+
+    private void OnHourChanged(int hour, int day)
+    {
+        if (dayText != null) dayText.text = $"Day {day}";
+    }
+
+    private void OnHeatChanged(int newHeat, int oldHeat)
+    {
+        if (heatText != null) heatText.text = $"Heat: {newHeat}";
+    }
+
+    private void OnRepChanged(int newRep, int oldRep)
+    {
+        if (repText != null) repText.text = $"Rep: {newRep}";
+    }
+
+    private void OnInventoryChanged(ItemDef def, int oldCount, int newCount)
+    {
+        UpdateInventoryDisplay();
+    }
+
+    private void OnSellerArrived(SellerType type)
+    {
+        UpdateCartStatus();
+    }
+
+    private void OnSellerLeft(SellerType type)
+    {
+        UpdateCartStatus();
+    }
+
+    private void UpdateCartStatus()
+    {
+        if (cartStatusText == null) return;
+        if (SellManager.Instance != null && SellManager.Instance.IsCartInTown)
+        {
+            cartStatusText.gameObject.SetActive(true);
+            cartStatusText.text = "Cart in town";
+        }
+        else
+        {
+            cartStatusText.gameObject.SetActive(false);
+        }
+    }
+
+    private void UpdateInventoryDisplay()
+    {
+        if (inventoryText == null || InventoryManager.Instance == null) return;
+        var sb = new System.Text.StringBuilder();
+        foreach (var kvp in InventoryManager.Instance.AllItems)
+            sb.AppendLine($"{kvp.Key.displayName}: {kvp.Value}");
+        inventoryText.text = sb.ToString();
     }
 
     private void UpdateInteractPrompt()
@@ -83,6 +159,30 @@ public class GameHUD : MonoBehaviour
                     _ => $"[E] {building.buildingName}"
                 };
         }
+        else if (interactable is FermentVat vat)
+        {
+            promptText.text = vat.State switch
+            {
+                VatState.Empty => "[E] Start Batch",
+                VatState.Fermenting => $"[E] Fermenting... {vat.CurrentBatch?.Progress * 100:F0}%",
+                VatState.Ready => "[E] Collect Batch",
+                _ => "[E] Vat"
+            };
+        }
+        else if (interactable is SellerInteractable seller)
+        {
+            promptText.text = seller.sellerType switch
+            {
+                SellerType.Tormod => "[E] Sell to Tormod",
+                SellerType.TravelingCart => "[E] Visit Cart",
+                SellerType.RiskyBuyer => "[E] Shady Deal",
+                _ => "[E] Interact"
+            };
+        }
+        else if (interactable is Bed)
+        {
+            promptText.text = "[E] Sleep";
+        }
         else
         {
             promptText.text = "[E] Interact";
@@ -93,6 +193,12 @@ public class GameHUD : MonoBehaviour
     {
         if (GameManager.Instance == null) return;
         if (cashText != null) cashText.text = $"{GameManager.Instance.Cash}g";
+    }
+
+    private void UpdateClockDisplay()
+    {
+        if (TimeManager.Instance == null) return;
+        if (clockText != null) clockText.text = $"{TimeManager.Instance.Hour:00}:{TimeManager.Instance.Minute:00}";
     }
 
     private void UpdateToast()

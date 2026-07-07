@@ -7,5 +7,8 @@ public interface IInteractable
 
 public enum InteractType
 {
-    Building
+    Building,
+    FermentVat,
+    Seller,
+    Bed
 }

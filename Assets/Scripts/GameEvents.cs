@@ -8,6 +8,19 @@ public static class GameEvents
     public static event System.Action<int, int> HeatChanged;
     public static event System.Action<int, int> RepChanged;
 
+    public static event System.Action<int, int> HourChanged;
+    public static event System.Action<ItemDef, int, int> InventoryChanged;
+    public static event System.Action<FermentVat, VatState, VatState> VatStateChanged;
+    public static event System.Action<FermentVat, float> BatchProgressed;
+    public static event System.Action<FermentVat> RecipeSelectionRequested;
+    public static event System.Action MenuCloseRequested;
+    public static event System.Action<SellerType> SellerArrived;
+    public static event System.Action<SellerType> SellerLeft;
+    public static event System.Action<SellerType> SellMenuRequested;
+    public static event System.Action<int> CurfewReached;
+    public static event System.Action<int> SleepInitiated;
+    public static event System.Action<int> SleepCompleted;
+
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
 
@@ -28,4 +41,40 @@ public static class GameEvents
 
     public static void OnRepChanged(int newRep, int oldRep)
         => RepChanged?.Invoke(newRep, oldRep);
+
+    public static void OnHourChanged(int hour, int day)
+        => HourChanged?.Invoke(hour, day);
+
+    public static void OnInventoryChanged(ItemDef def, int oldCount, int newCount)
+        => InventoryChanged?.Invoke(def, oldCount, newCount);
+
+    public static void OnVatStateChanged(FermentVat vat, VatState oldState, VatState newState)
+        => VatStateChanged?.Invoke(vat, oldState, newState);
+
+    public static void OnBatchProgressed(FermentVat vat, float progress)
+        => BatchProgressed?.Invoke(vat, progress);
+
+    public static void OnRecipeSelectionRequested(FermentVat vat)
+        => RecipeSelectionRequested?.Invoke(vat);
+
+    public static void OnMenuCloseRequested()
+        => MenuCloseRequested?.Invoke();
+
+    public static void OnSellerArrived(SellerType type)
+        => SellerArrived?.Invoke(type);
+
+    public static void OnSellerLeft(SellerType type)
+        => SellerLeft?.Invoke(type);
+
+    public static void OnSellMenuRequested(SellerType type)
+        => SellMenuRequested?.Invoke(type);
+
+    public static void OnCurfewReached(int day)
+        => CurfewReached?.Invoke(day);
+
+    public static void OnSleepInitiated(int day)
+        => SleepInitiated?.Invoke(day);
+
+    public static void OnSleepCompleted(int newDay)
+        => SleepCompleted?.Invoke(newDay);
 }
