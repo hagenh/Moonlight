@@ -13,6 +13,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI clockText;
     [SerializeField] private TMPro.TextMeshProUGUI inventoryText;
     [SerializeField] private TMPro.TextMeshProUGUI cartStatusText;
+    [SerializeField] private TMPro.TextMeshProUGUI hammerProgressText;
     [SerializeField] private float toastDuration = 2f;
 
     private float _toastTimer;
@@ -23,6 +24,7 @@ public class GameHUD : MonoBehaviour
         Instance = this;
         if (promptText != null) promptText.gameObject.SetActive(false);
         if (toastText != null) toastText.gameObject.SetActive(false);
+        if (hammerProgressText != null) hammerProgressText.gameObject.SetActive(false);
         if (heatText != null) heatText.text = "Heat: 0";
         if (repText != null) repText.text = "Rep: 0";
         if (clockText != null) clockText.text = "06:00";
@@ -40,6 +42,9 @@ public class GameHUD : MonoBehaviour
         GameEvents.InventoryChanged += OnInventoryChanged;
         GameEvents.SellerArrived += OnSellerArrived;
         GameEvents.SellerLeft += OnSellerLeft;
+        GameEvents.HammerStarted += OnHammerStarted;
+        GameEvents.HammerProgress += OnHammerProgress;
+        GameEvents.HammerEnded += OnHammerEnded;
     }
 
     private void OnDisable()
@@ -52,6 +57,9 @@ public class GameHUD : MonoBehaviour
         GameEvents.InventoryChanged -= OnInventoryChanged;
         GameEvents.SellerArrived -= OnSellerArrived;
         GameEvents.SellerLeft -= OnSellerLeft;
+        GameEvents.HammerStarted -= OnHammerStarted;
+        GameEvents.HammerProgress -= OnHammerProgress;
+        GameEvents.HammerEnded -= OnHammerEnded;
     }
 
     private void Update()
@@ -100,6 +108,24 @@ public class GameHUD : MonoBehaviour
     private void OnSellerLeft(SellerType type)
     {
         UpdateCartStatus();
+    }
+
+    private void OnHammerStarted(Building b)
+    {
+        if (hammerProgressText != null)
+            hammerProgressText.gameObject.SetActive(true);
+    }
+
+    private void OnHammerProgress(Building b, float progress)
+    {
+        if (hammerProgressText != null)
+            hammerProgressText.text = $"Hammering... {progress * 100:F0}%";
+    }
+
+    private void OnHammerEnded(Building b)
+    {
+        if (hammerProgressText != null)
+            hammerProgressText.gameObject.SetActive(false);
     }
 
     private void UpdateCartStatus()
@@ -152,7 +178,13 @@ public class GameHUD : MonoBehaviour
                 : building.State switch
                 {
                     BuildingState.Abandoned => $"[E] Buy {building.buildingName} ({building.purchaseCost}g)",
-                    BuildingState.Cleared => $"[E] Repair {building.buildingName} ({building.repairCost}g)",
+                    BuildingState.Purchased when !building.BoardsSmashed
+                        => $"[E] Smash ({building.SmashHitsDone}/{building.smashHitsRequired})",
+                    BuildingState.Purchased when building.BoardsSmashed
+                        => "Clear the debris",
+                    BuildingState.Cleared => building.RepairPointsDone >= building.totalRepairPoints
+                        ? $"[E] {building.buildingName}"
+                        : $"[Hold E] Repair ({building.RepairPointsDone}/{building.totalRepairPoints})",
                     BuildingState.Restored => building.UncollectedIncome > 0
                         ? $"[E] Collect {building.UncollectedIncome}g from {building.buildingName}"
                         : $"[E] {building.buildingName}",
@@ -182,6 +214,18 @@ public class GameHUD : MonoBehaviour
         else if (interactable is Bed)
         {
             promptText.text = "[E] Sleep";
+        }
+        else if (interactable is Debris)
+        {
+            promptText.text = PlayerController.Instance != null && PlayerController.Instance.IsCarrying
+                ? "Already carrying"
+                : "[E] Pick up debris";
+        }
+        else if (interactable is DebrisPile)
+        {
+            promptText.text = PlayerController.Instance != null && PlayerController.Instance.IsCarrying
+                ? "[E] Deposit debris"
+                : "Debris pile";
         }
         else
         {

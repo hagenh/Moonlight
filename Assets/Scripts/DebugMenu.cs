@@ -7,6 +7,7 @@ public class DebugMenu : MonoBehaviour
 
     private bool _visible;
     private Rect _windowRect = new Rect(10, 0, 220, 500);
+    private Vector2 _scrollPos;
 
     private void Update()
     {
@@ -70,6 +71,10 @@ public class DebugMenu : MonoBehaviour
                 InventoryManager.Instance.TryAdd(ContentDb.Yeast, 5);
             if (GUILayout.Button("+5 Water"))
                 InventoryManager.Instance.TryAdd(ContentDb.Water, 5);
+            if (GUILayout.Button("+5 Timber"))
+                InventoryManager.Instance.TryAdd(ContentDb.Timber, 5);
+            if (GUILayout.Button("+5 Nails"))
+                InventoryManager.Instance.TryAdd(ContentDb.Nails, 5);
         }
 
         GUILayout.Space(8);
@@ -108,6 +113,26 @@ public class DebugMenu : MonoBehaviour
                         GameEvents.OnVatStateChanged(vat, old, vat.State);
                     }
                 }
+            }
+        }
+
+        GUILayout.Space(8);
+        GUILayout.Label("--- Renovation ---");
+
+        if (BuildingManager.Instance != null)
+        {
+            foreach (var b in BuildingManager.Instance.Buildings)
+            {
+                GUILayout.Label($"  {b.buildingName}: {b.State}");
+                if (b.State == BuildingState.Abandoned && GUILayout.Button($"  Buy {b.buildingName}"))
+                {
+                    GameManager.Instance.AddCash(b.purchaseCost);
+                    BuildingManager.Instance.TryPurchase(b);
+                }
+                if (b.State == BuildingState.Purchased && GUILayout.Button("  Complete Smash"))
+                    BuildingManager.Instance.ForceCompleteSmash(b);
+                if (b.State == BuildingState.Cleared && GUILayout.Button("  Complete Repair"))
+                    BuildingManager.Instance.ForceCompleteRepair(b);
             }
         }
 

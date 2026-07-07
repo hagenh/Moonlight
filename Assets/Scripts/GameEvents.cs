@@ -21,6 +21,13 @@ public static class GameEvents
     public static event System.Action<int> SleepInitiated;
     public static event System.Action<int> SleepCompleted;
 
+    public static event System.Action<Building, int, int> SmashHit;
+    public static event System.Action<Building> DebrisDeposited;
+    public static event System.Action<Building> HammerStarted;
+    public static event System.Action<Building> HammerEnded;
+    public static event System.Action<Building, float> HammerProgress;
+    public static event System.Action<Building, int, int> RepairPointCompleted;
+
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
 
@@ -77,4 +84,22 @@ public static class GameEvents
 
     public static void OnSleepCompleted(int newDay)
         => SleepCompleted?.Invoke(newDay);
+
+    public static void OnSmashHit(Building b, int done, int required)
+        => SmashHit?.Invoke(b, done, required);
+
+    public static void OnDebrisDeposited(Building b)
+        => DebrisDeposited?.Invoke(b);
+
+    public static void OnHammerStarted(Building b)
+        => HammerStarted?.Invoke(b);
+
+    public static void OnHammerEnded(Building b)
+        => HammerEnded?.Invoke(b);
+
+    public static void OnHammerProgress(Building b, float progress)
+        => HammerProgress?.Invoke(b, progress);
+
+    public static void OnRepairPointCompleted(Building b, int done, int total)
+        => RepairPointCompleted?.Invoke(b, done, total);
 }

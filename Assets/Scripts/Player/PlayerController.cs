@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerActions
@@ -11,6 +10,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     [SerializeField] private float sprintSpeed = 7f;
     [SerializeField] private float moveDeadzone = 0.1f;
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer carrySpriteRenderer;
 
     private Rigidbody2D rb;
     private InputSystem_Actions inputActions;
@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public IInteractable CurrentInteractable { get; private set; }
     public bool IsMenuOpen { get; set; }
+
+    public bool IsCarrying { get; private set; }
+    public Debris CarriedDebris { get; private set; }
+
+    public bool IsInteractHeld { get; private set; }
 
     public Rigidbody2D RB => rb;
     public float WalkSpeed => walkSpeed;
@@ -165,6 +170,8 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     {
         if (context.performed)
         {
+            IsInteractHeld = true;
+
             if (IsMenuOpen)
             {
                 GameEvents.OnMenuCloseRequested();
@@ -172,12 +179,36 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
             }
             currentState.OnInteractPerformed();
         }
+        else if (context.canceled)
+        {
+            IsInteractHeld = false;
+            currentState.OnInteractCanceled();
+        }
     }
+
     public void OnCrouch(InputAction.CallbackContext context) { }
     public void OnJump(InputAction.CallbackContext context) { }
     public void OnLook(InputAction.CallbackContext context) { }
     public void OnPrevious(InputAction.CallbackContext context) { }
     public void OnNext(InputAction.CallbackContext context) { }
+
+    public void PickUpDebris(Debris debris)
+    {
+        IsCarrying = true;
+        CarriedDebris = debris;
+    }
+
+    public void DropDebris()
+    {
+        IsCarrying = false;
+        CarriedDebris = null;
+    }
+
+    public void ShowCarrySprite(bool visible)
+    {
+        if (carrySpriteRenderer != null)
+            carrySpriteRenderer.gameObject.SetActive(visible);
+    }
 
     private void UpdateInteractDetection()
     {

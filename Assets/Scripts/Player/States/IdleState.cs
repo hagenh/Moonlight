@@ -33,7 +33,26 @@ public class IdleState : PlayerState
 
     public override void OnInteractPerformed()
     {
-        if (controller.CurrentInteractable != null)
-            ChangeState(new InteractState(controller));
+        if (controller.CurrentInteractable == null) return;
+
+        if (controller.CurrentInteractable is Building b
+            && b.State == BuildingState.Cleared
+            && (b.LastHitTrigger == b.BoardTrigger || b.BoardTrigger == null))
+        {
+            if (BuildingManager.Instance != null
+                && BuildingManager.Instance.CanHammer(b))
+            {
+                ChangeState(new HammerState(controller, b));
+                return;
+            }
+            else
+            {
+                GameEvents.OnToastRequested(
+                    $"Need {b.timberPerRepair} Timber & {b.nailsPerRepair} Nails");
+                return;
+            }
+        }
+
+        ChangeState(new InteractState(controller));
     }
 }

@@ -10,5 +10,7 @@ public enum InteractType
     Building,
     FermentVat,
     Seller,
-    Bed
+    Bed,
+    Debris,
+    DebrisPile
 }

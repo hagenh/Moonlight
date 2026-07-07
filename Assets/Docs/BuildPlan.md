@@ -41,9 +41,9 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Target: 10–12 weeks, evenings/wee
 ## Phase 3 — Renovation + day cycle + save (wk 5–6)
 - [x] Day: 1 real s ≈ 1.3 game min (~15 min days). Global Light2D color lerps noon→dusk→night. Window lights now pay off — screenshot the first lit window.
 - [x] Sleep → tick, strict order: ferment → Elias repairs → income → heat decay → move-in checks → autosave. Comment the order; never reorder casually.
-- [ ] Verbs: smash (2–3 hits, drops carryable) · carry (overhead sprite, −20% speed, drop at pile) · hammer (hold-to-fill radial, consumes materials, 3–5 points/stage).
+- [x] Verbs: smash (2–3 hits, drops carryable) · carry (overhead sprite, −20% speed, drop at pile) · hammer (hold-to-fill radial, consumes materials, 3–5 points/stage). *(Purchased state between Abandoned/Cleared; CarryState with -20% speed; HammerState with hold-to-fill progress; Debris+DebrisPile for carry loop; BuildingManager.TrySmashHit/TryHammerHit/CanHammer)*
 - [ ] Fragment: one scripted debris per fragment building; smashing opens letter overlay + journal entry. Always mid-clearing, never as completion reward.
-- [ ] Facade-only buildings: pry boards (smash) + facade repair points (hammer).
+- [x] Facade-only buildings: pry boards (smash) + facade repair points (hammer). *(isFacadeOnly flag on Building skips carry step)*
 - [ ] Berta: schedule = (hour, Transform marker); fade-teleport between. Dialogue: portrait + line from rep-tier pool (JSON). Move-in: hand-scripted 10 s (cart SFX, walk, one line, window lights). No cutscene framework.
 - [ ] Done: full Bakery arc — buy → clear → fragment → repair → dusk swap → sleep → Berta arrives → income. **Gate: show a human, watch the two-windows moment.**
 

@@ -19,6 +19,7 @@ public abstract class PlayerState
     public virtual void OnSprintPerformed() { }
     public virtual void OnSprintCanceled() { }
     public virtual void OnInteractPerformed() { }
+    public virtual void OnInteractCanceled() { }
 
     protected void ChangeState(PlayerState newState)
     {

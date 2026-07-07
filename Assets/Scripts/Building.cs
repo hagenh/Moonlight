@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 public enum BuildingState
 {
     Abandoned,
+    Purchased,
     Cleared,
     Restored
 }
@@ -13,11 +14,20 @@ public class Building : MonoBehaviour, IInteractable
 {
     public string buildingName = "Bakery";
     public int purchaseCost = 100;
-    public int repairCost = 50;
     public int dailyIncome = 20;
+
+    [Header("Renovation")]
+    public bool isFacadeOnly = false;
+    public int smashHitsRequired = 3;
+    public int debrisCount = 3;
+    public int totalRepairPoints = 3;
+    public int timberPerRepair = 1;
+    public int nailsPerRepair = 1;
+    public float hammerDuration = 2f;
 
     [Header("Visuals")]
     [SerializeField] private Light2D[] windowLights;
+
     [SerializeField] private SpriteRenderer facadeRenderer;
 
     [Header("Interaction")]
@@ -26,6 +36,11 @@ public class Building : MonoBehaviour, IInteractable
 
     public BuildingState State { get; private set; } = BuildingState.Abandoned;
     public int UncollectedIncome { get; private set; }
+
+    public int SmashHitsDone { get; private set; }
+    public bool BoardsSmashed { get; private set; }
+    public int DebrisRemaining { get; private set; }
+    public int RepairPointsDone { get; private set; }
 
     public InteractType InteractType => InteractType.Building;
 
@@ -128,8 +143,18 @@ public class Building : MonoBehaviour, IInteractable
                 case BuildingState.Abandoned:
                     BuildingManager.Instance.TryPurchase(this);
                     break;
+                case BuildingState.Purchased:
+                    if (!BoardsSmashed)
+                        BuildingManager.Instance.TrySmashHit(this);
+                    else
+                        GameEvents.OnToastRequested("Clear the debris first");
+                    break;
                 case BuildingState.Cleared:
-                    BuildingManager.Instance.TryRepair(this);
+                    if (BuildingManager.Instance.CanHammer(this))
+                        BuildingManager.Instance.TryHammerHit(this);
+                    else
+                        GameEvents.OnToastRequested(
+                            $"Need {timberPerRepair} Timber & {nailsPerRepair} Nails");
                     break;
                 case BuildingState.Restored:
                     BuildingManager.Instance.CollectIncome(this);
@@ -146,6 +171,38 @@ public class Building : MonoBehaviour, IInteractable
         State = newState;
         RefreshVisuals();
     }
+
+    public void IncrementSmashHits() => SmashHitsDone++;
+
+    public void SetBoardsSmashed()
+    {
+        BoardsSmashed = true;
+        SmashHitsDone = smashHitsRequired;
+    }
+
+    public void SetDebrisRemaining(int count) => DebrisRemaining = count;
+
+    public void OnDebrisDeposited()
+    {
+        DebrisRemaining--;
+        if (DebrisRemaining <= 0)
+        {
+            DebrisRemaining = 0;
+            BuildingManager.Instance?.OnDebrisCleared(this);
+        }
+    }
+
+    public void OnRepairPointCompleted() => RepairPointsDone++;
+
+    public void ResetRenovation()
+    {
+        SmashHitsDone = 0;
+        BoardsSmashed = false;
+        DebrisRemaining = 0;
+        RepairPointsDone = 0;
+    }
+
+    public void StartPunchScalePublic() => StartPunchScale();
 
     public void AddDailyIncome()
     {
@@ -167,6 +224,7 @@ public class Building : MonoBehaviour, IInteractable
             facadeRenderer.color = State switch
             {
                 BuildingState.Abandoned => new Color(0.55f, 0.45f, 0.65f),
+                BuildingState.Purchased => new Color(0.75f, 0.55f, 0.35f),
                 BuildingState.Cleared => new Color(0.4f, 0.8f, 0.55f),
                 BuildingState.Restored => new Color(1f, 0.85f, 0.4f),
                 _ => Color.white
