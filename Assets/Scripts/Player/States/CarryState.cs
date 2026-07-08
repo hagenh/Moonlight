@@ -18,6 +18,13 @@ namespace Player.States
 
         public override void LogicUpdate()
         {
+            if (controller.IsMenuOpen)
+            {
+                controller.DropDebrisAtFeet();
+                ChangeState(new IdleState(controller));
+                return;
+            }
+
             UpdateFacingDirection(controller.MoveInput);
         }
 
@@ -44,7 +51,9 @@ namespace Player.States
             }
             else
             {
-                GameEvents.OnToastRequested("Bring debris to the pile");
+                controller.DropDebrisAtFeet();
+                GameEvents.OnToastRequested("Dropped debris");
+                ChangeState(new IdleState(controller));
             }
         }
 

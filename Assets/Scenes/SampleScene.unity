@@ -19959,8 +19959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
   realSecondsPerGameMinute: 0.77
-  dayStartHour: 6
-  dayEndHour: 22
+  dayStartHour: 8
+  dayEndHour: 24
 --- !u!4 &1906643350
 Transform:
   m_ObjectHideFlags: 0

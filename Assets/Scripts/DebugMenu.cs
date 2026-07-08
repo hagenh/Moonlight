@@ -6,7 +6,8 @@ public class DebugMenu : MonoBehaviour
     [SerializeField] private int cashGrant = 100;
 
     private bool _visible;
-    private Rect _windowRect = new Rect(10, 0, 220, 500);
+    private bool _positioned;
+    private Rect _windowRect = new Rect(10, 0, 220, 700);
     private Vector2 _scrollPos;
 
     private void Update()
@@ -17,7 +18,11 @@ public class DebugMenu : MonoBehaviour
     private void OnGUI()
     {
         if (!_visible) return;
-        _windowRect.y = Screen.height - _windowRect.height - 10;
+        if (!_positioned)
+        {
+            _windowRect.y = Screen.height - _windowRect.height - 10;
+            _positioned = true;
+        }
         _windowRect = GUI.Window(0, _windowRect, DrawWindow, "Debug");
     }
 
@@ -133,6 +138,8 @@ public class DebugMenu : MonoBehaviour
                     BuildingManager.Instance.ForceCompleteSmash(b);
                 if (b.State == BuildingState.Cleared && GUILayout.Button("  Complete Repair"))
                     BuildingManager.Instance.ForceCompleteRepair(b);
+                if (b.State != BuildingState.Abandoned && GUILayout.Button("  Reset"))
+                    BuildingManager.Instance.ResetBuilding(b);
             }
         }
 

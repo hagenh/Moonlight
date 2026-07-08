@@ -7,6 +7,7 @@ public class BuildingManager : MonoBehaviour
 
     private readonly List<Building> _buildings = new();
     private readonly List<Debris> _activeDebris = new();
+    private readonly Dictionary<Building, List<Debris>> _buildingDebris = new();
 
     public IReadOnlyList<Building> Buildings => _buildings;
     public IReadOnlyList<Debris> ActiveDebris => _activeDebris;
@@ -152,6 +153,8 @@ public class BuildingManager : MonoBehaviour
     {
         if (building.DebrisRemaining > 0) return;
 
+        CleanupDebris(building);
+
         var old = building.State;
         building.SetState(BuildingState.Cleared);
         GameEvents.OnBuildingStateChanged(building, old, building.State);
@@ -193,6 +196,9 @@ public class BuildingManager : MonoBehaviour
             : building.transform.lossyScale.x * 0.5f;
         Vector3 spawnOrigin = building.transform.position - outward * (edge + 1.5f);
 
+        if (!_buildingDebris.ContainsKey(building))
+            _buildingDebris[building] = new List<Debris>();
+
         for (int i = 0; i < building.debrisCount; i++)
         {
             Vector3 offset = new Vector3(
@@ -201,9 +207,24 @@ public class BuildingManager : MonoBehaviour
                 0f);
             var debris = Debris.Create(building, spawnOrigin + offset);
             _activeDebris.Add(debris);
+            _buildingDebris[building].Add(debris);
         }
 
         building.SetDebrisRemaining(building.debrisCount);
+    }
+
+    public void CleanupDebris(Building building)
+    {
+        if (!_buildingDebris.TryGetValue(building, out var list)) return;
+        foreach (var debris in list)
+        {
+            if (debris != null)
+            {
+                _activeDebris.Remove(debris);
+                Destroy(debris.gameObject);
+            }
+        }
+        list.Clear();
     }
 
     public void ForceCompleteSmash(Building building)
@@ -211,6 +232,7 @@ public class BuildingManager : MonoBehaviour
         if (building.State != BuildingState.Purchased) return;
         building.SetBoardsSmashed();
         building.SetDebrisRemaining(0);
+        CleanupDebris(building);
         var old = building.State;
         building.SetState(BuildingState.Cleared);
         GameEvents.OnBuildingStateChanged(building, old, building.State);
@@ -221,6 +243,15 @@ public class BuildingManager : MonoBehaviour
         if (building.State != BuildingState.Cleared) return;
         var old = building.State;
         building.SetState(BuildingState.Restored);
+        GameEvents.OnBuildingStateChanged(building, old, building.State);
+    }
+
+    public void ResetBuilding(Building building)
+    {
+        CleanupDebris(building);
+        building.ResetRenovation();
+        var old = building.State;
+        building.SetState(BuildingState.Abandoned);
         GameEvents.OnBuildingStateChanged(building, old, building.State);
     }
 

@@ -204,6 +204,19 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
         CarriedDebris = null;
     }
 
+    public void DropDebrisAtFeet()
+    {
+        if (CarriedDebris != null)
+            CarriedDebris.Respawn(rb.position);
+        IsCarrying = false;
+        CarriedDebris = null;
+    }
+
+    public void ForceIdle()
+    {
+        ChangeState(new IdleState(this));
+    }
+
     public void ShowCarrySprite(bool visible)
     {
         if (carrySpriteRenderer != null)

@@ -34,14 +34,14 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Target: 10–12 weeks, evenings/wee
   - Quality = ceil(ceiling × (0.35A + 0.65B)), 1–5★. Stars + sting + bottles to inventory.
   - Feel target: first try 2★, batch ten ~4★, 5★ rare. Tune band/drift until true. 3–4 sessions budgeted. **Go/no-go gate.**
 - [x] Ferment: batches tick with game hours. Vat interactable: empty → choose recipe (consume ingredients) → fermenting → ready → minigame. Second vat purchasable mid-slice. *(continuous time via TimeManager.TotalGameMinutes; FermentBatch computes progress from start time; FermentManager checks in Update; no still minigame handoff yet)*
-- [x] Selling: Tormod knocks (list price) · traveling cart 2 of 3 days (sells ingredients, buys bottles) · risky buyer event (2× price, +15 heat, 10% confiscation at heat > 50). *(SellManager schedules/spawns sellers as sprites at fixed street positions; SellUI with sell+buy tabs; SellerInteractable for world presence; ItemDef.basePrice + isBottle; cart status in HUD)*
+- [x] Selling: Tormod knocks (list price) · traveling cart 2 of 3 days (sells ingredients, buys bottles) · risky buyer event (2× price, +15 heat, 10% confiscation at heat > 50). *(SellManager schedules/spawns sellers as sprites at fixed street positions; SellUI with sell+buy tabs; SellerInteractable for world presence; ItemDef.basePrice + isBottle; cart status in HUD; cart also sells Timber & Nails)*
 - [x] HUD: cash, day, clock, heat, rep. *(all displays + inventory readout done)*
 - [ ] Done: cart → mash → ferment → still → sell, no debug keys; 15 min of loop is near-fun.
 
 ## Phase 3 — Renovation + day cycle + save (wk 5–6)
 - [x] Day: 1 real s ≈ 1.3 game min (~15 min days). Global Light2D color lerps noon→dusk→night. Window lights now pay off — screenshot the first lit window.
 - [x] Sleep → tick, strict order: ferment → Elias repairs → income → heat decay → move-in checks → autosave. Comment the order; never reorder casually.
-- [x] Verbs: smash (2–3 hits, drops carryable) · carry (overhead sprite, −20% speed, drop at pile) · hammer (hold-to-fill radial, consumes materials, 3–5 points/stage). *(Purchased state between Abandoned/Cleared; CarryState with -20% speed; HammerState with hold-to-fill progress; Debris+DebrisPile for carry loop; BuildingManager.TrySmashHit/TryHammerHit/CanHammer)*
+- [x] Verbs: smash (2–3 hits, drops carryable) · carry (overhead sprite, −20% speed, drop at pile) · hammer (hold-to-fill radial, consumes materials, 3–5 points/stage). *(Purchased state between Abandoned/Cleared; CarryState with -20% speed; HammerState with hold-to-fill progress; Debris+DebrisPile for carry loop; BuildingManager.TrySmashHit/TryHammerHit/CanHammer; drop debris at feet; curfew-safe hammer/carry bail; debris cleanup on reset)*
 - [ ] Fragment: one scripted debris per fragment building; smashing opens letter overlay + journal entry. Always mid-clearing, never as completion reward.
 - [x] Facade-only buildings: pry boards (smash) + facade repair points (hammer). *(isFacadeOnly flag on Building skips carry step)*
 - [ ] Berta: schedule = (hour, Transform marker); fade-teleport between. Dialogue: portrait + line from rep-tier pool (JSON). Move-in: hand-scripted 10 s (cart SFX, walk, one line, window lights). No cutscene framework.

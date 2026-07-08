@@ -47,4 +47,10 @@ public class Debris : MonoBehaviour, IInteractable
         PlayerController.Instance.PickUpDebris(this);
         gameObject.SetActive(false);
     }
+
+    public void Respawn(Vector3 position)
+    {
+        transform.position = position;
+        gameObject.SetActive(true);
+    }
 }

@@ -27,7 +27,7 @@ public class GameHUD : MonoBehaviour
         if (hammerProgressText != null) hammerProgressText.gameObject.SetActive(false);
         if (heatText != null) heatText.text = "Heat: 0";
         if (repText != null) repText.text = "Rep: 0";
-        if (clockText != null) clockText.text = "06:00";
+        if (clockText != null) clockText.text = "08:00";
         if (dayText != null) dayText.text = "Day 1";
         if (inventoryText != null) inventoryText.text = "";
     }

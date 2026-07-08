@@ -142,13 +142,14 @@ public class SellUI : MonoBehaviour
 
     private void DrawBuySection()
     {
-        if (ContentDb.Instance == null || SellManager.Instance == null) return;
+        if (SellManager.Instance == null) return;
 
         _scrollPos = GUILayout.BeginScrollView(_scrollPos, GUILayout.Height(280));
 
         var ingredients = new List<ItemDef>
         {
-            ContentDb.Grain, ContentDb.Sugar, ContentDb.Yeast, ContentDb.Water
+            ContentDb.Grain, ContentDb.Sugar, ContentDb.Yeast, ContentDb.Water,
+            ContentDb.Timber, ContentDb.Nails
         };
 
         foreach (var item in ingredients)

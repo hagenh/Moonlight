@@ -30,6 +30,12 @@ namespace Player.States
         {
             if (_completed) return;
 
+            if (controller.IsMenuOpen)
+            {
+                ChangeState(new IdleState(controller));
+                return;
+            }
+
             if (controller.IsInteractHeld)
             {
                 _progress += Time.deltaTime / _target.hammerDuration;

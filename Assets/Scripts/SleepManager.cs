@@ -44,7 +44,10 @@ public class SleepManager : MonoBehaviour
         _isSleeping = true;
 
         if (PlayerController.Instance != null)
+        {
+            PlayerController.Instance.ForceIdle();
             PlayerController.Instance.IsMenuOpen = true;
+        }
 
         StartCoroutine(SleepRoutine());
     }
