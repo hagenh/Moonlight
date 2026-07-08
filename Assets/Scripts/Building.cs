@@ -230,4 +230,25 @@ public class Building : MonoBehaviour, IInteractable
                 _ => Color.white
             };
     }
+
+    public void FlashWindowLights()
+    {
+        if (windowLights == null || windowLights.Length == 0) return;
+        StartCoroutine(FlashWindowLightsRoutine());
+    }
+
+    private IEnumerator FlashWindowLightsRoutine()
+    {
+        foreach (var light in windowLights)
+            light.enabled = false;
+
+        yield return new WaitForSeconds(0.15f);
+
+        for (int i = 0; i < windowLights.Length; i++)
+        {
+            windowLights[i].enabled = true;
+            if (i < windowLights.Length - 1)
+                yield return new WaitForSeconds(0.2f);
+        }
+    }
 }

@@ -227,6 +227,12 @@ public class GameHUD : MonoBehaviour
                 ? "[E] Deposit debris"
                 : "Debris pile";
         }
+        else if (interactable is Resident resident)
+        {
+            promptText.text = resident.def != null
+                ? $"[E] Talk to {resident.def.displayName}"
+                : "[E] Talk";
+        }
         else
         {
             promptText.text = "[E] Interact";

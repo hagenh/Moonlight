@@ -28,6 +28,14 @@ public static class GameEvents
     public static event System.Action<Building, float> HammerProgress;
     public static event System.Action<Building, int, int> RepairPointCompleted;
 
+    public static event System.Action<ResidentDef, int> ResidentTeleported;
+    public static event System.Action<ResidentDef> ResidentVisible;
+    public static event System.Action<ResidentDef> ResidentHidden;
+    public static event System.Action<ResidentDef, string> DialogueRequested;
+    public static event System.Action DialogueClosed;
+    public static event System.Action<ResidentDef, Building> MoveInSequenceStarted;
+    public static event System.Action<ResidentDef, Building> MoveInSequenceCompleted;
+
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
 
@@ -102,4 +110,25 @@ public static class GameEvents
 
     public static void OnRepairPointCompleted(Building b, int done, int total)
         => RepairPointCompleted?.Invoke(b, done, total);
+
+    public static void OnResidentTeleported(ResidentDef def, int hour)
+        => ResidentTeleported?.Invoke(def, hour);
+
+    public static void OnResidentVisible(ResidentDef def)
+        => ResidentVisible?.Invoke(def);
+
+    public static void OnResidentHidden(ResidentDef def)
+        => ResidentHidden?.Invoke(def);
+
+    public static void OnDialogueRequested(ResidentDef def, string line)
+        => DialogueRequested?.Invoke(def, line);
+
+    public static void OnDialogueClosed()
+        => DialogueClosed?.Invoke();
+
+    public static void OnMoveInSequenceStarted(ResidentDef def, Building b)
+        => MoveInSequenceStarted?.Invoke(def, b);
+
+    public static void OnMoveInSequenceCompleted(ResidentDef def, Building b)
+        => MoveInSequenceCompleted?.Invoke(def, b);
 }

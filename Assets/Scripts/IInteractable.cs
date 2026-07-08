@@ -12,5 +12,6 @@ public enum InteractType
     Seller,
     Bed,
     Debris,
-    DebrisPile
+    DebrisPile,
+    NPC
 }

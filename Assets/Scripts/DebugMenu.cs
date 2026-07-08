@@ -144,6 +144,29 @@ public class DebugMenu : MonoBehaviour
         }
 
         GUILayout.Space(8);
+        GUILayout.Label("--- Residents ---");
+
+        if (ResidentManager.Instance != null)
+        {
+            bool bertaMovedIn = ResidentManager.Instance.IsResidentMovedIn("berta");
+            GUILayout.Label($"  Berta: {(bertaMovedIn ? "Moved in" : "Not yet")}");
+
+            if (!bertaMovedIn)
+            {
+                if (GUILayout.Button("  Force Berta Move-In (instant)"))
+                    ResidentManager.Instance.ForceBertaMoveIn();
+
+                if (GUILayout.Button("  Force Berta Move-In (sequence)"))
+                    ResidentManager.Instance.ForceBertaMoveInSequence();
+            }
+            else
+            {
+                if (GUILayout.Button("  Reset Berta"))
+                    ResidentManager.Instance.ResetResident("berta");
+            }
+        }
+
+        GUILayout.Space(8);
         GUILayout.Label("--- Stock ---");
 
         if (InventoryManager.Instance != null)

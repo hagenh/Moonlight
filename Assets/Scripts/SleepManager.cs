@@ -65,13 +65,22 @@ public class SleepManager : MonoBehaviour
         if (GameManager.Instance != null)
             GameManager.Instance.AddHeat(-heatDecayPerNight);
 
-        Debug.Log("Sleep pipeline: move-in checks (stub)");
-        Debug.Log("Sleep pipeline: autosave (stub)");
+        bool moveInPending = false;
+        Debug.Log($"[Sleep] Move-in check — ResidentManager.Instance = {ResidentManager.Instance != null}");
+        if (ResidentManager.Instance != null)
+            moveInPending = ResidentManager.Instance.RunMoveInChecks();
 
         int newDay = TimeManager.Instance != null ? TimeManager.Instance.Day : day + 1;
         GameEvents.OnSleepCompleted(newDay);
 
         yield return FadeFromBlack();
+
+        if (moveInPending && ResidentManager.Instance != null)
+        {
+            yield return null;
+            ResidentManager.Instance.PlayPendingMoveInSequence();
+            yield return new WaitWhile(() => ResidentManager.Instance.IsMoveInSequencePlaying);
+        }
 
         _isSleeping = false;
         if (PlayerController.Instance != null)
