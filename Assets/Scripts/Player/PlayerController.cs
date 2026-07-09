@@ -94,18 +94,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     {
         if (input.magnitude < moveDeadzone) return;
 
-        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
-        if (angle < 0) angle += 360f;
-
-        FacingDirection newFacing;
-        if (angle < 45f || angle >= 315f)
-            newFacing = FacingDirection.Right;
-        else if (angle < 135f)
-            newFacing = FacingDirection.Up;
-        else if (angle < 225f)
-            newFacing = FacingDirection.Left;
-        else
-            newFacing = FacingDirection.Down;
+        FacingDirection newFacing = FacingMath.FromVector(input);
 
         if (newFacing != facingDirection)
         {
@@ -251,13 +240,6 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     private Vector2 GetFacingOffset()
     {
-        return facingDirection switch
-        {
-            FacingDirection.Down => new Vector2(0, -0.5f),
-            FacingDirection.Up => new Vector2(0, 0.5f),
-            FacingDirection.Left => new Vector2(-0.5f, 0),
-            FacingDirection.Right => new Vector2(0.5f, 0),
-            _ => Vector2.zero
-        };
+        return FacingMath.GetFacingOffset(facingDirection);
     }
 }

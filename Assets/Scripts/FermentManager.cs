@@ -8,6 +8,7 @@ public class FermentManager : MonoBehaviour
     private RecipeData[] _recipes;
 
     private readonly List<FermentVat> _vats = new();
+    private readonly Dictionary<FermentVat, int> _lastProgressPercent = new();
 
     public IReadOnlyList<RecipeData> Recipes => _recipes;
     public IReadOnlyList<FermentVat> Vats => _vats;
@@ -44,10 +45,17 @@ public class FermentManager : MonoBehaviour
         {
             if (vat.State != VatState.Fermenting || vat.CurrentBatch == null) continue;
 
-            GameEvents.OnBatchProgressed(vat, vat.CurrentBatch.Progress);
+            float progress = vat.CurrentBatch.Progress;
+            int pct = Mathf.FloorToInt(progress * 100f);
+            if (!_lastProgressPercent.TryGetValue(vat, out int last) || last != pct)
+            {
+                _lastProgressPercent[vat] = pct;
+                GameEvents.OnBatchProgressed(vat, progress);
+            }
 
             if (vat.CurrentBatch.IsComplete)
             {
+                _lastProgressPercent.Remove(vat);
                 var oldState = vat.State;
                 vat.MarkReady();
                 GameEvents.OnVatStateChanged(vat, oldState, vat.State);
@@ -61,7 +69,11 @@ public class FermentManager : MonoBehaviour
         if (!_vats.Contains(vat)) _vats.Add(vat);
     }
 
-    public void Unregister(FermentVat vat) => _vats.Remove(vat);
+    public void Unregister(FermentVat vat)
+    {
+        _vats.Remove(vat);
+        _lastProgressPercent.Remove(vat);
+    }
 
     public bool TryStartBatch(FermentVat vat, RecipeData recipe)
     {
@@ -79,7 +91,7 @@ public class FermentManager : MonoBehaviour
         foreach (var kvp in recipe.Costs)
             InventoryManager.Instance.TryRemove(kvp.Key, kvp.Value);
 
-        var batch = new FermentBatch(recipe);
+        var batch = new FermentBatch(recipe, () => TimeManager.Instance.TotalGameMinutes);
         var oldState = vat.State;
         vat.SetBatch(batch);
 

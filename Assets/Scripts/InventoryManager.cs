@@ -5,9 +5,9 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    private readonly Dictionary<ItemDef, int> _items = new();
+    private readonly Inventory _inventory = new();
 
-    public IReadOnlyDictionary<ItemDef, int> AllItems => _items;
+    public IReadOnlyDictionary<ItemDef, int> AllItems => _inventory.AllItems;
 
     private void Awake()
     {
@@ -21,21 +21,19 @@ public class InventoryManager : MonoBehaviour
 
     public int GetCount(ItemDef def)
     {
-        if (def == null) return 0;
-        return _items.GetValueOrDefault(def, 0);
+        return _inventory.GetCount(def);
     }
 
     public bool Has(ItemDef def, int count)
     {
-        return GetCount(def) >= count;
+        return _inventory.Has(def, count);
     }
 
     public bool TryAdd(ItemDef def, int count)
     {
-        if (def == null || count <= 0) return false;
-        int old = GetCount(def);
-        _items[def] = old + count;
-        GameEvents.OnInventoryChanged(def, old, _items[def]);
+        var r = _inventory.TryAdd(def, count);
+        if (!r.Success) return false;
+        GameEvents.OnInventoryChanged(def, r.OldCount, r.NewCount);
         GameEvents.OnToastRequested($"+{count} {def.displayName}");
         return true;
     }
@@ -49,11 +47,8 @@ public class InventoryManager : MonoBehaviour
             GameEvents.OnToastRequested($"Not enough {def.displayName}");
             return false;
         }
-        int old = current;
-        _items[def] = current - count;
-        if (_items[def] <= 0) _items.Remove(def);
-        int newVal = _items.GetValueOrDefault(def, 0);
-        GameEvents.OnInventoryChanged(def, old, newVal);
+        var r = _inventory.TryRemove(def, count);
+        GameEvents.OnInventoryChanged(def, r.OldCount, r.NewCount);
         return true;
     }
 }

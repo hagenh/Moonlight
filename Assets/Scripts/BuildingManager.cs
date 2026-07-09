@@ -49,33 +49,32 @@ public class BuildingManager : MonoBehaviour
 
     public bool TryPurchase(Building building)
     {
-        if (building.State != BuildingState.Abandoned) return false;
+        if (!RenovationRules.CanPurchase(building.State)) return false;
 
-        if (!GameManager.Instance.TrySpend(building.purchaseCost))
+        if (!GameManager.Instance.TrySpend(building.PurchaseCost))
         {
-            GameEvents.OnToastRequested($"Can't afford {building.buildingName} ({building.purchaseCost}g)");
+            GameEvents.OnToastRequested($"Can't afford {building.BuildingName} ({building.PurchaseCost}g)");
             return false;
         }
 
         var old = building.State;
         building.SetState(BuildingState.Purchased);
         GameEvents.OnBuildingStateChanged(building, old, building.State);
-        GameEvents.OnToastRequested($"Purchased {building.buildingName} (-{building.purchaseCost}g)");
+        GameEvents.OnToastRequested($"Purchased {building.BuildingName} (-{building.PurchaseCost}g)");
         return true;
     }
 
     public bool TrySmashHit(Building building)
     {
-        if (building.State != BuildingState.Purchased) return false;
-        if (building.BoardsSmashed) return false;
+        if (!RenovationRules.CanSmash(building.State, building.BoardsSmashed)) return false;
 
         building.IncrementSmashHits();
         int done = building.SmashHitsDone;
-        int required = building.smashHitsRequired;
+        int required = building.SmashHitsRequired;
 
         GameEvents.OnSmashHit(building, done, required);
 
-        if (done < required)
+        if (!RenovationRules.IsSmashComplete(done, required))
         {
             building.StartPunchScalePublic();
             GameEvents.OnToastRequested($"Smash! ({done}/{required})");
@@ -84,12 +83,12 @@ public class BuildingManager : MonoBehaviour
 
         building.SetBoardsSmashed();
 
-        if (building.isFacadeOnly)
+        if (building.IsFacadeOnly)
         {
             var old = building.State;
             building.SetState(BuildingState.Cleared);
             GameEvents.OnBuildingStateChanged(building, old, building.State);
-            GameEvents.OnToastRequested($"Cleared {building.buildingName}!");
+            GameEvents.OnToastRequested($"Cleared {building.BuildingName}!");
         }
         else
         {
@@ -102,43 +101,42 @@ public class BuildingManager : MonoBehaviour
 
     public bool CanHammer(Building building)
     {
-        if (building.State != BuildingState.Cleared) return false;
-        if (building.RepairPointsDone >= building.totalRepairPoints) return false;
-        if (!InventoryManager.Instance.Has(ContentDb.Timber, building.timberPerRepair))
-            return false;
-        if (!InventoryManager.Instance.Has(ContentDb.Nails, building.nailsPerRepair))
-            return false;
-        return true;
+        bool hasTimber = InventoryManager.Instance.Has(ContentDb.Timber, building.TimberPerRepair);
+        bool hasNails = InventoryManager.Instance.Has(ContentDb.Nails, building.NailsPerRepair);
+        return RenovationRules.CanHammer(
+            building.State, building.RepairPointsDone, building.TotalRepairPoints,
+            hasTimber, hasNails);
     }
 
     public bool TryHammerHit(Building building)
     {
         if (building.State != BuildingState.Cleared) return false;
 
-        if (!InventoryManager.Instance.Has(ContentDb.Timber, building.timberPerRepair)
-            || !InventoryManager.Instance.Has(ContentDb.Nails, building.nailsPerRepair))
+        bool hasTimber = InventoryManager.Instance.Has(ContentDb.Timber, building.TimberPerRepair);
+        bool hasNails = InventoryManager.Instance.Has(ContentDb.Nails, building.NailsPerRepair);
+        if (!hasTimber || !hasNails)
         {
             GameEvents.OnToastRequested(
-                $"Need {building.timberPerRepair} Timber & {building.nailsPerRepair} Nails");
+                $"Need {building.TimberPerRepair} Timber & {building.NailsPerRepair} Nails");
             return false;
         }
 
-        InventoryManager.Instance.TryRemove(ContentDb.Timber, building.timberPerRepair);
-        InventoryManager.Instance.TryRemove(ContentDb.Nails, building.nailsPerRepair);
+        InventoryManager.Instance.TryRemove(ContentDb.Timber, building.TimberPerRepair);
+        InventoryManager.Instance.TryRemove(ContentDb.Nails, building.NailsPerRepair);
 
         building.OnRepairPointCompleted();
 
         int done = building.RepairPointsDone;
-        int total = building.totalRepairPoints;
+        int total = building.TotalRepairPoints;
 
         GameEvents.OnRepairPointCompleted(building, done, total);
 
-        if (done >= total)
+        if (RenovationRules.IsRepairComplete(done, total))
         {
             var old = building.State;
             building.SetState(BuildingState.Restored);
             GameEvents.OnBuildingStateChanged(building, old, building.State);
-            GameEvents.OnToastRequested($"Restored {building.buildingName}!");
+            GameEvents.OnToastRequested($"Restored {building.BuildingName}!");
         }
         else
         {
@@ -151,29 +149,29 @@ public class BuildingManager : MonoBehaviour
 
     public void OnDebrisCleared(Building building)
     {
-        if (building.DebrisRemaining > 0) return;
+        if (!RenovationRules.IsDebrisCleared(building.DebrisRemaining)) return;
 
         CleanupDebris(building);
 
         var old = building.State;
         building.SetState(BuildingState.Cleared);
         GameEvents.OnBuildingStateChanged(building, old, building.State);
-        GameEvents.OnToastRequested($"Cleared {building.buildingName}!");
+        GameEvents.OnToastRequested($"Cleared {building.BuildingName}!");
     }
 
     public bool CollectIncome(Building building)
     {
-        if (building.State != BuildingState.Restored) return false;
-        if (building.UncollectedIncome <= 0)
+        if (!RenovationRules.CanCollectIncome(building.State, building.UncollectedIncome))
         {
-            GameEvents.OnToastRequested($"No income at {building.buildingName}");
+            if (building.State == BuildingState.Restored)
+                GameEvents.OnToastRequested($"No income at {building.BuildingName}");
             return false;
         }
 
         int amount = building.UncollectedIncome;
         building.ResetIncome();
         GameManager.Instance.AddCash(amount);
-        GameEvents.OnToastRequested($"Collected {amount}g from {building.buildingName}");
+        GameEvents.OnToastRequested($"Collected {amount}g from {building.BuildingName}");
         return true;
     }
 
@@ -199,7 +197,7 @@ public class BuildingManager : MonoBehaviour
         if (!_buildingDebris.ContainsKey(building))
             _buildingDebris[building] = new List<Debris>();
 
-        for (int i = 0; i < building.debrisCount; i++)
+        for (int i = 0; i < building.DebrisCount; i++)
         {
             Vector3 offset = new Vector3(
                 Random.Range(-0.5f, 0.5f),
@@ -210,7 +208,7 @@ public class BuildingManager : MonoBehaviour
             _buildingDebris[building].Add(debris);
         }
 
-        building.SetDebrisRemaining(building.debrisCount);
+        building.SetDebrisRemaining(building.DebrisCount);
     }
 
     public void CleanupDebris(Building building)

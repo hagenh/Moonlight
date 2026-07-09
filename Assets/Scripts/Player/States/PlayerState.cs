@@ -1,4 +1,5 @@
 using UnityEngine;
+using Player.States;
 
 public abstract class PlayerState
 {
@@ -29,5 +30,26 @@ public abstract class PlayerState
     protected void UpdateFacingDirection(Vector2 input)
     {
         controller.UpdateFacingDirection(input);
+    }
+
+    protected bool TryEnterHammerState()
+    {
+        if (controller.CurrentInteractable is Building b
+            && b.State == BuildingState.Cleared
+            && (b.LastHitTrigger == b.BoardTrigger || b.BoardTrigger == null))
+        {
+            if (BuildingManager.Instance != null
+                && BuildingManager.Instance.CanHammer(b))
+            {
+                ChangeState(new HammerState(controller, b));
+                return true;
+            }
+
+            GameEvents.OnToastRequested(
+                $"Need {b.TimberPerRepair} Timber & {b.NailsPerRepair} Nails");
+            return true;
+        }
+
+        return false;
     }
 }

@@ -23,8 +23,12 @@ public class SellManager : MonoBehaviour
     private int _riskyArriveHour;
     private bool _riskyToday;
 
+    private IRng _rng = UnityRng.Instance;
+
     public SellerType? ActiveSeller { get; private set; }
     public bool IsCartInTown => _cartInstance != null;
+
+    internal void SetRng(IRng rng) => _rng = rng;
 
     private void Awake()
     {
@@ -75,12 +79,12 @@ public class SellManager : MonoBehaviour
 
     private void PlanTomorrow(int day)
     {
-        _tormodArriveHour = Random.Range(tormodArriveMin, tormodArriveMax + 1);
-        _riskyToday = Random.value < riskyBuyerChance;
-        _riskyArriveHour = Random.Range(riskyArriveMin, riskyArriveMax + 1);
+        _tormodArriveHour = EconomyRules.PickHour(_rng, tormodArriveMin, tormodArriveMax);
+        _riskyToday = EconomyRules.RiskyBuyerAppearsToday(_rng, riskyBuyerChance);
+        _riskyArriveHour = EconomyRules.PickHour(_rng, riskyArriveMin, riskyArriveMax);
     }
 
-    private bool IsCartDay(int day) => day % 3 != 0;
+    private bool IsCartDay(int day) => EconomyRules.IsCartDay(day);
 
     private Vector3 GetPosition(Transform marker) => marker != null ? marker.position : Vector3.zero;
 
@@ -123,15 +127,10 @@ public class SellManager : MonoBehaviour
 
     public int GetSellPrice(ItemDef item, SellerType seller)
     {
-        float multiplier = seller switch
-        {
-            SellerType.RiskyBuyer => 2f,
-            _ => 1f
-        };
-        return Mathf.RoundToInt(item.basePrice * multiplier);
+        return EconomyRules.GetSellPrice(item, seller);
     }
 
-    public int GetBuyPrice(ItemDef item) => item.basePrice;
+    public int GetBuyPrice(ItemDef item) => EconomyRules.GetBuyPrice(item);
 
     public bool ExecuteSale(ItemDef item, int count, SellerType seller)
     {
@@ -140,11 +139,11 @@ public class SellManager : MonoBehaviour
 
         if (seller == SellerType.RiskyBuyer)
         {
-            if (GameManager.Instance.Heat > 50 && Random.value < 0.1f)
+            if (EconomyRules.ShouldConfiscate(GameManager.Instance.Heat, _rng))
             {
                 InventoryManager.Instance.TryRemove(item, count);
                 GameEvents.OnToastRequested("Confiscated! Items seized.");
-                GameManager.Instance.AddHeat(15);
+                GameManager.Instance.AddHeat(EconomyRules.ConfiscationHeatPenalty);
                 return true;
             }
         }
@@ -155,7 +154,7 @@ public class SellManager : MonoBehaviour
         GameEvents.OnToastRequested($"+{price}g");
 
         if (seller == SellerType.RiskyBuyer)
-            GameManager.Instance.AddHeat(15);
+            GameManager.Instance.AddHeat(EconomyRules.RiskyBuyerHeatPerSale);
 
         return true;
     }

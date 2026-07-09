@@ -176,8 +176,6 @@ public class SellUI : MonoBehaviour
 
     private bool IsSellable(ItemDef item)
     {
-        if (_currentSeller == SellerType.TravelingCart)
-            return item.isBottle;
-        return !item.isIngredient;
+        return _currentSeller.HasValue && EconomyRules.IsSellable(item, _currentSeller.Value);
     }
 }

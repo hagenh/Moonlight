@@ -5,9 +5,21 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private int startingCash = 500;
-    public int Cash { get; private set; }
-    public int Heat { get; private set; }
-    public int Reputation { get; private set; }
+    public int Cash => Economy.Cash;
+    public int Heat => Economy.Heat;
+    public int Reputation => Economy.Reputation;
+
+    private EconomyState _economy;
+
+    private EconomyState Economy
+    {
+        get
+        {
+            if (_economy == null)
+                _economy = new EconomyState(startingCash);
+            return _economy;
+        }
+    }
 
     private void Awake()
     {
@@ -17,34 +29,33 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        Cash = startingCash;
+        _economy = new EconomyState(startingCash);
     }
 
     public bool TrySpend(int amount)
     {
-        if (Cash < amount) return false;
-        Cash -= amount;
+        if (!Economy.TrySpend(amount)) return false;
+        GameEvents.OnCashChanged(Cash);
         return true;
     }
 
     public void AddCash(int amount)
     {
-        Cash += amount;
+        Economy.AddCash(amount);
+        GameEvents.OnCashChanged(Cash);
     }
 
     public void AddHeat(int delta) => SetHeat(Heat + delta);
 
     public void SetHeat(int value)
     {
-        int old = Heat;
-        Heat = Mathf.Max(0, value);
+        int old = Economy.SetHeat(value);
         if (Heat != old) GameEvents.OnHeatChanged(Heat, old);
     }
 
     public void SetReputation(int value)
     {
-        int old = Reputation;
-        Reputation = value;
+        int old = Economy.SetReputation(value);
         if (Reputation != old) GameEvents.OnRepChanged(Reputation, old);
     }
 }

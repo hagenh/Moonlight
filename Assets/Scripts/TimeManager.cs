@@ -8,11 +8,23 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private int dayStartHour = 8;
     [SerializeField] private int dayEndHour = 24;
 
-    public int Day { get; private set; } = 1;
-    public int Hour { get; private set; } = 8;
-    public int Minute { get; private set; }
-    public float TotalGameMinutes { get; private set; }
-    public float HourF => Hour + Minute / 60f;
+    private GameClock _clock;
+
+    private GameClock Clock
+    {
+        get
+        {
+            if (_clock == null)
+                _clock = new GameClock(dayStartHour, dayEndHour);
+            return _clock;
+        }
+    }
+
+    public int Day => Clock.Day;
+    public int Hour => Clock.Hour;
+    public int Minute => Clock.Minute;
+    public float TotalGameMinutes => Clock.TotalGameMinutes;
+    public float HourF => Clock.HourF;
 
     private float _fractionalMinute;
     private int _lastHour;
@@ -26,7 +38,7 @@ public class TimeManager : MonoBehaviour
             return;
         }
         Instance = this;
-        RecalcTotal();
+        _clock = new GameClock(dayStartHour, dayEndHour);
         _lastHour = Hour;
         _lastDay = Day;
     }
@@ -38,20 +50,7 @@ public class TimeManager : MonoBehaviour
         while (_fractionalMinute >= 1f)
         {
             _fractionalMinute -= 1f;
-            Minute++;
-            TotalGameMinutes++;
-
-            if (Minute >= 60)
-            {
-                Minute = 0;
-                Hour++;
-
-                if (Hour >= 24)
-                {
-                    Hour = 0;
-                    Day++;
-                }
-            }
+            Clock.AdvanceMinute();
 
             if (Hour == 23 && Minute == 0)
                 GameEvents.OnToastRequested("Getting late...");
@@ -73,13 +72,7 @@ public class TimeManager : MonoBehaviour
 
     public void AdvanceHour()
     {
-        TotalGameMinutes += 60;
-        Hour++;
-        if (Hour >= 24)
-        {
-            Hour = 0;
-            Day++;
-        }
+        Clock.AdvanceHour();
 
         GameEvents.OnHourChanged(Hour, Day);
         _lastHour = Hour;
@@ -91,16 +84,9 @@ public class TimeManager : MonoBehaviour
 
     public void AdvanceToDayEnd()
     {
-        int minutesUntilEnd = (dayEndHour - Hour) * 60 - Minute;
-        if (minutesUntilEnd > 0)
-            TotalGameMinutes += minutesUntilEnd;
-
-        GameEvents.OnDayEnded(Day);
-        Day++;
-        Hour = dayStartHour;
-        Minute = 0;
+        GameEvents.OnDayEnded(Clock.Day);
+        Clock.AdvanceToDayEnd();
         _fractionalMinute = 0f;
-        RecalcTotal();
 
         GameEvents.OnHourChanged(Hour, Day);
         _lastHour = Hour;
@@ -110,17 +96,9 @@ public class TimeManager : MonoBehaviour
 
     public void SetTime(int day, int hour, int minute)
     {
-        Day = day;
-        Hour = hour;
-        Minute = minute;
+        Clock.SetTime(day, hour, minute);
         _fractionalMinute = 0f;
-        RecalcTotal();
         _lastHour = Hour;
         _lastDay = Day;
-    }
-
-    private void RecalcTotal()
-    {
-        TotalGameMinutes = (Day - 1) * 24 * 60 + Hour * 60 + Minute;
     }
 }
