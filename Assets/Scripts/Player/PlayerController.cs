@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     [SerializeField] private Vector2 interactBoxSize = new Vector2(0.25f, 0.25f);
     [SerializeField] private LayerMask interactableLayer;
 
-    public IInteractable CurrentInteractable { get; private set; }
+    public IInteractable CurrentInteractable { get; internal set; }
     public bool IsMenuOpen { get; set; }
 
     public bool IsCarrying { get; private set; }

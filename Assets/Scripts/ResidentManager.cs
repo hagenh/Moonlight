@@ -91,16 +91,11 @@ public class ResidentManager : MonoBehaviour
 
         foreach (var building in BuildingManager.Instance.Buildings)
         {
-            Debug.Log($"[ResidentMgr] Checking {building.buildingName} state={building.State}");
-
             if (building.State != BuildingState.Restored) continue;
 
-            ResidentDef def = FindResidentForBuilding(building.buildingName);
+            ResidentDef def = FindResidentForBuilding(building.BuildingName);
             if (def == null)
-            {
-                Debug.Log($"[ResidentMgr] No resident def for {building.buildingName}");
                 continue;
-            }
 
             if (_movedInResidents.ContainsKey(def.id)) continue;
             if (_activeResidents.ContainsKey(def.id)) continue;
@@ -113,13 +108,8 @@ public class ResidentManager : MonoBehaviour
 
             GameEvents.OnResidentMovedIn(def, building);
 
-            Debug.Log($"[ResidentMgr] Move-in pending for {def.displayName} at {building.buildingName}");
-
             break;
         }
-
-        if (!_moveInPending)
-            Debug.Log("[ResidentMgr] No move-ins pending");
 
         return _moveInPending;
     }
@@ -175,7 +165,7 @@ public class ResidentManager : MonoBehaviour
 
         yield return new WaitForSeconds(moveInLightDelay);
         building.FlashWindowLights();
-        GameEvents.OnToastRequested($"{def.displayName} has moved into {building.buildingName}!");
+        GameEvents.OnToastRequested($"{def.displayName} has moved into {building.BuildingName}!");
 
         resident.Hide(0.3f);
         yield return new WaitForSeconds(0.4f);
@@ -289,7 +279,7 @@ public class ResidentManager : MonoBehaviour
         Building building = null;
         foreach (var b in BuildingManager.Instance.Buildings)
         {
-            if (b.buildingName == "Bakery") { building = b; break; }
+            if (b.BuildingName == "Bakery") { building = b; break; }
         }
         if (building == null) return;
 
@@ -313,7 +303,7 @@ public class ResidentManager : MonoBehaviour
         Building building = null;
         foreach (var b in BuildingManager.Instance.Buildings)
         {
-            if (b.buildingName == "Bakery") { building = b; break; }
+            if (b.BuildingName == "Bakery") { building = b; break; }
         }
         if (building == null) return;
 

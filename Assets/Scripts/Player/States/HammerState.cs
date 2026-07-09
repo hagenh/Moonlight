@@ -38,7 +38,7 @@ namespace Player.States
 
             if (controller.IsInteractHeld)
             {
-                _progress += Time.deltaTime / _target.hammerDuration;
+                _progress += Time.deltaTime / _target.HammerDuration;
                 GameEvents.OnHammerProgress(_target, _progress);
 
                 if (_progress >= 1f)

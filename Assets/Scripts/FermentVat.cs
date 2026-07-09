@@ -19,7 +19,6 @@ public class FermentVat : MonoBehaviour, IInteractable
         if (FermentManager.Instance != null)
             FermentManager.Instance.Register(this);
         GameEvents.VatStateChanged += OnVatStateChanged;
-        GameEvents.BatchProgressed += OnBatchProgressed;
     }
 
     private void OnDisable()
@@ -27,7 +26,6 @@ public class FermentVat : MonoBehaviour, IInteractable
         if (FermentManager.Instance != null)
             FermentManager.Instance.Unregister(this);
         GameEvents.VatStateChanged -= OnVatStateChanged;
-        GameEvents.BatchProgressed -= OnBatchProgressed;
     }
 
     public void Interact()
@@ -75,11 +73,6 @@ public class FermentVat : MonoBehaviour, IInteractable
         if (vat == this) StartPunchScale();
     }
 
-    private void OnBatchProgressed(FermentVat vat, float progress)
-    {
-        if (vat == this) RefreshVisuals();
-    }
-
     private void RefreshVisuals()
     {
         if (vatRenderer != null)
@@ -97,53 +90,6 @@ public class FermentVat : MonoBehaviour, IInteractable
     private void StartPunchScale()
     {
         if (_punchCoroutine != null) StopCoroutine(_punchCoroutine);
-        _punchCoroutine = StartCoroutine(PunchScale());
-    }
-
-    private IEnumerator PunchScale()
-    {
-        float t;
-
-        t = 0f;
-        while (t < 0.08f)
-        {
-            t += Time.deltaTime;
-            float p = Mathf.SmoothStep(0f, 1f, t / 0.08f);
-            transform.localScale = new Vector3(
-                Mathf.Lerp(1f, 0.7f, p),
-                Mathf.Lerp(1f, 1.3f, p),
-                1f
-            );
-            yield return null;
-        }
-
-        t = 0f;
-        while (t < 0.1f)
-        {
-            t += Time.deltaTime;
-            float p = Mathf.SmoothStep(0f, 1f, t / 0.1f);
-            transform.localScale = new Vector3(
-                Mathf.Lerp(0.7f, 1.15f, p),
-                Mathf.Lerp(1.3f, 0.9f, p),
-                1f
-            );
-            yield return null;
-        }
-
-        t = 0f;
-        while (t < 0.1f)
-        {
-            t += Time.deltaTime;
-            float p = Mathf.SmoothStep(0f, 1f, t / 0.1f);
-            transform.localScale = new Vector3(
-                Mathf.Lerp(1.15f, 1f, p),
-                Mathf.Lerp(0.9f, 1f, p),
-                1f
-            );
-            yield return null;
-        }
-
-        transform.localScale = Vector3.one;
-        _punchCoroutine = null;
+        _punchCoroutine = StartCoroutine(JuiceUtils.PunchScale(transform));
     }
 }

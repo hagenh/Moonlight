@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -128,10 +129,10 @@ public class DebugMenu : MonoBehaviour
         {
             foreach (var b in BuildingManager.Instance.Buildings)
             {
-                GUILayout.Label($"  {b.buildingName}: {b.State}");
-                if (b.State == BuildingState.Abandoned && GUILayout.Button($"  Buy {b.buildingName}"))
+                GUILayout.Label($"  {b.BuildingName}: {b.State}");
+                if (b.State == BuildingState.Abandoned && GUILayout.Button($"  Buy {b.BuildingName}"))
                 {
-                    GameManager.Instance.AddCash(b.purchaseCost);
+                    GameManager.Instance.AddCash(b.PurchaseCost);
                     BuildingManager.Instance.TryPurchase(b);
                 }
                 if (b.State == BuildingState.Purchased && GUILayout.Button("  Complete Smash"))
@@ -176,3 +177,4 @@ public class DebugMenu : MonoBehaviour
         }
     }
 }
+#endif

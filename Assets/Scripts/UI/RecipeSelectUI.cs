@@ -65,6 +65,8 @@ public class RecipeSelectUI : MonoBehaviour
     {
         GUI.DragWindow(new Rect(0, 0, _windowRect.width, 20));
 
+        if (InventoryManager.Instance == null) return;
+
         _scrollPos = GUILayout.BeginScrollView(_scrollPos, GUILayout.Height(320));
 
         foreach (var recipe in FermentManager.Instance.Recipes)

@@ -17,6 +17,8 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private float toastDuration = 2f;
 
     private float _toastTimer;
+    private int _lastClockHour = -1;
+    private int _lastClockMinute = -1;
 
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class GameHUD : MonoBehaviour
         if (repText != null) repText.text = "Rep: 0";
         if (clockText != null) clockText.text = "08:00";
         if (dayText != null) dayText.text = "Day 1";
+        if (cashText != null && GameManager.Instance != null)
+            cashText.text = $"{GameManager.Instance.Cash}g";
         if (inventoryText != null) inventoryText.text = "";
     }
 
@@ -37,6 +41,7 @@ public class GameHUD : MonoBehaviour
         GameEvents.ToastRequested += OnToastRequested;
         GameEvents.DayEnded += OnDayEnded;
         GameEvents.HourChanged += OnHourChanged;
+        GameEvents.CashChanged += OnCashChanged;
         GameEvents.HeatChanged += OnHeatChanged;
         GameEvents.RepChanged += OnRepChanged;
         GameEvents.InventoryChanged += OnInventoryChanged;
@@ -52,6 +57,7 @@ public class GameHUD : MonoBehaviour
         GameEvents.ToastRequested -= OnToastRequested;
         GameEvents.DayEnded -= OnDayEnded;
         GameEvents.HourChanged -= OnHourChanged;
+        GameEvents.CashChanged -= OnCashChanged;
         GameEvents.HeatChanged -= OnHeatChanged;
         GameEvents.RepChanged -= OnRepChanged;
         GameEvents.InventoryChanged -= OnInventoryChanged;
@@ -65,7 +71,6 @@ public class GameHUD : MonoBehaviour
     private void Update()
     {
         UpdateInteractPrompt();
-        UpdateCashDisplay();
         UpdateClockDisplay();
         UpdateToast();
     }
@@ -83,6 +88,11 @@ public class GameHUD : MonoBehaviour
     private void OnHourChanged(int hour, int day)
     {
         if (dayText != null) dayText.text = $"Day {day}";
+    }
+
+    private void OnCashChanged(int newCash)
+    {
+        if (cashText != null) cashText.text = $"{newCash}g";
     }
 
     private void OnHeatChanged(int newHeat, int oldHeat)
@@ -161,7 +171,6 @@ public class GameHUD : MonoBehaviour
         }
 
         if (promptText != null) promptText.gameObject.SetActive(true);
-        if (promptText == null) return;
 
         if (interactable is Building building)
         {
@@ -174,21 +183,21 @@ public class GameHUD : MonoBehaviour
             }
 
             promptText.text = atDoor
-                ? $"[E] Enter {building.buildingName}"
+                ? $"[E] Enter {building.BuildingName}"
                 : building.State switch
                 {
-                    BuildingState.Abandoned => $"[E] Buy {building.buildingName} ({building.purchaseCost}g)",
+                    BuildingState.Abandoned => $"[E] Buy {building.BuildingName} ({building.PurchaseCost}g)",
                     BuildingState.Purchased when !building.BoardsSmashed
-                        => $"[E] Smash ({building.SmashHitsDone}/{building.smashHitsRequired})",
+                        => $"[E] Smash ({building.SmashHitsDone}/{building.SmashHitsRequired})",
                     BuildingState.Purchased when building.BoardsSmashed
                         => "Clear the debris",
-                    BuildingState.Cleared => building.RepairPointsDone >= building.totalRepairPoints
-                        ? $"[E] {building.buildingName}"
-                        : $"[Hold E] Repair ({building.RepairPointsDone}/{building.totalRepairPoints})",
+                    BuildingState.Cleared => building.RepairPointsDone >= building.TotalRepairPoints
+                        ? $"[E] {building.BuildingName}"
+                        : $"[Hold E] Repair ({building.RepairPointsDone}/{building.TotalRepairPoints})",
                     BuildingState.Restored => building.UncollectedIncome > 0
-                        ? $"[E] Collect {building.UncollectedIncome}g from {building.buildingName}"
-                        : $"[E] {building.buildingName}",
-                    _ => $"[E] {building.buildingName}"
+                        ? $"[E] Collect {building.UncollectedIncome}g from {building.BuildingName}"
+                        : $"[E] {building.BuildingName}",
+                    _ => $"[E] {building.BuildingName}"
                 };
         }
         else if (interactable is FermentVat vat)
@@ -239,16 +248,15 @@ public class GameHUD : MonoBehaviour
         }
     }
 
-    private void UpdateCashDisplay()
-    {
-        if (GameManager.Instance == null) return;
-        if (cashText != null) cashText.text = $"{GameManager.Instance.Cash}g";
-    }
-
     private void UpdateClockDisplay()
     {
-        if (TimeManager.Instance == null) return;
-        if (clockText != null) clockText.text = $"{TimeManager.Instance.Hour:00}:{TimeManager.Instance.Minute:00}";
+        if (TimeManager.Instance == null || clockText == null) return;
+        int h = TimeManager.Instance.Hour;
+        int m = TimeManager.Instance.Minute;
+        if (h == _lastClockHour && m == _lastClockMinute) return;
+        _lastClockHour = h;
+        _lastClockMinute = m;
+        clockText.text = $"{h:00}:{m:00}";
     }
 
     private void UpdateToast()

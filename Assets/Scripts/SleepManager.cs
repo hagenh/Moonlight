@@ -66,7 +66,6 @@ public class SleepManager : MonoBehaviour
             GameManager.Instance.AddHeat(-heatDecayPerNight);
 
         bool moveInPending = false;
-        Debug.Log($"[Sleep] Move-in check — ResidentManager.Instance = {ResidentManager.Instance != null}");
         if (ResidentManager.Instance != null)
             moveInPending = ResidentManager.Instance.RunMoveInChecks();
 
@@ -90,7 +89,7 @@ public class SleepManager : MonoBehaviour
     private IEnumerator FadeToBlack()
     {
         if (_fadeImage == null) yield break;
-        _fadeImage.color = new Color(0, 0, 0, 0);
+        _fadeImage.color = new Color(0f, 0f, 0f, 0f);
         _fadeImage.raycastTarget = true;
 
         float t = 0f;
@@ -98,7 +97,7 @@ public class SleepManager : MonoBehaviour
         {
             t += Time.deltaTime;
             float a = Mathf.Clamp01(t / fadeDuration);
-            _fadeImage.color = new Color(0, 0, 0, a);
+            _fadeImage.color = new Color(0f, 0f, 0f, a);
             yield return null;
         }
 
@@ -118,7 +117,7 @@ public class SleepManager : MonoBehaviour
             yield return null;
         }
 
-        _fadeImage.color = new Color(0, 0, 0, 0);
+        _fadeImage.color = new Color(0f, 0f, 0f, 0f);
         _fadeImage.raycastTarget = false;
     }
 }

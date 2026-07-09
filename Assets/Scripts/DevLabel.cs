@@ -23,13 +23,13 @@ public class DevLabel : MonoBehaviour
 
         string priceInfo = building.State switch
         {
-            BuildingState.Abandoned => $"Buy: {building.purchaseCost}g",
-            BuildingState.Purchased => $"Smash: {building.smashHitsRequired} hits",
-            BuildingState.Cleared => $"Repair: {building.totalRepairPoints}pts",
-            BuildingState.Restored => $"+{building.dailyIncome}g/day",
+            BuildingState.Abandoned => $"Buy: {building.PurchaseCost}g",
+            BuildingState.Purchased => $"Smash: {building.SmashHitsRequired} hits",
+            BuildingState.Cleared => $"Repair: {building.TotalRepairPoints}pts",
+            BuildingState.Restored => $"+{building.DailyIncome}g/day",
             _ => ""
         };
 
-        label.text = $"{building.buildingName}\n{building.State}\n{priceInfo}";
+        label.text = $"{building.BuildingName}\n{building.State}\n{priceInfo}";
     }
 }

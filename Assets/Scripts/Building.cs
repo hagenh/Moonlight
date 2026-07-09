@@ -12,18 +12,29 @@ public enum BuildingState
 
 public class Building : MonoBehaviour, IInteractable
 {
-    public string buildingName = "Bakery";
-    public int purchaseCost = 100;
-    public int dailyIncome = 20;
+    [SerializeField] private string buildingName = "Bakery";
+    [SerializeField] private int purchaseCost = 100;
+    [SerializeField] private int dailyIncome = 20;
 
     [Header("Renovation")]
-    public bool isFacadeOnly = false;
-    public int smashHitsRequired = 3;
-    public int debrisCount = 3;
-    public int totalRepairPoints = 3;
-    public int timberPerRepair = 1;
-    public int nailsPerRepair = 1;
-    public float hammerDuration = 2f;
+    [SerializeField] private bool isFacadeOnly = false;
+    [SerializeField] private int smashHitsRequired = 3;
+    [SerializeField] private int debrisCount = 3;
+    [SerializeField] private int totalRepairPoints = 3;
+    [SerializeField] private int timberPerRepair = 1;
+    [SerializeField] private int nailsPerRepair = 1;
+    [SerializeField] private float hammerDuration = 2f;
+
+    public string BuildingName => buildingName;
+    public int PurchaseCost => purchaseCost;
+    public int DailyIncome => dailyIncome;
+    public bool IsFacadeOnly => isFacadeOnly;
+    public int SmashHitsRequired => smashHitsRequired;
+    public int DebrisCount => debrisCount;
+    public int TotalRepairPoints => totalRepairPoints;
+    public int TimberPerRepair => timberPerRepair;
+    public int NailsPerRepair => nailsPerRepair;
+    public float HammerDuration => hammerDuration;
 
     [Header("Visuals")]
     [SerializeField] private Light2D[] windowLights;
@@ -80,56 +91,7 @@ public class Building : MonoBehaviour, IInteractable
     private void StartPunchScale()
     {
         if (_punchCoroutine != null) StopCoroutine(_punchCoroutine);
-        _punchCoroutine = StartCoroutine(PunchScale());
-    }
-
-    private IEnumerator PunchScale()
-    {
-        var vt = VisualTransform;
-        Vector3 baseScale = vt.localScale;
-        float t;
-
-        t = 0f;
-        while (t < 0.08f)
-        {
-            t += Time.deltaTime;
-            float p = Mathf.SmoothStep(0f, 1f, t / 0.08f);
-            vt.localScale = new Vector3(
-                Mathf.Lerp(baseScale.x, baseScale.x * 0.7f, p),
-                Mathf.Lerp(baseScale.y, baseScale.y * 1.3f, p),
-                baseScale.z
-            );
-            yield return null;
-        }
-
-        t = 0f;
-        while (t < 0.1f)
-        {
-            t += Time.deltaTime;
-            float p = Mathf.SmoothStep(0f, 1f, t / 0.1f);
-            vt.localScale = new Vector3(
-                Mathf.Lerp(baseScale.x * 0.7f, baseScale.x * 1.15f, p),
-                Mathf.Lerp(baseScale.y * 1.3f, baseScale.y * 0.9f, p),
-                baseScale.z
-            );
-            yield return null;
-        }
-
-        t = 0f;
-        while (t < 0.1f)
-        {
-            t += Time.deltaTime;
-            float p = Mathf.SmoothStep(0f, 1f, t / 0.1f);
-            vt.localScale = new Vector3(
-                Mathf.Lerp(baseScale.x * 1.15f, baseScale.x, p),
-                Mathf.Lerp(baseScale.y * 0.9f, baseScale.y, p),
-                baseScale.z
-            );
-            yield return null;
-        }
-
-        vt.localScale = baseScale;
-        _punchCoroutine = null;
+        _punchCoroutine = StartCoroutine(JuiceUtils.PunchScale(VisualTransform));
     }
 
     public void Interact()
@@ -160,9 +122,6 @@ public class Building : MonoBehaviour, IInteractable
                     BuildingManager.Instance.CollectIncome(this);
                     break;
             }
-        }
-        else if (LastHitTrigger == doorTrigger)
-        {
         }
     }
 
