@@ -242,6 +242,10 @@ public class GameHUD : MonoBehaviour
                 ? "[E] Deposit debris"
                 : "Debris pile";
         }
+        else if (interactable is BerryBush)
+        {
+            promptText.text = "[E] Forage";
+        }
         else if (interactable is Resident resident)
         {
             promptText.text = resident.def != null

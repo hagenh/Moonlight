@@ -16,5 +16,6 @@ public enum InteractType
     NPC,
     ExitDoor,
     Crate,
-    DeliveryPoint
+    DeliveryPoint,
+    Forage
 }
