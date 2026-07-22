@@ -11,12 +11,13 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - Cliffhanger: Mill cellar, locked from the inside. Metric: do they ask what's in the cellar?
 - NOT in slice: pathfinding, weather, seasons, quest log, cutscene framework, combat, minimap, co-op, free placement (sockets only), corrupt-deputy arc.
 
-## Phase D — Demolition (in progress)
+## Phase D — Demolition (done)
 - [x] Delete heat/suspicion: meter, tiers, guard-count scaling, sleep raids, heat decay, suspicion pricing, risky buyer.
 - [x] Bribe rework: caught while carrying → pay to keep cargo, refuse to lose it. No heat aftermath.
 - [x] Guards: single fixed patrol until Phase 3 repurposes them onto routes.
 - [x] Keep: reputation (dies in Phase 5 with conspiracy trust), stand plan, staged construction, sleep pipeline (minus punishment).
 - [x] Done: compiles, all tests green, no reference to Heat anywhere in Assets/Scripts.
+- Playtest fixes: instant guard detection (no gradual ramp) · CarryState freezes on menu open instead of dropping crate · Building interact passes through without dropping crate · moveInput zeroed on menu open to prevent ghost movement
 
 ## Phase 1 — Act 0: the tent prologue
 - [ ] Camp clearing in near forest: tent, campfire pot (1-slot wild ferment, slow, yields 2 jars).
