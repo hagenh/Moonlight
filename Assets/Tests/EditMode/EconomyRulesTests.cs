@@ -64,6 +64,12 @@ public class EconomyRulesTests
     }
 
     [Test]
+    public void GetDeliveryPrice_Tormod_IsBasePrice()
+    {
+        Assert.AreEqual(25, EconomyRules.GetDeliveryPrice(_moonshine, DeliveryType.Tormod));
+    }
+
+    [Test]
     public void IsSellable_TormodBuysBerryShine()
     {
         var berryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);

@@ -12,6 +12,7 @@ public class SellManager : MonoBehaviour
     [SerializeField] private int tormodLeaveHour = 6;
 
     private SellerInteractable _cartInstance;
+    private DeliveryPoint _cartDeliveryPoint;
     private SellerInteractable _tormodInstance;
     private DeliveryPoint _tormodDeliveryPoint;
 
@@ -74,6 +75,7 @@ public class SellManager : MonoBehaviour
         col.size = new Vector2(1.5f, 1.5f);
         var dp = dpGo.AddComponent<DeliveryPoint>();
         dp.SetDeliveryType(DeliveryType.Cart);
+        _cartDeliveryPoint = dp;
 
         GameEvents.OnSellerArrived(SellerType.TravelingCart);
     }
@@ -84,8 +86,14 @@ public class SellManager : MonoBehaviour
         {
             Destroy(_cartInstance.gameObject);
             _cartInstance = null;
-            GameEvents.OnSellerLeft(SellerType.TravelingCart);
         }
+        if (_cartDeliveryPoint != null)
+        {
+            Destroy(_cartDeliveryPoint.gameObject);
+            _cartDeliveryPoint = null;
+        }
+        if (_cartInstance == null && _cartDeliveryPoint == null)
+            GameEvents.OnSellerLeft(SellerType.TravelingCart);
     }
 
     private void SpawnTormod()
