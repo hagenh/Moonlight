@@ -12,8 +12,6 @@ public class Guard : MonoBehaviour
     [SerializeField] private float visionHalfAngle = 35f;
     [SerializeField] private float sweepAmplitude = 25f;
     [SerializeField] private float sweepSpeed = 0.4f;
-    [SerializeField] private float detectionRate = 80f;
-    [SerializeField] private float detectionDecay = 40f;
 
     [Header("Bribe")]
     [SerializeField] private int bribeCost = 50;
@@ -83,7 +81,7 @@ public class Guard : MonoBehaviour
         float currentFacing = GetCurrentFacing();
         UpdateConeRotation(currentFacing);
 
-        CheckDetection(dt);
+        CheckDetection();
 
         if (_detection >= 100f && !_caught)
             TriggerCaught();
@@ -135,12 +133,12 @@ public class Guard : MonoBehaviour
         return _baseFacing;
     }
 
-    private void CheckDetection(float dt)
+    private void CheckDetection()
     {
         var player = PlayerController.Instance;
         if (player == null || !player.IsCarryingCrate)
         {
-            _detection = Mathf.Max(0, _detection - detectionDecay * dt);
+            _detection = 0;
             return;
         }
 
@@ -150,7 +148,7 @@ public class Guard : MonoBehaviour
 
         if (dist > visionRange)
         {
-            _detection = Mathf.Max(0, _detection - detectionDecay * dt);
+            _detection = 0;
             return;
         }
 
@@ -161,17 +159,17 @@ public class Guard : MonoBehaviour
 
         if (Mathf.Abs(delta) > visionHalfAngle)
         {
-            _detection = Mathf.Max(0, _detection - detectionDecay * dt);
+            _detection = 0;
             return;
         }
 
         if (IsBlockedByCover(from, to))
         {
-            _detection = Mathf.Max(0, _detection - detectionDecay * dt);
+            _detection = 0;
             return;
         }
 
-        _detection = Mathf.Min(100, _detection + detectionRate * dt);
+        _detection = 100;
     }
 
     private bool IsBlockedByCover(Vector2 from, Vector2 to)
@@ -192,10 +190,7 @@ public class Guard : MonoBehaviour
         _caught = true;
         _detection = 0;
         if (PlayerController.Instance != null)
-        {
             PlayerController.Instance.IsMenuOpen = true;
-            PlayerController.Instance.ForceIdle();
-        }
         GameEvents.OnCaughtBribe(bribeCost);
     }
 
