@@ -128,7 +128,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (IsMenuOpen) return;
+        if (IsMenuOpen)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
         if (context.performed)
         {
             moveInput = context.ReadValue<Vector2>();
