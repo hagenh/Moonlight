@@ -7,12 +7,17 @@ public class SellManager : MonoBehaviour
     [SerializeField] private Transform cartPosition;
     [SerializeField] private int cartArriveHour = 10;
     [SerializeField] private int cartLeaveHour = 18;
+    [SerializeField] private Transform tormodPosition;
+    [SerializeField] private int tormodArriveHour = 18;
+    [SerializeField] private int tormodLeaveHour = 6;
 
     private SellerInteractable _cartInstance;
+    private SellerInteractable _tormodInstance;
 
     private IRng _rng = UnityRng.Instance;
 
     public bool IsCartInTown => _cartInstance != null;
+    public bool IsTormodInTown => _tormodInstance != null;
 
     internal void SetRng(IRng rng) => _rng = rng;
 
@@ -37,6 +42,7 @@ public class SellManager : MonoBehaviour
     private void OnDayEnded(int day)
     {
         RemoveCart();
+        RemoveTormod();
     }
 
     private void OnHourChanged(int hour, int day)
@@ -46,6 +52,12 @@ public class SellManager : MonoBehaviour
 
         if (hour == cartLeaveHour && _cartInstance != null)
             RemoveCart();
+
+        if (hour == tormodArriveHour && _tormodInstance == null)
+            SpawnTormod();
+
+        if (hour == tormodLeaveHour && _tormodInstance != null)
+            RemoveTormod();
     }
 
     private void SpawnCart()
@@ -72,6 +84,23 @@ public class SellManager : MonoBehaviour
             Destroy(_cartInstance.gameObject);
             _cartInstance = null;
             GameEvents.OnSellerLeft(SellerType.TravelingCart);
+        }
+    }
+
+    private void SpawnTormod()
+    {
+        Vector3 pos = tormodPosition != null ? tormodPosition.position : Vector3.zero;
+        _tormodInstance = SellerInteractable.Create(SellerType.Tormod, pos);
+        GameEvents.OnSellerArrived(SellerType.Tormod);
+    }
+
+    private void RemoveTormod()
+    {
+        if (_tormodInstance != null)
+        {
+            Destroy(_tormodInstance.gameObject);
+            _tormodInstance = null;
+            GameEvents.OnSellerLeft(SellerType.Tormod);
         }
     }
 

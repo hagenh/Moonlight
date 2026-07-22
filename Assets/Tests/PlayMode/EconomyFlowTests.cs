@@ -53,4 +53,21 @@ public class EconomyFlowTests
         Assert.AreEqual(0, _inventory.GetCount(_grain));
         yield return null;
     }
+
+    [UnityTest]
+    public IEnumerator TormodSpawnsAtDusk()
+    {
+        var timeManager = TestBootstrap.CreateSingleton<TimeManager>();
+
+        timeManager.SetTime(1, 17, 0);
+
+        Assert.IsFalse(_sellManager.IsTormodInTown);
+
+        timeManager.AdvanceHour();
+
+        for (int i = 0; i < 3; i++)
+            yield return null;
+
+        Assert.IsTrue(_sellManager.IsTormodInTown);
+    }
 }
