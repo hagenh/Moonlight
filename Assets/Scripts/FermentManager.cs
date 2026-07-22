@@ -27,20 +27,20 @@ public class FermentManager : MonoBehaviour
 
         _recipes = new RecipeData[]
         {
-            new RecipeData("Basic Mash", 4, 3, ContentDb.BasicMoonshine, null, 0, 3)
+            new RecipeData("Basic Mash", 4, 3, ContentDb.BasicMoonshine)
                 .AddIngredient(ContentDb.Grain, 2)
                 .AddIngredient(ContentDb.Water, 1)
                 .AddIngredient(ContentDb.Yeast, 1),
-            new RecipeData("Sweet Batch", 6, 4, ContentDb.SweetMoonshine, "Bakery", 0, 6)
+            new RecipeData("Sweet Batch", 6, 4, ContentDb.SweetMoonshine, "Bakery")
                 .AddIngredient(ContentDb.Grain, 1)
                 .AddIngredient(ContentDb.Sugar, 2)
                 .AddIngredient(ContentDb.Yeast, 1)
                 .AddIngredient(ContentDb.Water, 1),
-            new RecipeData("Highland Mash", 8, 5, ContentDb.HighlandMoonshine, "Mill", 0, 10)
+            new RecipeData("Highland Mash", 8, 5, ContentDb.HighlandMoonshine, "Mill")
                 .AddIngredient(ContentDb.Grain, 4)
                 .AddIngredient(ContentDb.Yeast, 1)
                 .AddIngredient(ContentDb.Water, 2),
-            new RecipeData("Aged Reserve", 12, 3, ContentDb.AgedReserve, null, 50, 18)
+            new RecipeData("Aged Reserve", 12, 3, ContentDb.AgedReserve, null, 50)
                 .AddIngredient(ContentDb.Grain, 2)
                 .AddIngredient(ContentDb.Sugar, 2)
                 .AddIngredient(ContentDb.Yeast, 2)
@@ -172,11 +172,5 @@ public class FermentManager : MonoBehaviour
         }
 
         return true;
-    }
-
-    public RecipeData FindRecipeForItem(ItemDef item)
-    {
-        if (item == null || _recipes == null) return null;
-        return _recipes.FirstOrDefault(r => r.outputItem == item);
     }
 }

@@ -23,7 +23,6 @@ public class SellerInteractable : MonoBehaviour, IInteractable
         {
             SellerType.Tormod => new Color(0.9f, 0.8f, 0.3f),
             SellerType.TravelingCart => new Color(0.5f, 0.4f, 0.8f),
-            SellerType.RiskyBuyer => new Color(0.9f, 0.2f, 0.2f),
             _ => Color.white
         };
         sr.sortingOrder = 5;

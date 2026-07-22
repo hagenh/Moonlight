@@ -8,7 +8,6 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI cashText;
     [SerializeField] private TMPro.TextMeshProUGUI dayText;
     [SerializeField] private TMPro.TextMeshProUGUI toastText;
-    [SerializeField] private TMPro.TextMeshProUGUI heatText;
     [SerializeField] private TMPro.TextMeshProUGUI repText;
     [SerializeField] private TMPro.TextMeshProUGUI clockText;
     [SerializeField] private TMPro.TextMeshProUGUI inventoryText;
@@ -27,7 +26,6 @@ public class GameHUD : MonoBehaviour
         if (promptText != null) promptText.gameObject.SetActive(false);
         if (toastText != null) toastText.gameObject.SetActive(false);
         if (hammerProgressText != null) hammerProgressText.gameObject.SetActive(false);
-        if (heatText != null) heatText.text = "Suspicion: 0 (Clean)";
         if (repText != null) repText.text = "Rep: 0";
         if (clockText != null) clockText.text = "08:00";
         if (dayText != null) dayText.text = "Day 1";
@@ -42,7 +40,6 @@ public class GameHUD : MonoBehaviour
         GameEvents.DayEnded += OnDayEnded;
         GameEvents.HourChanged += OnHourChanged;
         GameEvents.CashChanged += OnCashChanged;
-        GameEvents.HeatChanged += OnHeatChanged;
         GameEvents.RepChanged += OnRepChanged;
         GameEvents.InventoryChanged += OnInventoryChanged;
         GameEvents.SellerArrived += OnSellerArrived;
@@ -58,7 +55,6 @@ public class GameHUD : MonoBehaviour
         GameEvents.DayEnded -= OnDayEnded;
         GameEvents.HourChanged -= OnHourChanged;
         GameEvents.CashChanged -= OnCashChanged;
-        GameEvents.HeatChanged -= OnHeatChanged;
         GameEvents.RepChanged -= OnRepChanged;
         GameEvents.InventoryChanged -= OnInventoryChanged;
         GameEvents.SellerArrived -= OnSellerArrived;
@@ -93,27 +89,6 @@ public class GameHUD : MonoBehaviour
     private void OnCashChanged(int newCash)
     {
         if (cashText != null) cashText.text = $"{newCash}g";
-    }
-
-    private void OnHeatChanged(int newHeat, int oldHeat)
-    {
-        if (heatText == null) return;
-        var tier = EconomyRules.GetSuspicionTier(newHeat);
-        string tierLabel = tier switch
-        {
-            EconomyRules.SuspicionTier.Clean => "Clean",
-            EconomyRules.SuspicionTier.Noticed => "Noticed",
-            EconomyRules.SuspicionTier.TalkedAbout => "Talked About",
-            _ => "Burning"
-        };
-        heatText.text = $"Suspicion: {newHeat} ({tierLabel})";
-        heatText.color = tier switch
-        {
-            EconomyRules.SuspicionTier.Clean => Color.white,
-            EconomyRules.SuspicionTier.Noticed => Color.yellow,
-            EconomyRules.SuspicionTier.TalkedAbout => new Color(1f, 0.5f, 0f),
-            _ => Color.red
-        };
     }
 
     private void OnRepChanged(int newRep, int oldRep)
@@ -232,7 +207,6 @@ public class GameHUD : MonoBehaviour
             {
                 SellerType.Tormod => "[E] Sell to Tormod",
                 SellerType.TravelingCart => "[E] Visit Cart",
-                SellerType.RiskyBuyer => "[E] Shady Deal",
                 _ => "[E] Interact"
             };
         }

@@ -29,32 +29,12 @@ public class DeliveryPoint : MonoBehaviour, IInteractable
         var crate = PlayerController.Instance.CarriedCrate;
         if (crate == null) return;
 
-        int suspicion = GameManager.Instance != null ? GameManager.Instance.Heat : 0;
-        int price = EconomyRules.GetDeliveryPrice(crate.item, deliveryType, suspicion) * crate.count;
-
-        if (price <= 0 && deliveryType == DeliveryType.Cart)
-        {
-            GameEvents.OnToastRequested("The cart driver won't deal with you — too much heat.");
-            return;
-        }
+        int price = EconomyRules.GetDeliveryPrice(crate.item, deliveryType) * crate.count;
 
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddCash(price);
             GameEvents.OnToastRequested($"+{price}g");
-
-            if (deliveryType == DeliveryType.Backwoods && TimeManager.Instance != null)
-            {
-                var recipe = FermentManager.Instance != null
-                    ? FermentManager.Instance.FindRecipeForItem(crate.item)
-                    : null;
-                if (recipe != null)
-                {
-                    int suspicionGain = EconomyRules.GetSuspicionForDrop(recipe, TimeManager.Instance.Hour);
-                    if (suspicionGain > 0)
-                        GameManager.Instance.AddHeat(suspicionGain);
-                }
-            }
         }
 
         Destroy(crate.gameObject);
