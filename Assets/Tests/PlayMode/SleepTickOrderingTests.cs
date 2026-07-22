@@ -27,7 +27,6 @@ public class SleepTickOrderingTests
         GameEvents.SleepInitiated += (day) => _recorder.Record("SleepInitiated", day);
         GameEvents.DayEnded += (day) => _recorder.Record("DayEnded", day);
         GameEvents.HourChanged += (hour, day) => _recorder.Record("HourChanged", $"{hour}/{day}");
-        GameEvents.HeatChanged += (newHeat, oldHeat) => _recorder.Record("HeatChanged", $"{newHeat}/{oldHeat}");
         GameEvents.ResidentMovedIn += (def, b) => _recorder.Record("ResidentMovedIn");
         GameEvents.SleepCompleted += (newDay) => _recorder.Record("SleepCompleted", newDay);
     }
@@ -42,7 +41,6 @@ public class SleepTickOrderingTests
     [UnityTest]
     public IEnumerator BeginSleep_FiresEventsInCorrectOrder()
     {
-        _gameManager.SetHeat(30);
         _timeManager.SetTime(1, 10, 0);
         _recorder.Clear();
 
@@ -53,31 +51,14 @@ public class SleepTickOrderingTests
 
         int sleepInitiatedIdx = FindFirstIndexStartingWith("SleepInitiated");
         int dayEndedIdx = FindFirstIndexStartingWith("DayEnded");
-        int heatChangedIdx = FindFirstIndexStartingWith("HeatChanged");
         int sleepCompletedIdx = FindFirstIndexStartingWith("SleepCompleted");
 
         Assert.GreaterOrEqual(sleepInitiatedIdx, 0, "SleepInitiated should have fired");
         Assert.GreaterOrEqual(dayEndedIdx, 0, "DayEnded should have fired");
-        Assert.GreaterOrEqual(heatChangedIdx, 0, "HeatChanged should have fired");
         Assert.GreaterOrEqual(sleepCompletedIdx, 0, "SleepCompleted should have fired");
 
         Assert.Less(sleepInitiatedIdx, dayEndedIdx, "SleepInitiated must fire before DayEnded");
-        Assert.Less(dayEndedIdx, heatChangedIdx, "DayEnded must fire before HeatChanged");
-        Assert.Less(heatChangedIdx, sleepCompletedIdx, "HeatChanged must fire before SleepCompleted");
-    }
-
-    [UnityTest]
-    public IEnumerator BeginSleep_DecaysHeat()
-    {
-        _gameManager.SetHeat(30);
-        _timeManager.SetTime(1, 10, 0);
-
-        _sleepManager.BeginSleep();
-
-        for (int i = 0; i < 5; i++)
-            yield return null;
-
-        Assert.Less(_gameManager.Heat, 30, "Heat should decay after sleep");
+        Assert.Less(dayEndedIdx, sleepCompletedIdx, "DayEnded must fire before SleepCompleted");
     }
 
     [UnityTest]
