@@ -70,8 +70,8 @@ public class BribeUI : MonoBehaviour
         int cash = GameManager.Instance != null ? GameManager.Instance.Cash : 0;
         bool canAfford = cash >= _cost;
 
-        GUILayout.Label($"A guard caught you carrying moonshine!");
-        GUILayout.Label($"Pay {_cost}g? (You have {cash}g)");
+        GUILayout.Label("A guard caught you carrying moonshine!");
+        GUILayout.Label($"Pay {_cost}g to keep your cargo? Refuse and lose it. (You have {cash}g)");
 
         GUILayout.Space(8);
 

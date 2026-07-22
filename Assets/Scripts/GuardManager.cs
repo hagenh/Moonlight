@@ -12,7 +12,7 @@ public class GuardManager : MonoBehaviour
     [SerializeField] private Transform[] route3Waypoints;
 
     private readonly List<Guard> _activeGuards = new();
-    private int _targetGuardCount = 1;
+    [SerializeField] private int guardCount = 1;
     private static Sprite _guardSprite;
 
     public IReadOnlyList<Guard> ActiveGuards => _activeGuards;
@@ -25,7 +25,6 @@ public class GuardManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.HeatChanged += OnHeatChanged;
         GameEvents.SleepCompleted += OnSleepCompleted;
         GameEvents.BribePaid += OnBribePaid;
         GameEvents.BribeRefused += OnBribeRefused;
@@ -33,7 +32,6 @@ public class GuardManager : MonoBehaviour
 
     private void OnDisable()
     {
-        GameEvents.HeatChanged -= OnHeatChanged;
         GameEvents.SleepCompleted -= OnSleepCompleted;
         GameEvents.BribePaid -= OnBribePaid;
         GameEvents.BribeRefused -= OnBribeRefused;
@@ -41,19 +39,7 @@ public class GuardManager : MonoBehaviour
 
     private void Start()
     {
-        int suspicion = GameManager.Instance != null ? GameManager.Instance.Heat : 0;
-        _targetGuardCount = EconomyRules.GetGuardCountForSuspicion(suspicion);
         SyncGuardCount();
-    }
-
-    private void OnHeatChanged(int newHeat, int oldHeat)
-    {
-        int newCount = EconomyRules.GetGuardCountForSuspicion(newHeat);
-        if (newCount != _targetGuardCount)
-        {
-            _targetGuardCount = newCount;
-            SyncGuardCount();
-        }
     }
 
     private void OnSleepCompleted(int newDay)
@@ -103,12 +89,12 @@ public class GuardManager : MonoBehaviour
 
     private void SyncGuardCount()
     {
-        while (_activeGuards.Count < _targetGuardCount)
+        while (_activeGuards.Count < guardCount)
         {
             int routeIndex = _activeGuards.Count;
             SpawnGuard(routeIndex);
         }
-        while (_activeGuards.Count > _targetGuardCount)
+        while (_activeGuards.Count > guardCount)
         {
             DespawnGuard();
         }

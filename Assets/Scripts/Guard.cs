@@ -17,8 +17,6 @@ public class Guard : MonoBehaviour
 
     [Header("Bribe")]
     [SerializeField] private int bribeCost = 50;
-    [SerializeField] private int suspicionOnBribe = 5;
-    [SerializeField] private int suspicionOnCaught = 20;
     [SerializeField] private float lookAwayDuration = 8f;
 
     private int _currentWaypoint;
@@ -203,19 +201,10 @@ public class Guard : MonoBehaviour
 
     private void ResolveBribe(bool paid)
     {
-        ConfiscateCrate();
-        if (GameManager.Instance != null)
-        {
-            if (paid)
-            {
-                GameManager.Instance.TrySpend(bribeCost);
-                GameManager.Instance.AddHeat(suspicionOnBribe);
-            }
-            else
-            {
-                GameManager.Instance.AddHeat(suspicionOnCaught);
-            }
-        }
+        if (paid && GameManager.Instance != null && GameManager.Instance.TrySpend(bribeCost))
+            GameEvents.OnToastRequested("The guard looks the other way.");
+        else
+            ConfiscateCrate();
         _lookingAway = true;
         _lookAwayTimer = lookAwayDuration;
         _caught = false;
