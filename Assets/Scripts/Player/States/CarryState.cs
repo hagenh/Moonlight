@@ -18,13 +18,7 @@ namespace Player.States
 
         public override void LogicUpdate()
         {
-            if (controller.IsMenuOpen)
-            {
-                if (controller.IsCarrying) controller.DropDebrisAtFeet();
-                if (controller.IsCarryingCrate) controller.DropCrateAtFeet();
-                ChangeState(new IdleState(controller));
-                return;
-            }
+            if (controller.IsMenuOpen) return;
 
             UpdateFacingDirection(controller.MoveInput);
         }
@@ -56,7 +50,9 @@ namespace Player.States
                 if (!controller.IsCarryingCrate)
                     ChangeState(new IdleState(controller));
             }
-            else if (controller.CurrentInteractable is ExitDoor || controller.CurrentInteractable is Bed)
+            else if (controller.CurrentInteractable is ExitDoor
+                || controller.CurrentInteractable is Bed
+                || controller.CurrentInteractable is Building)
             {
                 controller.CurrentInteractable.Interact();
             }
