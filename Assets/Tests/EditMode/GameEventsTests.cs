@@ -51,10 +51,10 @@ public class GameEventsTests
     public void MultipleSubscribers_AllFire()
     {
         int a = 0, b = 0;
-        GameEvents.HeatChanged += (newHeat, oldHeat) => a++;
-        GameEvents.HeatChanged += (newHeat, oldHeat) => b++;
+        GameEvents.RepChanged += (newRep, oldRep) => a++;
+        GameEvents.RepChanged += (newRep, oldRep) => b++;
 
-        GameEvents.OnHeatChanged(50, 30);
+        GameEvents.OnRepChanged(50, 30);
 
         Assert.AreEqual(1, a);
         Assert.AreEqual(1, b);

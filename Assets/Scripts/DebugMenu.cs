@@ -38,7 +38,6 @@ public class DebugMenu : MonoBehaviour
         GUILayout.Label($"Cash: {GameManager.Instance.Cash}g");
         GUILayout.Label($"Day: {(TimeManager.Instance != null ? TimeManager.Instance.Day : 0)}");
         GUILayout.Label($"Time: {(TimeManager.Instance != null ? $"{TimeManager.Instance.Hour:00}:{TimeManager.Instance.Minute:00}" : "--:--")}");
-        GUILayout.Label($"Heat: {GameManager.Instance.Heat}");
         GUILayout.Label($"Rep: {GameManager.Instance.Reputation}");
 
         GUILayout.Space(8);
@@ -52,16 +51,10 @@ public class DebugMenu : MonoBehaviour
                 TimeManager.Instance.AdvanceToDayEnd();
         }
 
-        if (GUILayout.Button("Heat +10"))
-            GameManager.Instance.SetHeat(GameManager.Instance.Heat + 10);
-
         if (GUILayout.Button("Rep +10"))
             GameManager.Instance.SetReputation(GameManager.Instance.Reputation + 10);
 
         GUILayout.Space(8);
-
-        if (GUILayout.Button("Reset Heat"))
-            GameManager.Instance.SetHeat(0);
 
         if (GUILayout.Button("Reset Rep"))
             GameManager.Instance.SetReputation(0);

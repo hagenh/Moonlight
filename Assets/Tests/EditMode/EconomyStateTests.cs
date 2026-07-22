@@ -43,37 +43,6 @@ public class EconomyStateTests
     }
 
     [Test]
-    public void SetHeat_ClampsAtZero()
-    {
-        _economy.SetHeat(-10);
-        Assert.AreEqual(0, _economy.Heat);
-    }
-
-    [Test]
-    public void AddHeat_NegativeClampsAtZero()
-    {
-        _economy.SetHeat(5);
-        _economy.AddHeat(-20);
-        Assert.AreEqual(0, _economy.Heat);
-    }
-
-    [Test]
-    public void SetHeat_ReturnsOldValue()
-    {
-        _economy.SetHeat(30);
-        int old = _economy.SetHeat(50);
-        Assert.AreEqual(30, old);
-    }
-
-    [Test]
-    public void SetHeat_NoChangeReturnsSameOld()
-    {
-        _economy.SetHeat(40);
-        int old = _economy.SetHeat(40);
-        Assert.AreEqual(40, old);
-    }
-
-    [Test]
     public void SetReputation_ReturnsOld()
     {
         _economy.SetReputation(10);

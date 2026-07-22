@@ -5,7 +5,6 @@ public static class GameEvents
     public static event System.Action<ResidentDef, Building> ResidentMovedIn;
     public static event System.Action<int> DayEnded;
     public static event System.Action<int> CashChanged;
-    public static event System.Action<int, int> HeatChanged;
     public static event System.Action<int, int> RepChanged;
 
     public static event System.Action<int, int> HourChanged;
@@ -40,7 +39,6 @@ public static class GameEvents
     public static event System.Action<int> CaughtBribe;
     public static event System.Action BribePaid;
     public static event System.Action BribeRefused;
-    public static event System.Action<int, int> RaidOccurred;
 
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
@@ -56,9 +54,6 @@ public static class GameEvents
 
     public static void OnCashChanged(int newCash)
         => CashChanged?.Invoke(newCash);
-
-    public static void OnHeatChanged(int newHeat, int oldHeat)
-        => HeatChanged?.Invoke(newHeat, oldHeat);
 
     public static void OnRepChanged(int newRep, int oldRep)
         => RepChanged?.Invoke(newRep, oldRep);
@@ -149,7 +144,4 @@ public static class GameEvents
 
     public static void OnBribeRefused()
         => BribeRefused?.Invoke();
-
-    public static void OnRaidOccurred(int cratesLost, int fine)
-        => RaidOccurred?.Invoke(cratesLost, fine);
 }

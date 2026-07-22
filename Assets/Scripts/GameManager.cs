@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int startingCash = 500;
     public int Cash => Economy.Cash;
-    public int Heat => Economy.Heat;
     public int Reputation => Economy.Reputation;
 
     private EconomyState _economy;
@@ -43,14 +42,6 @@ public class GameManager : MonoBehaviour
     {
         Economy.AddCash(amount);
         GameEvents.OnCashChanged(Cash);
-    }
-
-    public void AddHeat(int delta) => SetHeat(Heat + delta);
-
-    public void SetHeat(int value)
-    {
-        int old = Economy.SetHeat(value);
-        if (Heat != old) GameEvents.OnHeatChanged(Heat, old);
     }
 
     public void SetReputation(int value)

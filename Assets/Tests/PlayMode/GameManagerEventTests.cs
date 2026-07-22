@@ -17,7 +17,6 @@ public class GameManagerEventTests
         _recorder = new EventRecorder();
 
         GameEvents.CashChanged += (cash) => _recorder.Record("CashChanged", cash);
-        GameEvents.HeatChanged += (newHeat, oldHeat) => _recorder.Record("HeatChanged", $"{newHeat}/{oldHeat}");
         GameEvents.RepChanged += (newRep, oldRep) => _recorder.Record("RepChanged", $"{newRep}/{oldRep}");
     }
 
@@ -62,27 +61,6 @@ public class GameManagerEventTests
     }
 
     [UnityTest]
-    public IEnumerator AddHeat_FiresHeatChanged()
-    {
-        _gameManager.AddHeat(20);
-
-        Assert.AreEqual(20, _gameManager.Heat);
-        Assert.AreEqual(1, _recorder.Count);
-        Assert.IsTrue(_recorder.Order[0].StartsWith("HeatChanged"));
-        yield return null;
-    }
-
-    [UnityTest]
-    public IEnumerator SetHeat_NoChange_DoesNotFireEvent()
-    {
-        _gameManager.SetHeat(0);
-
-        Assert.AreEqual(0, _gameManager.Heat);
-        Assert.AreEqual(0, _recorder.Count);
-        yield return null;
-    }
-
-    [UnityTest]
     public IEnumerator SetReputation_FiresRepChanged()
     {
         _gameManager.SetReputation(10);
@@ -90,18 +68,6 @@ public class GameManagerEventTests
         Assert.AreEqual(10, _gameManager.Reputation);
         Assert.AreEqual(1, _recorder.Count);
         Assert.IsTrue(_recorder.Order[0].StartsWith("RepChanged"));
-        yield return null;
-    }
-
-    [UnityTest]
-    public IEnumerator AddHeat_Negative_ClampsAtZero()
-    {
-        _gameManager.SetHeat(5);
-        _recorder.Clear();
-        _gameManager.AddHeat(-20);
-
-        Assert.AreEqual(0, _gameManager.Heat);
-        Assert.AreEqual(1, _recorder.Count);
         yield return null;
     }
 }
