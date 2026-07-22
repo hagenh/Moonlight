@@ -110,6 +110,32 @@ public class FermentationFlowTests
     }
 
     [UnityTest]
+    public IEnumerator BerryShineFermentation_CompletesAndCollects()
+    {
+        _inventory.TryAdd(ContentDb.Berry, 3);
+
+        var berryRecipe = new RecipeData("Berry Shine", 1, 2, ContentDb.BerryShine)
+            .AddIngredient(ContentDb.Berry, 3);
+
+        _fermentManager.TryStartBatch(_vat, berryRecipe);
+        Assert.AreEqual(VatState.Fermenting, _vat.State);
+
+        _timeManager.SetTime(
+            _timeManager.Day + 1,
+            _timeManager.Hour,
+            _timeManager.Minute);
+
+        for (int i = 0; i < 5; i++)
+            yield return null;
+
+        Assert.AreEqual(VatState.Ready, _vat.State);
+
+        bool collected = _fermentManager.TryCollectBatch(_vat);
+        Assert.IsTrue(collected);
+        Assert.AreEqual(2, _inventory.GetCount(ContentDb.BerryShine));
+    }
+
+    [UnityTest]
     public IEnumerator TryCollectBatch_NotReady_ReturnsFalse()
     {
         _inventory.TryAdd(ContentDb.Grain, 1);
