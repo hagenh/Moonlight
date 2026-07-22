@@ -62,4 +62,25 @@ public class EconomyRulesTests
     {
         Assert.AreEqual(25, EconomyRules.GetDeliveryPrice(_moonshine, DeliveryType.Cart));
     }
+
+    [Test]
+    public void IsSellable_TormodBuysBerryShine()
+    {
+        var berryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
+        Assert.IsTrue(EconomyRules.IsSellable(berryShine, SellerType.Tormod));
+    }
+
+    [Test]
+    public void IsSellable_CartBuysBerryShine()
+    {
+        var berryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
+        Assert.IsTrue(EconomyRules.IsSellable(berryShine, SellerType.TravelingCart));
+    }
+
+    [Test]
+    public void IsSellable_TormodDoesNotBuyIngredients()
+    {
+        var berry = new ItemDef("berry", "Berry", true, 2);
+        Assert.IsFalse(EconomyRules.IsSellable(berry, SellerType.Tormod));
+    }
 }
