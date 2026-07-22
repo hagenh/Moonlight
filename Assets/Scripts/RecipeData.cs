@@ -6,6 +6,9 @@ public class RecipeData
     public int fermentationHours;
     public int outputCount;
     public ItemDef outputItem;
+    public string unlockedByBuildingId;
+    public int minReputation;
+    public int suspicionPerDrop;
 
     private readonly List<KeyValuePair<ItemDef, int>> _ingredients = new();
 
@@ -32,12 +35,16 @@ public class RecipeData
         }
     }
 
-    public RecipeData(string recipeName, int fermentationHours, int outputCount, ItemDef outputItem)
+    public RecipeData(string recipeName, int fermentationHours, int outputCount, ItemDef outputItem,
+        string unlockedByBuildingId = null, int minReputation = 0, int suspicionPerDrop = 5)
     {
         this.recipeName = recipeName;
         this.fermentationHours = fermentationHours;
         this.outputCount = outputCount;
         this.outputItem = outputItem;
+        this.unlockedByBuildingId = unlockedByBuildingId;
+        this.minReputation = minReputation;
+        this.suspicionPerDrop = suspicionPerDrop;
     }
 
     public RecipeData AddIngredient(ItemDef def, int amount)

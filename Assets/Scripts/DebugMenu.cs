@@ -33,6 +33,8 @@ public class DebugMenu : MonoBehaviour
 
         if (GameManager.Instance == null) return;
 
+        _scrollPos = GUILayout.BeginScrollView(_scrollPos, GUILayout.ExpandWidth(true));
+
         GUILayout.Label($"Cash: {GameManager.Instance.Cash}g");
         GUILayout.Label($"Day: {(TimeManager.Instance != null ? TimeManager.Instance.Day : 0)}");
         GUILayout.Label($"Time: {(TimeManager.Instance != null ? $"{TimeManager.Instance.Hour:00}:{TimeManager.Instance.Minute:00}" : "--:--")}");
@@ -175,6 +177,8 @@ public class DebugMenu : MonoBehaviour
             foreach (var kvp in InventoryManager.Instance.AllItems)
                 GUILayout.Label($"  {kvp.Key.displayName}: {kvp.Value}");
         }
+
+        GUILayout.EndScrollView();
     }
 }
 #endif

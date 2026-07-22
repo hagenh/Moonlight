@@ -13,7 +13,7 @@ namespace Player.States
             if (controller.CurrentInteractable != null)
                 controller.CurrentInteractable.Interact();
 
-            if (controller.IsCarrying)
+            if (controller.IsCarrying || controller.IsCarryingCrate)
                 ChangeState(new CarryState(controller));
             else
                 ChangeState(new IdleState(controller));

@@ -13,5 +13,8 @@ public enum InteractType
     Bed,
     Debris,
     DebrisPile,
-    NPC
+    NPC,
+    ExitDoor,
+    Crate,
+    DeliveryPoint
 }

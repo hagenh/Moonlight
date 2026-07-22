@@ -20,7 +20,8 @@ namespace Player.States
         {
             if (controller.IsMenuOpen)
             {
-                controller.DropDebrisAtFeet();
+                if (controller.IsCarrying) controller.DropDebrisAtFeet();
+                if (controller.IsCarryingCrate) controller.DropCrateAtFeet();
                 ChangeState(new IdleState(controller));
                 return;
             }
@@ -30,7 +31,7 @@ namespace Player.States
 
         public override void PhysicsUpdate()
         {
-            float speed = controller.WalkSpeed * 0.8f;
+            float speed = controller.WalkSpeed;
             Vector2 velocity = controller.MoveInput.normalized * speed;
             controller.RB.linearVelocity = velocity;
             controller.SetAnimatorFloat(AnimatorParams.SpeedX, velocity.x);
@@ -49,10 +50,21 @@ namespace Player.States
                 if (!controller.IsCarrying)
                     ChangeState(new IdleState(controller));
             }
+            else if (controller.CurrentInteractable is DeliveryPoint dp)
+            {
+                dp.Interact();
+                if (!controller.IsCarryingCrate)
+                    ChangeState(new IdleState(controller));
+            }
+            else if (controller.CurrentInteractable is ExitDoor || controller.CurrentInteractable is Bed)
+            {
+                controller.CurrentInteractable.Interact();
+            }
             else
             {
-                controller.DropDebrisAtFeet();
-                GameEvents.OnToastRequested("Dropped debris");
+                if (controller.IsCarrying) controller.DropDebrisAtFeet();
+                if (controller.IsCarryingCrate) controller.DropCrateAtFeet();
+                GameEvents.OnToastRequested("Dropped");
                 ChangeState(new IdleState(controller));
             }
         }

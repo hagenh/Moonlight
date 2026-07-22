@@ -4,11 +4,9 @@ using UnityEngine.InputSystem;
 
 public class SellUI : MonoBehaviour
 {
-    private SellerType? _currentSeller;
     private bool _visible;
     private Vector2 _scrollPos;
     private Rect _windowRect = new Rect(0, 0, 340, 420);
-    private bool _showBuyTab;
 
     private void OnEnable()
     {
@@ -24,9 +22,7 @@ public class SellUI : MonoBehaviour
 
     private void OnSellMenuRequested(SellerType type)
     {
-        _currentSeller = type;
         _visible = true;
-        _showBuyTab = false;
         if (PlayerController.Instance != null)
             PlayerController.Instance.IsMenuOpen = true;
 
@@ -49,7 +45,6 @@ public class SellUI : MonoBehaviour
     {
         if (!_visible) return;
         _visible = false;
-        _currentSeller = null;
         if (SellManager.Instance != null)
             SellManager.Instance.CloseSellMenu();
         if (PlayerController.Instance != null)
@@ -58,93 +53,17 @@ public class SellUI : MonoBehaviour
 
     private void OnGUI()
     {
-        if (!_visible || !_currentSeller.HasValue) return;
-        _windowRect = GUI.Window(2, _windowRect, DrawWindow, GetTitle());
-    }
-
-    private string GetTitle()
-    {
-        return _currentSeller.Value switch
-        {
-            SellerType.Tormod => "Tormod's Offer",
-            SellerType.TravelingCart => "Traveling Cart",
-            SellerType.RiskyBuyer => "Shady Deal",
-            _ => "Sell"
-        };
+        if (!_visible) return;
+        _windowRect = GUI.Window(2, _windowRect, DrawWindow, "Traveling Cart — Buy Ingredients");
     }
 
     private void DrawWindow(int id)
     {
         GUI.DragWindow(new Rect(0, 0, _windowRect.width, 20));
 
-        if (_currentSeller == SellerType.RiskyBuyer)
-        {
-            GUI.color = Color.red;
-            GUILayout.Label("WARNING: +15 Heat per sale!");
-            if (GameManager.Instance != null && GameManager.Instance.Heat > 50)
-                GUILayout.Label($"Heat is {GameManager.Instance.Heat} - 10% confiscation risk!");
-            GUI.color = Color.white;
-        }
-
-        if (_currentSeller == SellerType.TravelingCart)
-        {
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Toggle(!_showBuyTab, "Sell Bottles", GUILayout.Width(150))) _showBuyTab = false;
-            if (GUILayout.Toggle(_showBuyTab, "Buy Ingredients", GUILayout.Width(150))) _showBuyTab = true;
-            GUILayout.EndHorizontal();
-            GUILayout.Space(4);
-        }
-
-        if (!_showBuyTab)
-            DrawSellSection();
-        else
-            DrawBuySection();
-
-        GUILayout.Space(8);
-        if (GUILayout.Button("Close"))
-            Close();
-    }
-
-    private void DrawSellSection()
-    {
-        if (InventoryManager.Instance == null) return;
-
-        _scrollPos = GUILayout.BeginScrollView(_scrollPos, GUILayout.Height(280));
-
-        bool anyItems = false;
-        foreach (var kvp in new List<KeyValuePair<ItemDef, int>>(InventoryManager.Instance.AllItems))
-        {
-            if (!IsSellable(kvp.Key)) continue;
-            anyItems = true;
-
-            int price = SellManager.Instance != null
-                ? SellManager.Instance.GetSellPrice(kvp.Key, _currentSeller!.Value)
-                : kvp.Key.basePrice;
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Label($"{kvp.Key.displayName} x{kvp.Value}  ({price}g each)", GUILayout.Width(200));
-
-            GUI.enabled = kvp.Value >= 1;
-            if (GUILayout.Button("Sell 1", GUILayout.Width(60)))
-                SellManager.Instance?.ExecuteSale(kvp.Key, 1, _currentSeller!.Value);
-            if (GUILayout.Button("Sell All", GUILayout.Width(60)))
-                SellManager.Instance?.ExecuteSale(kvp.Key, kvp.Value, _currentSeller!.Value);
-            GUI.enabled = true;
-
-            GUILayout.EndHorizontal();
-        }
-
-        if (!anyItems)
-            GUILayout.Label("Nothing to sell.");
-
-        GUILayout.EndScrollView();
-    }
-
-    private void DrawBuySection()
-    {
         if (SellManager.Instance == null) return;
 
-        _scrollPos = GUILayout.BeginScrollView(_scrollPos, GUILayout.Height(280));
+        _scrollPos = GUILayout.BeginScrollView(_scrollPos, GUILayout.Height(340));
 
         var ingredients = new List<ItemDef>
         {
@@ -159,7 +78,7 @@ public class SellUI : MonoBehaviour
                 ? InventoryManager.Instance.GetCount(item) : 0;
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label($"{item.displayName}  ({price}g each)  have: {have}", GUILayout.Width(200));
+            GUILayout.Label($"{item.displayName}  ({price}g each)  have: {have}", GUILayout.Width(220));
 
             GUI.enabled = GameManager.Instance != null && GameManager.Instance.Cash >= price;
             if (GUILayout.Button("Buy 1", GUILayout.Width(60)))
@@ -172,10 +91,9 @@ public class SellUI : MonoBehaviour
         }
 
         GUILayout.EndScrollView();
-    }
 
-    private bool IsSellable(ItemDef item)
-    {
-        return _currentSeller.HasValue && EconomyRules.IsSellable(item, _currentSeller.Value);
+        GUILayout.Space(8);
+        if (GUILayout.Button("Close"))
+            Close();
     }
 }

@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     public bool IsCarrying { get; private set; }
     public Debris CarriedDebris { get; private set; }
 
+    public bool IsCarryingCrate { get; private set; }
+    public Crate CarriedCrate { get; private set; }
+
+    public bool IsCarryingAnything => IsCarrying || IsCarryingCrate;
+
     public bool IsInteractHeld { get; private set; }
 
     public Rigidbody2D RB => rb;
@@ -199,6 +204,26 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
             CarriedDebris.Respawn(rb.position);
         IsCarrying = false;
         CarriedDebris = null;
+    }
+
+    public void PickUpCrate(Crate crate)
+    {
+        IsCarryingCrate = true;
+        CarriedCrate = crate;
+    }
+
+    public void DropCrate()
+    {
+        IsCarryingCrate = false;
+        CarriedCrate = null;
+    }
+
+    public void DropCrateAtFeet()
+    {
+        if (CarriedCrate != null)
+            CarriedCrate.Respawn(rb.position);
+        IsCarryingCrate = false;
+        CarriedCrate = null;
     }
 
     public void ForceIdle()

@@ -14,6 +14,8 @@ public class ContentDb : MonoBehaviour
     public static readonly ItemDef Water = new ItemDef("water", "Water", true, 2);
     public static readonly ItemDef BasicMoonshine = new ItemDef("basic_moonshine", "Basic Moonshine", false, 25, true);
     public static readonly ItemDef SweetMoonshine = new ItemDef("sweet_moonshine", "Sweet Moonshine", false, 40, true);
+    public static readonly ItemDef HighlandMoonshine = new ItemDef("highland_moonshine", "Highland Moonshine", false, 60, true);
+    public static readonly ItemDef AgedReserve = new ItemDef("aged_reserve", "Aged Reserve", false, 120, true);
     public static readonly ItemDef Timber = new ItemDef("timber", "Timber", true, 10);
     public static readonly ItemDef Nails = new ItemDef("nails", "Nails", true, 8);
 
@@ -51,6 +53,8 @@ public class ContentDb : MonoBehaviour
         Register(Water);
         Register(BasicMoonshine);
         Register(SweetMoonshine);
+        Register(HighlandMoonshine);
+        Register(AgedReserve);
         Register(Timber);
         Register(Nails);
         RegisterResident(Berta);

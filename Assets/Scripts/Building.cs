@@ -36,10 +36,15 @@ public class Building : MonoBehaviour, IInteractable
     public int NailsPerRepair => nailsPerRepair;
     public float HammerDuration => hammerDuration;
 
+    public Transform InteriorSpawn => interiorSpawn;
+
     [Header("Visuals")]
     [SerializeField] private Light2D[] windowLights;
 
     [SerializeField] private SpriteRenderer facadeRenderer;
+
+    [Header("Interior")]
+    [SerializeField] private Transform interiorSpawn;
 
     [Header("Interaction")]
     [SerializeField] private Collider2D boardTrigger;
@@ -97,6 +102,18 @@ public class Building : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (BuildingManager.Instance == null) return;
+
+        if (doorTrigger != null && LastHitTrigger == doorTrigger)
+        {
+            if (State == BuildingState.Restored)
+            {
+                if (InteriorManager.Instance != null)
+                    InteriorManager.Instance.EnterInterior(this);
+                else
+                    GameEvents.OnToastRequested("It's empty inside...");
+            }
+            return;
+        }
 
         if (LastHitTrigger == boardTrigger || (boardTrigger != null && doorTrigger == null))
         {

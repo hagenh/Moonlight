@@ -71,6 +71,24 @@ public class RecipeSelectUI : MonoBehaviour
 
         foreach (var recipe in FermentManager.Instance.Recipes)
         {
+            bool unlocked = FermentManager.Instance.IsRecipeUnlocked(recipe);
+
+            if (!unlocked)
+            {
+                GUI.enabled = false;
+                GUILayout.Label(recipe.recipeName + " (Locked)");
+                string hint = "";
+                if (!string.IsNullOrEmpty(recipe.unlockedByBuildingId))
+                    hint = $"  Restore the {recipe.unlockedByBuildingId} to unlock";
+                if (recipe.minReputation > 0)
+                    hint += $"  Requires Reputation {recipe.minReputation}+";
+                if (!string.IsNullOrEmpty(hint))
+                    GUILayout.Label(hint);
+                GUILayout.Space(4);
+                GUI.enabled = true;
+                continue;
+            }
+
             bool canAfford = true;
             foreach (var kvp in recipe.Costs)
             {

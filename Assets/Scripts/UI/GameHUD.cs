@@ -27,7 +27,7 @@ public class GameHUD : MonoBehaviour
         if (promptText != null) promptText.gameObject.SetActive(false);
         if (toastText != null) toastText.gameObject.SetActive(false);
         if (hammerProgressText != null) hammerProgressText.gameObject.SetActive(false);
-        if (heatText != null) heatText.text = "Heat: 0";
+        if (heatText != null) heatText.text = "Suspicion: 0 (Clean)";
         if (repText != null) repText.text = "Rep: 0";
         if (clockText != null) clockText.text = "08:00";
         if (dayText != null) dayText.text = "Day 1";
@@ -97,7 +97,23 @@ public class GameHUD : MonoBehaviour
 
     private void OnHeatChanged(int newHeat, int oldHeat)
     {
-        if (heatText != null) heatText.text = $"Heat: {newHeat}";
+        if (heatText == null) return;
+        var tier = EconomyRules.GetSuspicionTier(newHeat);
+        string tierLabel = tier switch
+        {
+            EconomyRules.SuspicionTier.Clean => "Clean",
+            EconomyRules.SuspicionTier.Noticed => "Noticed",
+            EconomyRules.SuspicionTier.TalkedAbout => "Talked About",
+            _ => "Burning"
+        };
+        heatText.text = $"Suspicion: {newHeat} ({tierLabel})";
+        heatText.color = tier switch
+        {
+            EconomyRules.SuspicionTier.Clean => Color.white,
+            EconomyRules.SuspicionTier.Noticed => Color.yellow,
+            EconomyRules.SuspicionTier.TalkedAbout => new Color(1f, 0.5f, 0f),
+            _ => Color.red
+        };
     }
 
     private void OnRepChanged(int newRep, int oldRep)
@@ -223,6 +239,22 @@ public class GameHUD : MonoBehaviour
         else if (interactable is Bed)
         {
             promptText.text = "[E] Sleep";
+        }
+        else if (interactable is ExitDoor)
+        {
+            promptText.text = "[E] Exit";
+        }
+        else if (interactable is Crate)
+        {
+            promptText.text = PlayerController.Instance != null && PlayerController.Instance.IsCarryingAnything
+                ? "Already carrying"
+                : "[E] Pick up crate";
+        }
+        else if (interactable is DeliveryPoint dp)
+        {
+            promptText.text = dp.DeliveryType == DeliveryType.Cart
+                ? "[E] Deliver to Cart"
+                : "[E] Deliver";
         }
         else if (interactable is Debris)
         {

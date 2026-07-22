@@ -63,7 +63,12 @@ public class SleepManager : MonoBehaviour
             TimeManager.Instance.AdvanceToDayEnd();
 
         if (GameManager.Instance != null)
+        {
             GameManager.Instance.AddHeat(-heatDecayPerNight);
+
+            if (GameManager.Instance.Heat >= EconomyRules.RaidThreshold)
+                ExecuteRaid();
+        }
 
         bool moveInPending = false;
         if (ResidentManager.Instance != null)
@@ -84,6 +89,28 @@ public class SleepManager : MonoBehaviour
         _isSleeping = false;
         if (PlayerController.Instance != null)
             PlayerController.Instance.IsMenuOpen = false;
+    }
+
+    private void ExecuteRaid()
+    {
+        var gm = GameManager.Instance;
+        if (gm == null) return;
+
+        int cratesLost = 0;
+        var crates = FindObjectsByType<Crate>(FindObjectsSortMode.None);
+        int cratesToDestroy = Mathf.CeilToInt(crates.Length * EconomyRules.RaidCrateLossPercent);
+        for (int i = 0; i < cratesToDestroy && i < crates.Length; i++)
+        {
+            Destroy(crates[i].gameObject);
+            cratesLost++;
+        }
+
+        int fine = Mathf.Min(gm.Cash, EconomyRules.RaidFine);
+        gm.TrySpend(fine);
+        gm.SetHeat(EconomyRules.RaidSuspicionReset);
+
+        GameEvents.OnToastRequested($"RAIDED! Lost {cratesLost} crates and {fine}g.");
+        GameEvents.OnRaidOccurred(cratesLost, fine);
     }
 
     private IEnumerator FadeToBlack()
