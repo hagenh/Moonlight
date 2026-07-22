@@ -19,13 +19,13 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [x] Done: compiles, all tests green, no reference to Heat anywhere in Assets/Scripts.
 - Playtest fixes: instant guard detection (no gradual ramp) · CarryState freezes on menu open instead of dropping crate · Building interact passes through without dropping crate · moveInput zeroed on menu open to prevent ghost movement
 
-## Phase 1 — Act 0: the tent prologue
-- [ ] Camp clearing in near forest: tent, campfire pot (1-slot wild ferment, slow, yields 2 jars).
-- [ ] Foraging: berry bushes (respawn daily), forage verb = existing interact.
-- [ ] Berry shine recipe (wild yeast — no yeast ingredient, longer ferment).
-- [ ] Roadhouse back door: dusk-only delivery point, Tormod buys, names price (his recruitment beat = tutorial).
-- [ ] Homestead purchase: derelict building at town edge; price reachable in ~3 sales; unlocks proper still + vat + game proper.
-- [ ] Tent persists after move: becomes first stash point.
+## Phase 1 — Act 0: the tent prologue (in progress)
+- [x] Camp clearing in near forest: tent, campfire pot (1-slot wild ferment, slow, yields 2 jars).
+- [x] Foraging: berry bushes (respawn daily), forage verb = existing interact.
+- [x] Berry shine recipe (wild yeast — no yeast ingredient, longer ferment).
+- [x] Roadhouse back door: dusk-only delivery point, Tormod buys, names price (his recruitment beat = tutorial).
+- [x] Homestead purchase: derelict building at town edge; price reachable in ~3 sales; unlocks proper still + vat + game proper.
+- [x] Tent persists after move: becomes first stash point.
 - [ ] Done: new player reaches homestead in 20–40 min without instructions. HARD gate: still in tent on day 4 = numbers wrong, fix before proceeding.
 
 ## Phase 2 — World: one map, three depths
