@@ -9,6 +9,15 @@ public class BerryBush : MonoBehaviour, IInteractable
     private bool _harvested;
 
     public InteractType InteractType => InteractType.Forage;
+    public bool IsHarvested => _harvested;
+
+    private void Awake()
+    {
+        if (_spriteRenderer == null)
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_collider == null)
+            _collider = GetComponent<Collider2D>();
+    }
 
     private void OnEnable()
     {

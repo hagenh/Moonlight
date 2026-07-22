@@ -226,9 +226,12 @@ public class GameHUD : MonoBehaviour
         }
         else if (interactable is DeliveryPoint dp)
         {
-            promptText.text = dp.DeliveryType == DeliveryType.Cart
-                ? "[E] Deliver to Cart"
-                : "[E] Deliver";
+            promptText.text = dp.DeliveryType switch
+            {
+                DeliveryType.Cart => "[E] Deliver to Cart",
+                DeliveryType.Tormod => "[E] Sell to Tormod",
+                _ => "[E] Deliver"
+            };
         }
         else if (interactable is Debris)
         {
@@ -242,9 +245,9 @@ public class GameHUD : MonoBehaviour
                 ? "[E] Deposit debris"
                 : "Debris pile";
         }
-        else if (interactable is BerryBush)
+        else if (interactable is BerryBush bush)
         {
-            promptText.text = "[E] Forage";
+            promptText.text = bush.IsHarvested ? "Picked" : "[E] Forage";
         }
         else if (interactable is Resident resident)
         {

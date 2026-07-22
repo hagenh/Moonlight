@@ -1,1 +1,1 @@
-public enum DeliveryType { Cart, Backwoods }
+public enum DeliveryType { Cart, Backwoods, Tormod }

@@ -13,6 +13,7 @@ public class SellManager : MonoBehaviour
 
     private SellerInteractable _cartInstance;
     private SellerInteractable _tormodInstance;
+    private DeliveryPoint _tormodDeliveryPoint;
 
     private IRng _rng = UnityRng.Instance;
 
@@ -91,6 +92,16 @@ public class SellManager : MonoBehaviour
     {
         Vector3 pos = tormodPosition != null ? tormodPosition.position : Vector3.zero;
         _tormodInstance = SellerInteractable.Create(SellerType.Tormod, pos);
+
+        var dpGo = new GameObject("TormodDeliveryPoint");
+        dpGo.transform.position = pos;
+        dpGo.layer = LayerMask.NameToLayer("Interactable");
+        var col = dpGo.AddComponent<BoxCollider2D>();
+        col.isTrigger = true;
+        col.size = new Vector2(1.5f, 1.5f);
+        _tormodDeliveryPoint = dpGo.AddComponent<DeliveryPoint>();
+        _tormodDeliveryPoint.SetDeliveryType(DeliveryType.Tormod);
+
         GameEvents.OnSellerArrived(SellerType.Tormod);
     }
 
@@ -100,8 +111,14 @@ public class SellManager : MonoBehaviour
         {
             Destroy(_tormodInstance.gameObject);
             _tormodInstance = null;
-            GameEvents.OnSellerLeft(SellerType.Tormod);
         }
+        if (_tormodDeliveryPoint != null)
+        {
+            Destroy(_tormodDeliveryPoint.gameObject);
+            _tormodDeliveryPoint = null;
+        }
+        if (_tormodInstance == null && _tormodDeliveryPoint == null)
+            GameEvents.OnSellerLeft(SellerType.Tormod);
     }
 
     public void OpenSellMenu(SellerType type)
