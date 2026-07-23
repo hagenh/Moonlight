@@ -61,7 +61,7 @@ public class BerryBush : MonoBehaviour, IInteractable
         var sr = go.AddComponent<SpriteRenderer>();
         sr.sprite = Sprite.Create(
             Texture2D.whiteTexture,
-            new Rect(0, 0, 4, 4),
+            new Rect(0, 0, 16, 16),
             new Vector2(0.5f, 0.5f),
             16f);
         sr.color = new Color(0.6f, 0.2f, 0.7f);
