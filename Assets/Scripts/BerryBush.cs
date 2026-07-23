@@ -5,7 +5,7 @@ public class BerryBush : MonoBehaviour, IInteractable
     [SerializeField] private int berryYield = 1;
 
     private SpriteRenderer _spriteRenderer;
-    private Collider2D _collider;
+    private Collider2D _triggerCollider;
     private bool _harvested;
 
     public InteractType InteractType => InteractType.Forage;
@@ -15,8 +15,8 @@ public class BerryBush : MonoBehaviour, IInteractable
     {
         if (_spriteRenderer == null)
             _spriteRenderer = GetComponent<SpriteRenderer>();
-        if (_collider == null)
-            _collider = GetComponent<Collider2D>();
+        if (_triggerCollider == null)
+            _triggerCollider = GetComponent<Collider2D>();
     }
 
     private void OnEnable()
@@ -49,8 +49,8 @@ public class BerryBush : MonoBehaviour, IInteractable
         _harvested = harvested;
         if (_spriteRenderer != null)
             _spriteRenderer.enabled = !harvested;
-        if (_collider != null)
-            _collider.enabled = !harvested;
+        if (_triggerCollider != null)
+            _triggerCollider.enabled = !harvested;
     }
 
     public static BerryBush Create(Vector3 position)
@@ -65,13 +65,12 @@ public class BerryBush : MonoBehaviour, IInteractable
         tex.Apply();
 
         var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = Sprite.Create(
-            tex,
-            new Rect(0, 0, 16, 16),
-            new Vector2(0.5f, 0.5f),
-            16f);
+        sr.sprite = Sprite.Create(tex, new Rect(0, 0, 16, 16), new Vector2(0.5f, 0.5f), 16f);
         sr.color = new Color(0.6f, 0.2f, 0.7f);
         sr.sortingOrder = 5;
+
+        var solid = go.AddComponent<BoxCollider2D>();
+        solid.size = new Vector2(0.5f, 0.5f);
 
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
@@ -81,7 +80,7 @@ public class BerryBush : MonoBehaviour, IInteractable
 
         var bush = go.AddComponent<BerryBush>();
         bush._spriteRenderer = sr;
-        bush._collider = col;
+        bush._triggerCollider = col;
 
         return bush;
     }

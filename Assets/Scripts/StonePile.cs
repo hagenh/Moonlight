@@ -3,7 +3,7 @@ using UnityEngine;
 public class StonePile : MonoBehaviour, IInteractable
 {
     private SpriteRenderer _spriteRenderer;
-    private Collider2D _collider;
+    private Collider2D _triggerCollider;
     private bool _harvested;
 
     public InteractType InteractType => InteractType.Forage;
@@ -13,8 +13,8 @@ public class StonePile : MonoBehaviour, IInteractable
     {
         if (_spriteRenderer == null)
             _spriteRenderer = GetComponent<SpriteRenderer>();
-        if (_collider == null)
-            _collider = GetComponent<Collider2D>();
+        if (_triggerCollider == null)
+            _triggerCollider = GetComponent<Collider2D>();
     }
 
     private void OnEnable()
@@ -47,8 +47,8 @@ public class StonePile : MonoBehaviour, IInteractable
         _harvested = harvested;
         if (_spriteRenderer != null)
             _spriteRenderer.enabled = !harvested;
-        if (_collider != null)
-            _collider.enabled = !harvested;
+        if (_triggerCollider != null)
+            _triggerCollider.enabled = !harvested;
     }
 
     public static StonePile Create(Vector3 position)
@@ -71,6 +71,9 @@ public class StonePile : MonoBehaviour, IInteractable
         sr.color = new Color(0.6f, 0.6f, 0.6f);
         sr.sortingOrder = 5;
 
+        var solid = go.AddComponent<BoxCollider2D>();
+        solid.size = new Vector2(0.5f, 0.4f);
+
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
         col.size = new Vector2(0.8f, 0.6f);
@@ -79,7 +82,7 @@ public class StonePile : MonoBehaviour, IInteractable
 
         var pile = go.AddComponent<StonePile>();
         pile._spriteRenderer = sr;
-        pile._collider = col;
+        pile._triggerCollider = col;
 
         return pile;
     }

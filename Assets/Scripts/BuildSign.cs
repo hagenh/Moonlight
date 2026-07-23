@@ -114,6 +114,9 @@ public class BuildSign : MonoBehaviour, IInteractable
         sr.color = new Color(0.7f, 0.6f, 0.4f);
         sr.sortingOrder = 5;
 
+        var solid = go.AddComponent<BoxCollider2D>();
+        solid.size = new Vector2(0.8f, 1.0f);
+
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
         col.size = new Vector2(0.8f, 1.0f);
