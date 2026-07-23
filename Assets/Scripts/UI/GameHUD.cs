@@ -177,7 +177,9 @@ public class GameHUD : MonoBehaviour
                 ? $"[E] Enter {building.BuildingName}"
                 : building.State switch
                 {
-                    BuildingState.Abandoned => $"[E] Buy {building.BuildingName} ({building.PurchaseCost}g)",
+                    BuildingState.Abandoned => building.BuildingName == "Homestead"
+                        ? $"[E] Build {building.BuildingName} ({building.PurchaseCost}g)"
+                        : $"[E] Buy {building.BuildingName} ({building.PurchaseCost}g)",
                     BuildingState.Purchased when !building.BoardsSmashed
                         => $"[E] Smash ({building.SmashHitsDone}/{building.SmashHitsRequired})",
                     BuildingState.Purchased when building.BoardsSmashed

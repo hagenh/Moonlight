@@ -51,16 +51,22 @@ public class BuildingManager : MonoBehaviour
     {
         if (!RenovationRules.CanPurchase(building.State)) return false;
 
+        bool isHomestead = building.BuildingName == "Homestead";
+
         if (!GameManager.Instance.TrySpend(building.PurchaseCost))
         {
-            GameEvents.OnToastRequested($"Can't afford {building.BuildingName} ({building.PurchaseCost}g)");
+            GameEvents.OnToastRequested(isHomestead
+                ? $"Can't afford to build {building.BuildingName} ({building.PurchaseCost}g)"
+                : $"Can't afford {building.BuildingName} ({building.PurchaseCost}g)");
             return false;
         }
 
         var old = building.State;
         building.SetState(BuildingState.Purchased);
         GameEvents.OnBuildingStateChanged(building, old, building.State);
-        GameEvents.OnToastRequested($"Purchased {building.BuildingName} (-{building.PurchaseCost}g)");
+        GameEvents.OnToastRequested(isHomestead
+            ? $"Started building {building.BuildingName} (-{building.PurchaseCost}g)"
+            : $"Purchased {building.BuildingName} (-{building.PurchaseCost}g)");
         return true;
     }
 
