@@ -47,8 +47,8 @@ public class FallenLog : MonoBehaviour, IInteractable
         _harvested = harvested;
         if (_spriteRenderer != null)
             _spriteRenderer.enabled = !harvested;
-        if (_triggerCollider != null)
-            _triggerCollider.enabled = !harvested;
+        foreach (var c in GetComponents<Collider2D>())
+            c.enabled = !harvested;
     }
 
     public static FallenLog Create(Vector3 position)
