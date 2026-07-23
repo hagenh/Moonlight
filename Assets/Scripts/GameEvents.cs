@@ -13,6 +13,7 @@ public static class GameEvents
     public static event System.Action<FermentVat, float> BatchProgressed;
     public static event System.Action<FermentVat> RecipeSelectionRequested;
     public static event System.Action<string> RecipeDiscovered;
+    public static event System.Action<int> HomesteadBuildStageChanged;
     public static event System.Action MenuCloseRequested;
     public static event System.Action<SellerType> SellerArrived;
     public static event System.Action<SellerType> SellerLeft;
@@ -76,6 +77,9 @@ public static class GameEvents
 
     public static void OnRecipeDiscovered(string recipeId)
         => RecipeDiscovered?.Invoke(recipeId);
+
+    public static void OnHomesteadBuildStageChanged(int newStage)
+        => HomesteadBuildStageChanged?.Invoke(newStage);
 
     public static void OnMenuCloseRequested()
         => MenuCloseRequested?.Invoke();
