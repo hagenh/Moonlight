@@ -58,10 +58,10 @@ The player starts with 3 Berry in inventory on day 1, allowing them to start fer
 
 - Add `RecipeDiscovered` event to `GameEvents` with `string recipeId` parameter
 - Recipes start **hidden** (not shown in ferment vat UI) until discovered
-- Berry Shine discovered by: picking up the first Berry (fires `RecipeDiscovered("berry_shine")`)
+- **Berry Shine is always discovered** — it never goes through the discovery gate and is visible in the vat UI from game start (matches the Act 0 design's "no building gate, no min reputation — always unlocked" rule). No `RecipeDiscovered("berry_shine")` event is fired or needed.
 - Other recipes discovered by: building restoration, NPC dialogue, world items — all fire `RecipeDiscovered` with different recipe IDs
 - `FermentManager` tracks which recipes have been discovered; only shows discovered + unlocked recipes in the vat UI
-- Starting berries + first pickup = natural tutorial for the discovery system
+- Starting berries give the player something to ferment immediately; the discovery system's tutorial role shifts to introducing later recipes (Basic Mash, etc.) rather than Berry Shine itself
 - The event-based approach allows adding new discovery triggers later without changing the core system
 
 ## Alternatives Considered
