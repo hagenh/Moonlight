@@ -22,11 +22,12 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 ## Phase 1 — Act 0: the tent prologue (in progress)
 - [x] Camp clearing in near forest: tent, campfire pot (1-slot wild ferment, slow, yields 2 jars).
 - [x] Foraging: berry bushes (respawn daily), 8–10 scattered across camp, the road to town, town outskirts, and hidden corners — forage verb = existing interact.
+- [x] Foraging: stone piles and fallen logs (respawn daily) yield Stone and Wood for Homestead construction.
 - [x] Berry shine recipe (wild yeast — no yeast ingredient, 3h ferment, always discovered).
 - [x] Day 1 starting inventory: 3 Berry so the player can start fermenting immediately instead of waiting idle.
 - [x] Recipe discovery scaffolding: `RecipeDiscovered` event on GameEvents, hidden/discovered recipe tracking in FermentManager; Berry Shine is exempt and always visible.
 - [x] Roadhouse back door: dusk-only delivery point, Tormod buys, names price (his recruitment beat = tutorial).
-- [x] Homestead build/restore: on the player's own camp clearing (not a separate town-edge lot) — smash/clear/repair doubles as cleaning up the player's own camp; price reachable in ~3 sales; unlocks proper still + vat + game proper.
+- [x] Homestead build-from-scratch: 3 stages (Foundation 3 Stone → Frame 3 Wood → Walls 2 Wood + 3 Nails from Tormod) on the player's own camp clearing; player forages materials between ferment batches; unlocks proper still + vat + game proper.
 - [x] Tent persists after move: becomes first stash point.
 - [ ] Done: new player reaches homestead in 20–40 min without instructions. HARD gate: still in tent on day 4 = numbers wrong, fix before proceeding.
 
