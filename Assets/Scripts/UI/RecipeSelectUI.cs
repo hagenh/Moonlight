@@ -71,6 +71,9 @@ public class RecipeSelectUI : MonoBehaviour
 
         foreach (var recipe in FermentManager.Instance.Recipes)
         {
+            if (!FermentManager.Instance.IsRecipeDiscovered(recipe))
+                continue;
+
             bool unlocked = FermentManager.Instance.IsRecipeUnlocked(recipe);
 
             if (!unlocked)

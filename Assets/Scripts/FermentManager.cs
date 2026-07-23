@@ -10,6 +10,7 @@ public class FermentManager : MonoBehaviour
 
     private readonly List<FermentVat> _vats = new();
     private readonly Dictionary<FermentVat, int> _lastProgressPercent = new();
+    private readonly HashSet<string> _discoveredRecipes = new() { "Berry Shine" };
 
     public IReadOnlyList<RecipeData> Recipes => _recipes;
     public IReadOnlyList<FermentVat> Vats => _vats;
@@ -51,6 +52,31 @@ public class FermentManager : MonoBehaviour
 
         foreach (var vat in FindObjectsByType<FermentVat>(FindObjectsSortMode.None))
             Register(vat);
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.RecipeDiscovered += OnRecipeDiscovered;
+        GameEvents.BuildingStateChanged += OnBuildingRestored;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.RecipeDiscovered -= OnRecipeDiscovered;
+        GameEvents.BuildingStateChanged -= OnBuildingRestored;
+    }
+
+    private void OnRecipeDiscovered(string recipeId)
+    {
+        _discoveredRecipes.Add(recipeId);
+    }
+
+    private void OnBuildingRestored(Building b, BuildingState oldState, BuildingState newState)
+    {
+        if (newState != BuildingState.Restored) return;
+        foreach (var recipe in _recipes)
+            if (recipe.unlockedByBuildingId == b.BuildingName)
+                _discoveredRecipes.Add(recipe.recipeName);
     }
 
     private void Update()
@@ -175,4 +201,6 @@ public class FermentManager : MonoBehaviour
 
         return true;
     }
+
+    public bool IsRecipeDiscovered(RecipeData recipe) => _discoveredRecipes.Contains(recipe.recipeName);
 }
