@@ -20,6 +20,8 @@ public class ContentDb : MonoBehaviour
     public static readonly ItemDef Nails = new ItemDef("nails", "Nails", true, 8);
     public static readonly ItemDef Berry = new ItemDef("berry", "Berry", true, 2);
     public static readonly ItemDef BerryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
+    public static readonly ItemDef Stone = new ItemDef("stone", "Stone", true, 1);
+    public static readonly ItemDef Wood = new ItemDef("wood", "Wood", true, 2);
 
     public static readonly ResidentDef Berta = new ResidentDef(
         "berta", "Berta", "Bakery",
@@ -61,6 +63,8 @@ public class ContentDb : MonoBehaviour
         Register(Nails);
         Register(Berry);
         Register(BerryShine);
+        Register(Stone);
+        Register(Wood);
         RegisterResident(Berta);
     }
 
