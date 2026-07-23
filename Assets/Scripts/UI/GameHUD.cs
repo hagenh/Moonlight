@@ -177,9 +177,7 @@ public class GameHUD : MonoBehaviour
                 ? $"[E] Enter {building.BuildingName}"
                 : building.State switch
                 {
-                    BuildingState.Abandoned => building.BuildingName == "Homestead"
-                        ? $"[E] Build {building.BuildingName} ({building.PurchaseCost}g)"
-                        : $"[E] Buy {building.BuildingName} ({building.PurchaseCost}g)",
+                    BuildingState.Abandoned => $"[E] Buy {building.BuildingName} ({building.PurchaseCost}g)",
                     BuildingState.Purchased when !building.BoardsSmashed
                         => $"[E] Smash ({building.SmashHitsDone}/{building.SmashHitsRequired})",
                     BuildingState.Purchased when building.BoardsSmashed
@@ -192,6 +190,17 @@ public class GameHUD : MonoBehaviour
                         : $"[E] {building.BuildingName}",
                     _ => $"[E] {building.BuildingName}"
                 };
+        }
+        else if (interactable is BuildSign sign)
+        {
+            promptText.text = sign.Stage switch
+            {
+                BuildStage.Site => $"[E] Homestead Site (need 3 Stone)",
+                BuildStage.Foundation => $"[E] Build Frame (need 3 Wood)",
+                BuildStage.Frame => $"[E] Build Walls (need 2 Wood, 3 Nails)",
+                BuildStage.Walls => $"[E] Homestead",
+                _ => $"[E] Homestead Site"
+            };
         }
         else if (interactable is FermentVat vat)
         {
