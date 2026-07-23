@@ -58,9 +58,15 @@ public class BerryBush : MonoBehaviour, IInteractable
         var go = new GameObject("BerryBush");
         go.transform.position = position;
 
+        var tex = new Texture2D(16, 16);
+        var pixels = new Color32[256];
+        for (int i = 0; i < pixels.Length; i++) pixels[i] = Color.white;
+        tex.SetPixels32(pixels);
+        tex.Apply();
+
         var sr = go.AddComponent<SpriteRenderer>();
         sr.sprite = Sprite.Create(
-            Texture2D.whiteTexture,
+            tex,
             new Rect(0, 0, 16, 16),
             new Vector2(0.5f, 0.5f),
             16f);
