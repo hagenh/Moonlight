@@ -28,7 +28,7 @@ public class FermentManager : MonoBehaviour
 
         _recipes = new RecipeData[]
         {
-            new RecipeData("Berry Shine", 6, 2, ContentDb.BerryShine)
+            new RecipeData("Berry Shine", 3, 2, ContentDb.BerryShine)
                 .AddIngredient(ContentDb.Berry, 3),
             new RecipeData("Basic Mash", 4, 3, ContentDb.BasicMoonshine, "Homestead")
                 .AddIngredient(ContentDb.Grain, 2)

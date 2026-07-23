@@ -15,7 +15,7 @@ public class BerryShineRecipeTests
     [Test]
     public void BerryShineRecipe_Requires3Berry()
     {
-        var recipe = new RecipeData("Berry Shine", 6, 2, _berryShine)
+        var recipe = new RecipeData("Berry Shine", 3, 2, _berryShine)
             .AddIngredient(_berry, 3);
 
         Assert.AreEqual(3, recipe.Costs[_berry]);
@@ -25,25 +25,25 @@ public class BerryShineRecipeTests
     [Test]
     public void BerryShineRecipe_Yields2()
     {
-        var recipe = new RecipeData("Berry Shine", 6, 2, _berryShine)
+        var recipe = new RecipeData("Berry Shine", 3, 2, _berryShine)
             .AddIngredient(_berry, 3);
 
         Assert.AreEqual(2, recipe.outputCount);
     }
 
     [Test]
-    public void BerryShineRecipe_6HourFerment()
+    public void BerryShineRecipe_3HourFerment()
     {
-        var recipe = new RecipeData("Berry Shine", 6, 2, _berryShine)
+        var recipe = new RecipeData("Berry Shine", 3, 2, _berryShine)
             .AddIngredient(_berry, 3);
 
-        Assert.AreEqual(6, recipe.fermentationHours);
+        Assert.AreEqual(3, recipe.fermentationHours);
     }
 
     [Test]
     public void BerryShineRecipe_NoBuildingGate()
     {
-        var recipe = new RecipeData("Berry Shine", 6, 2, _berryShine)
+        var recipe = new RecipeData("Berry Shine", 3, 2, _berryShine)
             .AddIngredient(_berry, 3);
 
         Assert.IsNull(recipe.unlockedByBuildingId);
