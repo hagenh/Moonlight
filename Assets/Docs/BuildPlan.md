@@ -31,14 +31,28 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [x] Tent persists after move: becomes first stash point.
 - [ ] Done: new player reaches homestead in 20–40 min without instructions. HARD gate: still in tent on day 4 = numbers wrong, fix before proceeding.
 
-## Phase 2 — World: one map, three depths
+## Phase 2 — Art: replace all placeholders
+- [ ] FallenLog: pick or draw a log sprite from Grasslands tileset.
+- [ ] BuildSign stages: signpost (Site), stone foundation outline (Foundation), wood frame (Frame), building exterior (Walls) — scale sprites to match 7×8 final building.
+- [ ] Homestead facade: verify Town tileset sprites render correctly on build completion; remove Square overlay for good.
+- [ ] Crate: replace `Texture2D.whiteTexture` with real crate sprite.
+- [ ] Debris: replace `Texture2D.whiteTexture` with rubble sprite.
+- [ ] SellerInteractable (Tormod): NPC or stall sprite.
+- [ ] SellerInteractable (Cart): cart sprite.
+- [ ] Guard: NPC guard sprite (uses procedural vision cone only currently).
+- [ ] Building facades (Bakery, General Store, Road House, Mill, Boarding House, Constable): each gets its own facade sprite instead of tinted Square overlay.
+- [ ] Bed, DebrisPile, DeliveryPoint, ExitDoor: verify real sprites assigned in scene.
+- [ ] Fix `Texture2D.whiteTexture` bugs in Crate.Create() and Debris.Create() — use `new Texture2D(16,16)`.
+- [ ] Done: no placeholder colored squares or 4×4 white textures remain. All sprites are real tileset art.
+
+## Phase 3 — World: one map, three depths
 - [ ] Extend tilemap: near forest (camp + foraging) and deep woods with 3 route corridors and 3 destination sites (logging camp, river dock, crossroads).
 - [ ] No exterior scene loads; interiors stay separate (existing InteriorManager).
 - [ ] Walk timings: town end-to-end 12–15 s (existing), camp ~20 s from town, destinations 60–90 s.
 - [ ] Darkness pass: night in the woods is genuinely dark (Light2D); the lit town visible from the treeline — screenshot this.
 - [ ] Done: walk street → camp → each destination and back, day and night.
 
-## Phase 3 — Delivery runs
+## Phase 4 — Delivery runs
 - [ ] Destinations buy at run prices: stand (safe, low) < Roadhouse (safe, capped/day, medium) < runs (high).
 - [ ] Appointments: logging camp payday Fridays (2× demand) · river dock barge nights · crossroads wagon on set nights/hours. All recur; nothing permanently missable.
 - [ ] Routes: main road (fast, night checkpoints) · forest trail (slow, dark, sparse) · creek path (locked until shortcut plank).
@@ -47,12 +61,12 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [ ] Load-outs: satchel 2 jars (off-path capable) → handcart 8 jars (path-bound, wider profile, built by Aksel in Phase 6) → courier automation (5 clean runs on a route + Boarding House recruit → auto-resolve for a cut).
 - [ ] Done: full loop — brew by day, run by night, near-miss stories happen unscripted.
 
-## Phase 4 — Two-layer infrastructure
+## Phase 5 — Two-layer infrastructure
 - [ ] Public sockets (street): lamppost, plank sidewalk, bench, flower box, sign. Effects: night light, small stand buff at beauty thresholds, dialogue reactions. Never any downside.
 - [ ] Covert sockets (forest): stash barrel (ditch/retrieve cargo mid-run) · trail marker (faint night glint) · shortcut plank (unlocks creek path). Lookout perch = stretch, cut first.
 - [ ] Done: a player who beautifies the street AND builds the smuggler's toolkit feels both are "mine."
 
-## Phase 5 — Narrative: conspiracy trust + recruitment
+## Phase 6 — Narrative: conspiracy trust + recruitment
 - [ ] NarrativeFlags + MilestoneDetector + conditional DialogueResolver per Assets/Docs/NarrativeDesign.md architecture (still valid — reskin meanings only).
 - [ ] Per-NPC conspiracy trust gates function tiers AND dialogue (Signe t1 discounts, t2 sales buff).
 - [ ] Recruitment beats on move-in coroutine tech: Tormod (Act 0), Berta (catches you, covers unprompted), Signe, Aksel, Ingrid, Elias.
@@ -60,7 +74,7 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [ ] 5 fragments = the old operation's story; sources: clearing debris, recruit gifts, milestones.
 - [ ] Done: full Bakery arc — restore → Berta beat → bread-cart cover unlocked → her window lights.
 
-## Phase 6 — Content build-out
+## Phase 7 — Content build-out
 - [ ] Buildings ×7 (front / function / track): Roadhouse (first buyer) · Bakery (yeast, bread-cart cover) · General Store (supply, sales buff) · Smithy & Cooperage (still upgrades, handcart, barrels) · Apothecary (botanicals, recipes) · Boarding House (recruits, rent) · Old Mill (bulk grain, cellar, endgame — Holt-gated).
 - [ ] Constable's office: never purchasable. Light always on.
 - [ ] Quality ladder: berry shine → corn/grain → aged (barrels) → flavored (botanicals).
@@ -68,13 +82,10 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [ ] Numbers pass: homestead 20–40 min · first night run ~1 h · Mill cliffhanger 4–6 h.
 - [ ] Done: stranger plays start → cliffhanger, zero instructions.
 
-## Phase 7 — Art + audio
-- [ ] One 16×16 tileset family incl. forest. Facades: 7 restored bases + shared overlay kit.
-- [ ] Portraits > walk cycles; 2 emotion variants for Holt/Aas/Berta.
-- [ ] Light pass: warm windows (flicker), player-placed lampposts, dark woods, lantern cone on runs.
+## Phase 8 — Audio
 - [ ] Audio ≈ 20 SFX + 2 loops. Priorities: deed stamp (THICK) · lamp-lighting sting (commission if anything) · night-run ambience layer.
 
-## Phase 8 — Playtest + tune
+## Phase 9 — Playtest + tune
 - [ ] 3 testers, recorded, you silent.
 - [ ] Collect: time to homestead (20–40 min) · time to first night run (<75 min) · caught-players can name their mistake (legibility check — if not, patrol/telegraphing bug) · stuck >60 s anywhere · unprompted reaction at first lamppost lighting · do they ask what's in the cellar?
 - [ ] Cut pass: confused 2 of 3 → fix or cut; noticed by nobody → cut. No additions in final week.
@@ -82,7 +93,7 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 ## Rules
 - Still minigame stays deferred — revisit only if a fun design emerges.
 - No frameworks (dialogue/cutscene/quest). Hand-roll; extract patterns in game #2.
-- No art before Phase 7. Juice allowed early.
+- No art before Phase 2 (was Phase 7, moved up). Juice allowed early.
 - Save versioning + tolerant deserializer from day one.
 - Design guardrails (from spec, non-negotiable): never punish daytime play · no hidden dice against the player · Act 0 is a prologue · appointments recur · beautification is never punished.
 - Every mid-build idea → the LATER note, unexamined. Review once, at playtest.
