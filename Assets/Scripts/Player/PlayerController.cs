@@ -59,18 +59,23 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     private void OnEnable()
     {
-        inputActions.Player.Enable();
+        if (inputActions != null)
+            inputActions.Player.Enable();
     }
 
     private void OnDisable()
     {
-        inputActions.Player.Disable();
+        if (inputActions != null)
+            inputActions.Player.Disable();
     }
 
     private void OnDestroy()
     {
-        inputActions.Player.RemoveCallbacks(this);
-        inputActions.Dispose();
+        if (inputActions != null)
+        {
+            inputActions.Player.RemoveCallbacks(this);
+            inputActions.Dispose();
+        }
     }
 
     private void Update()
