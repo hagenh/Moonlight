@@ -7,6 +7,7 @@ public class NamedClip
     public DirectionalClip clip;
 }
 
+[System.Serializable]
 public class DirectionalAnimationSet
 {
     public List<NamedClip> clips = new();
