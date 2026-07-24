@@ -238,7 +238,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     public void ShowCarrySprite(bool visible)
     {
         if (carrySpriteRenderer != null)
+        {
+            if (visible && IsCarryingCrate && ContentDb.Instance != null && ContentDb.Instance.CrateCarrySprite != null)
+                carrySpriteRenderer.sprite = ContentDb.Instance.CrateCarrySprite;
             carrySpriteRenderer.gameObject.SetActive(visible);
+        }
     }
 
     private void UpdateInteractDetection()
