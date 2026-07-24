@@ -88,6 +88,9 @@ public class BuildSign : MonoBehaviour, IInteractable
     {
         if (homesteadBuilding != null)
         {
+            var facade = homesteadBuilding.transform.Find("Square");
+            if (facade != null)
+                facade.gameObject.SetActive(false);
             homesteadBuilding.gameObject.SetActive(true);
             homesteadBuilding.SetState(BuildingState.Restored);
         }

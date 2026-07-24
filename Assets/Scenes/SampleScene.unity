@@ -7510,12 +7510,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 326238723897808158, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 462696775836884606, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
       propertyPath: m_Name
       value: Homestead
       objectReference: {fileID: 0}
     - target: {fileID: 462696775836884606, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299132845729380538, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+      propertyPath: m_Color.b
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299132845729380538, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299132845729380538, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+      propertyPath: m_Color.r
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299132845729380538, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994736714450811080, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8127561434418404441, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
@@ -7592,11 +7616,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270838844222066347, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 8270838844222066347, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8270838844222066347, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
