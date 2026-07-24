@@ -8,8 +8,8 @@ public class SellManager : MonoBehaviour
     [SerializeField] private int cartArriveHour = 10;
     [SerializeField] private int cartLeaveHour = 18;
     [SerializeField] private Transform tormodPosition;
-    [SerializeField] private int tormodArriveHour = 18;
-    [SerializeField] private int tormodLeaveHour = 6;
+    [SerializeField] private int tormodArriveHour = 8;
+    [SerializeField] private int tormodLeaveHour = -1;
 
     private SellerInteractable _cartInstance;
     private DeliveryPoint _cartDeliveryPoint;
@@ -28,6 +28,12 @@ public class SellManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+    }
+
+    private void Start()
+    {
+        if (TimeManager.Instance != null && TimeManager.Instance.HourF >= tormodArriveHour && _tormodInstance == null)
+            SpawnTormod();
     }
 
     private void OnEnable()
@@ -61,7 +67,7 @@ public class SellManager : MonoBehaviour
         if (hour == tormodArriveHour && _tormodInstance == null)
             SpawnTormod();
 
-        if (hour == tormodLeaveHour && _tormodInstance != null)
+        if (tormodLeaveHour >= 0 && hour == tormodLeaveHour && _tormodInstance != null)
             RemoveTormod();
     }
 
