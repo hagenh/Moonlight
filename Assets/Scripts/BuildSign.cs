@@ -20,7 +20,7 @@ public class BuildSign : MonoBehaviour, IInteractable
         new Color(0.55f, 0.35f, 0.15f),
         new Color(0.8f, 0.7f, 0.5f),
     };
-    private static readonly float[] _stageScales = { 1f, 2f, 3.5f, 5f };
+    private static readonly float[] _stageScales = { 1f, 2f, 4f, 6f };
 
     public BuildStage Stage => _stage;
     public InteractType InteractType => InteractType.Building;
