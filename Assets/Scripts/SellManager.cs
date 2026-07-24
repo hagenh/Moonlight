@@ -32,7 +32,7 @@ public class SellManager : MonoBehaviour
 
     private void Start()
     {
-        if (TimeManager.Instance != null && TimeManager.Instance.HourF >= tormodArriveHour && _tormodInstance == null)
+        if (_tormodInstance == null)
             SpawnTormod();
     }
 
@@ -53,7 +53,6 @@ public class SellManager : MonoBehaviour
     private void OnDayEnded(int day)
     {
         RemoveCart();
-        RemoveTormod();
     }
 
     private void OnHourChanged(int hour, int day)
