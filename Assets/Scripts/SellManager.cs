@@ -128,6 +128,13 @@ public class SellManager : MonoBehaviour
 
     private void OnDeliveryMade(DeliveryType type, ItemDef item, int count, int price)
     {
+        if (type != DeliveryType.Tormod || _tormodNailsGranted) return;
+        _tormodNailsGranted = true;
+        if (InventoryManager.Instance != null)
+        {
+            InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
+            GameEvents.OnToastRequested("+3 Nails from Tormod");
+        }
     }
 
     public void OpenSellMenu(SellerType type)
