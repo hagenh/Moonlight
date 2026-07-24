@@ -76,6 +76,18 @@ public class DebugMenu : MonoBehaviour
                 InventoryManager.Instance.TryAdd(ContentDb.Timber, 5);
             if (GUILayout.Button("+5 Nails"))
                 InventoryManager.Instance.TryAdd(ContentDb.Nails, 5);
+            if (GUILayout.Button("+5 Berry"))
+                InventoryManager.Instance.TryAdd(ContentDb.Berry, 5);
+            if (GUILayout.Button("+5 Stone"))
+                InventoryManager.Instance.TryAdd(ContentDb.Stone, 5);
+            if (GUILayout.Button("+5 Wood"))
+                InventoryManager.Instance.TryAdd(ContentDb.Wood, 5);
+            if (GUILayout.Button("Build Kit (3S+5W+3N)"))
+            {
+                InventoryManager.Instance.TryAdd(ContentDb.Stone, 3);
+                InventoryManager.Instance.TryAdd(ContentDb.Wood, 5);
+                InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
+            }
         }
 
         GUILayout.Space(8);
