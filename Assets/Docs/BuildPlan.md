@@ -69,6 +69,10 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 
 ## Phase 6 — Narrative: conspiracy trust + recruitment
 - [ ] NarrativeFlags + MilestoneDetector + conditional DialogueResolver per Assets/Docs/NarrativeDesign.md architecture (still valid — reskin meanings only).
+- [ ] Quest system: QuestDef (id, description, trigger event, condition, reward) + QuestTracker that listens to GameEvents, checks conditions, grants rewards. No quest log UI yet — just toast on completion.
+- [ ] Quest: "First Batch" — ferment 1 batch of Berry Shine. Reward: none (tutorial quest, completion = progress).
+- [ ] Quest: "A Deal's a Deal" — sell 1 batch of Berry Shine to Tormod. Reward: +3 Nails from Tormod.
+- [ ] Quest: "A Roof Over Your Head" — build the Homestead to Walls stage. Reward: none (tutorial quest, completion = progress).
 - [ ] Per-NPC conspiracy trust gates function tiers AND dialogue (Signe t1 discounts, t2 sales buff).
 - [ ] Recruitment beats on move-in coroutine tech: Tormod (Act 0), Berta (catches you, covers unprompted), Signe, Aksel, Ingrid, Elias.
 - [ ] Global reputation DIES here: remove rep meter/HUD/recipe gates; replace gates with trust/flags.
