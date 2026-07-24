@@ -29,7 +29,7 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [x] Roadhouse back door: dusk-only delivery point, Tormod buys, names price (his recruitment beat = tutorial).
 - [x] Homestead build-from-scratch: 3 stages (Foundation 3 Stone → Frame 3 Wood → Walls 2 Wood + 3 Nails from Tormod) on the player's own camp clearing; player forages materials between ferment batches; unlocks proper still + vat + game proper.
 - [x] Tent persists after move: becomes first stash point.
-- [ ] Done: new player reaches homestead in 20–40 min without instructions. HARD gate: still in tent on day 4 = numbers wrong, fix before proceeding.
+- [x] Done: new player reaches homestead in 20–40 min without instructions. HARD gate: still in tent on day 4 = numbers wrong, fix before proceeding.
 
 ## Phase 2 — Art: replace all placeholders
 - [ ] FallenLog: pick or draw a log sprite from Grasslands tileset.
