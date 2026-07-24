@@ -20,6 +20,7 @@ public class BuildSign : MonoBehaviour, IInteractable
         new Color(0.55f, 0.35f, 0.15f),
         new Color(0.8f, 0.7f, 0.5f),
     };
+    private static readonly float[] _stageScales = { 1f, 2f, 3.5f, 5f };
 
     public BuildStage Stage => _stage;
     public InteractType InteractType => InteractType.Building;
@@ -80,6 +81,13 @@ public class BuildSign : MonoBehaviour, IInteractable
         _stage = newStage;
         if (_spriteRenderer != null && (int)_stage < _stageColors.Length)
             _spriteRenderer.color = _stageColors[(int)_stage];
+        if ((int)_stage < _stageScales.Length)
+        {
+            float s = _stageScales[(int)_stage];
+            transform.localScale = new Vector3(s, s, 1f);
+            foreach (var c in GetComponents<BoxCollider2D>())
+                c.size = new Vector2(0.8f, 1.0f);
+        }
         GameEvents.OnHomesteadBuildStageChanged((int)_stage);
         GameEvents.OnToastRequested(toast);
     }
