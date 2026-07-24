@@ -14,14 +14,15 @@ Every game object that renders a sprite. Status: **Done** = real art assigned, *
 | BuildSign | Tan 16×16 procedural | Needs art | Signpost/foundation marker sprite |
 | Homestead (Building) | Colored square (facadeRenderer tint) | Needs art | Full building exterior sprite |
 | Bed | Scene-assigned | Verify | Check if real sprite in scene |
-| Building facades (Bakery, General Store, Road House, Mill, Boarding House, Constable) | facadeRenderer color tint | Needs art | Each building needs its own facade sprite |
+| Building facades (Bakery, General Store, Road House, Mill, Boarding House, Constable) | Town tileset sprites | Done | Finished buildings have real facade sprites |
 | DebrisPile | Scene-assigned | Verify | Check if real sprite in scene |
 | DeliveryPoint | Scene-assigned | Verify | Check if real sprite in scene |
 | ExitDoor | Scene-assigned | Verify | Check if real sprite in scene |
-| Guard | Procedural vision cone only | Needs art | NPC guard sprite |
+| Guard | Directional idle/walk sprites | Done | Uses DirectionalSpriteAnimator |
+| Player | Placeholder | Needs art | Directional idle/walk animations |
 | SellerInteractable (Tormod) | `Texture2D.whiteTexture` 4×4 | Needs art | NPC or stall sprite |
 | SellerInteractable (Cart) | `Texture2D.whiteTexture` 4×4 | Needs art | Cart sprite |
-| Crate | `Texture2D.whiteTexture` 4×4 | Needs art | Wooden crate sprite |
+| Crate | Two-sprite prefab (bottom+top tile) | Done | CratePrefab in ContentDb, carry sprite via CrateCarrySprite |
 | Debris | `Texture2D.whiteTexture` 4×4 | Needs art | Rubble/debris sprite |
 
 ## Tileset Sources
