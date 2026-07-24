@@ -57,17 +57,6 @@ public class SellManager : MonoBehaviour
 
     private void OnHourChanged(int hour, int day)
     {
-        if (hour == cartArriveHour && EconomyRules.IsCartDay(day) && _cartInstance == null)
-            SpawnCart();
-
-        if (hour == cartLeaveHour && _cartInstance != null)
-            RemoveCart();
-
-        if (hour == tormodArriveHour && _tormodInstance == null)
-            SpawnTormod();
-
-        if (tormodLeaveHour >= 0 && hour == tormodLeaveHour && _tormodInstance != null)
-            RemoveTormod();
     }
 
     private void SpawnCart()
@@ -141,11 +130,8 @@ public class SellManager : MonoBehaviour
     {
         if (type != DeliveryType.Tormod || _tormodNailsGranted) return;
         _tormodNailsGranted = true;
-        if (InventoryManager.Instance != null)
-        {
-            InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
-            GameEvents.OnToastRequested("+3 Nails from Tormod");
-        }
+        InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
+        GameEvents.OnToastRequested("+3 Nails from Tormod");
     }
 
     public void OpenSellMenu(SellerType type)
@@ -165,6 +151,14 @@ public class SellManager : MonoBehaviour
         if (!GameManager.Instance.TrySpend(cost)) return false;
 
         InventoryManager.Instance.TryAdd(item, count);
+
+        if (!_tormodNailsGranted)
+        {
+            _tormodNailsGranted = true;
+            InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
+            GameEvents.OnToastRequested("+3 Nails from Tormod");
+        }
+
         return true;
     }
 }
