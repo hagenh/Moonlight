@@ -8,8 +8,7 @@ public class ContentDb : MonoBehaviour
     public readonly Dictionary<string, ItemDef> Items = new();
     public readonly Dictionary<string, ResidentDef> Residents = new();
     public DirectionalAnimationSet GuardAnimations;
-    public Sprite CrateBottom;
-    public Sprite CrateTop;
+    public GameObject CratePrefab;
 
     public static readonly ItemDef Grain = new ItemDef("grain", "Grain", true, 5);
     public static readonly ItemDef Sugar = new ItemDef("sugar", "Sugar", true, 5);
