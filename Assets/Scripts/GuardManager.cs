@@ -13,7 +13,6 @@ public class GuardManager : MonoBehaviour
 
     private readonly List<Guard> _activeGuards = new();
     [SerializeField] private int guardCount = 1;
-    private static Sprite _guardSprite;
 
     public IReadOnlyList<Guard> ActiveGuards => _activeGuards;
 
@@ -110,9 +109,11 @@ public class GuardManager : MonoBehaviour
             go.transform.position = Vector3.zero;
 
         var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = GetGuardSprite();
-        sr.color = new Color(0.3f, 0.4f, 0.6f);
         sr.sortingOrder = 5;
+
+        var animator = go.AddComponent<DirectionalSpriteAnimator>();
+        animator.animationSet = ContentDb.Instance != null ? ContentDb.Instance.GuardAnimations : null;
+        if (animator.animationSet != null) animator.Initialize();
 
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
@@ -121,19 +122,6 @@ public class GuardManager : MonoBehaviour
         var guard = go.AddComponent<Guard>();
         if (route != null) guard.SetWaypoints(route);
         _activeGuards.Add(guard);
-    }
-
-    private static Sprite GetGuardSprite()
-    {
-        if (_guardSprite == null)
-        {
-            _guardSprite = Sprite.Create(
-                Texture2D.whiteTexture,
-                new Rect(0, 0, 4, 4),
-                new Vector2(0.5f, 0.5f),
-                16f);
-        }
-        return _guardSprite;
     }
 
     private void DespawnGuard()

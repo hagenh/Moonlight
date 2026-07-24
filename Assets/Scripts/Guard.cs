@@ -25,6 +25,7 @@ public class Guard : MonoBehaviour
     private bool _lookingAway;
     private float _lookAwayTimer;
     private float _baseFacing;
+    private DirectionalSpriteAnimator _animator;
     private GameObject _coneObject;
     private MeshFilter _coneMeshFilter;
     private MeshRenderer _coneRenderer;
@@ -50,6 +51,7 @@ public class Guard : MonoBehaviour
     private void Awake()
     {
         CreateCone();
+        _animator = GetComponent<DirectionalSpriteAnimator>();
     }
 
     private void OnDestroy()
@@ -61,6 +63,8 @@ public class Guard : MonoBehaviour
     private void Update()
     {
         float dt = Time.deltaTime;
+
+        if (_animator != null) _animator.Tick(dt);
 
         if (_caught)
         {
@@ -114,6 +118,7 @@ public class Guard : MonoBehaviour
         {
             _pausing = true;
             _pauseTimer = pauseAtWaypoint;
+            if (_animator != null) _animator.Play("idle");
             return;
         }
 
@@ -124,6 +129,12 @@ public class Guard : MonoBehaviour
             transform.position += (Vector3)move;
 
         _baseFacing = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        if (_animator != null)
+        {
+            _animator.SetFacingFromVector(dir);
+            _animator.Play("walk");
+        }
     }
 
     private float GetCurrentFacing()
@@ -222,6 +233,7 @@ public class Guard : MonoBehaviour
         _detection = 0;
         _caught = false;
         _lookingAway = false;
+        if (_animator != null) _animator.Play("idle");
         if (waypoints != null && waypoints.Length > 0 && waypoints[0] != null)
         {
             transform.position = waypoints[0].position;
