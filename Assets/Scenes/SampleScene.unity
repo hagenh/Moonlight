@@ -53073,7 +53073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aafa4ae4641c64195b1e3e89e3e9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Lamplight.Runtime::BuildSign
-  homesteadBuilding: {fileID: 0}
+  homesteadBuilding: {fileID: 1841795980}
 --- !u!61 &1780398607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53573,6 +53573,17 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1841795980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8127561434418404441, guid: 64d03af3e461223479da0a6ea898bc35, type: 3}
+  m_PrefabInstance: {fileID: 1348879793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f674f5b49901ec14ca28221883b7d073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1885688115
 GameObject:
   m_ObjectHideFlags: 0
