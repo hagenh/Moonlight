@@ -5,6 +5,7 @@ public class DirectionalSpriteAnimator : MonoBehaviour
     public DirectionalAnimationSet animationSet;
 
     private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer Renderer => _spriteRenderer ??= GetComponent<SpriteRenderer>();
     private string _currentClipName;
     private DirectionalClip _currentClip;
     private FacingDirection _facing = FacingDirection.Down;
@@ -101,6 +102,6 @@ public class DirectionalSpriteAnimator : MonoBehaviour
         Sprite[] sprites = _currentClip.GetSprites(_facing);
         if (sprites == null || sprites.Length == 0) return;
         int frame = Mathf.Min(_currentFrame, sprites.Length - 1);
-        _spriteRenderer.sprite = sprites[frame];
+        Renderer.sprite = sprites[frame];
     }
 }
