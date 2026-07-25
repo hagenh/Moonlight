@@ -318,6 +318,69 @@ Placement is into predefined sockets. No free placement system.
 
 ## Part 4 — Open problems
 
+### Design threads — status board
+
+Settled so far:
+
+| Thread | Settled | Where |
+|---|---|---|
+| **The stand + request book** | 2026-07-25 | Part 3 — full design |
+| **Delivery runs cut** | 2026-07-25 | Below |
+| **Homestead shell vs. site** | 2026-07-25 | Parts 1 and 3 |
+| **Danger relocates to the front** | 2026-07-25 | Part 3 — *partially* designed |
+
+Still open, in dependency order. **Work them roughly in this sequence** — the ordering reflects real blocking, not preference:
+
+| # | Thread | What's unresolved | Blocks |
+|---|---|---|---|
+| **1** | **The guardrail contradiction** ← *next* | Can daytime play cost the player anything? | #3 |
+| 3 | **The Constable** | What a beat is, how often one fires, what a choice looks like, how the town's goodwill mechanically shields you. Venue exists (bait notes); system does not | #4 partly |
+| 4 | **What is night for?** | Three candidates, none chosen. The blocking pillar question | #5 |
+| 5 | **Side activities** | Filter written, candidates unscored, none chosen | — |
+| 6 | **Homestead site upgrades** | Which upgrades, what order, what cost | #7 |
+| 7 | **Unlock cadence** | The 2-3-visible rule has never been tested against real content | — |
+| 8 | **Berta's recruitment beat** | Her trigger evaporated with the runs. Best beat in the design, currently orphaned | — |
+| 9 | **Recipe book → cellar** | How the grandfather's book seeds the mystery. Small, self-contained, cheap | — |
+| 10 | **The moral axis** | Post-slice. Three resolutions listed, none chosen | — |
+
+### ⚠ The guardrail contradiction (thread #1)
+
+**Unresolved, and it now blocks real work.**
+
+`BuildPlan.md` rules say *"never punish daytime play."* Guardrail 1 in this document says *"Day life carries no loss risk."*
+
+But the Constable system in Part 3 says failure costs *"standing or opportunity"* — and standing is a loss that happens in daylight. **This document currently contradicts itself.**
+
+Suspicious requests sharpened the problem rather than easing it: filling a bait order has to cost *something*, or the one tension mechanic in the primary economy is empty theatre.
+
+Two candidate resolutions, unchosen:
+
+- **Narrow the guardrail** to "no loss of cash, goods, or progress during the day" — leaving social standing as fair game. More interesting, probably right
+- **Constable can only cost upside not yet earned** — he takes away potential, never anything held. Safest, possibly toothless
+
+Settle this before designing the Constable or scheduling any phase around him.
+
+### `BuildPlan.md` reconciliation — the audit
+
+Full line-by-line audit performed 2026-07-25. Twelve problems, priority order:
+
+| # | Problem |
+|---|---|
+| 1 | **Header points at the superseded spec** — directs every future worker to the wrong document. Cheapest fix, highest priority |
+| 2 | **Slice summary describes the old game** — "night = opt-in delivery runs" · "keep the woods dark" · "deep woods (routes, destinations)" · "stand (safe channel)" understates it · "two-layer infrastructure" is now one |
+| 3 | **Phase 4 entirely dead** — routes, appointments, patrols, catching, bribes, load-outs, courier |
+| 4 | **Phases 3 and 5 half dead** — near forest and public sockets survive; deep woods, corridors, destinations, stash barrels, trail markers, shortcut planks, lookout perch do not. Phase 3's darkness pass is *blocked* on thread #4 |
+| 5 | **No phase exists for the stand or the Constable** — the primary economy and the entire tension system are unscheduled |
+| 6 | **Broken metrics** — Phase 7 "first night run ~1 h" · Phase 9 "time to first night run (<75 min)" and "caught-players can name their mistake… patrol bug" · Phase 8 "night-run ambience layer". Two of Phase 9's six validation metrics measure a system that won't exist |
+| 7 | **Orphaned completed work** — Phase D's bribe rework has nothing to catch you; guards were kept explicitly for "Phase 3 repurposes them onto routes," which no longer happens. *Silver lining: the finished Guard sprite becomes the Constable's* |
+| 8 | **Berta's beat trigger gone** — "catches you, covers unprompted" was built on smuggling |
+| 9 | **Aksel loses the handcart, Boarding House loses the courier** — both still listed in Phase 7 with dead functions |
+| 10 | **Pre-existing bug, unrelated:** Phase D says reputation dies in Phase 5; Phase 6 says it dies there. Phase 6 is correct |
+| 11 | **Phase 1 doesn't know about shell-vs-site** — still reads as a one-time build unlocking "proper still + vat" |
+| 12 | **`tormodLeaveHour = -1` untracked** — shipped-but-wrong against old spec and this doc; no line item owns it |
+
+Net: Phase 4 dies, Phases 3 and 5 halve, Phases 1/2/6/7/8/9 need edits, two new systems need phases that don't exist. **Resolve thread #1 first** — the guardrail wording determines what a Constable phase is allowed to contain.
+
 ### The runs decision (2026-07-25) — recorded reasoning
 
 Delivery runs, routes, patrols, and load-outs are **cut**. Not deferred — cut.
