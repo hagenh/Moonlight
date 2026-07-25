@@ -29,7 +29,7 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 | Core fantasy | Front-town empire: every building a legitimate business on the surface, an operation node underneath |
 | Where danger lives | **The front, socially.** The Constable works in daylight, in the cozy part. Not a stealth system |
 | What protects you | **The town.** Neighbors who like you lie for you. Restoration is literally defensive |
-| Primary economy | The stand: named customers with specific wants and deadlines |
+| Primary economy | The roadside stand and its **request book** — written orders, generous deadlines, and some notes that are bait |
 | NPC role | Co-conspirators: day job (front) + operation role (function) + recruitment beat (story) |
 | Town agency | Player-placed public infrastructure in predefined sockets |
 | Narrative | Recruitment beats, conspiracy trust, the Mill cellar |
@@ -68,20 +68,15 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 
 The homestead shell gives the player an **address**, and an address is what a stand requires. You cannot run a business out of a tent in the woods.
 
-**The stand opens.** Customers come to you with **specific wants and stated deadlines**. This is the primary economy for the rest of the game.
+**The roadside stand opens**, and with it **the request book**. This is the primary economy for the rest of the game. Full mechanics in Part 3.
 
 > **The stand must be the first site upgrade, and it must be cheap and immediate** — buildable within minutes of the shell completing, not after another long material grind. This is not a tuning preference. Weakness ② is closed only if the new hook arrives *as* the old one runs out; putting a second grind between the shell and the stand re-opens the exact vacuum the stand exists to fill.
 
 Why this matters more than the price: **it converts production from a routine into a plan.** Before the stand, brewing has no decision content — you make the only recipe you have, as much as you can. After it, brewing is a question: which recipe, how many, for whom, in what order, and what do I start tonight so it's ready Thursday.
 
-**The design problem, and why it's the feature:** a request the player can't fill for hours is not a flaw. It is a *reason to come back tomorrow* — a timer and a ratchet fused into one hook. It only turns sour if it expires punishingly. Therefore:
+**The morning ritual.** Walk out to the stand, read the book, decide what to brew. That is the loop's new heartbeat, and it is deliberately a physical object in the world rather than a menu.
 
-- Deadlines are **generous and stated up front**. The customer tells you when they need it
-- Missing one costs the **bonus, never the customer**. They return with a new want
-- **Standing orders** provide a floor so there is always something worth brewing
-- The player can **see demand before brewing**. Morning becomes a planning moment
-
-Tormod pays you. The stand tells you what to make. That information is the real unlock.
+Tormod pays you. The book tells you what to make. That information is the real unlock.
 
 **Also in Act 1:** the Roadhouse becomes the effortless overflow channel · the first town building purchase · the Constable notices you for the first time.
 
@@ -122,7 +117,7 @@ They converge on **ownership of the town** — the feeling that this place is yo
 | 1 | **Timer** | "Come back at X" | Ferments, request deadlines, dusk window | Shipped |
 | 2 | **Ratchet** | "I'm 30g away" | Cash toward a named price, build stages | Shipped |
 | 3 | **Discovery** | "There's more I haven't seen" | Recipes, map, fragments, NPCs | Partial |
-| 4 | **Planning** | "What do I start tonight?" | **Stand requests** | Not built |
+| 4 | **Planning** | "What do I start tonight?" | **The request book** — read it each morning | Not built |
 | 5 | **Transformation** | "I made this" | Restored buildings, lampposts, the street | Not built |
 | 6 | **Question** | "I need to know" | The cellar | Not built |
 
@@ -155,14 +150,94 @@ This rule is the mechanism that prevents hook vacuums. It is checkable, which is
 | Channel | Price/unit | Volume | Constraint | Risk | When |
 |---|---|---|---|---|---|
 | **Tormod at the back door** | Low, flat | Whatever you have | None | None | Act 0 only |
-| **The stand** | High on requests | Low — you make what was asked | **Knowing what to make** | None | Act 1 onward, primary |
+| **Roadside stand — shelf** | Low | Whatever you stock | None | None | Act 1 onward, passive |
+| **Roadside stand — requests** | High | Low — you make what was asked | **Knowing what to make** | Suspicious notes | Act 1 onward, **primary** |
 | **The Roadhouse** | Medium | Capped daily | None | None | All game, the floor |
+| **Town storefront** | Highest | Higher | Same, more of it | Same | Mid-game channel unlock |
 
 **Tormod and the Roadhouse are the same man, but not the same channel.** In Act 0 you hand him jars at the back door at dusk and he names a price — a person doing you a favour. From Act 1 the Roadhouse becomes a standing account: a capped daily volume you can dump into any time, no conversation required. The person becomes an institution, which is itself a small piece of progression.
 
 The Roadhouse cap exists so it never obsoletes the stand, and its zero-effort convenience exists so a tired player always has an out.
 
 **Appointments survive, relocated.** Market days, festivals, a buyer visiting town — the "one more day" mechanic now brings demand *to* the player instead of sending them out to it. Nothing is ever permanently missable.
+
+### The stand and the request book
+
+**Designed 2026-07-25. The single most important system in the game.**
+
+#### Placement
+
+**Roadside, at the homestead**, on the camp clearing the player already owns. This works because the camp sits on the road between town and everywhere else — passing trade is the premise, and being *outside* town is exactly right for an illicit business.
+
+**A town storefront is a mid-game channel unlock.** Better customers, higher prices, more requests, and a real reason to care about the street you've been restoring. The progression from roadside stall to shopfront narrates going legitimate.
+
+#### Attendance — the stand does not need tending
+
+The player is never summoned anywhere. This protects Act 0's proven hook: *start something, then go do something else*.
+
+- **Shelf trade is passive.** Stock the stand, wander off, come back to coins. This is the income floor and needs no supervision
+- **Requests arrive as written notes** in a book by the stand. Nobody arrives on a schedule; nothing expires while you're across the map
+- **In-person trade is opportunistic.** If the player happens to be at the stand, someone may be browsing. Never a summons
+
+**Why written orders beat customers arriving:** a queue of people means *reacting* one at a time. A book means seeing all demand at once and deciding what to brew against it — which is the actual hook. It also fits the fantasy harder: written orders, left quietly, no faces. Discretion is the theme, and the mechanic says so.
+
+#### The book is a correspondence, not an inbox
+
+Requests come in as notes. The player leaves goods. Next visit: payment **and a reply**.
+
+> *"Better than the last batch."*
+> *"My brother asked where I got it. I didn't say."*
+
+Over twenty hours the book accumulates into a record of the player's relationship with the whole town — built from writing, not systems. The cheapest character in the game.
+
+**Notes are signed.** Voice and relationship arrive through handwriting and phrasing, costing nothing in scheduling.
+
+#### Who writes — and why the mix is the progress meter
+
+| Stage | Who writes | What it means |
+|---|---|---|
+| Early | **Strangers.** Travelers, carters, passing trade. Anonymous scrawls | You are a stranger living in a tent outside town |
+| Middle | Mixed, as restoration and trust grow | The town is starting to know you |
+| Late | **Named residents.** Berta, Signe, eventually Mrs. Holt | The town writes to you by name |
+
+The shift is never announced. The player simply notices one day that they know everyone in the book. **The composition of the request book is the game's progress meter** — and the storefront unlock accelerates the shift, so two progressions pull the same direction.
+
+#### What a request specifies
+
+**Mixed — an exact backbone with descriptive spikes.**
+
+- **Most requests are exact:** product, quantity, date. Reliable, plannable, always something worth brewing
+- **A minority are descriptive:** *"Something strong. It's for a wedding."* Maps to several valid answers, rewards knowing your own recipes
+
+**Descriptive requests do a second job:** when someone asks for something you *can't make yet*, the book is pointing at your next unlock. A request for something aged, arriving before you have barrels, tells the player barrels exist. This does the work of the cadence rule using content that had to be written anyway.
+
+#### Deadlines and misses
+
+- Deadlines are **generous and stated up front**
+- Missing one costs the **bonus, never the customer**. They return with a new want
+- **Standing orders** provide a floor so there is always something worth brewing
+
+A request the player can't fill for hours is not a flaw — it is a reason to come back tomorrow, a timer and a ratchet fused. It only sours if it expires punishingly, so it never does.
+
+#### Tension: suspicious requests
+
+Baseline tension is triage — limited ingredients and time mean you cannot fill everything. On top of that sits exactly **one** additional mechanic:
+
+**Some notes are bait.** An odd quantity. A question about *where* you make it. Handwriting nobody recognises. Payment that is too generous. Filling one exposes you.
+
+This matters structurally: it **returns danger to the stand without requiring the player to be present**, recovering the Constable's stage that the async design gave up. The threat is not a person leaning on your counter — it is a piece of paper you have to judge, in the morning, before you commit.
+
+**It stays legible because the tells are in the writing.** A burned player can always point at the note and name what they missed. No hidden dice — just something they didn't read carefully enough.
+
+**Deliberately excluded:** conflicting requests (two customers wanting the same scarce thing) and quality-reputation penalties. Both were considered and cut on 2026-07-25 to keep the morning ritual clean and let one mechanic carry the edge.
+
+#### Capacity
+
+The number of simultaneously active requests starts small and grows through upgrades — stand improvements, then the storefront. Board space is a **capacity unlock**, and more visible demand means deeper planning.
+
+#### Open numbers
+
+Deferred to implementation: request arrival rate · premium size over shelf price · exact active-request counts per upgrade tier · deadline lengths · the frequency and tell-density of suspicious notes.
 
 ### Buildings
 
@@ -204,10 +279,12 @@ Seven purchasable lots plus the homestead. Each has a front, an operation functi
 
 Danger is **social, daylight, and authored.** The Constable is polite, patient, and present in the cozy part of the game. Pressure arrives as discrete situations with visible choices:
 
-- He visits the stand and asks what's in the jars
-- A customer wants something incriminating while he's within earshot
+- **A note in the request book is bait** — an odd quantity, a question about where you make it, handwriting nobody knows. This is the primary venue (see "Suspicious requests" above)
 - A recruit is careless and you decide whether to cover for them
 - He asks a neighbor about you — and what they say depends on what you've done for them
+- He finds you at the stand while you're stocking it, and makes conversation
+
+> **Still open (thread #3).** The stand going unattended removed the obvious staging ground — the Constable can no longer simply lean on your counter, because you are rarely behind it. Suspicious requests recover most of that, but what a *beat* actually is, how often one fires, and how the town's goodwill mechanically shields you are all undesigned. See Part 4.
 
 **The town is your armor.** Trust and restoration are not only progression; they are protection. Neighbors who like you lie for you. This is the fusion: the loop that is already fun does double duty as the tension system.
 
@@ -319,3 +396,4 @@ Design this when the town and its people actually exist to make choices about.
 |---|---|
 | 2026-07-22 | Front-town empire redesign approved (see superseded spec) |
 | 2026-07-25 | Master doc created. Stand-with-requests becomes the primary economy · homestead split into shell + ongoing site · **delivery runs cut** · danger relocated to the front as a social system · "what is night for?" flagged as the blocking open question |
+| 2026-07-25 | **Stand designed in full** (Part 3). Roadside at the homestead, town storefront as a mid-game channel unlock · stand needs no tending; requests arrive as written notes in a book · the book is a correspondence, with signed notes and replies · customer mix shifts strangers → named residents and *is* the progress meter · requests are exact with descriptive spikes that point at unlocks · suspicious notes are the one tension mechanic, recovering the Constable's staging ground · conflicting requests and quality-reputation penalties considered and cut |
