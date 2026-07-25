@@ -6,7 +6,7 @@ public class SprintState : PlayerState
 
     public override void Enter()
     {
-        controller.SetAnimatorTrigger(AnimatorParams.Sprint);
+        controller.PlayAnimation("walk");
     }
 
     public override void Exit() { }
@@ -18,10 +18,7 @@ public class SprintState : PlayerState
 
     public override void PhysicsUpdate()
     {
-        Vector2 velocity = controller.MoveInput.normalized * controller.SprintSpeed;
-        controller.RB.linearVelocity = velocity;
-        controller.SetAnimatorFloat(AnimatorParams.SpeedX, velocity.x);
-        controller.SetAnimatorFloat(AnimatorParams.SpeedY, velocity.y);
+        controller.RB.linearVelocity = controller.MoveInput.normalized * controller.SprintSpeed;
     }
 
     public override void OnMoveCanceled()

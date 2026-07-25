@@ -53,11 +53,7 @@ public class Guard : MonoBehaviour
         CreateCone();
         _animator = GetComponent<DirectionalSpriteAnimator>();
         if (_animator != null)
-        {
-            if (_animator.animationSet == null && ContentDb.Instance != null)
-                _animator.animationSet = ContentDb.Instance.GuardAnimations;
             _animator.Initialize();
-        }
     }
 
     private void OnDestroy()

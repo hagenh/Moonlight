@@ -7,10 +7,8 @@ public class IdleState : PlayerState
 
     public override void Enter()
     {
-        controller.SetAnimatorTrigger(AnimatorParams.Idle);
+        controller.PlayAnimation("idle");
         controller.RB.linearVelocity = Vector2.zero;
-        controller.SetAnimatorFloat(AnimatorParams.SpeedX, 0f);
-        controller.SetAnimatorFloat(AnimatorParams.SpeedY, 0f);
     }
 
     public override void Exit() { }

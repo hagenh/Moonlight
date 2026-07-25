@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(DirectionalSpriteAnimator))]
 public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     public static PlayerController Instance { get; private set; }
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float sprintSpeed = 7f;
     [SerializeField] private float moveDeadzone = 0.1f;
-    [SerializeField] private Animator animator;
+    [SerializeField] private DirectionalSpriteAnimator spriteAnimator;
     [SerializeField] private SpriteRenderer carrySpriteRenderer;
 
     private Rigidbody2D rb;
@@ -53,6 +54,9 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
         inputActions = new InputSystem_Actions();
         inputActions.Player.AddCallbacks(this);
 
+        if (spriteAnimator == null)
+            spriteAnimator = GetComponent<DirectionalSpriteAnimator>();
+
         currentState = new IdleState(this);
         currentState.Enter();
     }
@@ -82,6 +86,8 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     {
         if (!IsMenuOpen)
             UpdateInteractDetection();
+        if (spriteAnimator != null)
+            spriteAnimator.Tick(Time.deltaTime);
         currentState.LogicUpdate();
     }
 
@@ -109,26 +115,27 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
         if (newFacing != facingDirection)
         {
             facingDirection = newFacing;
-            SetAnimatorInteger(AnimatorParams.FacingDirection, (int)facingDirection);
+            if (spriteAnimator != null)
+                spriteAnimator.SetFacing(facingDirection);
         }
+    }
+
+    public void PlayAnimation(string clipName)
+    {
+        if (spriteAnimator != null)
+            spriteAnimator.Play(clipName);
     }
 
     public void SetAnimatorTrigger(int triggerHash)
     {
-        if (animator != null && animator.isActiveAndEnabled)
-            animator.SetTrigger(triggerHash);
     }
 
     public void SetAnimatorFloat(int paramHash, float value)
     {
-        if (animator != null && animator.isActiveAndEnabled)
-            animator.SetFloat(paramHash, value);
     }
 
     public void SetAnimatorInteger(int paramHash, int value)
     {
-        if (animator != null && animator.isActiveAndEnabled)
-            animator.SetInteger(paramHash, value);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -242,12 +249,18 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public void ShowCarrySprite(bool visible)
     {
-        if (carrySpriteRenderer != null)
+        if (carrySpriteRenderer == null) return;
+
+        if (visible && IsCarryingCrate && CarriedCrate != null)
         {
-            if (visible && IsCarryingCrate && ContentDb.Instance != null && ContentDb.Instance.CrateCarrySprite != null)
+            var crateSr = CarriedCrate.GetComponent<SpriteRenderer>();
+            if (crateSr != null)
+                carrySpriteRenderer.sprite = crateSr.sprite;
+            else if (ContentDb.Instance != null && ContentDb.Instance.CrateCarrySprite != null)
                 carrySpriteRenderer.sprite = ContentDb.Instance.CrateCarrySprite;
-            carrySpriteRenderer.gameObject.SetActive(visible);
         }
+        carrySpriteRenderer.enabled = visible;
+        carrySpriteRenderer.gameObject.SetActive(visible);
     }
 
     private void UpdateInteractDetection()

@@ -8,6 +8,27 @@ public class SellerInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (PlayerController.Instance != null && PlayerController.Instance.IsCarryingCrate)
+        {
+            var crate = PlayerController.Instance.CarriedCrate;
+            if (crate != null)
+            {
+                DeliveryType type = sellerType == SellerType.Tormod ? DeliveryType.Tormod : DeliveryType.Cart;
+                int price = EconomyRules.GetDeliveryPrice(crate.item, type) * crate.count;
+
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.AddCash(price);
+                    GameEvents.OnToastRequested($"+{price}g");
+                }
+
+                Destroy(crate.gameObject);
+                PlayerController.Instance.DropCrate();
+                GameEvents.OnDeliveryMade(type, crate.item, crate.count, price);
+                return;
+            }
+        }
+
         if (SellManager.Instance != null)
             SellManager.Instance.OpenSellMenu(sellerType);
     }

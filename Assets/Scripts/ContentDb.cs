@@ -7,7 +7,7 @@ public class ContentDb : MonoBehaviour
 
     public readonly Dictionary<string, ItemDef> Items = new();
     public readonly Dictionary<string, ResidentDef> Residents = new();
-    public DirectionalAnimationSet GuardAnimations;
+    public GameObject TormodPrefab;
     public GameObject CratePrefab;
     public Sprite CrateCarrySprite;
 
@@ -69,7 +69,6 @@ public class ContentDb : MonoBehaviour
         Register(Stone);
         Register(Wood);
         RegisterResident(Berta);
-        GuardAnimations = BuildGuardAnimations();
     }
 
     private void Register(ItemDef def)
@@ -90,65 +89,5 @@ public class ContentDb : MonoBehaviour
     public ResidentDef GetResident(string id)
     {
         return Residents.GetValueOrDefault(id);
-    }
-
-    private static Sprite MakePlaceholderSprite(Color color)
-    {
-        var tex = new Texture2D(4, 4);
-        var pixels = new Color32[16];
-        for (int i = 0; i < 16; i++) pixels[i] = color;
-        tex.SetPixels32(pixels);
-        tex.Apply();
-        return Sprite.Create(tex, new Rect(0, 0, 4, 4), new Vector2(0.5f, 0.5f), 16f);
-    }
-
-    private DirectionalAnimationSet BuildGuardAnimations()
-    {
-        var set = new DirectionalAnimationSet();
-        Color guardColor = new Color(0.3f, 0.4f, 0.6f);
-        Color guardColorDark = new Color(0.25f, 0.35f, 0.55f);
-        Color guardColorLight = new Color(0.35f, 0.45f, 0.65f);
-
-        Sprite idleD = MakePlaceholderSprite(guardColor);
-        Sprite idleU = MakePlaceholderSprite(guardColorDark);
-        Sprite idleL = MakePlaceholderSprite(guardColorLight);
-        Sprite idleR = MakePlaceholderSprite(guardColor);
-
-        var idle = new DirectionalClip
-        {
-            down = new Sprite[] { idleD },
-            up = new Sprite[] { idleU },
-            left = new Sprite[] { idleL },
-            right = new Sprite[] { idleR },
-            framesPerSecond = 2f,
-            loop = true
-        };
-        set.AddClip("idle", idle);
-
-        Sprite walkD0 = MakePlaceholderSprite(guardColor);
-        Sprite walkD1 = MakePlaceholderSprite(guardColorDark);
-        Sprite walkD2 = MakePlaceholderSprite(guardColorLight);
-        Sprite walkU0 = MakePlaceholderSprite(guardColorDark);
-        Sprite walkU1 = MakePlaceholderSprite(guardColorLight);
-        Sprite walkU2 = MakePlaceholderSprite(guardColor);
-        Sprite walkL0 = MakePlaceholderSprite(guardColorLight);
-        Sprite walkL1 = MakePlaceholderSprite(guardColor);
-        Sprite walkL2 = MakePlaceholderSprite(guardColorDark);
-        Sprite walkR0 = MakePlaceholderSprite(guardColor);
-        Sprite walkR1 = MakePlaceholderSprite(guardColorLight);
-        Sprite walkR2 = MakePlaceholderSprite(guardColorDark);
-
-        var walk = new DirectionalClip
-        {
-            down = new Sprite[] { walkD0, walkD1, walkD2 },
-            up = new Sprite[] { walkU0, walkU1, walkU2 },
-            left = new Sprite[] { walkL0, walkL1, walkL2 },
-            right = new Sprite[] { walkR0, walkR1, walkR2 },
-            framesPerSecond = 8f,
-            loop = true
-        };
-        set.AddClip("walk", walk);
-
-        return set;
     }
 }

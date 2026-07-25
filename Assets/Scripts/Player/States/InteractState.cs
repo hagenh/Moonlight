@@ -8,7 +8,7 @@ namespace Player.States
 
         public override void Enter()
         {
-            controller.SetAnimatorTrigger(AnimatorParams.Interact);
+            controller.PlayAnimation("idle");
 
             if (controller.CurrentInteractable != null)
                 controller.CurrentInteractable.Interact();

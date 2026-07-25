@@ -9,6 +9,7 @@ namespace Player.States
         public override void Enter()
         {
             controller.ShowCarrySprite(true);
+            controller.PlayAnimation("idle");
         }
 
         public override void Exit()
@@ -21,15 +22,16 @@ namespace Player.States
             if (controller.IsMenuOpen) return;
 
             UpdateFacingDirection(controller.MoveInput);
+
+            if (controller.MoveInput.magnitude > 0.1f)
+                controller.PlayAnimation("walk");
+            else
+                controller.PlayAnimation("idle");
         }
 
         public override void PhysicsUpdate()
         {
-            float speed = controller.WalkSpeed;
-            Vector2 velocity = controller.MoveInput.normalized * speed;
-            controller.RB.linearVelocity = velocity;
-            controller.SetAnimatorFloat(AnimatorParams.SpeedX, velocity.x);
-            controller.SetAnimatorFloat(AnimatorParams.SpeedY, velocity.y);
+            controller.RB.linearVelocity = controller.MoveInput.normalized * controller.WalkSpeed;
         }
 
         public override void OnMoveCanceled()
@@ -44,17 +46,14 @@ namespace Player.States
                 if (!controller.IsCarrying)
                     ChangeState(new IdleState(controller));
             }
-            else if (controller.CurrentInteractable is DeliveryPoint dp)
-            {
-                dp.Interact();
-                if (!controller.IsCarryingCrate)
-                    ChangeState(new IdleState(controller));
-            }
-            else if (controller.CurrentInteractable is ExitDoor
+            else if (controller.CurrentInteractable is SellerInteractable
+                || controller.CurrentInteractable is ExitDoor
                 || controller.CurrentInteractable is Bed
                 || controller.CurrentInteractable is Building)
             {
                 controller.CurrentInteractable.Interact();
+                if (!controller.IsCarryingCrate)
+                    ChangeState(new IdleState(controller));
             }
             else
             {

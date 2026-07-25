@@ -12,9 +12,7 @@ public class SellManager : MonoBehaviour
     [SerializeField] private int tormodLeaveHour = -1;
 
     private SellerInteractable _cartInstance;
-    private DeliveryPoint _cartDeliveryPoint;
     private SellerInteractable _tormodInstance;
-    private DeliveryPoint _tormodDeliveryPoint;
 
     private IRng _rng = UnityRng.Instance;
     private bool _tormodNailsGranted;
@@ -63,17 +61,6 @@ public class SellManager : MonoBehaviour
     {
         Vector3 pos = cartPosition != null ? cartPosition.position : Vector3.zero;
         _cartInstance = SellerInteractable.Create(SellerType.TravelingCart, pos);
-
-        var dpGo = new GameObject("CartDeliveryPoint");
-        dpGo.transform.position = pos;
-        dpGo.layer = LayerMask.NameToLayer("Interactable");
-        var col = dpGo.AddComponent<BoxCollider2D>();
-        col.isTrigger = true;
-        col.size = new Vector2(1.5f, 1.5f);
-        var dp = dpGo.AddComponent<DeliveryPoint>();
-        dp.SetDeliveryType(DeliveryType.Cart);
-        _cartDeliveryPoint = dp;
-
         GameEvents.OnSellerArrived(SellerType.TravelingCart);
     }
 
@@ -84,28 +71,32 @@ public class SellManager : MonoBehaviour
             Destroy(_cartInstance.gameObject);
             _cartInstance = null;
         }
-        if (_cartDeliveryPoint != null)
-        {
-            Destroy(_cartDeliveryPoint.gameObject);
-            _cartDeliveryPoint = null;
-        }
-        if (_cartInstance == null && _cartDeliveryPoint == null)
+        if (_cartInstance == null)
             GameEvents.OnSellerLeft(SellerType.TravelingCart);
     }
 
     private void SpawnTormod()
     {
         Vector3 pos = tormodPosition != null ? tormodPosition.position : Vector3.zero;
-        _tormodInstance = SellerInteractable.Create(SellerType.Tormod, pos);
 
-        var dpGo = new GameObject("TormodDeliveryPoint");
-        dpGo.transform.position = pos;
-        dpGo.layer = LayerMask.NameToLayer("Interactable");
-        var col = dpGo.AddComponent<BoxCollider2D>();
-        col.isTrigger = true;
-        col.size = new Vector2(1.5f, 1.5f);
-        _tormodDeliveryPoint = dpGo.AddComponent<DeliveryPoint>();
-        _tormodDeliveryPoint.SetDeliveryType(DeliveryType.Tormod);
+        if (ContentDb.Instance != null && ContentDb.Instance.TormodPrefab != null)
+        {
+            var go = Instantiate(ContentDb.Instance.TormodPrefab, pos, Quaternion.identity);
+            go.name = "Tormod";
+            go.layer = LayerMask.NameToLayer("Interactable");
+            _tormodInstance = go.GetComponent<SellerInteractable>();
+
+            var animator = go.GetComponent<DirectionalSpriteAnimator>();
+            if (animator != null)
+            {
+                animator.Initialize();
+                animator.Play("idle");
+            }
+        }
+        else
+        {
+            _tormodInstance = SellerInteractable.Create(SellerType.Tormod, pos);
+        }
 
         GameEvents.OnSellerArrived(SellerType.Tormod);
     }
@@ -117,12 +108,7 @@ public class SellManager : MonoBehaviour
             Destroy(_tormodInstance.gameObject);
             _tormodInstance = null;
         }
-        if (_tormodDeliveryPoint != null)
-        {
-            Destroy(_tormodDeliveryPoint.gameObject);
-            _tormodDeliveryPoint = null;
-        }
-        if (_tormodInstance == null && _tormodDeliveryPoint == null)
+        if (_tormodInstance == null)
             GameEvents.OnSellerLeft(SellerType.Tormod);
     }
 
