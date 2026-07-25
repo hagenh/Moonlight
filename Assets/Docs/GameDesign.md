@@ -70,6 +70,8 @@ The homestead shell gives the player an **address**, and an address is what a st
 
 **The stand opens.** Customers come to you with **specific wants and stated deadlines**. This is the primary economy for the rest of the game.
 
+> **The stand must be the first site upgrade, and it must be cheap and immediate** — buildable within minutes of the shell completing, not after another long material grind. This is not a tuning preference. Weakness ② is closed only if the new hook arrives *as* the old one runs out; putting a second grind between the shell and the stand re-opens the exact vacuum the stand exists to fill.
+
 Why this matters more than the price: **it converts production from a routine into a plan.** Before the stand, brewing has no decision content — you make the only recipe you have, as much as you can. After it, brewing is a question: which recipe, how many, for whom, in what order, and what do I start tonight so it's ready Thursday.
 
 **The design problem, and why it's the feature:** a request the player can't fill for hours is not a flaw. It is a *reason to come back tomorrow* — a timer and a ratchet fused into one hook. It only turns sour if it expires punishingly. Therefore:
@@ -152,9 +154,11 @@ This rule is the mechanism that prevents hook vacuums. It is checkable, which is
 
 | Channel | Price/unit | Volume | Constraint | Risk | When |
 |---|---|---|---|---|---|
-| **Tormod** | Low, flat | Whatever you have | None | None | Act 0 only |
+| **Tormod at the back door** | Low, flat | Whatever you have | None | None | Act 0 only |
 | **The stand** | High on requests | Low — you make what was asked | **Knowing what to make** | None | Act 1 onward, primary |
-| **Roadhouse** | Medium | Capped daily | None | None | All game, the floor |
+| **The Roadhouse** | Medium | Capped daily | None | None | All game, the floor |
+
+**Tormod and the Roadhouse are the same man, but not the same channel.** In Act 0 you hand him jars at the back door at dusk and he names a price — a person doing you a favour. From Act 1 the Roadhouse becomes a standing account: a capped daily volume you can dump into any time, no conversation required. The person becomes an institution, which is itself a small piece of progression.
 
 The Roadhouse cap exists so it never obsoletes the stand, and its zero-effort convenience exists so a tired player always has an out.
 
