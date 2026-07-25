@@ -27,15 +27,19 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 | Question | Decision |
 |---|---|
 | Core fantasy | Front-town empire: every building a legitimate business on the surface, an operation node underneath |
-| Where danger lives | **The front, socially.** The Constable works in daylight, in the cozy part. Not a stealth system |
-| What protects you | **The town.** Neighbors who like you lie for you. Restoration is literally defensive |
-| Primary economy | The roadside stand and its **request book** — written orders, generous deadlines, and some notes that are bait |
+| Genre position | **Cozy by design.** No mechanical edge anywhere — not in the day, not at night. Settled 2026-07-25, see Part 4 |
+| The day/night axis | *Day is when you act; night is when the day answers back.* Pacing and mood, not two modes of play. Settled 2026-07-25 (thread #4) |
+| Where danger lives | **Nowhere mechanical.** The Constable is narrative pressure and atmosphere. He is never a loss system |
+| What protects you | **The town.** Neighbors who like you lie for you. Restoration is literally defensive — as fiction and as story, not as a defence stat |
+| Primary economy | The roadside stand and its **request book** — written orders with generous deadlines |
 | NPC role | Co-conspirators: day job (front) + operation role (function) + recruitment beat (story) |
 | Town agency | Player-placed public infrastructure in predefined sockets |
 | Narrative | Recruitment beats, conspiracy trust, the Mill cellar |
 | World | One connected exterior scene; interiors separate small spaces |
 
 **The central fusion:** restoring the town and defending the operation are the *same action*. That is why the front-town fantasy holds, and it is the test every new system must pass.
+
+> **Read this as fiction, not mechanics** (cozy decision, 2026-07-25). Nothing is attacking the operation, so nothing is mechanically defending it. The fusion survives as the reason the fantasy coheres and as the register every recruitment beat is written in — not as a safety stat the player is accumulating.
 
 ---
 
@@ -78,7 +82,7 @@ Why this matters more than the price: **it converts production from a routine in
 
 Tormod pays you. The book tells you what to make. That information is the real unlock.
 
-**Also in Act 1:** the Roadhouse becomes the effortless overflow channel · the first town building purchase · the Constable notices you for the first time.
+**Also in Act 1:** the Roadhouse becomes the effortless overflow channel · the first town building purchase · the Constable notices you for the first time · **the first night beat** — the player comes home to find something waiting at the fire, and learns that nights are sometimes not empty.
 
 ### Act 2 — The town, the Constable, the Mill (~2-6h)
 
@@ -86,8 +90,8 @@ Tormod pays you. The book tells you what to make. That information is the real u
 
 - **Restoration compounds.** Each building buys recipes, people, and features. Buildings are the progression gate
 - **Recruitment beats.** Berta catches you mid-something and covers for you *unprompted* — then you talk. The best beat in the design, because it demonstrates the thesis instead of stating it
-- **The Constable becomes real** (see Part 3). Daylight questions, awkward requests, careless recruits
-- **The town becomes armor.** Trust earned earlier starts paying out as protection
+- **The Constable starts appearing** (see Part 3). Daylight questions, awkward conversations, a man who is always slightly too interested — and who never actually takes anything from you
+- **The town becomes armor** — in the fiction. Neighbours cover for you in dialogue and in story beats. Nothing is being subtracted, so nothing is being defended against
 - **First lamppost.** The street changes because you changed it
 - **The quality ladder** — berry → grain → aged → flavored
 - **The Mill**, gated by Mrs. Holt, most expensive. Stage 1 completion reveals a cellar door, locked from the inside. Title card
@@ -123,6 +127,8 @@ They converge on **ownership of the town** — the feeling that this place is yo
 
 > Hook 4 replaces what was previously **voluntary risk** (night runs). See Part 4.
 
+**There is no seventh hook, and there is deliberately no tension hook.** With the cozy decision of 2026-07-25, hooks 5 and 6 — transformation and the question — carry the load that danger would have carried in another game. That is a real bet: **the game's pull is the town changing and the cellar's answer, not jeopardy.** If the slice fails to hold players, these two are where to look first.
+
 ### The cadence rule
 
 **At any moment, the player should have 2-3 visible unlocks in reach — at different price points, in different categories.** One cheap and soon, one mid, one aspirational but named.
@@ -139,7 +145,17 @@ This rule is the mechanism that prevents hook vacuums. It is checkable, which is
 
 **③ The daily loop still has one verb.** Foraging feeds brewing; building spends brewing income. Everything routes through moonshine. The stand adds *decision* to that verb, which helps a great deal — but it does not add a second thing to do. See Part 4.
 
-**④ The cellar fires once, at the end, and a free setup is going unused.** The grandfather's ruined recipe book — mostly destroyed, one legible page — is currently pure Act 0 flavor. The player carries a mysterious damaged object from minute zero. Wiring it to the cellar seeds hour six's payoff at minute three for almost nothing. **Cheapest high-value change in this document.**
+**④ The cellar fires once, at the end, and a free setup is going unbuilt.** The grandfather's ruined recipe book — mostly destroyed, one legible page — would let the player carry a mysterious damaged object from minute zero, seeding hour six's payoff at minute three.
+
+> **Correction, 2026-07-25:** this document previously described the book as existing ("currently pure Act 0 flavor"). **It does not exist** — not in code, not as an asset, not in the scene. It appears only in the superseded 2026-07-22 spec. Thread #9 is therefore *build it, then wire it*, not *wire it*. Still cheap, no longer free.
+
+**⑤ ~~The primary economy has no edge.~~ Resolved 2026-07-25 — by decision, not by design.**
+
+This was recorded as a weakness on the assumption that a twenty-hour game needs a mechanical edge somewhere, and that thread #4 would site it at night. **That assumption is now rejected.** Lamplight is cozy on purpose: there is no jeopardy system anywhere in the game, and the absence is a genre position rather than a gap. See "The cozy decision" in Part 4.
+
+What remains in the economy is triage — limited ingredients and limited time against a book of requests — and triage is now understood as *sufficient*, because it is the only kind of pressure the game is trying to exert.
+
+> **The honest counter-argument, kept on the record:** cozy games that work usually still have a pressure gradient — a season that ends, a stamina bar, a debt. Lamplight currently has none of these. **The thing to watch in playtest is whether days feel like they have a shape**, or whether the player drifts. If they drift, the fix is a *soft* clock (a reason to want the day to end well), not the reintroduction of loss.
 
 ---
 
@@ -151,7 +167,7 @@ This rule is the mechanism that prevents hook vacuums. It is checkable, which is
 |---|---|---|---|---|---|
 | **Tormod at the back door** | Low, flat | Whatever you have | None | None | Act 0 only |
 | **Roadside stand — shelf** | Low | Whatever you stock | None | None | Act 1 onward, passive |
-| **Roadside stand — requests** | High | Low — you make what was asked | **Knowing what to make** | Suspicious notes | Act 1 onward, **primary** |
+| **Roadside stand — requests** | High | Low — you make what was asked | **Knowing what to make** | None | Act 1 onward, **primary** |
 | **The Roadhouse** | Medium | Capped daily | None | None | All game, the floor |
 | **Town storefront** | Highest | Higher | Same, more of it | Same | Mid-game channel unlock |
 
@@ -219,17 +235,13 @@ The shift is never announced. The player simply notices one day that they know e
 
 A request the player can't fill for hours is not a flaw — it is a reason to come back tomorrow, a timer and a ratchet fused. It only sours if it expires punishingly, so it never does.
 
-#### Tension: suspicious requests
+#### Tension: triage, and only triage
 
-Baseline tension is triage — limited ingredients and time mean you cannot fill everything. On top of that sits exactly **one** additional mechanic:
+The book's tension is **triage** — limited ingredients and limited time mean you cannot fill everything, so choosing what to brew has a cost in what you didn't. Nothing else.
 
-**Some notes are bait.** An odd quantity. A question about *where* you make it. Handwriting nobody recognises. Payment that is too generous. Filling one exposes you.
+**Deliberately excluded:** conflicting requests (two customers wanting the same scarce thing) and quality-reputation penalties, both cut 2026-07-25 to keep the morning ritual clean. **Bait notes are cut too** — see thread #1 in Part 4. They were the design's only source of daytime loss and they contradicted guardrail 1; the full design is parked in `LaterIdeas.md`.
 
-This matters structurally: it **returns danger to the stand without requiring the player to be present**, recovering the Constable's stage that the async design gave up. The threat is not a person leaning on your counter — it is a piece of paper you have to judge, in the morning, before you commit.
-
-**It stays legible because the tells are in the writing.** A burned player can always point at the note and name what they missed. No hidden dice — just something they didn't read carefully enough.
-
-**Deliberately excluded:** conflicting requests (two customers wanting the same scarce thing) and quality-reputation penalties. Both were considered and cut on 2026-07-25 to keep the morning ritual clean and let one mechanic carry the edge.
+> **Triage is the whole of it, and that is now the intended end state** — not a gap awaiting a fix. The cozy decision of 2026-07-25 means no edge is coming from anywhere, so the book is not under-built; it is finished. Bait notes stay parked permanently unless the genre position itself is revisited.
 
 #### Capacity
 
@@ -237,7 +249,7 @@ The number of simultaneously active requests starts small and grows through upgr
 
 #### Open numbers
 
-Deferred to implementation: request arrival rate · premium size over shelf price · exact active-request counts per upgrade tier · deadline lengths · the frequency and tell-density of suspicious notes.
+Deferred to implementation: request arrival rate · premium size over shelf price · exact active-request counts per upgrade tier · deadline lengths.
 
 ### Buildings
 
@@ -254,7 +266,7 @@ Seven purchasable lots plus the homestead. Each has a front, an operation functi
 | **Boarding House** | Rooms, no questions | Houses recruits; rent income. **Operation role needs redesign** — it previously housed the courier |
 | **The Old Mill** | Grinds the valley's grain | Bulk grain; **the cellar**. Endgame, Holt-gated |
 
-**The Constable's office is never purchasable.** It sits on the street, light always on — the one window you didn't light. Deliberate exception to "every building aids progression"; it anchors the tension.
+**The Constable's office is never purchasable.** It sits on the street, light always on — the one window you didn't light. Deliberate exception to "every building aids progression." It is the game's unease rendered as level geometry, and with the cozy decision it is now doing that job almost alone — which makes it *more* important, not less.
 
 **The homestead is a site, not a purchase.** The shell (3 stages) closes Act 0 on schedule. Everything after — stand, vats, storage, rooms, eventually a cellar of your own — is ongoing. This is the permanent home for capacity unlocks and the reason the plot keeps mattering.
 
@@ -273,29 +285,35 @@ Seven purchasable lots plus the homestead. Each has a front, an operation functi
 
 **Binding thread:** the town was a moonshine town once. The law ended it, and the town began dying the same year. Every recruit knows a piece of that story.
 
-### Danger — the Constable and the front
+### The Constable — pressure without stakes
 
-**This replaces the delivery-run system entirely.**
+**Reframed 2026-07-25.** He replaced the delivery-run system; the cozy decision then removed the last reason for him to be a system at all.
 
-Danger is **social, daylight, and authored.** The Constable is polite, patient, and present in the cozy part of the game. Pressure arrives as discrete situations with visible choices:
+**Constable Aas is a character, not a mechanic.** He is polite, patient, unhurried, and always slightly too interested. He appears in daylight, in the cozy part of the game, and he never takes anything from the player — not cash, not goods, not progress, not standing, not opportunity.
 
-- **A note in the request book is bait** — an odd quantity, a question about where you make it, handwriting nobody knows. This is the primary venue (see "Suspicious requests" above)
-- A recruit is careless and you decide whether to cover for them
-- He asks a neighbor about you — and what they say depends on what you've done for them
-- He finds you at the stand while you're stocking it, and makes conversation
+What he does instead is **make the fiction feel true**. The player is running an illegal business in a small town where one man has noticed. That produces unease without producing loss, and unease is exactly what a cozy game is allowed to have.
 
-> **Still open (thread #3).** The stand going unattended removed the obvious staging ground — the Constable can no longer simply lean on your counter, because you are rarely behind it. Suspicious requests recover most of that, but what a *beat* actually is, how often one fires, and how the town's goodwill mechanically shields you are all undesigned. See Part 4.
+His appearances are authored, low-frequency, and **conversational**:
 
-**The town is your armor.** Trust and restoration are not only progression; they are protection. Neighbors who like you lie for you. This is the fusion: the loop that is already fun does double duty as the tension system.
+- He is on the street when you walk through town with a full satchel, and he says good morning
+- He mentions, apropos of nothing, that he knew the family who used to own the Mill
+- He asks a neighbour about you — and you hear about it afterward, from the neighbour, as a story
+- He compliments the lamppost you put up
 
-**This is emphatically not the heat meter that was deleted in Phase D.** That was an invisible number accruing against the player passively, and it was right to kill it. This is discrete, authored, legible moments where the player makes a visible choice — which is what the "no hidden dice" guardrail actually asked for.
+> **The chief risk, named:** a character with no mechanical teeth can read as toothless — the player learns after two hours that he never does anything, and he becomes scenery. **The mitigation is that he must never threaten anything the player can evaluate as a bluff.** He is not a warning of consequences that never arrive; he is a man who knows and has not decided what to do about it. Write him as unresolved, never as pending. This is a writing problem now, not a systems problem.
+
+**The town is your armor — as fiction.** Neighbours who like you cover for you in dialogue, in recruitment beats, and in what they tell him. Nothing is being subtracted, so this is not a defence stat; it is the payoff of restoration told back to the player as story. The fusion in Part 0 survives, in a narrative register instead of a mechanical one.
+
+**This is emphatically not the heat meter deleted in Phase D** — nor a quieter version of it. There is no accumulating state, hidden or visible, and nothing to accumulate toward.
 
 **Design requirements for any Constable beat:**
 
-1. The player must be able to **name the choice they made** afterward
-2. No accumulating invisible state
-3. Failure costs **standing or opportunity**, never a locked-out path
-4. It happens in daylight, in town, in the middle of the cozy part — that is the whole point
+1. It costs the player **nothing at all**. Not cash, goods, progress, standing, or opportunity
+2. No accumulating state, hidden or visible
+3. It happens in daylight, in town, in the middle of the cozy part — that is the whole point
+4. It leaves the player *knowing something they did not know*, or *feeling seen*. That is the entire payload
+
+> **Thread #3 is unblocked and radically smaller than it was.** It is no longer "design a tension system." It is "write a recurring character and decide how often he turns up." What remains open: appearance frequency, whether his lines react to restoration progress, and whether he ever appears at night (see thread #4's answer — probably yes, once).
 
 ### Infrastructure
 
@@ -307,12 +325,13 @@ Placement is into predefined sockets. No free placement system.
 
 ### Guardrails — non-negotiable
 
-1. **Never punish the player for playing.** Day life carries no loss risk
-2. **Legibility over drama.** No hidden dice. Every setback traces to a nameable choice
+1. **Never punish the player for playing.** **No loss anywhere, at any hour** — no cash, no goods, no built progress, no standing, no closed doors. Unconditional; the design contains no exception. Widened from "day life" to the whole game by the cozy decision, 2026-07-25
+2. **Legibility over drama.** No hidden dice. Every setback traces to a nameable choice — and there are, by guardrail 1, almost no setbacks
 3. **Act 0 is a prologue, not an act.** 20-40 minutes, hard
 4. **Appointments create "one more day," not FOMO.** Nothing is permanently missable
 5. **Beautification is never punished**
-6. **Restoration must always double as defense.** If a new system doesn't connect care for the town to safety of the operation, question whether it belongs
+6. **Restoration must always double as defense — in the fiction.** If a new system doesn't connect care for the town to the safety of the operation *as story*, question whether it belongs. This is no longer a mechanical requirement, because there is nothing to defend against
+7. **Cozy is the genre, not a fallback.** Any proposal that reintroduces jeopardy — loss, failure states, timers that punish, a resource that can hit zero badly — is rejected by default. Overturning this means overturning the genre position deliberately and in writing, not smuggling an exception through a single feature
 
 ---
 
@@ -327,38 +346,46 @@ Settled so far:
 | **The stand + request book** | 2026-07-25 | Part 3 — full design |
 | **Delivery runs cut** | 2026-07-25 | Below |
 | **Homestead shell vs. site** | 2026-07-25 | Parts 1 and 3 |
-| **Danger relocates to the front** | 2026-07-25 | Part 3 — *partially* designed |
+| **Danger relocates to the front** | 2026-07-25 | Part 3 — superseded by the cozy decision below |
+| **The guardrail contradiction** (#1) | 2026-07-25 | Below — **no.** Day life costs nothing; bait notes cut |
+| **The cozy decision** (tone) | 2026-07-25 | Below — **no mechanical edge anywhere.** The parent decision that settled #4 |
+| **What is night for?** (#4) | 2026-07-25 | Below — **night is a scene, not an activity block** |
 
 Still open, in dependency order. **Work them roughly in this sequence** — the ordering reflects real blocking, not preference:
 
 | # | Thread | What's unresolved | Blocks |
 |---|---|---|---|
-| **1** | **The guardrail contradiction** ← *next* | Can daytime play cost the player anything? | #3 |
-| 3 | **The Constable** | What a beat is, how often one fires, what a choice looks like, how the town's goodwill mechanically shields you. Venue exists (bait notes); system does not | #4 partly |
-| 4 | **What is night for?** | Three candidates, none chosen. The blocking pillar question | #5 |
-| 5 | **Side activities** | Filter written, candidates unscored, none chosen | — |
+| **3** | **The Constable** ← *next* | **Radically reduced by the cozy decision** — no longer a tension system, now a recurring character. Open: how often he appears, whether his lines track restoration progress, his one night appearance. A writing job | — |
+| 5 | **Side activities** | Filter written, candidates unscored, none chosen. **Now more load-bearing** — with no tension, variety is what keeps the middle hours alive | — |
 | 6 | **Homestead site upgrades** | Which upgrades, what order, what cost | #7 |
 | 7 | **Unlock cadence** | The 2-3-visible rule has never been tested against real content | — |
-| 8 | **Berta's recruitment beat** | Her trigger evaporated with the runs. Best beat in the design, currently orphaned | — |
-| 9 | **Recipe book → cellar** | How the grandfather's book seeds the mystery. Small, self-contained, cheap | — |
-| 10 | **The moral axis** | Post-slice. Three resolutions listed, none chosen | — |
+| 8 | **Berta's recruitment beat** | Her trigger evaporated with the runs, and the cozy decision rules out rebuilding it on danger. **She needs a non-jeopardy version of "catches you and covers unprompted"** — the beat is worth saving; only its trigger is broken | — |
+| 9 | **Recipe book → cellar** | How the grandfather's book seeds the mystery — and the book itself, which **does not exist yet**. Small, self-contained, cheap. **Earliest thing the player would meet (minute 3), and now higher value** since hook 6 carries more of the game's pull | — |
+| 10 | **The moral axis** | Post-slice. Down to two resolutions after the cozy decision eliminated "closed doors" — and may not be worth building at all | — |
 
-### ⚠ The guardrail contradiction (thread #1)
+### The guardrail contradiction (thread #1) — settled 2026-07-25
 
-**Unresolved, and it now blocks real work.**
+**Answer: no. Daytime play costs the player nothing.**
 
-`BuildPlan.md` rules say *"never punish daytime play."* Guardrail 1 in this document says *"Day life carries no loss risk."*
+The contradiction was that guardrail 1 promised *"day life carries no loss risk"* while the Constable's beats were required to cost *"standing or opportunity"* — and standing is earned, and lost in daylight.
 
-But the Constable system in Part 3 says failure costs *"standing or opportunity"* — and standing is a loss that happens in daylight. **This document currently contradicts itself.**
+**Resolved by cutting bait notes**, which were the design's only source of daytime loss. The contradiction dissolves at its source rather than being negotiated around.
 
-Suspicious requests sharpened the problem rather than easing it: filling a bait order has to cost *something*, or the one tension mechanic in the primary economy is empty theatre.
+Three consequences, all folded into this document:
 
-Two candidate resolutions, unchosen:
+1. **Guardrail 1 stands, with explicit scope.** No cash, no goods, no built progress, no standing. Unconditional
+2. **Constable beats cost opportunity only** — a door that never opens. "Standing" struck from the beat requirements
+3. **Bait notes parked in `LaterIdeas.md`**, design intact, in case night turns out to need a daylight counterpart
 
-- **Narrow the guardrail** to "no loss of cash, goods, or progress during the day" — leaving social standing as fair game. More interesting, probably right
-- **Constable can only cost upside not yet earned** — he takes away potential, never anything held. Safest, possibly toothless
+**Why cut rather than narrow the guardrail.** Pinning the fiction decided it: the notes are written by *the law*, not by careless customers. Filling one means handing contraband to a guard who wanted exactly that. The honest consequences of that are evidence, confrontation, or surveillance — and each is either a heat meter in costume (deleted in Phase D, correctly) or a daylight loss of something held. None survive contact with guardrail 1.
 
-Settle this before designing the Constable or scheduling any phase around him.
+**What it costs.** The request book keeps its planning hook but loses its edge — see weakness ⑤. And the Constable loses his last daytime venue, which makes thread #3 harder, not easier.
+
+**That is the correct order of operations.** Bolting danger onto the day before answering the pillar question is what produced this contradiction in the first place.
+
+> **Epilogue, same day.** Thread #4 was then taken up and answered by rejecting the question behind it: the game needs no edge at all. In hindsight this thread was the last of several attempts to place a tension system that the design had never actually decided it wanted. **The cut recorded here was correct, but for a larger reason than the one given at the time.**
+
+Full record: `docs/superpowers/specs/2026-07-25-guardrail-contradiction-design.md`.
 
 ### `BuildPlan.md` reconciliation — the audit
 
@@ -369,8 +396,8 @@ Full line-by-line audit performed 2026-07-25. Twelve problems, priority order:
 | 1 | **Header points at the superseded spec** — directs every future worker to the wrong document. Cheapest fix, highest priority |
 | 2 | **Slice summary describes the old game** — "night = opt-in delivery runs" · "keep the woods dark" · "deep woods (routes, destinations)" · "stand (safe channel)" understates it · "two-layer infrastructure" is now one |
 | 3 | **Phase 4 entirely dead** — routes, appointments, patrols, catching, bribes, load-outs, courier |
-| 4 | **Phases 3 and 5 half dead** — near forest and public sockets survive; deep woods, corridors, destinations, stash barrels, trail markers, shortcut planks, lookout perch do not. Phase 3's darkness pass is *blocked* on thread #4 |
-| 5 | **No phase exists for the stand or the Constable** — the primary economy and the entire tension system are unscheduled |
+| 4 | **Phases 3 and 5 half dead** — near forest and public sockets survive; deep woods, corridors, destinations, stash barrels, trail markers, shortcut planks, lookout perch do not. Phase 3's darkness pass is **unblocked** by thread #4, but must be rescoped from "dark woods to sneak through" to "the homestead at night, and the lit town seen from the treeline" |
+| 5 | **No phase exists for the stand, the Constable, or night beats** — the primary economy and all remaining night content are unscheduled |
 | 6 | **Broken metrics** — Phase 7 "first night run ~1 h" · Phase 9 "time to first night run (<75 min)" and "caught-players can name their mistake… patrol bug" · Phase 8 "night-run ambience layer". Two of Phase 9's six validation metrics measure a system that won't exist |
 | 7 | **Orphaned completed work** — Phase D's bribe rework has nothing to catch you; guards were kept explicitly for "Phase 3 repurposes them onto routes," which no longer happens. *Silver lining: the finished Guard sprite becomes the Constable's* |
 | 8 | **Berta's beat trigger gone** — "catches you, covers unprompted" was built on smuggling |
@@ -379,7 +406,13 @@ Full line-by-line audit performed 2026-07-25. Twelve problems, priority order:
 | 11 | **Phase 1 doesn't know about shell-vs-site** — still reads as a one-time build unlocking "proper still + vat" |
 | 12 | **`tormodLeaveHour = -1` untracked** — shipped-but-wrong against old spec and this doc; no line item owns it |
 
-Net: Phase 4 dies, Phases 3 and 5 halve, Phases 1/2/6/7/8/9 need edits, two new systems need phases that don't exist. **Resolve thread #1 first** — the guardrail wording determines what a Constable phase is allowed to contain.
+Net: Phase 4 dies, Phases 3 and 5 halve, Phases 1/2/6/7/8/9 need edits, two new systems need phases that don't exist.
+
+**All blockers on item 5 are now discharged.** Threads #1 and #4 and the cozy decision between them settle what a Constable phase and a night phase may contain: authored, zero-cost, unmissable content and nothing else. **The whole of item 5 can be scheduled** — a stand phase, and a combined "night beats + Constable appearances" phase that is mostly writing.
+
+**Item 7 resolves as delete.** `Guard.cs` / `GuardManager` were kept through Phase D to be repurposed onto routes, then briefly to write and collect bait notes. Runs are cut, bait notes are out of genre, and the cozy decision guarantees nothing will ever need patrol or detection code. **Nothing is coming for them — delete both.** The finished Guard *sprite* is still reused as Constable Aas; that is an art asset, not the script.
+
+**Item 6 grows by one.** Phase 3's darkness pass is now unblocked, but its stated purpose ("night in the woods is genuinely dark") served the runs. It should be rescoped to what night is actually for: the homestead at night, and the lit town seen from the treeline.
 
 ### The runs decision (2026-07-25) — recorded reasoning
 
@@ -394,7 +427,7 @@ Delivery runs, routes, patrols, and load-outs are **cut**. Not deferred — cut.
 | BuildPlan Phase 4 entire | Dead |
 | Phase 3 deep woods — route corridors, logging camp, river dock, crossroads | Loses its justification. Near forest survives for foraging |
 | Phase 5 covert sockets | Dead. Public sockets untouched |
-| `Guard.cs` / `GuardManager` | **Orphaned.** Kept through Phase D specifically to be repurposed onto routes. Not deleted yet |
+| `Guard.cs` / `GuardManager` | **Delete.** Orphaned by the runs cut, then finally by the cozy decision — nothing in the design will ever need patrol or detection code. The Guard *sprite* still becomes Constable Aas |
 | Load-outs (satchel → handcart → courier) | Dead. Aksel loses the handcart payoff; still upgrades and barrels survive |
 | Boarding House operation role | **Needs redesign** — it housed the courier |
 | Appointments | **Survive, relocated** to the stand as demand events |
@@ -402,23 +435,75 @@ Delivery runs, routes, patrols, and load-outs are **cut**. Not deferred — cut.
 
 **`BuildPlan.md` now contradicts this document in Phases 3, 4, and 5.** It needs its own revision pass. That is deliberately not done here.
 
-### ★ The biggest open question: what is night for?
+### The cozy decision (tone) — settled 2026-07-25
 
-**Undecided. This deserves its own brainstorm.**
+**Answer: Lamplight has no mechanical edge, anywhere, on purpose.**
 
-The core pillar is *day = the front, night = the operation.* Runs were the only night content in the design. Without them, night risks becoming a fast-forward button and sleep a skip key — which would make the day/night cycle, the lighting system, and a central pillar into decoration.
+The question put was whether the game needs jeopardy and, if so, where it lives. Both prior threads had assumed the answer was yes and argued only about location — thread #1 evicted it from the day, which left night holding it by default.
 
-Candidates, none chosen:
+**Rejected.** Lamplight is a restoration game with a criminal skin. The criminality is *flavour, fantasy, and story*; it is not a risk system and never becomes one. Weakness ⑤ is closed by this, and guardrail 7 now protects it.
 
-- **Night is short and consequential.** Not an activity block but a scene: the day's fallout lands, someone knocks, the Constable was asking about you. Then you sleep
-- **Night is quiet, cozy work.** Tending ferments, reading fragments, planning tomorrow's production against known requests, decorating. Night is when you plan; day is when you act
-- **Night keeps covert activity** — things doable only unobserved. Danger is being *seen*, not being caught, and witnesses feed daylight social pressure
+**What this buys.** Every remaining design question gets easier, because the hardest constraint in the document — build tension that never costs the player anything — was a contradiction the design kept paying interest on. Thread #3 shrinks from a system to a character. Thread #1's cut stops being a sacrifice. Bait notes stop being parked and become simply out of genre.
 
-**Nothing else in this document should be built until this is answered**, because it determines whether the day/night axis survives at all.
+**What this costs, stated plainly.** The pull of the game now rests entirely on hooks 5 and 6 — *transformation* (the town visibly changing) and *the question* (the cellar). Neither has ever been played. If the slice does not hold testers, the cause is almost certainly here, and the fix is to strengthen those two, **not** to reintroduce danger.
+
+Full record: `docs/superpowers/specs/2026-07-25-cozy-decision-and-night-design.md`.
+
+### What is night for? (thread #4) — settled 2026-07-25
+
+**Answer: night is a scene, not an activity block.**
+
+Night is not a second work shift, a covert window, or a planning phase. It is the short warm tail of the day in which **the day's story occasionally lands**, followed by sleep. Most nights, nothing happens and the player simply goes to bed — and that is correct, not a shortfall.
+
+#### Grounding — what night actually is in the build today
+
+This was never written down and it constrains the answer, so it is recorded here:
+
+| | |
+|---|---|
+| Real time per game hour | ~46 s (`TimeManager.realSecondsPerGameMinute = 0.77`) |
+| Playable day | 08:00 → 24:00 = **~12.3 real minutes** |
+| Dusk onward (19:00+) | **~3.8 real minutes** |
+| Genuinely dark (21:00+, light intensity ≤ 0.5) | **~2.3 real minutes** |
+| Midnight | `CurfewReached` forces sleep — `TimeManager.cs:58` → `SleepManager.cs:34` |
+| Voluntary sleep | Permitted from 21:00 — `Bed.cs:9` |
+
+**Night is already a two-to-four minute tail ending in a hard cut.** That rules out the covert-activity candidate on its own — there is not enough night to *do* anything in — and it means the scene answer is close to what is already shipped. **No clock retuning is required.**
+
+#### How a beat reaches the player
+
+**Beats wait at the homestead.** Every day ends by going home to sleep, so beats live where sleep already lives: someone sitting at your fire, a note weighted under a stone, a lamp lit in a window that was dark yesterday.
+
+This makes them **unmissable by construction** — no telegraphing, no appointment to keep, no way to sleep through one — which satisfies guardrail 4 without adding a scheduling system. It also gives the walk home a reason to exist and reinforces the homestead-as-permanent-site principle from Part 3.
+
+#### What a beat is made of
+
+Cozy register, matching the tone decision. A beat is **warmth, story, or the cellar mystery** — never a threat and never a bill:
+
+- A recruit is waiting at your fire because they had nowhere else to go
+- A fragment of the old operation's story surfaces — left, found, or remembered
+- Someone thanks you for something you did days ago and had forgotten
+- The Constable, exactly once and memorably, is simply standing in the road
+
+**A beat leaves the player knowing something, or feeling something. It never changes their inventory.**
+
+#### The pillar, restated honestly
+
+*"Day = the front, night = the operation"* **is retired.** It described the delivery-run game, which is cut, and no honest reading of the design supports it any more.
+
+**Replaced by:** *day is when you act; night is when the day answers back.* The day/night cycle survives as pacing and mood rather than as two modes of play, and the lighting system survives because dusk over a lit street is one of the best images the game has — see Act 0, where a dark street of boarded windows is already doing real work.
+
+#### Open — deferred to implementation
+
+Beat frequency · how beats are authored and triggered (milestone, day count, or hand-placed) · whether empty nights get any small ambient reward · whether the 21:00 sleep floor should move earlier now that night has content worth encountering.
+
+Full record: `docs/superpowers/specs/2026-07-25-cozy-decision-and-night-design.md`.
 
 ### Side activities — the second verb
 
 Weakness ③. The stand adds decision to brewing but not a second thing to do.
+
+> **Promoted by the cozy decision.** In a game with jeopardy, variety is a nice-to-have. In a game without it, **variety is the retention mechanism** — there is nothing else keeping the player in hours 3-10 but the pleasure of having things to do. Thread #5 is now second in the queue behind #3, and should be treated as core rather than garnish.
 
 **The filter — a good Lamplight side activity:**
 
@@ -435,21 +520,23 @@ Score these against the filter before building any of them.
 
 Money versus helping people. Explicitly **not in the slice**.
 
-**The tension to resolve first:** moral choice only has weight if choosing people *costs* something, but guardrail 1 forbids punishing the player. Candidate resolutions, unchosen:
+**The tension to resolve first:** moral choice only has weight if choosing people *costs* something, but guardrail 1 forbids punishing the player. Candidate resolutions:
 
-- Costs cash only — the renewable resource. Never time, safety, or a closed path
-- A currency conversion: money buys upgrades, generosity buys trust. Two builds, no loss — but arguably no moral weight either, just a second shop
-- Genuinely closed doors. Maximum weight, directly bends guardrail 1
+- Costs cash only — the renewable resource. Never time, safety, or a closed path. **Still live.** Spending money is not losing it, so guardrail 1 permits this
+- A currency conversion: money buys upgrades, generosity buys trust. Two builds, no loss — but arguably no moral weight either, just a second shop. **Still live**
+- ~~Genuinely closed doors. Maximum weight, directly bends guardrail 1~~ — **eliminated 2026-07-25.** Guardrail 7 forbids it outright, and the cozy decision means the door it was bending was load-bearing after all
 
-Design this when the town and its people actually exist to make choices about.
+**Consequence: the axis is now a choice between two low-stakes options, and may not be worth building at all.** Decide that honestly when the town and its people exist — a moral axis with nothing at stake is a menu, and the design should be willing to cut it rather than ship a hollow one.
 
 ### Smaller open items
 
 - **Boarding House** needs a new operation role
-- **`Guard.cs` / `GuardManager`** are orphaned — decide whether the Constable reuses any of it before deleting
-- **Deep woods** need a reason to exist, or the world shrinks to town + near forest
-- **The grandfather's recipe book** should be wired to the cellar — cheapest high-value change available
+- **`Guard.cs` / `GuardManager`** — **decided: delete.** Nothing in the design will need patrol or detection code. Keep the sprite for Constable Aas
+- **Deep woods** need a reason to exist, or the world shrinks to town + near forest. **Now more pressing** — the cozy decision removed the last candidate reason (covert night activity), so either thread #5 gives the woods a use or they are cut
+- **The grandfather's recipe book** does not exist yet and should be built, then wired to the cellar — see the correction under weakness ④. **Now higher value:** with hook 6 carrying more of the game's pull, seeding the cellar early matters more than it did
 - **`tormodLeaveHour = -1`** contradicts the design; Tormod should be dusk-only and Act 0-scoped
+- **Bait notes** stay in `LaterIdeas.md` and are now **out of genre, not merely parked.** Reviving them means overturning guardrail 7 in writing
+- **The 21:00 sleep floor** (`Bed.cs:9`) may want to move now that night has content worth encountering. Open number under thread #4
 
 ---
 
@@ -459,4 +546,7 @@ Design this when the town and its people actually exist to make choices about.
 |---|---|
 | 2026-07-22 | Front-town empire redesign approved (see superseded spec) |
 | 2026-07-25 | Master doc created. Stand-with-requests becomes the primary economy · homestead split into shell + ongoing site · **delivery runs cut** · danger relocated to the front as a social system · "what is night for?" flagged as the blocking open question |
+| 2026-07-25 | **Thread #1 settled — the guardrail contradiction.** Answer: daytime play costs the player nothing. **Bait notes cut** and parked in `LaterIdeas.md`; they were the design's only source of daylight loss · guardrail 1 stands with explicit scope (no cash, goods, progress, or standing) · Constable beats now cost **opportunity only** · new weakness ⑤, the primary economy has no edge · thread #3 reblocked from #1 onto #4, and **#4 "what is night for?" becomes the front of the queue and the design's only remaining home for tension** |
 | 2026-07-25 | **Stand designed in full** (Part 3). Roadside at the homestead, town storefront as a mid-game channel unlock · stand needs no tending; requests arrive as written notes in a book · the book is a correspondence, with signed notes and replies · customer mix shifts strangers → named residents and *is* the progress meter · requests are exact with descriptive spikes that point at unlocks · suspicious notes are the one tension mechanic, recovering the Constable's staging ground · conflicting requests and quality-reputation penalties considered and cut |
+| 2026-07-25 | **The cozy decision — the largest revision since the runs cut.** The inherited assumption that the game needs a mechanical edge *somewhere* is **rejected**. Lamplight is a restoration game with a criminal skin; jeopardy is not relocated, it is removed · guardrail 1 widens from "day life" to the whole game · **new guardrail 7: cozy is the genre, not a fallback** · weakness ⑤ closed by decision · the Constable is reframed from a tension system to a recurring character who costs the player nothing (thread #3 unblocked and radically smaller) · `Guard.cs` / `GuardManager` resolve to **delete** · bait notes move from parked to out-of-genre · the moral axis loses its "closed doors" resolution and may not be worth building · **thread #5 (side activities) promoted to core**, since variety is now the only retention mechanism · the game's pull rests entirely on hooks 5 and 6, both unproven |
+| 2026-07-25 | **Thread #4 settled — what night is for.** Answer: **night is a scene, not an activity block.** Most nights are empty and the player just sleeps · beats wait at the homestead, making them unmissable by construction without any scheduling system · a beat is warmth, story, or the cellar mystery, and never changes the player's inventory · **the pillar *"day = the front, night = the operation"* is retired** and replaced with *day is when you act; night is when the day answers back* · the day/night cycle survives as pacing and mood, and the lighting system survives on its own merits · **night's real duration recorded for the first time** — ~3.8 real minutes from dusk, ~2.3 genuinely dark, ending in a forced midnight sleep — which required no clock retuning and independently ruled out the covert-activity candidate |
