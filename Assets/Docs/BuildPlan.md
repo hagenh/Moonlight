@@ -38,7 +38,6 @@ Stack: Unity 2D (URP), C#, Tilemap, Light2D. Evenings/weekends; phases are scope
 - [ ] Crate: replace `Texture2D.whiteTexture` with real crate sprite.
 - [ ] Debris: replace `Texture2D.whiteTexture` with rubble sprite.
 - [ ] SellerInteractable (Tormod): NPC or stall sprite.
-- [ ] SellerInteractable (Cart): cart sprite.
 - [ ] Guard: NPC guard sprite with directional idle/walk animations.
 - [ ] Player: directional idle/walk animations using DirectionalSpriteAnimator.
 - [ ] Building facades (Bakery, General Store, Road House, Mill, Boarding House, Constable): each gets its own facade sprite instead of tinted Square overlay.
