@@ -1,5 +1,10 @@
 # LAMPLIGHT Redesign — Front-Town Empire (Design Spec)
 
+> **SUPERSEDED 2026-07-25 by `Assets/Docs/GameDesign.md`.**
+> This file is retained as the dated record of what was approved on 2026-07-22. Where the two disagree, `GameDesign.md` wins.
+> Most notably: delivery runs, routes, patrols, load-outs, and covert forest sockets described below were **cut** on 2026-07-25; danger moved to the front as a social system, and the stand became the primary economy.
+> The "What dies (code-level)" and "What's reused" sections below remain accurate as a record of the Phase D migration and were deliberately not carried forward.
+
 Date: 2026-07-22
 Status: Approved in brainstorming; supersedes the fantasy/tension/NPC layers of `Assets/Docs/BuildPlan.md` and reskins `Assets/Docs/NarrativeDesign.md`. Production/renovation/day-cycle systems survive unchanged unless listed under "What dies."
 
