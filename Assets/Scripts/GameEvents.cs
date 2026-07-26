@@ -39,6 +39,12 @@ public static class GameEvents
 
     public static event System.Action<DeliveryType, ItemDef, int, int> DeliveryMade;
 
+    public static event System.Action<StandRequest> RequestPosted;
+    public static event System.Action<StandRequest, int> RequestFilled;
+    public static event System.Action<StandRequest> RequestDeclined;
+    public static event System.Action<ItemDef, int, int> ShelfSold;
+    public static event System.Action RequestBookRequested;
+
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
 
@@ -140,4 +146,19 @@ public static class GameEvents
 
     public static void OnDeliveryMade(DeliveryType type, ItemDef item, int count, int price)
         => DeliveryMade?.Invoke(type, item, count, price);
+
+    public static void OnRequestPosted(StandRequest request)
+        => RequestPosted?.Invoke(request);
+
+    public static void OnRequestFilled(StandRequest request, int payment)
+        => RequestFilled?.Invoke(request, payment);
+
+    public static void OnRequestDeclined(StandRequest request)
+        => RequestDeclined?.Invoke(request);
+
+    public static void OnShelfSold(ItemDef item, int count, int payment)
+        => ShelfSold?.Invoke(item, count, payment);
+
+    public static void OnRequestBookRequested()
+        => RequestBookRequested?.Invoke();
 }
