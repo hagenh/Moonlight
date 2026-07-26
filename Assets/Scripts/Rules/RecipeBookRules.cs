@@ -25,6 +25,31 @@ public readonly struct BookPage
 }
 
 /// <summary>
+/// Two facing pages of the book, or the burned back section.
+///
+/// The burned spread carries no pages at all — it is the end of the book, not a
+/// page of it, which is why <see cref="RecipeBookRules.CompilePages"/> never
+/// emits it and <see cref="RecipeBookRules.CompileSpreads"/> always appends it.
+/// </summary>
+public readonly struct BookSpread
+{
+    public readonly BookPage Left;
+    public readonly BookPage Right;
+    public readonly bool HasRight;
+    public readonly bool IsBurnedSection;
+
+    public BookSpread(BookPage left, BookPage right, bool hasRight, bool isBurnedSection)
+    {
+        Left = left;
+        Right = right;
+        HasRight = hasRight;
+        IsBurnedSection = isBurnedSection;
+    }
+
+    public static BookSpread Burned() => new BookSpread(default, default, false, true);
+}
+
+/// <summary>
 /// The recipe book: pages are recipes. The player inherits it already damaged,
 /// with a single legible page.
 ///
@@ -65,5 +90,39 @@ public static class RecipeBookRules
         }
 
         return pages;
+    }
+
+    /// <summary>
+    /// Groups pages into facing pairs and appends the burned section as the final
+    /// spread. An odd page count leaves the last right-hand page blank rather than
+    /// pulling the burned section forward — a book does not reflow.
+    /// </summary>
+    public static List<BookSpread> CompileSpreads(IReadOnlyList<BookPage> pages)
+    {
+        var spreads = new List<BookSpread>();
+
+        if (pages != null)
+        {
+            for (int i = 0; i < pages.Count; i += 2)
+            {
+                bool hasRight = i + 1 < pages.Count;
+                spreads.Add(new BookSpread(
+                    pages[i],
+                    hasRight ? pages[i + 1] : default,
+                    hasRight,
+                    false));
+            }
+        }
+
+        spreads.Add(BookSpread.Burned());
+        return spreads;
+    }
+
+    public static int ClampSpreadIndex(int index, int spreadCount)
+    {
+        if (spreadCount <= 0) return 0;
+        if (index < 0) return 0;
+        if (index >= spreadCount) return spreadCount - 1;
+        return index;
     }
 }
