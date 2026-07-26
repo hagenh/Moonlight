@@ -38,9 +38,6 @@ public static class GameEvents
     public static event System.Action<ResidentDef, Building> MoveInSequenceCompleted;
 
     public static event System.Action<DeliveryType, ItemDef, int, int> DeliveryMade;
-    public static event System.Action<int> CaughtBribe;
-    public static event System.Action BribePaid;
-    public static event System.Action BribeRefused;
 
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
@@ -143,13 +140,4 @@ public static class GameEvents
 
     public static void OnDeliveryMade(DeliveryType type, ItemDef item, int count, int price)
         => DeliveryMade?.Invoke(type, item, count, price);
-
-    public static void OnCaughtBribe(int cost)
-        => CaughtBribe?.Invoke(cost);
-
-    public static void OnBribePaid()
-        => BribePaid?.Invoke();
-
-    public static void OnBribeRefused()
-        => BribeRefused?.Invoke();
 }
