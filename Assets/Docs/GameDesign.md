@@ -8,7 +8,7 @@
 
 **What it does not own:**
 
-- `Assets/Docs/BuildPlan.md` — build order and phase status. **Warning: BuildPlan Phases 3-5 now contradict this document.** See Part 4.
+- `Assets/Docs/BuildPlan.md` — build order and phase status. Reconciled against this document on 2026-07-25; see Part 4 for the audit that drove it.
 - `Assets/Docs/NarrativeDesign.md` — narrative implementation architecture (flags, fragments, dialogue resolution). Still valid as tech.
 - `AGENTS.md` — code conventions.
 
@@ -64,7 +64,7 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 
 **Tormod is Act 0 only.** He is the tutorial buyer — a flat rate, no decisions, deliberately simple. He should leave at dawn and arrive at dusk, and once the stand opens he stops being the primary channel.
 
-> **Known bug against this design:** `SellManager.cs:12` sets `tormodLeaveHour = -1` and spawns him once in `Start()`, never removing him. He is currently a permanent, always-open vending machine. This contradicts both the original spec and this document.
+> **Fixed 2026-07-25 (uncommitted at time of writing).** This document previously recorded a known bug: `tormodLeaveHour = -1` with a one-shot spawn in `Start()`, making Tormod a permanent always-open vending machine. `SellManager` now keeps him to an 18:00-06:00 window via `SellerRules.IsPresent`, which handles the wrap past midnight, and settles presence once at startup so he isn't missing until the clock next ticks. Covered by `Assets/Tests/EditMode/SellerRulesTests.cs`.
 
 ### Act 1 — The day game opens (~40 min - 2h)
 
@@ -404,15 +404,17 @@ Full line-by-line audit performed 2026-07-25. Twelve problems, priority order:
 | 9 | **Aksel loses the handcart, Boarding House loses the courier** — both still listed in Phase 7 with dead functions |
 | 10 | **Pre-existing bug, unrelated:** Phase D says reputation dies in Phase 5; Phase 6 says it dies there. Phase 6 is correct |
 | 11 | **Phase 1 doesn't know about shell-vs-site** — still reads as a one-time build unlocking "proper still + vat" |
-| 12 | **`tormodLeaveHour = -1` untracked** — shipped-but-wrong against old spec and this doc; no line item owns it |
+| 12 | ~~**`tormodLeaveHour = -1` untracked**~~ — **fixed 2026-07-25.** Tormod now keeps an 18:00-06:00 window via `SellerRules.IsPresent`, tested. BuildPlan still needs a line item acknowledging it |
+
+> **Resolved 2026-07-25.** All twelve items are addressed — `BuildPlan.md` has been reconciled and the guard system deleted. This table is kept as the record of what was wrong, not as a work queue.
 
 Net: Phase 4 dies, Phases 3 and 5 halve, Phases 1/2/6/7/8/9 need edits, two new systems need phases that don't exist.
 
-**All blockers on item 5 are now discharged.** Threads #1 and #4 and the cozy decision between them settle what a Constable phase and a night phase may contain: authored, zero-cost, unmissable content and nothing else. **The whole of item 5 can be scheduled** — a stand phase, and a combined "night beats + Constable appearances" phase that is mostly writing.
+**All blockers on item 5 were discharged.** Threads #1 and #4 and the cozy decision between them settled what a Constable phase and a night phase may contain: authored, zero-cost, unmissable content and nothing else. Item 5 was then scheduled as **Phase S** (the stand and request book) and **Phase N** (night beats + Constable appearances), the latter mostly writing.
 
-**Item 7 resolves as delete.** `Guard.cs` / `GuardManager` were kept through Phase D to be repurposed onto routes, then briefly to write and collect bait notes. Runs are cut, bait notes are out of genre, and the cozy decision guarantees nothing will ever need patrol or detection code. **Nothing is coming for them — delete both.** The finished Guard *sprite* is still reused as Constable Aas; that is an art asset, not the script.
+**Item 7 resolved as delete, and the deletion is done.** `Guard.cs` / `GuardManager` were kept through Phase D to be repurposed onto routes, then briefly to write and collect bait notes. Runs are cut, bait notes are out of genre, and the cozy decision guaranteed nothing would ever need patrol or detection code. **`Guard.cs`, `GuardManager`, `BribeUI`, the three bribe events, `Guard.prefab`, and all of their scene objects were deleted 2026-07-25.** The finished Guard *sprite* is still reused as Constable Aas; that is an art asset, not the script.
 
-**Item 6 grows by one.** Phase 3's darkness pass is now unblocked, but its stated purpose ("night in the woods is genuinely dark") served the runs. It should be rescoped to what night is actually for: the homestead at night, and the lit town seen from the treeline.
+**Item 6 grew by one.** Phase 3's darkness pass was unblocked but its stated purpose ("night in the woods is genuinely dark") served the runs. It is now rescoped in `BuildPlan.md` to what night is actually for: the homestead at night, and the lit town seen from the treeline.
 
 ### The runs decision (2026-07-25) — recorded reasoning
 
@@ -427,13 +429,13 @@ Delivery runs, routes, patrols, and load-outs are **cut**. Not deferred — cut.
 | BuildPlan Phase 4 entire | Dead |
 | Phase 3 deep woods — route corridors, logging camp, river dock, crossroads | Loses its justification. Near forest survives for foraging |
 | Phase 5 covert sockets | Dead. Public sockets untouched |
-| `Guard.cs` / `GuardManager` | **Delete.** Orphaned by the runs cut, then finally by the cozy decision — nothing in the design will ever need patrol or detection code. The Guard *sprite* still becomes Constable Aas |
+| `Guard.cs` / `GuardManager` | **Deleted 2026-07-25.** Orphaned by the runs cut, then finally by the cozy decision — nothing in the design will ever need patrol or detection code. `BribeUI` and the three bribe events went with them. The Guard *sprite* still becomes Constable Aas |
 | Load-outs (satchel → handcart → courier) | Dead. Aksel loses the handcart payoff; still upgrades and barrels survive |
 | Boarding House operation role | **Needs redesign** — it housed the courier |
 | Appointments | **Survive, relocated** to the stand as demand events |
 | Mill cellar, restoration, NPCs, infrastructure | Untouched |
 
-**`BuildPlan.md` now contradicts this document in Phases 3, 4, and 5.** It needs its own revision pass. That is deliberately not done here.
+> **`BuildPlan.md` was reconciled on 2026-07-25** and no longer contradicts this document. Phase 4 is a tombstone, Phases 3 and 5 are halved, and Phases S and N carry the stand and the night beats.
 
 ### The cozy decision (tone) — settled 2026-07-25
 
@@ -531,10 +533,10 @@ Money versus helping people. Explicitly **not in the slice**.
 ### Smaller open items
 
 - **Boarding House** needs a new operation role
-- **`Guard.cs` / `GuardManager`** — **decided: delete.** Nothing in the design will need patrol or detection code. Keep the sprite for Constable Aas
+- ~~**`Guard.cs` / `GuardManager`**~~ — **deleted 2026-07-25**, along with `BribeUI`, the three bribe events, `Guard.prefab`, and their scene objects. The sprite is kept for Constable Aas
 - **Deep woods** need a reason to exist, or the world shrinks to town + near forest. **Now more pressing** — the cozy decision removed the last candidate reason (covert night activity), so either thread #5 gives the woods a use or they are cut
 - **The grandfather's recipe book** does not exist yet and should be built, then wired to the cellar — see the correction under weakness ④. **Now higher value:** with hook 6 carrying more of the game's pull, seeding the cellar early matters more than it did
-- **`tormodLeaveHour = -1`** contradicts the design; Tormod should be dusk-only and Act 0-scoped
+- ~~**`tormodLeaveHour = -1`**~~ — **fixed 2026-07-25.** Tormod is dusk-to-dawn via `SellerRules`. What remains open is the *design* half: he should also stop being the primary channel once the stand opens, which is Act 1 work
 - **Bait notes** stay in `LaterIdeas.md` and are now **out of genre, not merely parked.** Reviving them means overturning guardrail 7 in writing
 - **The 21:00 sleep floor** (`Bed.cs:9`) may want to move now that night has content worth encountering. Open number under thread #4
 
@@ -548,5 +550,6 @@ Money versus helping people. Explicitly **not in the slice**.
 | 2026-07-25 | Master doc created. Stand-with-requests becomes the primary economy · homestead split into shell + ongoing site · **delivery runs cut** · danger relocated to the front as a social system · "what is night for?" flagged as the blocking open question |
 | 2026-07-25 | **Thread #1 settled — the guardrail contradiction.** Answer: daytime play costs the player nothing. **Bait notes cut** and parked in `LaterIdeas.md`; they were the design's only source of daylight loss · guardrail 1 stands with explicit scope (no cash, goods, progress, or standing) · Constable beats now cost **opportunity only** · new weakness ⑤, the primary economy has no edge · thread #3 reblocked from #1 onto #4, and **#4 "what is night for?" becomes the front of the queue and the design's only remaining home for tension** |
 | 2026-07-25 | **Stand designed in full** (Part 3). Roadside at the homestead, town storefront as a mid-game channel unlock · stand needs no tending; requests arrive as written notes in a book · the book is a correspondence, with signed notes and replies · customer mix shifts strangers → named residents and *is* the progress meter · requests are exact with descriptive spikes that point at unlocks · suspicious notes are the one tension mechanic, recovering the Constable's staging ground · conflicting requests and quality-reputation penalties considered and cut |
+| 2026-07-26 | **Audit closed out.** `BuildPlan.md` reconciled against this document — header repointed here, slice summary rewritten, Phase 4 tombstoned, Phases 3 and 5 halved, **Phase S** (stand + request book) and **Phase N** (night beats + Constable) added, four broken validation metrics replaced, Berta's trigger and the Boarding House role marked open, the Phase 5/6 reputation contradiction fixed, Phase 1 taught shell-vs-site, guardrails updated to seven · the guard system **deleted** in full: `Guard.cs`, `GuardManager`, `BribeUI`, `Guard.prefab`, the three bribe events, and 37 scene objects |
 | 2026-07-25 | **The cozy decision — the largest revision since the runs cut.** The inherited assumption that the game needs a mechanical edge *somewhere* is **rejected**. Lamplight is a restoration game with a criminal skin; jeopardy is not relocated, it is removed · guardrail 1 widens from "day life" to the whole game · **new guardrail 7: cozy is the genre, not a fallback** · weakness ⑤ closed by decision · the Constable is reframed from a tension system to a recurring character who costs the player nothing (thread #3 unblocked and radically smaller) · `Guard.cs` / `GuardManager` resolve to **delete** · bait notes move from parked to out-of-genre · the moral axis loses its "closed doors" resolution and may not be worth building · **thread #5 (side activities) promoted to core**, since variety is now the only retention mechanism · the game's pull rests entirely on hooks 5 and 6, both unproven |
 | 2026-07-25 | **Thread #4 settled — what night is for.** Answer: **night is a scene, not an activity block.** Most nights are empty and the player just sleeps · beats wait at the homestead, making them unmissable by construction without any scheduling system · a beat is warmth, story, or the cellar mystery, and never changes the player's inventory · **the pillar *"day = the front, night = the operation"* is retired** and replaced with *day is when you act; night is when the day answers back* · the day/night cycle survives as pacing and mood, and the lighting system survives on its own merits · **night's real duration recorded for the first time** — ~3.8 real minutes from dusk, ~2.3 genuinely dark, ending in a forced midnight sleep — which required no clock retuning and independently ruled out the covert-activity candidate |
