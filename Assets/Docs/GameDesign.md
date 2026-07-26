@@ -31,7 +31,7 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 | The day/night axis | *Day is when you act; night is when the day answers back.* Pacing and mood, not two modes of play. Settled 2026-07-25 (thread #4) |
 | Where danger lives | **Nowhere mechanical.** The Constable is narrative pressure and atmosphere. He is never a loss system |
 | What protects you | **The town.** Neighbors who like you lie for you. Restoration is literally defensive — as fiction and as story, not as a defence stat |
-| Primary economy | The roadside stand and its **request book** — written orders with generous deadlines |
+| Primary economy | The roadside stand and its **request book** — written orders that never expire; the occupied slot is the only cost |
 | NPC role | Co-conspirators: day job (front) + operation role (function) + recruitment beat (story) |
 | Town agency | Player-placed public infrastructure in predefined sockets |
 | Narrative | Recruitment beats, conspiracy trust, the Mill cellar |
@@ -82,7 +82,7 @@ Why this matters more than the price: **it converts production from a routine in
 
 Tormod pays you. The book tells you what to make. That information is the real unlock.
 
-**Also in Act 1:** the Roadhouse becomes the effortless overflow channel · the first town building purchase · the Constable notices you for the first time · **the first night beat** — the player comes home to find something waiting at the fire, and learns that nights are sometimes not empty.
+**Also in Act 1:** the stand's shelf becomes the effortless overflow channel and Tormod stops being a price · the first town building purchase · the Constable notices you for the first time · **the first night beat** — the player comes home to find something waiting at the fire, and learns that nights are sometimes not empty.
 
 ### Act 2 — The town, the Constable, the Mill (~2-6h)
 
@@ -118,7 +118,7 @@ They converge on **ownership of the town** — the feeling that this place is yo
 
 | # | Hook | Mechanism | Where it lives | Status |
 |---|---|---|---|---|
-| 1 | **Timer** | "Come back at X" | Ferments, request deadlines, dusk window | Shipped |
+| 1 | **Timer** | "Come back at X" | Ferments, dusk window | Shipped |
 | 2 | **Ratchet** | "I'm 30g away" | Cash toward a named price, build stages | Shipped |
 | 3 | **Discovery** | "There's more I haven't seen" | Recipes, map, fragments, NPCs | Partial |
 | 4 | **Planning** | "What do I start tonight?" | **The request book** — read it each morning | Not built |
@@ -165,15 +165,13 @@ What remains in the economy is triage — limited ingredients and limited time a
 
 | Channel | Price/unit | Volume | Constraint | Risk | When |
 |---|---|---|---|---|---|
-| **Tormod at the back door** | Low, flat | Whatever you have | None | None | Act 0 only |
-| **Roadside stand — shelf** | Low | Whatever you stock | None | None | Act 1 onward, passive |
-| **Roadside stand — requests** | High | Low — you make what was asked | **Knowing what to make** | None | Act 1 onward, **primary** |
-| **The Roadhouse** | Medium | Capped daily | None | None | All game, the floor |
-| **Town storefront** | Highest | Higher | Same, more of it | Same | Mid-game channel unlock |
+| **Tormod at the back door** | 1.0×, flat | Whatever you have | None | None | Act 0 only |
+| **Roadside stand — shelf** | 1.0× | Whatever you stock | None | None | Act 1 onward, passive |
+| **Roadside stand — exact request** | **1.8×** | 1-3 batches per note | **Knowing what to make** | None | Act 1 onward, **primary** |
+| **Roadside stand — descriptive request** | **2.2×** | 1-3 batches per note | Knowing your own recipes | None | Act 1 onward |
+| **Town storefront** | Higher | Higher | Same, more of it | Same | Mid-game channel unlock |
 
-**Tormod and the Roadhouse are the same man, but not the same channel.** In Act 0 you hand him jars at the back door at dusk and he names a price — a person doing you a favour. From Act 1 the Roadhouse becomes a standing account: a capped daily volume you can dump into any time, no conversation required. The person becomes an institution, which is itself a small piece of progression.
-
-The Roadhouse cap exists so it never obsoletes the stand, and its zero-effort convenience exists so a tired player always has an out.
+**Tormod retires as a channel when the stand opens** (settled 2026-07-26). He is Act 0's buyer and his recruitment beat is the tutorial; after that he is a character, not a price. A capped daily Roadhouse account was previously designed to sit between the shelf and requests — **it is cut.** The shelf already is the zero-effort floor a tired player falls back on, so the Roadhouse was a second copy of that job wearing a cap to stop it competing with the first.
 
 **Appointments survive, relocated.** Market days, festivals, a buyer visiting town — the "one more day" mechanic now brings demand *to* the player instead of sending them out to it. Nothing is ever permanently missable.
 
@@ -227,13 +225,17 @@ The shift is never announced. The player simply notices one day that they know e
 
 **Descriptive requests do a second job:** when someone asks for something you *can't make yet*, the book is pointing at your next unlock. A request for something aged, arriving before you have barrels, tells the player barrels exist. This does the work of the cadence rule using content that had to be written anyway.
 
-#### Deadlines and misses
+#### Requests never expire — the slot is the cost
 
-- Deadlines are **generous and stated up front**
-- Missing one costs the **bonus, never the customer**. They return with a new want
-- **Standing orders** provide a floor so there is always something worth brewing
+**Settled 2026-07-26. There are no deadlines at all.** A note stays in the book until the player fills it or declines it.
 
-A request the player can't fill for hours is not a flaw — it is a reason to come back tomorrow, a timer and a ratchet fused. It only sours if it expires punishingly, so it never does.
+- **New notes arrive only into free slots.** A request you won't fill occupies a slot no new note can use
+- **Declining is free** and reopens the slot immediately
+- **Leaving it is also fine** — an unfillable note is a standing reminder of what barrels, or a better still, would get you
+
+This is where the book's triage actually lives. The cost of ignoring a request is never a penalty; it is the demand you didn't get to see instead. Zero loss, real decision — the only shape of pressure guardrail 1 permits.
+
+It also removes the last timer that could punish. An earlier design gave requests generous stated deadlines and docked a bonus for missing them; that was still a clock the player could lose to, and the cozy decision rules it out.
 
 #### Tension: triage, and only triage
 
@@ -247,9 +249,23 @@ The book's tension is **triage** — limited ingredients and limited time mean y
 
 The number of simultaneously active requests starts small and grows through upgrades — stand improvements, then the storefront. Board space is a **capacity unlock**, and more visible demand means deeper planning.
 
-#### Open numbers
+#### The numbers — settled 2026-07-26
 
-Deferred to implementation: request arrival rate · premium size over shelf price · exact active-request counts per upgrade tier · deadline lengths.
+Derived from the shipped clock: the day runs 08:00-24:00 = 16 game hours ≈ 12.3 real minutes, and Berry Shine ferments in 3 game hours, so **one vat yields 4-5 batches a day**. Every number below is set against that.
+
+| | Value |
+|---|---|
+| Arrival rate | **2 notes per night**, rising to 3 after the first stand upgrade. Only into free slots |
+| Request size | **1-3 batches' worth** of the product — expressed in batches, not units, so it stays true as recipes get slower |
+| Active slots | **3** → 5 (stand upgrade) → 8 (storefront) |
+| Premium | shelf 1.0× · exact request **1.8×** · descriptive request **2.2×** |
+| Expiry | **None.** Decline to free a slot |
+
+**Why triage bites:** 3 slots × 1-3 batches = 3-9 batches of demand against a 4-5 batch day. Most days the player cannot fill everything; some days they can. That variance is the point — a constant squeeze would read as pressure, and a constant surplus would read as nothing.
+
+**Notes arrive overnight** so the book is read in the morning. This makes the morning check a ritual rather than a chore, and it is the mechanical half of *night is when the day answers back*.
+
+**Least certain:** descriptive at 2.2×, a guess that knowing your own recipes deserves more than following instructions. 2.0× is the fallback if the gap reads as too wide in play.
 
 ### Buildings
 
@@ -258,7 +274,7 @@ Seven purchasable lots plus the homestead. Each has a front, an operation functi
 | Building | Front | Operation function |
 |---|---|---|
 | **Homestead** | Your house | **The site.** Shell ends Act 0; then grows all game — the stand, second vat, storage, interior rooms |
-| **Roadhouse** | Drinks and beds | The steady floor buyer |
+| **Roadhouse** | Drinks and beds | Act 0's buyer, then Tormod's home ground. **No longer a channel** — see the economy table |
 | **Bakery** | Bread | Yeast (faster ferments) + the bread-cart cover |
 | **General Store** | Dry goods | Ingredient discounts; Signe talks you up, buffing stand traffic |
 | **Smithy & Cooperage** | Tools and barrels | Still upgrades, second vat, charred-oak barrels → aged recipes |
@@ -550,6 +566,7 @@ Money versus helping people. Explicitly **not in the slice**.
 | 2026-07-25 | Master doc created. Stand-with-requests becomes the primary economy · homestead split into shell + ongoing site · **delivery runs cut** · danger relocated to the front as a social system · "what is night for?" flagged as the blocking open question |
 | 2026-07-25 | **Thread #1 settled — the guardrail contradiction.** Answer: daytime play costs the player nothing. **Bait notes cut** and parked in `LaterIdeas.md`; they were the design's only source of daylight loss · guardrail 1 stands with explicit scope (no cash, goods, progress, or standing) · Constable beats now cost **opportunity only** · new weakness ⑤, the primary economy has no edge · thread #3 reblocked from #1 onto #4, and **#4 "what is night for?" becomes the front of the queue and the design's only remaining home for tension** |
 | 2026-07-25 | **Stand designed in full** (Part 3). Roadside at the homestead, town storefront as a mid-game channel unlock · stand needs no tending; requests arrive as written notes in a book · the book is a correspondence, with signed notes and replies · customer mix shifts strangers → named residents and *is* the progress meter · requests are exact with descriptive spikes that point at unlocks · suspicious notes are the one tension mechanic, recovering the Constable's staging ground · conflicting requests and quality-reputation penalties considered and cut |
+| 2026-07-26 | **Stand numbers settled, and two design changes.** Arrival 2/night, 3 slots growing to 5 then 8, requests sized in batches not units, premium 1.8× exact and 2.2× descriptive — all derived from the shipped clock's 4-5 batch day · **requests never expire**; new notes arrive only into free slots and declining is free, so the occupied slot *is* the cost and the last punishing timer leaves the design · **the capped Roadhouse account is cut** — the shelf already was the zero-effort floor, and Tormod now retires as a channel when the stand opens |
 | 2026-07-26 | **Audit closed out.** `BuildPlan.md` reconciled against this document — header repointed here, slice summary rewritten, Phase 4 tombstoned, Phases 3 and 5 halved, **Phase S** (stand + request book) and **Phase N** (night beats + Constable) added, four broken validation metrics replaced, Berta's trigger and the Boarding House role marked open, the Phase 5/6 reputation contradiction fixed, Phase 1 taught shell-vs-site, guardrails updated to seven · the guard system **deleted** in full: `Guard.cs`, `GuardManager`, `BribeUI`, `Guard.prefab`, the three bribe events, and 37 scene objects |
 | 2026-07-25 | **The cozy decision — the largest revision since the runs cut.** The inherited assumption that the game needs a mechanical edge *somewhere* is **rejected**. Lamplight is a restoration game with a criminal skin; jeopardy is not relocated, it is removed · guardrail 1 widens from "day life" to the whole game · **new guardrail 7: cozy is the genre, not a fallback** · weakness ⑤ closed by decision · the Constable is reframed from a tension system to a recurring character who costs the player nothing (thread #3 unblocked and radically smaller) · `Guard.cs` / `GuardManager` resolve to **delete** · bait notes move from parked to out-of-genre · the moral axis loses its "closed doors" resolution and may not be worth building · **thread #5 (side activities) promoted to core**, since variety is now the only retention mechanism · the game's pull rests entirely on hooks 5 and 6, both unproven |
 | 2026-07-25 | **Thread #4 settled — what night is for.** Answer: **night is a scene, not an activity block.** Most nights are empty and the player just sleeps · beats wait at the homestead, making them unmissable by construction without any scheduling system · a beat is warmth, story, or the cellar mystery, and never changes the player's inventory · **the pillar *"day = the front, night = the operation"* is retired** and replaced with *day is when you act; night is when the day answers back* · the day/night cycle survives as pacing and mood, and the lighting system survives on its own merits · **night's real duration recorded for the first time** — ~3.8 real minutes from dusk, ~2.3 genuinely dark, ending in a forced midnight sleep — which required no clock retuning and independently ruled out the covert-activity candidate |

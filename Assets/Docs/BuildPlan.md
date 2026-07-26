@@ -67,14 +67,14 @@ Design source: GameDesign.md Part 3, "The stand and the request book". **The pri
 - [ ] Request book by the stand: orders arrive as written notes. No customer queue, no summons, nothing expires while the player is across the map.
 - [ ] Most requests exact (product, quantity, date); a minority descriptive — *"something strong, it's for a wedding"* — mapping to several valid answers.
 - [ ] Descriptive requests may ask for what the player cannot make yet, pointing at the next unlock (a request for something aged, before barrels exist).
-- [ ] Deadlines generous and stated up front. Missing one costs the **bonus, never the customer**. Standing orders provide a floor.
+- [ ] **Requests never expire.** A note stays until filled or declined; new notes arrive only into free slots, so an ignored request costs the slot and nothing else. Declining is free.
 - [ ] Payment *and a reply* on the next visit. Notes are signed; voice arrives through handwriting and phrasing.
 - [ ] Customer mix shifts strangers → mixed → named residents. **This is the progress meter.** Never announced.
 - [ ] Capacity: simultaneously active requests grow through stand upgrades, then the town storefront (mid-game channel unlock).
-- [ ] Roadhouse becomes a standing account — capped daily volume, no conversation required. The person becomes an institution.
+- [ ] Tormod retires as a channel once the stand opens. The capped Roadhouse account is **cut** — the shelf already is the zero-effort floor.
 - [ ] Appointments relocate here as demand events (market days, festivals, a buyer visiting town). All recur; nothing permanently missable.
 - [ ] Tension is **triage only** — limited ingredients and time. No conflicting requests, no quality-reputation penalties, no bait notes.
-- [ ] **Open numbers, deferred to design:** request arrival rate · premium over shelf price · active-request counts per upgrade tier · deadline lengths.
+- [ ] **Numbers settled 2026-07-26** (GameDesign.md Part 3, "The numbers"): 2 notes per night rising to 3 · requests sized 1-3 batches · 3 active slots → 5 → 8 · shelf 1.0×, exact request 1.8×, descriptive 2.2× · no expiry.
 - [ ] Done: the player's first question each morning is *what does the book want today?* — brewing is chosen against demand rather than repeated.
 
 ## Phase 5 — Public infrastructure
