@@ -49,6 +49,43 @@ public readonly struct BookSpread
     public static BookSpread Burned() => new BookSpread(default, default, false, true);
 }
 
+public enum LockReason { None, RequiresBuilding, RequiresReputation }
+
+/// <summary>
+/// Everything the view needs to decide how one page reads, as data rather than
+/// formatted text. A torn page reports nothing but <see cref="IsTorn"/>, so there
+/// is no path by which an undiscovered recipe's name or costs reach the view.
+///
+/// A recipe may gate on both a building and reputation. <see cref="Reason"/> names
+/// the primary gate, but both requirement fields stay populated so the view can
+/// show either without asking the recipe again.
+/// </summary>
+public readonly struct PageStatus
+{
+    public readonly bool IsTorn;
+    public readonly bool IsUnlocked;
+    public readonly bool CanAfford;
+    public readonly LockReason Reason;
+    public readonly string RequiredBuildingId;
+    public readonly int RequiredReputation;
+
+    public bool CanBrew => !IsTorn && IsUnlocked && CanAfford;
+
+    public PageStatus(bool isTorn, bool isUnlocked, bool canAfford,
+        LockReason reason, string requiredBuildingId, int requiredReputation)
+    {
+        IsTorn = isTorn;
+        IsUnlocked = isUnlocked;
+        CanAfford = canAfford;
+        Reason = reason;
+        RequiredBuildingId = requiredBuildingId;
+        RequiredReputation = requiredReputation;
+    }
+
+    public static PageStatus Torn() =>
+        new PageStatus(true, false, false, LockReason.None, null, 0);
+}
+
 /// <summary>
 /// The recipe book: pages are recipes. The player inherits it already damaged,
 /// with a single legible page.
@@ -124,5 +161,40 @@ public static class RecipeBookRules
         if (index < 0) return 0;
         if (index >= spreadCount) return spreadCount - 1;
         return index;
+    }
+
+    public static PageStatus StatusOf(BookPage page,
+        Func<RecipeData, bool> isUnlocked,
+        Func<ItemDef, int> getCount)
+    {
+        if (!page.IsLegible) return PageStatus.Torn();
+
+        var recipe = page.Recipe;
+        bool unlocked = isUnlocked != null && isUnlocked(recipe);
+        bool canAfford = getCount != null;
+
+        if (canAfford)
+        {
+            foreach (var cost in recipe.Costs)
+            {
+                if (getCount(cost.Key) < cost.Value)
+                {
+                    canAfford = false;
+                    break;
+                }
+            }
+        }
+
+        var reason = LockReason.None;
+        if (!unlocked)
+        {
+            if (!string.IsNullOrEmpty(recipe.unlockedByBuildingId))
+                reason = LockReason.RequiresBuilding;
+            else if (recipe.minReputation > 0)
+                reason = LockReason.RequiresReputation;
+        }
+
+        return new PageStatus(false, unlocked, canAfford, reason,
+            recipe.unlockedByBuildingId, recipe.minReputation);
     }
 }
