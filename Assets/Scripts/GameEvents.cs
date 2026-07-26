@@ -44,6 +44,7 @@ public static class GameEvents
     public static event System.Action<StandRequest> RequestDeclined;
     public static event System.Action<ItemDef, int, int> ShelfSold;
     public static event System.Action RequestBookRequested;
+    public static event System.Action RecipeBookRequested;
 
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
@@ -161,4 +162,7 @@ public static class GameEvents
 
     public static void OnRequestBookRequested()
         => RequestBookRequested?.Invoke();
+
+    public static void OnRecipeBookRequested()
+        => RecipeBookRequested?.Invoke();
 }
