@@ -62,20 +62,22 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 
 ## Phase S — The roadside stand and the request book
 Design source: GameDesign.md Part 3, "The stand and the request book". **The primary economy and the single most important system in the slice.**
-- [ ] Stand built on the homestead site, roadside — ongoing site growth, not a one-time purchase.
-- [ ] Shelf trade is passive: stock it, wander off, come back to coins. The income floor; never needs tending.
-- [ ] Request book by the stand: orders arrive as written notes. No customer queue, no summons, nothing expires while the player is across the map.
-- [ ] Most requests exact (product, quantity, date); a minority descriptive — *"something strong, it's for a wedding"* — mapping to several valid answers.
+- [ ] Stand built on the homestead site, roadside — ongoing site growth, not a one-time purchase. *(`Stand` component and `Stand.Create` exist; not yet placed in SampleScene.)*
+- [x] Shelf trade is passive: stock it, wander off, come back to coins. The income floor; never needs tending.
+- [x] Request book by the stand: orders arrive as written notes. No customer queue, no summons, nothing expires while the player is across the map.
+- [x] Most requests exact (product, quantity, date); a minority descriptive — *"something strong, it's for a wedding"* — mapping to several valid answers.
 - [ ] Descriptive requests may ask for what the player cannot make yet, pointing at the next unlock (a request for something aged, before barrels exist).
-- [ ] **Requests never expire.** A note stays until filled or declined; new notes arrive only into free slots, so an ignored request costs the slot and nothing else. Declining is free.
+- [x] **Requests never expire.** A note stays until filled or declined; new notes arrive only into free slots, so an ignored request costs the slot and nothing else. Declining is free.
 - [ ] Payment *and a reply* on the next visit. Notes are signed; voice arrives through handwriting and phrasing.
 - [ ] Customer mix shifts strangers → mixed → named residents. **This is the progress meter.** Never announced.
 - [ ] Capacity: simultaneously active requests grow through stand upgrades, then the town storefront (mid-game channel unlock).
 - [ ] Tormod retires as a channel once the stand opens. The capped Roadhouse account is **cut** — the shelf already is the zero-effort floor.
 - [ ] Appointments relocate here as demand events (market days, festivals, a buyer visiting town). All recur; nothing permanently missable.
 - [ ] Tension is **triage only** — limited ingredients and time. No conflicting requests, no quality-reputation penalties, no bait notes.
-- [ ] **Numbers settled 2026-07-26** (GameDesign.md Part 3, "The numbers"): 2 notes per night rising to 3 · requests sized 1-3 batches · 3 active slots → 5 → 8 · shelf 1.0×, exact request 1.8×, descriptive 2.2× · no expiry.
+- [x] **Numbers settled 2026-07-26** (GameDesign.md Part 3, "The numbers"): 2 notes per night rising to 3 · requests sized 1-3 batches · 3 active slots → 5 → 8 · shelf 1.0×, exact request 1.8×, descriptive 2.2× · no expiry.
 - [ ] Done: the player's first question each morning is *what does the book want today?* — brewing is chosen against demand rather than repeated.
+
+**Phase S is partly done, not done.** Built 2026-07-26: the request domain (`Rules/StandRequest`, `RequestBook`, `RequestBookRules`, `RequestArrivalRules`), `StandManager` bridging clock and inventory, the `Stand` interactable and the IMGUI `RequestBookUI`. Still open, each its own later plan: replies and the correspondence voice (notes carry placeholder signatures only), the strangers → residents customer mix, descriptive requests pointing past what the player can brew, slot upgrades beyond the starting 3 (`RequestBook.SetSlotCount` exists but nothing grants it), the town storefront, retiring Tormod as a channel, and appointments as demand events. `RequestArrivalRules.DescriptiveInN = 4` is an **invented** tuning number — GameDesign.md says only "a minority are descriptive" and does not fix the fraction.
 
 ## Phase 5 — Public infrastructure
 - [ ] Public sockets (street): lamppost, plank sidewalk, bench, flower box, sign. Effects: night light, small stand buff at beauty thresholds, dialogue reactions. Never any downside.
