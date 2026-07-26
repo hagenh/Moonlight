@@ -62,7 +62,7 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 
 ## Phase S — The roadside stand and the request book
 Design source: GameDesign.md Part 3, "The stand and the request book". **The primary economy and the single most important system in the slice.**
-- [ ] Stand built on the homestead site, roadside — ongoing site growth, not a one-time purchase. *(`Stand` component and `Stand.Create` exist; not yet placed in SampleScene.)*
+- [x] Stand built on the homestead site, roadside — ongoing site growth, not a one-time purchase.
 - [x] Shelf trade is passive: stock it, wander off, come back to coins. The income floor; never needs tending.
 - [x] Request book by the stand: orders arrive as written notes. No customer queue, no summons, nothing expires while the player is across the map.
 - [x] Most requests exact (product, quantity, date); a minority descriptive — *"something strong, it's for a wedding"* — mapping to several valid answers.
@@ -77,7 +77,7 @@ Design source: GameDesign.md Part 3, "The stand and the request book". **The pri
 - [x] **Numbers settled 2026-07-26** (GameDesign.md Part 3, "The numbers"): 2 notes per night rising to 3 · requests sized 1-3 batches · 3 active slots → 5 → 8 · shelf 1.0×, exact request 1.8×, descriptive 2.2× · no expiry.
 - [ ] Done: the player's first question each morning is *what does the book want today?* — brewing is chosen against demand rather than repeated.
 
-**Phase S is partly done, not done.** Built 2026-07-26: the request domain (`Rules/StandRequest`, `RequestBook`, `RequestBookRules`, `RequestArrivalRules`), `StandManager` bridging clock and inventory, the `Stand` interactable and the IMGUI `RequestBookUI`. Still open, each its own later plan: replies and the correspondence voice (notes carry placeholder signatures only), the strangers → residents customer mix, descriptive requests pointing past what the player can brew, slot upgrades beyond the starting 3 (`RequestBook.SetSlotCount` exists but nothing grants it), the town storefront, retiring Tormod as a channel, and appointments as demand events. `RequestArrivalRules.DescriptiveInN = 4` is an **invented** tuning number — GameDesign.md says only "a minority are descriptive" and does not fix the fraction.
+**Phase S is partly done, not done.** Built 2026-07-26: the request domain (`Rules/StandRequest`, `RequestBook`, `RequestBookRules`, `RequestArrivalRules`), `StandManager` bridging clock and inventory, the `Stand` interactable and the IMGUI `RequestBookUI`. All three are placed in SampleScene — `StandManager` at root, `RequestBookUI` on `HUDCanvas` beside the other panels, `Stand` on the camp clearing at `(-17.25, 8)`. Still open, each its own later plan: replies and the correspondence voice (notes carry placeholder signatures only), the strangers → residents customer mix, descriptive requests pointing past what the player can brew, slot upgrades beyond the starting 3 (`RequestBook.SetSlotCount` exists but nothing grants it), the town storefront, retiring Tormod as a channel, and appointments as demand events. `RequestArrivalRules.DescriptiveInN = 4` is an **invented** tuning number — GameDesign.md says only "a minority are descriptive" and does not fix the fraction.
 
 ## Phase 5 — Public infrastructure
 - [ ] Public sockets (street): lamppost, plank sidewalk, bench, flower box, sign. Effects: night light, small stand buff at beauty thresholds, dialogue reactions. Never any downside.
