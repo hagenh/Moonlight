@@ -166,6 +166,17 @@ public class DirectionalSpriteAnimatorTests
     }
 
     [Test]
+    public void Play_NoAnimationSet_DoesNotThrow()
+    {
+        var go = TestBootstrap.CreateGameObject("BareAnim");
+        go.AddComponent<SpriteRenderer>();
+        var animator = go.AddComponent<DirectionalSpriteAnimator>();
+        animator.Initialize();
+
+        Assert.DoesNotThrow(() => animator.Play("walk"));
+    }
+
+    [Test]
     public void Play_SameClip_DoesNotResetFrame()
     {
         _animator.Play("walk");

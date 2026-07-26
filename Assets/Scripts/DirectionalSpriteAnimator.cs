@@ -32,6 +32,7 @@ public class DirectionalSpriteAnimator : MonoBehaviour
     public void Play(string clipName)
     {
         if (clipName == _currentClipName) return;
+        if (animationSet == null) return;
 
         var clip = animationSet.GetClip(clipName);
         if (clip == null) return;

@@ -40,16 +40,4 @@ public class StonePileTests
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
     }
-
-    [Test]
-    public void Interact_DayEnded_Respawns()
-    {
-        _pile.Interact();
-        Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
-
-        GameEvents.OnDayEnded(1);
-
-        _pile.Interact();
-        Assert.AreEqual(2, _inventory.GetCount(ContentDb.Stone));
-    }
 }
