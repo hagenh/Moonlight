@@ -8,8 +8,8 @@ public class SellManager : MonoBehaviour
     [SerializeField] private int cartArriveHour = 10;
     [SerializeField] private int cartLeaveHour = 18;
     [SerializeField] private Transform tormodPosition;
-    [SerializeField] private int tormodArriveHour = 8;
-    [SerializeField] private int tormodLeaveHour = -1;
+    [SerializeField] private int tormodArriveHour = 18;
+    [SerializeField] private int tormodLeaveHour = 6;
 
     private SellerInteractable _cartInstance;
     private SellerInteractable _tormodInstance;
@@ -30,8 +30,10 @@ public class SellManager : MonoBehaviour
 
     private void Start()
     {
-        if (_tormodInstance == null)
-            SpawnTormod();
+        // OnHourChanged only fires on a change, so presence has to be settled once
+        // at startup or Tormod would be missing until the clock next ticks over.
+        if (TimeManager.Instance != null)
+            UpdateTormodPresence(TimeManager.Instance.Hour);
     }
 
     private void OnEnable()
@@ -55,6 +57,22 @@ public class SellManager : MonoBehaviour
 
     private void OnHourChanged(int hour, int day)
     {
+        UpdateTormodPresence(hour);
+    }
+
+    /// <summary>
+    /// Tormod keeps hours: dusk to dawn at the Roadhouse back door. He is the
+    /// Act 0 buyer, not a permanent shopfront — the gap between a finished
+    /// ferment and his arrival is the prologue's exploration window.
+    /// </summary>
+    private void UpdateTormodPresence(int hour)
+    {
+        bool shouldBePresent = SellerRules.IsPresent(hour, tormodArriveHour, tormodLeaveHour);
+
+        if (shouldBePresent && _tormodInstance == null)
+            SpawnTormod();
+        else if (!shouldBePresent && _tormodInstance != null)
+            RemoveTormod();
     }
 
     private void SpawnCart()
@@ -66,13 +84,11 @@ public class SellManager : MonoBehaviour
 
     private void RemoveCart()
     {
-        if (_cartInstance != null)
-        {
-            Destroy(_cartInstance.gameObject);
-            _cartInstance = null;
-        }
-        if (_cartInstance == null)
-            GameEvents.OnSellerLeft(SellerType.TravelingCart);
+        if (_cartInstance == null) return;
+
+        Destroy(_cartInstance.gameObject);
+        _cartInstance = null;
+        GameEvents.OnSellerLeft(SellerType.TravelingCart);
     }
 
     private void SpawnTormod()
@@ -103,13 +119,11 @@ public class SellManager : MonoBehaviour
 
     private void RemoveTormod()
     {
-        if (_tormodInstance != null)
-        {
-            Destroy(_tormodInstance.gameObject);
-            _tormodInstance = null;
-        }
-        if (_tormodInstance == null)
-            GameEvents.OnSellerLeft(SellerType.Tormod);
+        if (_tormodInstance == null) return;
+
+        Destroy(_tormodInstance.gameObject);
+        _tormodInstance = null;
+        GameEvents.OnSellerLeft(SellerType.Tormod);
     }
 
     private void OnDeliveryMade(DeliveryType type, ItemDef item, int count, int price)
