@@ -16,7 +16,7 @@
 | Managers | `Assets/Scripts/` (root) | MonoBehaviour singletons | Full |
 | Player | `Assets/Scripts/Player/` | FSM (State pattern) | Full |
 | Interactables | `Assets/Scripts/` (root) | IInteractable implementations | Full |
-| UI | `Assets/Scripts/UI/` | IMGUI (OnGUI) panels | Full |
+| UI | `Assets/Scripts/UI/` | IMGUI (OnGUI) panels; recipe book is uGUI | Full |
 | Data | `Assets/Scripts/` | Immutable def classes + ContentDb singleton | Full |
 
 ## Conventions
@@ -178,5 +178,5 @@ New items/residents get a static readonly field + a `Register()` call in `Awake(
 - **No dependency injection** (no Zenject/VContainer). Use singletons and events.
 - **No direct cross-manager calls.** Use `GameEvents` for inter-system communication.
 - **Rules/ must be pure C#.** No `UnityEngine` types except `Mathf`.
-- **UI is IMGUI.** New panels use `OnGUI`, not uGUI Canvas or UI Toolkit.
+- **UI is IMGUI**, with one exception. New panels use `OnGUI`, not uGUI Canvas or UI Toolkit. The exception is the recipe book (`RecipeBookUI`, `RecipeBookPageView`), which is uGUI + TextMeshPro because it needs a book-spread layout and art-ready slots — see `docs/superpowers/specs/2026-07-26-recipe-book-ui-design.md`. `SellUI`, `RequestBookUI` and `DialogueUI` remain IMGUI; do not convert them.
 - **No comments in code** unless explicitly requested.
