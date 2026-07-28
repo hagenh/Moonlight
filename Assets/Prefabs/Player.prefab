@@ -461,7 +461,7 @@ MonoBehaviour:
   spriteAnimator: {fileID: 3812337466396294176}
   carrySpriteRenderer: {fileID: 8543210987654321098}
   facingDirection: 0
-  interactBoxSize: {x: 0.25, y: 0.25}
+  interactBoxSize: {x: 0.6, y: 0.6}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64

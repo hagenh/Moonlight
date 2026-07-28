@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     private Vector2 moveInput;
     private bool isSprintHeld;
     
-    [SerializeField] private Vector2 interactBoxSize = new Vector2(0.25f, 0.25f);
+    [SerializeField] private Vector2 interactBoxSize = new Vector2(0.6f, 0.6f);
     [SerializeField] private LayerMask interactableLayer;
 
     public IInteractable CurrentInteractable { get; internal set; }
