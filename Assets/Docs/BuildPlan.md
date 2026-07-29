@@ -38,7 +38,8 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 
 ## Phase 2 — Art: replace all placeholders
 - [ ] FallenLog: pick or draw a log sprite from Grasslands tileset.
-- [ ] BuildSign stages: signpost (Site), stone foundation outline (Foundation), wood frame (Frame), building exterior (Walls) — scale sprites to match 7×8 final building.
+- [ ] BuildSign stages: **Site done 2026-07-28** — `BuildingPreBuildingStage.prefab`, a staked-out fence-outline construction site, replaces the tan placeholder for `BuildStage.Site`. Foundation, Frame, and Walls still use the tint-and-scale placeholder.
+- [x] Town building Abandoned state (all 6, via the shared `Building.prefab`): same `BuildingPreBuildingStage.prefab` fence outline now hides the real facade until purchased — done 2026-07-28. Purchased/Cleared/Restored unchanged.
 - [ ] Homestead facade: verify Town tileset sprites render correctly on build completion; remove Square overlay for good.
 - [ ] Crate: replace `Texture2D.whiteTexture` with real crate sprite.
 - [ ] Debris: replace `Texture2D.whiteTexture` with rubble sprite.

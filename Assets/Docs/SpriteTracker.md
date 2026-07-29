@@ -11,8 +11,9 @@ Every game object that renders a sprite. Status: **Done** = real art assigned, *
 | FallenLog (×3) | Brown 16×16 procedural | Needs art | Pick a log sprite from tileset or draw |
 | FermentVat (camp, ×1) | `Interior Color 2@128x128_250` | Done | Interior pot sprite |
 | FermentVat (interior, ×3) | `Interior Color 2@128x128_250` | Done | Interior pot sprite |
-| BuildSign | Tan 16×16 procedural | Needs art | Signpost/foundation marker sprite |
+| BuildSign (Site stage) | `BuildingPreBuildingStage.prefab` fence outline | Done | Foundation/Frame/Walls still use the tan tint-and-scale placeholder |
 | Homestead (Building) | Colored square (facadeRenderer tint) | Needs art | Full building exterior sprite |
+| Building (Abandoned state, all 6 town buildings) | `BuildingPreBuildingStage.prefab` fence outline | Done | Purchased/Cleared/Restored show `Building_Sprites` (real facade) unchanged |
 | Bed | Scene-assigned | Verify | Check if real sprite in scene |
 | Building facades (Bakery, General Store, Road House, Mill, Boarding House, Constable) | Town tileset sprites | Done | Finished buildings have real facade sprites |
 | DebrisPile | Scene-assigned | Verify | Check if real sprite in scene |
@@ -32,6 +33,7 @@ Every game object that renders a sprite. Status: **Done** = real art assigned, *
 | Grasslands | `Assets/Sprite/Grasslands_tileset/Grassland Spring@128x128.png` | BerryBush, StonePile, terrain |
 | Interior | `Assets/Sprite/Interior/Interior Color 2@128x128.png` | FermentVat, interior objects |
 | Town | `Assets/Sprite/2D Hand Painted - Town Tileset/128x128/Town Spring@128x128.png` | Buildings, town props |
+| Grasslands (fence pieces) | `Assets/Sprite/Grasslands_tileset/Grassland Spring@128x128.png` | BuildingPreBuildingStage.prefab (construction-site border) |
 
 ## BuildSign Stage Sprites
 
