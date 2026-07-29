@@ -11,6 +11,7 @@ public enum BuildStage
 public class BuildSign : MonoBehaviour, IInteractable
 {
     [SerializeField] internal Building homesteadBuilding;
+    [SerializeField] private GameObject siteVisual;
 
     private SpriteRenderer _spriteRenderer;
     private BuildStage _stage;
@@ -30,6 +31,7 @@ public class BuildSign : MonoBehaviour, IInteractable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (_spriteRenderer != null)
             _spriteRenderer.color = _stageColors[0];
+        RefreshSiteVisual();
     }
 
     public void Interact()
@@ -88,8 +90,18 @@ public class BuildSign : MonoBehaviour, IInteractable
             foreach (var c in GetComponents<BoxCollider2D>())
                 c.size = new Vector2(0.8f, 1.0f);
         }
+        RefreshSiteVisual();
         GameEvents.OnHomesteadBuildStageChanged((int)_stage);
         GameEvents.OnToastRequested(toast);
+    }
+
+    private void RefreshSiteVisual()
+    {
+        bool showSiteVisual = _stage == BuildStage.Site;
+        if (siteVisual != null)
+            siteVisual.SetActive(showSiteVisual);
+        if (_spriteRenderer != null)
+            _spriteRenderer.enabled = !showSiteVisual;
     }
 
     private void CompleteBuild()
