@@ -66,12 +66,18 @@ public static class SpriteMerger
         {
             if (sr.sprite == null) continue;
             var pos = sr.transform.localPosition;
-            float scale = sr.transform.localScale.x;
-            float size = sr.sprite.rect.width / sr.sprite.pixelsPerUnit * scale;
-            minX = Mathf.Min(minX, pos.x);
-            minY = Mathf.Min(minY, pos.y);
-            maxX = Mathf.Max(maxX, pos.x + size);
-            maxY = Mathf.Max(maxY, pos.y + size);
+            float scaleX = sr.transform.localScale.x;
+            float scaleY = sr.transform.localScale.y;
+            float spriteWidthUnits = sr.sprite.rect.width / sr.sprite.pixelsPerUnit * scaleX;
+            float spriteHeightUnits = sr.sprite.rect.height / sr.sprite.pixelsPerUnit * scaleY;
+            float pivotOffsetX = sr.sprite.pivot.x / sr.sprite.pixelsPerUnit * scaleX;
+            float pivotOffsetY = sr.sprite.pivot.y / sr.sprite.pixelsPerUnit * scaleY;
+            float left = pos.x - pivotOffsetX;
+            float bottom = pos.y - pivotOffsetY;
+            minX = Mathf.Min(minX, left);
+            minY = Mathf.Min(minY, bottom);
+            maxX = Mathf.Max(maxX, left + spriteWidthUnits);
+            maxY = Mathf.Max(maxY, bottom + spriteHeightUnits);
         }
 
         int ppu = 128;
@@ -90,7 +96,12 @@ public static class SpriteMerger
         {
             if (sr.sprite == null) continue;
             var pos = sr.transform.localPosition;
-            float scale = sr.transform.localScale.x;
+            float scaleX = sr.transform.localScale.x;
+            float scaleY = sr.transform.localScale.y;
+            float pivotOffsetX = sr.sprite.pivot.x / sr.sprite.pixelsPerUnit * scaleX;
+            float pivotOffsetY = sr.sprite.pivot.y / sr.sprite.pixelsPerUnit * scaleY;
+            float left = pos.x - pivotOffsetX;
+            float bottom = pos.y - pivotOffsetY;
 
             var spriteTex = sr.sprite.texture;
             if (spriteTex == null) continue;
@@ -115,8 +126,8 @@ public static class SpriteMerger
                 spriteW,
                 spriteH);
 
-            int targetW = Mathf.RoundToInt(spriteW * scale);
-            int targetH = Mathf.RoundToInt(spriteH * scale);
+            int targetW = Mathf.RoundToInt(spriteW * scaleX);
+            int targetH = Mathf.RoundToInt(spriteH * scaleY);
 
             var scaledTex = new Texture2D(spriteW, spriteH, TextureFormat.RGBA32, false);
             scaledTex.SetPixels(pixels);
@@ -134,8 +145,8 @@ public static class SpriteMerger
             }
             resized.Apply();
 
-            int destX = Mathf.RoundToInt((pos.x - minX) * ppu);
-            int destY = Mathf.RoundToInt((pos.y - minY) * ppu);
+            int destX = Mathf.RoundToInt((left - minX) * ppu);
+            int destY = Mathf.RoundToInt((bottom - minY) * ppu);
 
             for (int y = 0; y < targetH; y++)
             {
@@ -147,8 +158,14 @@ public static class SpriteMerger
                     {
                         var existing = result.GetPixel(rx, ry);
                         var incoming = resized.GetPixel(x, y);
-                        if (incoming.a > 0)
-                            result.SetPixel(rx, ry, incoming);
+                        float outA = incoming.a + existing.a * (1f - incoming.a);
+                        if (outA > 0f)
+                        {
+                            float r = (incoming.r * incoming.a + existing.r * existing.a * (1f - incoming.a)) / outA;
+                            float g = (incoming.g * incoming.a + existing.g * existing.a * (1f - incoming.a)) / outA;
+                            float b = (incoming.b * incoming.a + existing.b * existing.a * (1f - incoming.a)) / outA;
+                            result.SetPixel(rx, ry, new Color(r, g, b, outA));
+                        }
                     }
                 }
             }
