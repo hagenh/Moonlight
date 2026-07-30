@@ -10,6 +10,7 @@ public enum BuildStage
 
 public class BuildSign : MonoBehaviour, IInteractable
 {
+    [UnityEngine.Serialization.FormerlySerializedAs("homesteadBuilding")]
     [SerializeField] internal Homestead homestead;
     [SerializeField] private GameObject siteVisual;
 
