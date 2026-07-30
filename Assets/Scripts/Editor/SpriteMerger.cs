@@ -108,13 +108,30 @@ public static class SpriteMerger
 
             if (!spriteTex.isReadable)
             {
-                var texPath = AssetDatabase.GetAssetPath(spriteTex);
-                var importer = AssetImporter.GetAtPath(texPath) as TextureImporter;
-                if (importer != null && !importer.isReadable)
+                var texPath = AssetDatabase.GetAssetPath(sr.sprite);
+                if (!string.IsNullOrEmpty(texPath))
                 {
-                    importer.isReadable = true;
-                    importer.SaveAndReimport();
-                    spriteTex = sr.sprite.texture;
+                    var importer = AssetImporter.GetAtPath(texPath) as TextureImporter;
+                    if (importer != null && !importer.isReadable)
+                    {
+                        importer.isReadable = true;
+                        importer.SaveAndReimport();
+                        spriteTex = sr.sprite.texture;
+                    }
+                }
+
+                if (spriteTex != null && !spriteTex.isReadable)
+                {
+                    var rt = RenderTexture.GetTemporary(spriteTex.width, spriteTex.height, 0, RenderTextureFormat.Default, RenderTextureReadWrite.Default);
+                    Graphics.Blit(spriteTex, rt);
+                    var prev = RenderTexture.active;
+                    RenderTexture.active = rt;
+                    var readableCopy = new Texture2D(spriteTex.width, spriteTex.height, TextureFormat.RGBA32, false);
+                    readableCopy.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                    readableCopy.Apply();
+                    RenderTexture.active = prev;
+                    RenderTexture.ReleaseTemporary(rt);
+                    spriteTex = readableCopy;
                 }
             }
 
