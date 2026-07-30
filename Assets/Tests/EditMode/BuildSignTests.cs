@@ -7,7 +7,7 @@ public class BuildSignTests
     private InventoryManager _inventory;
     private BuildSign _sign;
     private GameObject _homesteadGo;
-    private Building _homestead;
+    private Homestead _homestead;
 
     [SetUp]
     public void SetUp()
@@ -19,9 +19,9 @@ public class BuildSignTests
         _sign = signGo.AddComponent<BuildSign>();
 
         _homesteadGo = TestBootstrap.CreateGameObject("TestHomestead");
-        _homestead = _homesteadGo.AddComponent<Building>();
+        _homestead = _homesteadGo.AddComponent<Homestead>();
         _homesteadGo.SetActive(false);
-        _sign.homesteadBuilding = _homestead;
+        _sign.homestead = _homestead;
     }
 
     [TearDown]
@@ -78,7 +78,7 @@ public class BuildSignTests
     }
 
     [Test]
-    public void Interact_CompleteBuild_EnablesHomesteadAtRestored()
+    public void Interact_CompleteBuild_SetsHomesteadBuilt()
     {
         _inventory.TryAdd(ContentDb.Stone, 3);
         _sign.Interact();
@@ -88,8 +88,8 @@ public class BuildSignTests
         _inventory.TryAdd(ContentDb.Nails, 3);
         _sign.Interact();
 
+        Assert.IsTrue(_homestead.IsBuilt);
         Assert.IsTrue(_homesteadGo.activeSelf);
-        Assert.AreEqual(BuildingState.Restored, _homestead.State);
         Assert.IsFalse(_sign.gameObject.activeSelf);
     }
 

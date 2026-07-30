@@ -10,7 +10,7 @@ public enum BuildStage
 
 public class BuildSign : MonoBehaviour, IInteractable
 {
-    [SerializeField] internal Building homesteadBuilding;
+    [SerializeField] internal Homestead homestead;
     [SerializeField] private GameObject siteVisual;
 
     private SpriteRenderer _spriteRenderer;
@@ -106,18 +106,15 @@ public class BuildSign : MonoBehaviour, IInteractable
 
     private void CompleteBuild()
     {
-        if (homesteadBuilding != null)
+        if (homestead != null)
         {
-            var facade = homesteadBuilding.transform.Find("Square");
-            if (facade != null)
-                facade.gameObject.SetActive(false);
-            homesteadBuilding.gameObject.SetActive(true);
-            homesteadBuilding.SetState(BuildingState.Restored);
+            homestead.gameObject.SetActive(true);
+            homestead.SetBuilt();
         }
         gameObject.SetActive(false);
     }
 
-    public static BuildSign Create(Vector3 position, Building homestead = null)
+    public static BuildSign Create(Vector3 position, Homestead homestead = null)
     {
         var go = new GameObject("BuildSign");
         go.transform.position = position;
@@ -148,7 +145,7 @@ public class BuildSign : MonoBehaviour, IInteractable
 
         var sign = go.AddComponent<BuildSign>();
         sign._spriteRenderer = sr;
-        sign.homesteadBuilding = homestead;
+        sign.homestead = homestead;
 
         return sign;
     }
