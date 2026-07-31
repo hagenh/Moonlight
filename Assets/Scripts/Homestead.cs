@@ -11,7 +11,6 @@ public enum BuildStage
 public class Homestead : MonoBehaviour, IInteractable
 {
     [SerializeField] private Sprite builtSprite;
-    [SerializeField] private GameObject siteVisual;
     [SerializeField] internal Collider2D signTrigger;
     [SerializeField] internal Collider2D doorTrigger;
     private SpriteRenderer _spriteRenderer;
@@ -37,7 +36,6 @@ public class Homestead : MonoBehaviour, IInteractable
             doorTrigger.enabled = false;
         if (_spriteRenderer != null)
             _spriteRenderer.color = _stageColors[0];
-        RefreshSiteVisual();
     }
 
     public void Interact()
@@ -96,15 +94,8 @@ public class Homestead : MonoBehaviour, IInteractable
             foreach (var c in GetComponents<BoxCollider2D>())
                 c.size = new Vector2(0.8f, 1.0f);
         }
-        RefreshSiteVisual();
         GameEvents.OnHomesteadBuildStageChanged((int)_stage);
         GameEvents.OnToastRequested(toast);
-    }
-
-    private void RefreshSiteVisual()
-    {
-        if (siteVisual != null)
-            siteVisual.SetActive(_stage == BuildStage.Site);
     }
 
     private void CompleteBuild()
