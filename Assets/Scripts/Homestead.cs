@@ -103,11 +103,8 @@ public class Homestead : MonoBehaviour, IInteractable
 
     private void RefreshSiteVisual()
     {
-        bool showSiteVisual = _stage == BuildStage.Site;
         if (siteVisual != null)
-            siteVisual.SetActive(showSiteVisual);
-        if (_spriteRenderer != null)
-            _spriteRenderer.enabled = !showSiteVisual;
+            siteVisual.SetActive(_stage == BuildStage.Site);
     }
 
     private void CompleteBuild()
