@@ -9,6 +9,7 @@ public class BerryBush : MonoBehaviour, IInteractable
     private bool _harvested;
 
     public InteractType InteractType => InteractType.Forage;
+    public bool CanInteract => true;
     public bool IsHarvested => _harvested;
 
     private void Awake()

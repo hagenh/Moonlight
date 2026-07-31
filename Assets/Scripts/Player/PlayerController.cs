@@ -281,6 +281,9 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
                 building.LastHitTrigger = hit;
             }
 
+            if (interactable != null && !interactable.CanInteract)
+                continue;
+
             if (interactable != null)
             {
                 CurrentInteractable = interactable;

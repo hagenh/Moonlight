@@ -6,6 +6,7 @@ public class DeliveryPoint : MonoBehaviour, IInteractable
 
     public DeliveryType DeliveryType => deliveryType;
     public InteractType InteractType => InteractType.DeliveryPoint;
+    public bool CanInteract => true;
 
     internal void SetDeliveryType(DeliveryType type) => deliveryType = type;
 

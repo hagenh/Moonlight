@@ -1,6 +1,7 @@
 public interface IInteractable
 {
     InteractType InteractType { get; }
+    bool CanInteract { get; }
     
     void Interact();
 }

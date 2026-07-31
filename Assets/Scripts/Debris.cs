@@ -5,6 +5,7 @@ public class Debris : MonoBehaviour, IInteractable
     public Building sourceBuilding;
 
     public InteractType InteractType => InteractType.Debris;
+    public bool CanInteract => true;
 
     public static Debris Create(Building source, Vector3 position)
     {

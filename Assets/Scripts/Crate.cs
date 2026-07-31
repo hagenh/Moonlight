@@ -6,6 +6,7 @@ public class Crate : MonoBehaviour, IInteractable
     public int count;
 
     public InteractType InteractType => InteractType.Crate;
+    public bool CanInteract => true;
 
     public static Crate Create(ItemDef item, int count, Vector3 position)
     {

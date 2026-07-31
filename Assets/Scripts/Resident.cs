@@ -7,6 +7,7 @@ public class Resident : MonoBehaviour, IInteractable
     public bool HasMovedIn { get; private set; }
 
     public InteractType InteractType => InteractType.NPC;
+    public bool CanInteract => true;
 
     private SpriteRenderer _spriteRenderer;
     private Coroutine _fadeCoroutine;

@@ -61,6 +61,7 @@ public class Building : MonoBehaviour, IInteractable
     public int RepairPointsDone { get; private set; }
 
     public InteractType InteractType => InteractType.Building;
+    public bool CanInteract => true;
 
     public Collider2D BoardTrigger => boardTrigger;
     public Collider2D DoorTrigger => doorTrigger;

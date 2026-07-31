@@ -50787,6 +50787,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Homestead
       objectReference: {fileID: 0}
+    - target: {fileID: 2477426782283039287, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477426782283039287, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7505143487809751219, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.747501

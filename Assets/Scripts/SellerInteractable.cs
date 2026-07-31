@@ -5,6 +5,7 @@ public class SellerInteractable : MonoBehaviour, IInteractable
     public SellerType sellerType;
 
     public InteractType InteractType => InteractType.Seller;
+    public bool CanInteract => true;
 
     public void Interact()
     {

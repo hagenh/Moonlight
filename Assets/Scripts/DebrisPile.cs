@@ -3,6 +3,7 @@ using UnityEngine;
 public class DebrisPile : MonoBehaviour, IInteractable
 {
     public InteractType InteractType => InteractType.DebrisPile;
+    public bool CanInteract => true;
 
     public void Interact()
     {

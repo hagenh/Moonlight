@@ -9,6 +9,7 @@ public class FermentVat : MonoBehaviour, IInteractable
     public FermentBatch CurrentBatch { get; private set; }
 
     public InteractType InteractType => InteractType.FermentVat;
+    public bool CanInteract => true;
 
     private Coroutine _punchCoroutine;
 

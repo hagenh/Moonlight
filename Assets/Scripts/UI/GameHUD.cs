@@ -191,9 +191,9 @@ public class GameHUD : MonoBehaviour
                     _ => $"[E] {building.BuildingName}"
                 };
         }
-        else if (interactable is BuildSign sign)
+        else if (interactable is Homestead homestead && !homestead.IsBuilt)
         {
-            promptText.text = sign.Stage switch
+            promptText.text = homestead.Stage switch
             {
                 BuildStage.Site => $"[E] Homestead Site (need 3 Stone)",
                 BuildStage.Foundation => $"[E] Build Frame (need 3 Wood)",
