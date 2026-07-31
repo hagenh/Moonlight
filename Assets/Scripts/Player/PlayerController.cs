@@ -280,6 +280,11 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
                     continue;
                 building.LastHitTrigger = hit;
             }
+            else if (interactable is Homestead homestead)
+            {
+                if (homestead.signTrigger != null && hit != homestead.signTrigger)
+                    continue;
+            }
 
             if (interactable != null && !interactable.CanInteract)
                 continue;
