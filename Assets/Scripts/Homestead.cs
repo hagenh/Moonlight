@@ -12,9 +12,9 @@ public class Homestead : MonoBehaviour, IInteractable
 {
     [SerializeField] private Sprite builtSprite;
     [SerializeField] private GameObject siteVisual;
-
-    private SpriteRenderer _spriteRenderer;
     [SerializeField] internal Collider2D signTrigger;
+    [SerializeField] internal Collider2D doorTrigger;
+    private SpriteRenderer _spriteRenderer;
     private BuildStage _stage;
 
     private static readonly Color[] _stageColors = {
@@ -33,19 +33,8 @@ public class Homestead : MonoBehaviour, IInteractable
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        if (signTrigger == null)
-        {
-            foreach (var col in GetComponents<Collider2D>())
-            {
-                if (col.isTrigger)
-                {
-                    signTrigger = col;
-                    break;
-                }
-            }
-        }
-        if (!IsBuilt && signTrigger != null)
-            signTrigger.enabled = false;
+        if (doorTrigger != null)
+            doorTrigger.enabled = false;
         if (_spriteRenderer != null)
             _spriteRenderer.color = _stageColors[0];
         RefreshSiteVisual();
@@ -125,7 +114,9 @@ public class Homestead : MonoBehaviour, IInteractable
     {
         IsBuilt = true;
         if (signTrigger != null)
-            signTrigger.enabled = true;
+            signTrigger.enabled = false;
+        if (doorTrigger != null)
+            doorTrigger.enabled = true;
         if (_spriteRenderer != null && builtSprite != null)
             _spriteRenderer.sprite = builtSprite;
     }

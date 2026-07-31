@@ -282,8 +282,16 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
             }
             else if (interactable is Homestead homestead)
             {
-                if (homestead.signTrigger != null && hit != homestead.signTrigger)
-                    continue;
+                if (homestead.IsBuilt)
+                {
+                    if (homestead.doorTrigger != null && hit != homestead.doorTrigger)
+                        continue;
+                }
+                else
+                {
+                    if (homestead.signTrigger != null && hit != homestead.signTrigger)
+                        continue;
+                }
             }
 
             if (interactable != null && !interactable.CanInteract)
