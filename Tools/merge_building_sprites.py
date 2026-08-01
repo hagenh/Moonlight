@@ -86,7 +86,7 @@ for wx, wy, sprite_id in CHILDREN:
     col = sprite_id % COLS
     row = sprite_id // COLS
     pil_x = col * TILE
-    pil_y = TEX_H - (row + 1) * TILE
+    pil_y = row * TILE
 
     tile = src_img.crop((pil_x, pil_y, pil_x + TILE, pil_y + TILE))
 
