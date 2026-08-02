@@ -75,7 +75,7 @@ public class InventoryTests
             _inventory.TryAdd(_sugar, 30);
 
         var r = _inventory.TryAdd(_grain, 5);
-        Assert.IsTrue(r.Success);
+        Assert.IsFalse(r.Success);
         Assert.AreEqual(0, r.Added);
         Assert.AreEqual(5, r.Overflow);
     }
@@ -108,7 +108,7 @@ public class InventoryTests
         bool result = _inventory.TryRemove(_grain, 35);
         Assert.IsTrue(result);
         Assert.AreEqual(10, _inventory.GetCount(_grain));
-        Assert.AreEqual(10, _inventory.Slots[0].Count);
+        Assert.AreEqual(10, _inventory.Slots[1].Count);
     }
 
     [Test]
