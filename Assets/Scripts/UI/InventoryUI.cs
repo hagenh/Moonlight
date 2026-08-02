@@ -185,7 +185,7 @@ public class InventoryUI : MonoBehaviour
                 else if (e.button == 1 && !slot.IsEmpty)
                 {
                     InventoryManager.Instance.TryDropFromSlot(idx, 1);
-                    if (_selectedSlot == idx && slot.Count <= 1)
+                    if (_selectedSlot == idx && slot.IsEmpty)
                         _selectedSlot = -1;
                     e.Use();
                 }
