@@ -7,7 +7,7 @@ public class FootstepPlayer : MonoBehaviour
     [SerializeField] internal AudioClip[] sandClips;
     [SerializeField] internal AudioClip[] stoneClips;
     [SerializeField] internal AudioClip[] waterClips;
-    [SerializeField] private Tilemap groundTilemap;
+    [SerializeField] private Tilemap surfaceMap;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float walkCadence = 0.4f;
     [SerializeField] private float sprintCadence = 0.25f;
@@ -47,9 +47,9 @@ public class FootstepPlayer : MonoBehaviour
 
     private void UpdateCurrentSurface()
     {
-        if (groundTilemap == null) return;
+        if (surfaceMap == null) return;
 
-        Vector3Int cellPos = groundTilemap.WorldToCell(transform.position);
+        Vector3Int cellPos = surfaceMap.WorldToCell(transform.position);
         var tile = groundTilemap.GetTile<FootstepTile>(cellPos);
 
         if (tile != null)

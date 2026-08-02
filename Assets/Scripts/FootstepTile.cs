@@ -14,7 +14,7 @@ public class FootstepTile : TileBase
 {
     public Sprite sprite;
     public FootstepSurface Surface = FootstepSurface.Dirt;
-    public Tile.ColliderType colliderType = Tile.ColliderType.Sprite;
+    public Tile.ColliderType colliderType = Tile.ColliderType.None;
 
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {
