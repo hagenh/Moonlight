@@ -147,7 +147,7 @@ public class GameHUD : MonoBehaviour
     {
         if (inventoryText == null || InventoryManager.Instance == null) return;
         var sb = new System.Text.StringBuilder();
-        foreach (var kvp in InventoryManager.Instance.AllItems)
+        foreach (var kvp in InventoryManager.Instance.GetAllItems())
             sb.AppendLine($"{kvp.Key.displayName}: {kvp.Value}");
         inventoryText.text = sb.ToString();
     }

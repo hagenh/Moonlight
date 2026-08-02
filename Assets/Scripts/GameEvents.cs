@@ -45,6 +45,10 @@ public static class GameEvents
     public static event System.Action<ItemDef, int, int> ShelfSold;
     public static event System.Action RequestBookRequested;
     public static event System.Action RecipeBookRequested;
+    public static event System.Action InventoryOpened;
+    public static event System.Action InventoryClosed;
+    public static event System.Action<ItemDef, int> InventoryFull;
+    public static event System.Action<int, ItemDef, int> ItemDropped;
 
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
@@ -165,4 +169,16 @@ public static class GameEvents
 
     public static void OnRecipeBookRequested()
         => RecipeBookRequested?.Invoke();
+
+    public static void OnInventoryOpened()
+        => InventoryOpened?.Invoke();
+
+    public static void OnInventoryClosed()
+        => InventoryClosed?.Invoke();
+
+    public static void OnInventoryFull(ItemDef def, int overflow)
+        => InventoryFull?.Invoke(def, overflow);
+
+    public static void OnItemDropped(int slotIndex, ItemDef def, int count)
+        => ItemDropped?.Invoke(slotIndex, def, count);
 }

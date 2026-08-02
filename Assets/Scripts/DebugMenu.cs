@@ -179,7 +179,7 @@ public class DebugMenu : MonoBehaviour
 
         if (InventoryManager.Instance != null)
         {
-            foreach (var kvp in InventoryManager.Instance.AllItems)
+            foreach (var kvp in InventoryManager.Instance.GetAllItems())
                 GUILayout.Label($"  {kvp.Key.displayName}: {kvp.Value}");
         }
 

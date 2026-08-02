@@ -20,6 +20,10 @@ public class InventoryIntegrationTests
         GameEvents.InventoryChanged += (def, oldCount, newCount) =>
             _recorder.Record("InventoryChanged", $"{oldCount}->{newCount}");
         GameEvents.ToastRequested += (msg) => _recorder.Record("Toast", msg);
+        GameEvents.InventoryFull += (def, overflow) =>
+            _recorder.Record("InventoryFull", $"{def.displayName}:{overflow}");
+        GameEvents.ItemDropped += (idx, def, cnt) =>
+            _recorder.Record("ItemDropped", $"{idx}:{def.displayName}:{cnt}");
     }
 
     [TearDown]
@@ -72,7 +76,7 @@ public class InventoryIntegrationTests
     }
 
     [UnityTest]
-    public IEnumerator TryRemove_ToZero_RemovesEntry()
+    public IEnumerator TryRemove_ToZero_CountIsZero()
     {
         _inventory.TryAdd(_grain, 3);
         _recorder.Clear();
@@ -80,7 +84,6 @@ public class InventoryIntegrationTests
         _inventory.TryRemove(_grain, 3);
 
         Assert.AreEqual(0, _inventory.GetCount(_grain));
-        Assert.IsFalse(_inventory.AllItems.ContainsKey(_grain));
         yield return null;
     }
 
@@ -91,6 +94,37 @@ public class InventoryIntegrationTests
 
         Assert.IsFalse(result);
         Assert.AreEqual(0, _recorder.Count);
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator TryDropFromSlot_FiresItemDroppedAndInventoryChanged()
+    {
+        _inventory.TryAdd(_grain, 10);
+        _recorder.Clear();
+
+        var r = _inventory.TryDropFromSlot(0, 3);
+
+        Assert.IsTrue(r.Success);
+        Assert.AreEqual(_grain, r.Def);
+        Assert.AreEqual(3, r.Count);
+        Assert.AreEqual(2, _recorder.Count);
+        Assert.IsTrue(_recorder.Order[0].StartsWith("ItemDropped"));
+        Assert.IsTrue(_recorder.Order[1].StartsWith("InventoryChanged"));
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator TryAdd_Overflow_FiresInventoryFull()
+    {
+        for (int i = 0; i < 20; i++)
+            _inventory.TryAdd(_grain, 30);
+        _recorder.Clear();
+
+        bool result = _inventory.TryAdd(_grain, 5);
+
+        Assert.IsFalse(result);
+        Assert.IsTrue(_recorder.Has("InventoryFull"));
         yield return null;
     }
 }

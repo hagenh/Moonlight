@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 
     private readonly Inventory _inventory = new();
 
-    public IReadOnlyDictionary<ItemDef, int> AllItems => _inventory.AllItems;
+    public IReadOnlyList<InventorySlot> Slots => _inventory.Slots;
 
     private void Awake()
     {
@@ -39,8 +39,14 @@ public class InventoryManager : MonoBehaviour
     {
         var r = _inventory.TryAdd(def, count);
         if (!r.Success) return false;
-        GameEvents.OnInventoryChanged(def, r.OldCount, r.NewCount);
-        GameEvents.OnToastRequested($"+{count} {def.displayName}");
+
+        int oldCount = GetCount(def) - r.Added;
+        GameEvents.OnInventoryChanged(def, oldCount, GetCount(def));
+        GameEvents.OnToastRequested($"+{r.Added} {def.displayName}");
+
+        if (r.Overflow > 0)
+            GameEvents.OnInventoryFull(def, r.Overflow);
+
         return true;
     }
 
@@ -53,8 +59,40 @@ public class InventoryManager : MonoBehaviour
             GameEvents.OnToastRequested($"Not enough {def.displayName}");
             return false;
         }
-        var r = _inventory.TryRemove(def, count);
-        GameEvents.OnInventoryChanged(def, r.OldCount, r.NewCount);
+        int oldCount = current;
+        _inventory.TryRemove(def, count);
+        GameEvents.OnInventoryChanged(def, oldCount, GetCount(def));
         return true;
+    }
+
+    public DropResult TryDropFromSlot(int slotIndex, int count)
+    {
+        var r = _inventory.TryDropFromSlot(slotIndex, count);
+        if (r.Success)
+        {
+            GameEvents.OnItemDropped(slotIndex, r.Def, r.Count);
+            GameEvents.OnInventoryChanged(r.Def, GetCount(r.Def) + r.Count, GetCount(r.Def));
+        }
+        return r;
+    }
+
+    public AddResult TryAddPartial(ItemDef def, int count)
+    {
+        var r = _inventory.TryAdd(def, count);
+        if (r.Added > 0)
+        {
+            int oldCount = GetCount(def) - r.Added;
+            GameEvents.OnInventoryChanged(def, oldCount, GetCount(def));
+            GameEvents.OnToastRequested($"+{r.Added} {def.displayName}");
+
+            if (r.Overflow > 0)
+                GameEvents.OnInventoryFull(def, r.Overflow);
+        }
+        return r;
+    }
+
+    public Dictionary<ItemDef, int> GetAllItems()
+    {
+        return _inventory.GetAllItems();
     }
 }
