@@ -50,7 +50,7 @@ public class FootstepPlayer : MonoBehaviour
         if (surfaceMap == null) return;
 
         Vector3Int cellPos = surfaceMap.WorldToCell(transform.position);
-        var tile = groundTilemap.GetTile<FootstepTile>(cellPos);
+        var tile = surfaceMap.GetTile<FootstepTile>(cellPos);
 
         if (tile != null)
             currentSurface = tile.Surface;
