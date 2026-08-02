@@ -81,15 +81,17 @@ public class InventoryManager : MonoBehaviour
     public AddResult TryAddPartial(ItemDef def, int count)
     {
         var r = _inventory.TryAdd(def, count);
+
         if (r.Added > 0)
         {
             int oldCount = GetCount(def) - r.Added;
             GameEvents.OnInventoryChanged(def, oldCount, GetCount(def));
             GameEvents.OnToastRequested($"+{r.Added} {def.displayName}");
-
-            if (r.Overflow > 0)
-                GameEvents.OnInventoryFull(def, r.Overflow);
         }
+
+        if (r.Overflow > 0)
+            GameEvents.OnInventoryFull(def, r.Overflow);
+
         return r;
     }
 
