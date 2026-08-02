@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 5912294150565132651}
   - component: {fileID: 8770146353502741774}
   - component: {fileID: 6543210987654321098}
+  - component: {fileID: 7646011178612352151}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -465,3 +466,43 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &7646011178612352151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837560514000187350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac0d0e25f3c7b949b23768123c29173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Lamplight.Runtime::FootstepPlayer
+  dirtClips:
+  - {fileID: 8300000, guid: a8a397fe3f0c3564680ee2a391016939, type: 3}
+  - {fileID: 8300000, guid: d50fae1a633feb84f8e6fa037567a1c4, type: 3}
+  - {fileID: 8300000, guid: 37b0499e831a46d4a980b1842bebe07a, type: 3}
+  - {fileID: 8300000, guid: 291593ad5b4be9446ac5ea9c6697d09b, type: 3}
+  - {fileID: 8300000, guid: b6b3e4ddfae19ba4d9bf9029dfc6ef9e, type: 3}
+  - {fileID: 8300000, guid: 31caf0335f5437648afea29a2c9e09ba, type: 3}
+  sandClips:
+  - {fileID: 8300000, guid: 62b41d1f85766d049bae6e63d824eab7, type: 3}
+  - {fileID: 8300000, guid: 7569d010c96c08348a2204587517f9f4, type: 3}
+  - {fileID: 8300000, guid: 39894aebe033d5542be189a0faf4361b, type: 3}
+  - {fileID: 8300000, guid: 516233b6adcfdf543af21b23bd2d7642, type: 3}
+  stoneClips:
+  - {fileID: 8300000, guid: 30a1ff6b308d42b41ad53334a91cc660, type: 3}
+  - {fileID: 8300000, guid: ccd2a1aabc9eb2948a26b007764f2a41, type: 3}
+  - {fileID: 8300000, guid: 935521ef28258af43b9fd09fd310c42f, type: 3}
+  - {fileID: 8300000, guid: e709a87bb8b1a824986e40efdae61005, type: 3}
+  waterClips:
+  - {fileID: 8300000, guid: c054373f87e18564fb11cf6522cfb40a, type: 3}
+  - {fileID: 8300000, guid: 7fc8bd50841d90446ab075798a543978, type: 3}
+  - {fileID: 8300000, guid: 82fc3a7e985968047aa764c997bbb8ad, type: 3}
+  - {fileID: 8300000, guid: 4d6f1e16ae422c942887e1e2ce00b247, type: 3}
+  groundTilemap: {fileID: 0}
+  audioSource: {fileID: 0}
+  walkCadence: 0.4
+  sprintCadence: 0.25
+  defaultSurface: 0
+  moveThreshold: 0.1

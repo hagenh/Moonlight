@@ -1,0 +1,2613 @@
+fileFormatVersion: 2
+guid: 04a76193f7ed5ba4aa366eb13d6fb74e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2944816543742499412
+    second: emote3_0
+  - first:
+      213: 5188096979959125020
+    second: emote3_1
+  - first:
+      213: -817493413634407058
+    second: emote3_2
+  - first:
+      213: 5539695176460628977
+    second: emote3_3
+  - first:
+      213: 779371610738778179
+    second: emote3_4
+  - first:
+      213: 1104663275908745306
+    second: emote3_5
+  - first:
+      213: -3921171053451473474
+    second: emote3_6
+  - first:
+      213: 3326166117930861915
+    second: emote3_7
+  - first:
+      213: -684176932002183721
+    second: emote3_8
+  - first:
+      213: -6206444664174794039
+    second: emote3_9
+  - first:
+      213: 5407070354377772715
+    second: emote3_10
+  - first:
+      213: -6494113588202300168
+    second: emote3_11
+  - first:
+      213: 765920791883171962
+    second: emote3_12
+  - first:
+      213: -3671297693173299923
+    second: emote3_13
+  - first:
+      213: 3079809748871951570
+    second: emote3_14
+  - first:
+      213: 2529086012160541282
+    second: emote3_15
+  - first:
+      213: 8818492824394103367
+    second: emote3_16
+  - first:
+      213: -3358559435550253895
+    second: emote3_17
+  - first:
+      213: -365054748402005627
+    second: emote3_18
+  - first:
+      213: 5563095796851349986
+    second: emote3_19
+  - first:
+      213: 8789144311966787951
+    second: emote3_20
+  - first:
+      213: 6842113720536450155
+    second: emote3_21
+  - first:
+      213: 6706475836304030480
+    second: emote3_22
+  - first:
+      213: 3977382242146715587
+    second: emote3_23
+  - first:
+      213: -8896257018255886046
+    second: emote3_24
+  - first:
+      213: 8715573845702655449
+    second: emote3_25
+  - first:
+      213: 6291902329034337643
+    second: emote3_26
+  - first:
+      213: 6257166508602137226
+    second: emote3_27
+  - first:
+      213: -2471765006474455313
+    second: emote3_28
+  - first:
+      213: 4687349678362270370
+    second: emote3_29
+  - first:
+      213: -5235674069747442449
+    second: emote3_30
+  - first:
+      213: 7244936260102376209
+    second: emote3_31
+  - first:
+      213: 7915111632795350419
+    second: emote3_32
+  - first:
+      213: -7297731622631739939
+    second: emote3_33
+  - first:
+      213: -4804212799847003458
+    second: emote3_34
+  - first:
+      213: -6927228575397580025
+    second: emote3_35
+  - first:
+      213: 7679450623895959350
+    second: emote3_36
+  - first:
+      213: -5902580438505750356
+    second: emote3_37
+  - first:
+      213: 4327670781709645102
+    second: emote3_38
+  - first:
+      213: 8825156755731950046
+    second: emote3_39
+  - first:
+      213: 5331634468354575611
+    second: emote3_40
+  - first:
+      213: 5886730891190849822
+    second: emote3_41
+  - first:
+      213: -7872475387326765161
+    second: emote3_42
+  - first:
+      213: 4096392783870558234
+    second: emote3_43
+  - first:
+      213: 6747562435598541072
+    second: emote3_44
+  - first:
+      213: 6650161311750471133
+    second: emote3_45
+  - first:
+      213: 5167128688335826956
+    second: emote3_46
+  - first:
+      213: 8983169168768356139
+    second: emote3_47
+  - first:
+      213: -2159399819149217189
+    second: emote3_48
+  - first:
+      213: -739124995378996954
+    second: emote3_49
+  - first:
+      213: 7375727969039734723
+    second: emote3_50
+  - first:
+      213: -4187316749558394282
+    second: emote3_51
+  - first:
+      213: -4661856740388472852
+    second: emote3_52
+  - first:
+      213: -6913182401861751524
+    second: emote3_53
+  - first:
+      213: -5413802534389543445
+    second: emote3_54
+  - first:
+      213: -239191118652674257
+    second: emote3_55
+  - first:
+      213: 2867641779912656375
+    second: emote3_56
+  - first:
+      213: -4379342913505917437
+    second: emote3_57
+  - first:
+      213: -1581265745325750430
+    second: emote3_58
+  - first:
+      213: 8374730594013694714
+    second: emote3_59
+  - first:
+      213: 8487989983313987485
+    second: emote3_60
+  - first:
+      213: 1924828621956394475
+    second: emote3_61
+  - first:
+      213: 6894606106653522705
+    second: emote3_62
+  - first:
+      213: -1872602374749168119
+    second: emote3_63
+  - first:
+      213: -7904400164820087760
+    second: emote3_64
+  - first:
+      213: 2928448074870226007
+    second: emote3_65
+  - first:
+      213: -3909957944152310406
+    second: emote3_66
+  - first:
+      213: -3256867014193923306
+    second: emote3_67
+  - first:
+      213: 7060180070419370122
+    second: emote3_68
+  - first:
+      213: 5005525173140468448
+    second: emote3_69
+  - first:
+      213: 4786915664686613742
+    second: emote3_70
+  - first:
+      213: 5543312808650395215
+    second: emote3_71
+  - first:
+      213: -61263553844807543
+    second: emote3_72
+  - first:
+      213: 6998851967987396327
+    second: emote3_73
+  - first:
+      213: -4340453593565464802
+    second: emote3_74
+  - first:
+      213: 1286555193385509588
+    second: emote3_75
+  - first:
+      213: -4410522012926236632
+    second: emote3_76
+  - first:
+      213: -9072733429127014064
+    second: emote3_77
+  - first:
+      213: 5945180317300720351
+    second: emote3_78
+  - first:
+      213: 3637759556868125248
+    second: emote3_79
+  - first:
+      213: -6851869201056450965
+    second: emote3_80
+  - first:
+      213: 3736736329467866300
+    second: emote3_81
+  - first:
+      213: 5426106970530033126
+    second: emote3_82
+  - first:
+      213: 3268635895917589100
+    second: emote3_83
+  - first:
+      213: 133639796854553679
+    second: emote3_84
+  - first:
+      213: 4560263550125465203
+    second: emote3_85
+  - first:
+      213: 2553145077600858953
+    second: emote3_86
+  - first:
+      213: -2257593153950702544
+    second: emote3_87
+  - first:
+      213: 5884260260593672109
+    second: emote3_88
+  - first:
+      213: 3282266186821161042
+    second: emote3_89
+  - first:
+      213: 1942456125877112812
+    second: emote3_90
+  - first:
+      213: -9098861892764818935
+    second: emote3_91
+  - first:
+      213: -4077830252521961673
+    second: emote3_92
+  - first:
+      213: 1478929350992228802
+    second: emote3_93
+  - first:
+      213: 1177314006137591725
+    second: emote3_94
+  - first:
+      213: -1618245200580160693
+    second: emote3_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: emote3_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 251
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca5e88da4f8e127d0800000000000000
+      internalID: -2944816543742499412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 251
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c149dbe27b2dff740800000000000000
+      internalID: 5188096979959125020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 251
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e658912521ea7a4f0800000000000000
+      internalID: -817493413634407058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 251
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f371e49963f0ec40800000000000000
+      internalID: 5539695176460628977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 251
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340eb16c952e0da00800000000000000
+      internalID: 779371610738778179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_5
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 251
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58c5fc856d845f00800000000000000
+      internalID: 1104663275908745306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_6
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 251
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd0b7fb3b33599c0800000000000000
+      internalID: -3921171053451473474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_7
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 251
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b558533267ae82e20800000000000000
+      internalID: 3326166117930861915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_8
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 251
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d54e7c84b05186f0800000000000000
+      internalID: -684176932002183721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_9
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 251
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca2eb906774ed9a0800000000000000
+      internalID: -6206444664174794039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 251
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae8b34e6d5c90b40800000000000000
+      internalID: 5407070354377772715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 251
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc1a2c491640e5a0800000000000000
+      internalID: -6494113588202300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 215
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a784846f6e811aa00800000000000000
+      internalID: 765920791883171962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_13
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 215
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25c1bd033eec0dc0800000000000000
+      internalID: -3671297693173299923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_14
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 215
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d43c4926aeadba20800000000000000
+      internalID: 3079809748871951570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 215
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2620d31145e191320800000000000000
+      internalID: 2529086012160541282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_16
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 215
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a775c5084916a70800000000000000
+      internalID: 8818492824394103367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 215
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc9dfedcfff361d0800000000000000
+      internalID: -3358559435550253895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_18
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 215
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589cde5f3a01feaf0800000000000000
+      internalID: -365054748402005627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_19
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 215
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e91bc61726143d40800000000000000
+      internalID: 5563095796851349986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_20
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 215
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69ec625f2059f970800000000000000
+      internalID: 8789144311966787951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_21
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 215
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64c6618d2214fe50800000000000000
+      internalID: 6842113720536450155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_22
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 215
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b74ad9d30321d50800000000000000
+      internalID: 6706475836304030480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_23
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 215
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c70a1f7310823730800000000000000
+      internalID: 3977382242146715587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 179
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229384450652a8480800000000000000
+      internalID: -8896257018255886046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_25
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 179
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ddbace4c30f3f870800000000000000
+      internalID: 8715573845702655449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_26
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 179
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d6b8315d3515750800000000000000
+      internalID: 6291902329034337643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_27
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 179
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a93b5a9cbe5d650800000000000000
+      internalID: 6257166508602137226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_28
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 179
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe659d492d682bdd0800000000000000
+      internalID: -2471765006474455313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_29
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 179
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa13d4a2bfcc0140800000000000000
+      internalID: 4687349678362270370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_30
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 179
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fecdaf06c262757b0800000000000000
+      internalID: -5235674069747442449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_31
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 179
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11bcfbba42f2b8460800000000000000
+      internalID: 7244936260102376209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_32
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 179
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 395345e081028dd60800000000000000
+      internalID: 7915111632795350419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_33
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 179
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd66e611cf39ba90800000000000000
+      internalID: -7297731622631739939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_34
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 179
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba0cbf89e1045db0800000000000000
+      internalID: -4804212799847003458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 179
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703fd7d005a8ddf90800000000000000
+      internalID: -6927228575397580025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_36
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 143
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637787ba7a3e29a60800000000000000
+      internalID: 7679450623895959350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_37
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 143
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca002b84d52d51ea0800000000000000
+      internalID: -5902580438505750356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_38
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 143
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e25f3a0a5a9fe0c30800000000000000
+      internalID: 4327670781709645102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_39
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 143
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9aa88cf41497a70800000000000000
+      internalID: 8825156755731950046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_40
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 143
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfcc08efc45cdf940800000000000000
+      internalID: 5331634468354575611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_41
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 143
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11dfb96e8ed1b150800000000000000
+      internalID: 5886730891190849822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_42
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 143
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797e16b68595fb290800000000000000
+      internalID: -7872475387326765161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_43
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 143
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a100417888f49d830800000000000000
+      internalID: 4096392783870558234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_44
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 143
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011ee99f84824ad50800000000000000
+      internalID: 6747562435598541072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_45
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 143
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dddbeed9a7e1a4c50800000000000000
+      internalID: 6650161311750471133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_46
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 143
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00bcf85a2455b740800000000000000
+      internalID: 5167128688335826956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_47
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 143
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2fcdad93c0aaac70800000000000000
+      internalID: 8983169168768356139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 107
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5271933e454802e0800000000000000
+      internalID: -2159399819149217189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_49
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 107
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62992d59bb91eb5f0800000000000000
+      internalID: -739124995378996954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_50
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 107
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7d6827289db5660800000000000000
+      internalID: 7375727969039734723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_51
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 107
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65257840a99a3e5c0800000000000000
+      internalID: -4187316749558394282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_52
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 107
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce772638ef1cd4fb0800000000000000
+      internalID: -4661856740388472852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_53
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 107
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d6c8dab317f00a0800000000000000
+      internalID: -6913182401861751524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_54
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 107
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed0a9d474f4ed4b0800000000000000
+      internalID: -5413802534389543445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_55
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 107
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f6743e1f83eacf0800000000000000
+      internalID: -239191118652674257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_56
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 107
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f543c26109ebc720800000000000000
+      internalID: 2867641779912656375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_57
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 107
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3060bdaa2d27933c0800000000000000
+      internalID: -4379342913505917437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_58
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 107
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2678d5abe273e0ae0800000000000000
+      internalID: -1581265745325750430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_59
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 107
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa48c1aa15093470800000000000000
+      internalID: 8374730594013694714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_60
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 71
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9701842be56bc570800000000000000
+      internalID: 8487989983313987485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_61
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 71
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed2739fe6d56ba10800000000000000
+      internalID: 1924828621956394475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_62
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 71
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b725d89bf8eaf50800000000000000
+      internalID: 6894606106653522705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_63
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 71
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ed587cf0e2306e0800000000000000
+      internalID: -1872602374749168119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_64
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 71
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c0c5dededed4290800000000000000
+      internalID: -7904400164820087760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_65
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 71
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75cf0dd2200f3a820800000000000000
+      internalID: 2928448074870226007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_66
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 71
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7db51437f90db9c0800000000000000
+      internalID: -3909957944152310406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_67
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 71
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61bb84ac4b84dc2d0800000000000000
+      internalID: -3256867014193923306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_68
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 71
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8093ab1e5ccaf160800000000000000
+      internalID: 7060180070419370122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_69
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 71
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e23053ef92377540800000000000000
+      internalID: 5005525173140468448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_70
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 71
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee406635f6a8e6240800000000000000
+      internalID: 4786915664686613742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_71
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 71
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4eca7631adcdec40800000000000000
+      internalID: 5543312808650395215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_72
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 35
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988f6635f19562ff0800000000000000
+      internalID: -61263553844807543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_73
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 35
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eeae6b88cae02160800000000000000
+      internalID: 6998851967987396327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_74
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 35
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17767f047c93c3c0800000000000000
+      internalID: -4340453593565464802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_75
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 35
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d26da5c123cad110800000000000000
+      internalID: 1286555193385509588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_76
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 35
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828ad71e89daac2c0800000000000000
+      internalID: -4410522012926236632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_77
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 35
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059921ff30d271280800000000000000
+      internalID: -9072733429127014064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_78
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 35
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd28a5aeff5818250800000000000000
+      internalID: 5945180317300720351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_79
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 35
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04238651b0beb7230800000000000000
+      internalID: 3637759556868125248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_80
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 35
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66379fa34549e0a0800000000000000
+      internalID: -6851869201056450965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_81
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 35
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbcaa31c4ed8bd330800000000000000
+      internalID: 3736736329467866300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_82
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 35
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eda6bb7a876d4b40800000000000000
+      internalID: 5426106970530033126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_83
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 35
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c62324487078c5d20800000000000000
+      internalID: 3268635895917589100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_84
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4cfe5befa8cad100800000000000000
+      internalID: 133639796854553679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_85
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ed36b998f494f30800000000000000
+      internalID: 4560263550125465203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_86
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 943bf62cbe79e6320800000000000000
+      internalID: 2553145077600858953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_87
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0342a6bdcfa6ba0e0800000000000000
+      internalID: -2257593153950702544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_88
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf12a6e78719a150800000000000000
+      internalID: 5884260260593672109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_89
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25050cbe4b3fc8d20800000000000000
+      internalID: 3282266186821161042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_90
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cefcfae0e8df4fa10800000000000000
+      internalID: 1942456125877112812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_91
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 0
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9022a6df0595ab180800000000000000
+      internalID: -9098861892764818935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_92
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73746189df2a867c0800000000000000
+      internalID: -4077830252521961673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_93
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c17ac5b866368410800000000000000
+      internalID: 1478929350992228802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_94
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 0
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da75ce4d9d8a65010800000000000000
+      internalID: 1177314006137591725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote3_95
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4350fb5096da89e0800000000000000
+      internalID: -1618245200580160693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      emote3_0: -2944816543742499412
+      emote3_1: 5188096979959125020
+      emote3_10: 5407070354377772715
+      emote3_11: -6494113588202300168
+      emote3_12: 765920791883171962
+      emote3_13: -3671297693173299923
+      emote3_14: 3079809748871951570
+      emote3_15: 2529086012160541282
+      emote3_16: 8818492824394103367
+      emote3_17: -3358559435550253895
+      emote3_18: -365054748402005627
+      emote3_19: 5563095796851349986
+      emote3_2: -817493413634407058
+      emote3_20: 8789144311966787951
+      emote3_21: 6842113720536450155
+      emote3_22: 6706475836304030480
+      emote3_23: 3977382242146715587
+      emote3_24: -8896257018255886046
+      emote3_25: 8715573845702655449
+      emote3_26: 6291902329034337643
+      emote3_27: 6257166508602137226
+      emote3_28: -2471765006474455313
+      emote3_29: 4687349678362270370
+      emote3_3: 5539695176460628977
+      emote3_30: -5235674069747442449
+      emote3_31: 7244936260102376209
+      emote3_32: 7915111632795350419
+      emote3_33: -7297731622631739939
+      emote3_34: -4804212799847003458
+      emote3_35: -6927228575397580025
+      emote3_36: 7679450623895959350
+      emote3_37: -5902580438505750356
+      emote3_38: 4327670781709645102
+      emote3_39: 8825156755731950046
+      emote3_4: 779371610738778179
+      emote3_40: 5331634468354575611
+      emote3_41: 5886730891190849822
+      emote3_42: -7872475387326765161
+      emote3_43: 4096392783870558234
+      emote3_44: 6747562435598541072
+      emote3_45: 6650161311750471133
+      emote3_46: 5167128688335826956
+      emote3_47: 8983169168768356139
+      emote3_48: -2159399819149217189
+      emote3_49: -739124995378996954
+      emote3_5: 1104663275908745306
+      emote3_50: 7375727969039734723
+      emote3_51: -4187316749558394282
+      emote3_52: -4661856740388472852
+      emote3_53: -6913182401861751524
+      emote3_54: -5413802534389543445
+      emote3_55: -239191118652674257
+      emote3_56: 2867641779912656375
+      emote3_57: -4379342913505917437
+      emote3_58: -1581265745325750430
+      emote3_59: 8374730594013694714
+      emote3_6: -3921171053451473474
+      emote3_60: 8487989983313987485
+      emote3_61: 1924828621956394475
+      emote3_62: 6894606106653522705
+      emote3_63: -1872602374749168119
+      emote3_64: -7904400164820087760
+      emote3_65: 2928448074870226007
+      emote3_66: -3909957944152310406
+      emote3_67: -3256867014193923306
+      emote3_68: 7060180070419370122
+      emote3_69: 5005525173140468448
+      emote3_7: 3326166117930861915
+      emote3_70: 4786915664686613742
+      emote3_71: 5543312808650395215
+      emote3_72: -61263553844807543
+      emote3_73: 6998851967987396327
+      emote3_74: -4340453593565464802
+      emote3_75: 1286555193385509588
+      emote3_76: -4410522012926236632
+      emote3_77: -9072733429127014064
+      emote3_78: 5945180317300720351
+      emote3_79: 3637759556868125248
+      emote3_8: -684176932002183721
+      emote3_80: -6851869201056450965
+      emote3_81: 3736736329467866300
+      emote3_82: 5426106970530033126
+      emote3_83: 3268635895917589100
+      emote3_84: 133639796854553679
+      emote3_85: 4560263550125465203
+      emote3_86: 2553145077600858953
+      emote3_87: -2257593153950702544
+      emote3_88: 5884260260593672109
+      emote3_89: 3282266186821161042
+      emote3_9: -6206444664174794039
+      emote3_90: 1942456125877112812
+      emote3_91: -9098861892764818935
+      emote3_92: -4077830252521961673
+      emote3_93: 1478929350992228802
+      emote3_94: 1177314006137591725
+      emote3_95: -1618245200580160693
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

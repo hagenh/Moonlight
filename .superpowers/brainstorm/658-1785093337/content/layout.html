@@ -1,0 +1,109 @@
+<h2>How should the recipe book be laid out?</h2>
+<p class="subtitle">All three show the same three states: a legible page, a torn page, and the burned back section. The question is what shape the book takes on screen.</p>
+
+<style>
+  .bk { font-family: Georgia, 'Times New Roman', serif; background: #e8dcc0; color: #3b2f1e;
+        border: 1px solid #8a7550; border-radius: 3px; padding: 14px 16px; }
+  .bk .pg { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8a7550; margin-bottom: 6px; }
+  .bk h4 { margin: 0 0 6px; font-size: 17px; font-weight: 600; }
+  .bk .ing { font-size: 13px; line-height: 1.55; }
+  .bk .meta { font-size: 12px; color: #6b5a3e; margin-top: 8px; font-style: italic; }
+  .bk .brew { margin-top: 10px; display: inline-block; background: #6b4f2a; color: #f3ead4;
+              padding: 5px 14px; border-radius: 2px; font-size: 12px; letter-spacing: .06em; }
+  .torn2 { background: repeating-linear-gradient(135deg,#ded2b6 0 6px,#d6c9ab 6px 12px);
+           color: #9a8a6c; font-style: italic; text-align: center; padding: 22px 10px; border: 1px dashed #a8956f; }
+  .burn { background: linear-gradient(180deg,#e8dcc0 0%,#5a4632 70%,#241b12 100%);
+          color: #d8c9a8; padding: 14px 16px 20px; font-size: 12.5px; line-height: 1.7; font-style: italic; }
+  .spread { display: flex; gap: 0; }
+  .spread > div { flex: 1; }
+  .g { flex: 0 0 3px !important; background: #b6a17c; }
+  .idx { font-size: 12.5px; line-height: 2; }
+  .idx .on { color: #3b2f1e; }
+  .idx .off { color: #a2926f; font-style: italic; }
+  .idx .sel { background: #d3c3a0; display: block; margin: 0 -8px; padding: 0 8px; }
+  .nav { text-align: center; font-size: 12px; color: #6b5a3e; margin-top: 10px; letter-spacing: .1em; }
+</style>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Index + page</h3>
+      <p>Contents list on the left with gaps where pages are torn; the selected page reads on the right. Fast to scan when you are picking something to brew.</p>
+      <div class="bk" style="margin-top:10px">
+        <div class="spread">
+          <div style="padding-right:14px">
+            <div class="pg">Contents</div>
+            <div class="idx">
+              <span class="on sel">1. Berry Shine</span>
+              <span class="off">2. ~~~~~~~~</span>
+              <span class="off">3. ~~~~~~~~</span>
+              <span class="on">4. Sweet Batch</span>
+              <span class="off">5. ~~~~~~~~</span>
+              <span class="off" style="color:#7a5c3a">— burned —</span>
+            </div>
+          </div>
+          <div class="g"></div>
+          <div style="padding-left:14px">
+            <div class="pg">Page 1</div>
+            <h4>Berry Shine</h4>
+            <div class="ing">Berry &times;3 <span style="color:#6b5a3e">(have 5)</span></div>
+            <div class="meta">3 hours &rarr; 2 jars</div>
+            <div class="brew">Brew</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>True spread, flip through</h3>
+      <p>Two facing pages at a time, arrows to turn. You physically flip past the torn gaps and reach the burned back — the damage is something you travel through, not a list item.</p>
+      <div class="bk" style="margin-top:10px">
+        <div class="spread">
+          <div style="padding-right:14px">
+            <div class="pg">Page 1</div>
+            <h4>Berry Shine</h4>
+            <div class="ing">Berry &times;3 <span style="color:#6b5a3e">(have 5)</span></div>
+            <div class="meta">3 hours &rarr; 2 jars</div>
+            <div class="brew">Brew</div>
+          </div>
+          <div class="g"></div>
+          <div style="padding-left:14px">
+            <div class="pg">Page 2</div>
+            <div class="torn2">torn out</div>
+          </div>
+        </div>
+        <div class="nav">&#8592;&nbsp;&nbsp; 1 &ndash; 2 of 5 &nbsp;&nbsp;&#8594;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>One long scroll</h3>
+      <p>Closest to what exists now, but styled as a book: every page stacked in order, torn gaps inline, burned section at the bottom. Simplest to build and no navigation to learn.</p>
+      <div class="bk" style="margin-top:10px">
+        <div class="pg">Page 1</div>
+        <h4>Berry Shine</h4>
+        <div class="ing">Berry &times;3 <span style="color:#6b5a3e">(have 5)</span></div>
+        <div class="meta">3 hours &rarr; 2 jars</div>
+        <div class="brew">Brew</div>
+        <div style="margin-top:14px" class="pg">Page 2</div>
+        <div class="torn2">torn out</div>
+      </div>
+      <div class="burn" style="margin-top:-1px">
+        &hellip;the copper wants a slower fire than&hellip;<br>
+        &hellip;and we took the rest below, because&hellip;<br>
+        &hellip;if you are reading this then they did not&hellip;
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:22px">Colours and type here are only to make the states legible &mdash; not a proposal. Art direction is a separate question.</p>

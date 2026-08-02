@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d631164b414518245b3f6dc668575ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Lamplight.Runtime::Homestead
-  builtSprite: {fileID: -4967097989152745174, guid: 5ba8792a1fd13ed49b8dd2e87d314aa5, type: 3}
+  builtSprite: {fileID: -3777552258672649177, guid: 2920114fdf8fcb74ca515ab53ce95710, type: 3}
   siteVisual: {fileID: 0}
   signTrigger: {fileID: 8193745602910234567}
   doorTrigger: {fileID: 2477426782283039287}

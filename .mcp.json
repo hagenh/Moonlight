@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "unity-mcp": {
+      "command": "C:\\Users\\haako\\.unity\\relay\\relay_win.exe",
+      "args": ["--mcp"],
+      "env": {
+        "UNITY_PROJECT_PATH": "C:\\Users\\haako\\Documents\\Unity Games\\Moonlighter"
+      }
+    }
+  }
+}
