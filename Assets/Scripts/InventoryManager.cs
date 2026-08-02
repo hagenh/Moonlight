@@ -74,6 +74,11 @@ public class InventoryManager : MonoBehaviour
         {
             GameEvents.OnItemDropped(slotIndex, r.Def, r.Count);
             GameEvents.OnInventoryChanged(r.Def, GetCount(r.Def) + r.Count, GetCount(r.Def));
+
+            Vector3 spawnPos = PlayerController.Instance != null
+                ? PlayerController.Instance.transform.position + new Vector3(0.5f, 0f, 0f)
+                : Vector3.zero;
+            DroppedItem.Create(r.Def, r.Count, spawnPos);
         }
         return r;
     }
