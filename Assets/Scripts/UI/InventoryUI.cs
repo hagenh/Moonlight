@@ -8,7 +8,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject root;
     [SerializeField] private Transform gridContainer;
-    [SerializeField] private InventorySlotView slotPrefab;
+    [SerializeField] private InventorySlotView slotTemplate;
     [SerializeField] private TMP_Text detailName;
     [SerializeField] private TMP_Text detailType;
     [SerializeField] private TMP_Text detailPrice;
@@ -83,14 +83,16 @@ public class InventoryUI : MonoBehaviour
 
     private void BuildGrid()
     {
-        if (gridContainer == null || slotPrefab == null) return;
+        if (gridContainer == null || slotTemplate == null) return;
 
         for (int i = 0; i < SlotCount; i++)
         {
-            var view = Instantiate(slotPrefab, gridContainer);
+            var view = Instantiate(slotTemplate, gridContainer);
             view.Initialize(i, this);
             _slotViews.Add(view);
         }
+
+        slotTemplate.gameObject.SetActive(false);
     }
 
     private void Refresh()

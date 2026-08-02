@@ -11,6 +11,22 @@ public class ContentDb : MonoBehaviour
     public GameObject CratePrefab;
     public Sprite CrateCarrySprite;
 
+    [Header("Item Icons")]
+    [SerializeField] private Sprite grainIcon;
+    [SerializeField] private Sprite sugarIcon;
+    [SerializeField] private Sprite yeastIcon;
+    [SerializeField] private Sprite waterIcon;
+    [SerializeField] private Sprite basicMoonshineIcon;
+    [SerializeField] private Sprite sweetMoonshineIcon;
+    [SerializeField] private Sprite highlandMoonshineIcon;
+    [SerializeField] private Sprite agedReserveIcon;
+    [SerializeField] private Sprite timberIcon;
+    [SerializeField] private Sprite nailsIcon;
+    [SerializeField] private Sprite berryIcon;
+    [SerializeField] private Sprite berryShineIcon;
+    [SerializeField] private Sprite stoneIcon;
+    [SerializeField] private Sprite woodIcon;
+
     public static readonly ItemDef Grain = new ItemDef("grain", "Grain", true, 5);
     public static readonly ItemDef Sugar = new ItemDef("sugar", "Sugar", true, 5);
     public static readonly ItemDef Yeast = new ItemDef("yeast", "Yeast", true, 8);
@@ -54,6 +70,20 @@ public class ContentDb : MonoBehaviour
             return;
         }
         Instance = this;
+        Grain.icon = grainIcon;
+        Sugar.icon = sugarIcon;
+        Yeast.icon = yeastIcon;
+        Water.icon = waterIcon;
+        BasicMoonshine.icon = basicMoonshineIcon;
+        SweetMoonshine.icon = sweetMoonshineIcon;
+        HighlandMoonshine.icon = highlandMoonshineIcon;
+        AgedReserve.icon = agedReserveIcon;
+        Timber.icon = timberIcon;
+        Nails.icon = nailsIcon;
+        Berry.icon = berryIcon;
+        BerryShine.icon = berryShineIcon;
+        Stone.icon = stoneIcon;
+        Wood.icon = woodIcon;
         Register(Grain);
         Register(Sugar);
         Register(Yeast);

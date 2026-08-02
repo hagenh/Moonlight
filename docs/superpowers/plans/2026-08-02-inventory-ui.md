@@ -1502,7 +1502,7 @@ git commit -m "feat: add InventoryUI IMGUI panel with grid, sidebar, and drop"
 
 ---
 
-### Task 9: Add Inventory input action
+### Task 9: Add Inventory input action *(KNOWN ISSUE — deferred)*
 
 **Files:**
 - Modify: Input System asset (add Inventory action to Menus action map, bound to I key)
@@ -1577,7 +1577,7 @@ git commit -m "fix: update StartingInventoryTests for slotted inventory API"
 
 ---
 
-### Task 11: Full integration verification
+### Task 11: Full integration verification *(COMPLETED)*
 
 **Files:**
 - No new files — manual testing and final test run
@@ -1601,3 +1601,24 @@ Expected: All pass
 - [ ] Add items via Debug Menu → verify they fill slots correctly
 - [ ] Fill all 20 slots → try to add more → "Inventory full" toast
 - [ ] Verify existing systems still work: buy from cart, ferment, sell, repair buildings
+
+---
+
+## Known Issues
+
+- **Task 9 — Input System action**: Currently using `Keyboard.current.iKey` directly instead of a proper Input System action. Need to add "Inventory" action to the Menus action map in the Input System asset (requires Unity Editor).
+- **Inventory background sprites**: The inventory panel currently uses plain colored `Image` components. Needs proper UI sprites for the panel frame/border, slot backgrounds, and sidebar background.
+
+## Completed Tasks
+
+- [x] Task 1: InventorySlot + AddResult + DropResult
+- [x] Task 2: Rewrite Inventory with slotted model
+- [x] Task 3: Update InventoryManager for slotted model
+- [x] Task 4: Migrate AllItems callers
+- [x] Task 5: Add icon field to ItemDef + DroppedItem enum value
+- [x] Task 6: DroppedItem interactable with partial pickup
+- [x] Task 7: Wire drop spawn into InventoryManager
+- [x] Task 8: InventoryUI — uGUI panel with grid and sidebar
+- [ ] Task 9: Add Inventory input action *(deferred — requires Unity Editor)*
+- [x] Task 10: Update StartingInventoryTests
+- [x] Task 11: Full integration verification

@@ -50,7 +50,10 @@ public class InventorySlotView : MonoBehaviour, IPointerClickHandler
         }
 
         if (countText != null)
+        {
             countText.text = slot.Count > 1 ? slot.Count.ToString() : "";
+            countText.alignment = TMPro.TextAlignmentOptions.BottomRight;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

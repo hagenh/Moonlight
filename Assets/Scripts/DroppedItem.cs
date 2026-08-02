@@ -28,6 +28,7 @@ public class DroppedItem : MonoBehaviour, IInteractable
         if (item.icon != null)
             sr.sprite = item.icon;
         sr.sortingOrder = -1;
+        go.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
