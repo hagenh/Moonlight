@@ -124,7 +124,7 @@ public class InventoryIntegrationTests
         bool result = _inventory.TryAdd(_grain, 5);
 
         Assert.IsFalse(result);
-        Assert.IsTrue(_recorder.Has("InventoryFull"));
+        Assert.IsTrue(_recorder.Order.Exists(e => e.StartsWith("InventoryFull")));
         yield return null;
     }
 }
