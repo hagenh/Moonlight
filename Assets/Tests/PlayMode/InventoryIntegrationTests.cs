@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Lamplight.TestSupport;
 using NUnit.Framework;
 using UnityEngine.TestTools;
@@ -124,7 +125,7 @@ public class InventoryIntegrationTests
         bool result = _inventory.TryAdd(_grain, 5);
 
         Assert.IsFalse(result);
-        Assert.IsTrue(_recorder.Order.Exists(e => e.StartsWith("InventoryFull")));
+        Assert.IsTrue(_recorder.Order.Any(e => e.StartsWith("InventoryFull")));
         yield return null;
     }
 }
