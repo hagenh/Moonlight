@@ -38,16 +38,18 @@ public class InventoryManager : MonoBehaviour
     public bool TryAdd(ItemDef def, int count)
     {
         var r = _inventory.TryAdd(def, count);
-        if (!r.Success) return false;
 
-        int oldCount = GetCount(def) - r.Added;
-        GameEvents.OnInventoryChanged(def, oldCount, GetCount(def));
-        GameEvents.OnToastRequested($"+{r.Added} {def.displayName}");
+        if (r.Added > 0)
+        {
+            int oldCount = GetCount(def) - r.Added;
+            GameEvents.OnInventoryChanged(def, oldCount, GetCount(def));
+            GameEvents.OnToastRequested($"+{r.Added} {def.displayName}");
+        }
 
         if (r.Overflow > 0)
             GameEvents.OnInventoryFull(def, r.Overflow);
 
-        return true;
+        return r.Success;
     }
 
     public bool TryRemove(ItemDef def, int count)
