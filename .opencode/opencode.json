@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "unity-mcp": {
+      "type": "local",
+      "command": ["C:\\Users\\haako\\.unity\\relay\\relay_win.exe", "--mcp"],
+      "environment": {
+        "UNITY_PROJECT_PATH": "C:\\Users\\haako\\Documents\\Unity Games\\Moonlighter"
+      },
+      "enabled": true
+    }
+  }
+}

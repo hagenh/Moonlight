@@ -52,39 +52,5 @@ public class StonePile : MonoBehaviour, IInteractable
             c.enabled = !harvested;
     }
 
-    public static StonePile Create(Vector3 position)
-    {
-        var go = new GameObject("StonePile");
-        go.transform.position = position;
 
-        var tex = new Texture2D(16, 16);
-        var pixels = new Color32[256];
-        for (int i = 0; i < pixels.Length; i++) pixels[i] = Color.white;
-        tex.SetPixels32(pixels);
-        tex.Apply();
-
-        var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = Sprite.Create(
-            tex,
-            new Rect(0, 0, 16, 16),
-            new Vector2(0.5f, 0.5f),
-            16f);
-        sr.color = new Color(0.6f, 0.6f, 0.6f);
-        sr.sortingOrder = 5;
-
-        var solid = go.AddComponent<BoxCollider2D>();
-        solid.size = new Vector2(0.5f, 0.4f);
-
-        var col = go.AddComponent<BoxCollider2D>();
-        col.isTrigger = true;
-        col.size = new Vector2(0.8f, 0.6f);
-
-        go.layer = LayerMask.NameToLayer("Interactable");
-
-        var pile = go.AddComponent<StonePile>();
-        pile._spriteRenderer = sr;
-        pile._triggerCollider = col;
-
-        return pile;
-    }
 }

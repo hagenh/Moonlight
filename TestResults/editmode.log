@@ -1,0 +1,22 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.2/staging' branch; Version is '6000.2.14f1 (589824c1fc31) revision 5806116'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-haako" at "2026-07-31T18:13:37.196265Z"
+OS: 'Windows 11  (10.0.22000) 64bit Professional' Language: 'en' Physical Memory: 32649 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-07-31T18:13:37Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.2.14f1\Editor\Unity.exe
+-batchmode
+-projectPath
+C:\Users\haako\Documents\Unity Games\Moonlighter
+-runTests
+-testPlatform
+EditMode
+-testResults
+C:\Users\haako\Documents\Unity Games\Moonlighter\TestResults\editmode.xml
+-logFile
+C:\Users\haako\Documents\Unity Games\Moonlighter\TestResults\editmode.log
+Successfully changed project path to: C:\Users\haako\Documents\Unity Games\Moonlighter
+C:/Users/haako/Documents/Unity Games/Moonlighter
+Exiting without the bug reporter. Application will terminate with return code 1

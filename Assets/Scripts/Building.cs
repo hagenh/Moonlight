@@ -43,7 +43,6 @@ public class Building : MonoBehaviour, IInteractable
 
     [SerializeField] private SpriteRenderer facadeRenderer;
     [SerializeField] private GameObject preBuildVisual;
-    [SerializeField] private GameObject buildingSprites;
 
     [Header("Interior")]
     [SerializeField] private Transform interiorSpawn;
@@ -202,8 +201,8 @@ public class Building : MonoBehaviour, IInteractable
         bool isAbandoned = State == BuildingState.Abandoned;
         if (preBuildVisual != null)
             preBuildVisual.SetActive(isAbandoned);
-        if (buildingSprites != null)
-            buildingSprites.SetActive(!isAbandoned);
+        if (facadeRenderer != null)
+            facadeRenderer.enabled = !isAbandoned;
 
         if (facadeRenderer != null)
             facadeRenderer.color = State switch
@@ -211,7 +210,7 @@ public class Building : MonoBehaviour, IInteractable
                 BuildingState.Abandoned => new Color(0.55f, 0.45f, 0.65f),
                 BuildingState.Purchased => new Color(0.75f, 0.55f, 0.35f),
                 BuildingState.Cleared => new Color(0.4f, 0.8f, 0.55f),
-                BuildingState.Restored => new Color(1f, 0.85f, 0.4f),
+                BuildingState.Restored => Color.white,
                 _ => Color.white
             };
     }
