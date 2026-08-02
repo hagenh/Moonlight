@@ -19,5 +19,6 @@ public enum InteractType
     Crate,
     DeliveryPoint,
     Forage,
-    Stand
+    Stand,
+    DroppedItem
 }
