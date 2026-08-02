@@ -178,5 +178,6 @@ New items/residents get a static readonly field + a `Register()` call in `Awake(
 - **No dependency injection** (no Zenject/VContainer). Use singletons and events.
 - **No direct cross-manager calls.** Use `GameEvents` for inter-system communication.
 - **Rules/ must be pure C#.** No `UnityEngine` types except `Mathf`.
-- **UI is IMGUI**, with one exception. New panels use `OnGUI`, not uGUI Canvas or UI Toolkit. The exception is the recipe book (`RecipeBookUI`, `RecipeBookPageView`), which is uGUI + TextMeshPro because it needs a book-spread layout and art-ready slots — see `docs/superpowers/specs/2026-07-26-recipe-book-ui-design.md`. `SellUI`, `RequestBookUI` and `DialogueUI` remain IMGUI; do not convert them.
+- **UI is IMGUI**, with two exceptions. New panels use `OnGUI`, not uGUI Canvas or UI Toolkit. The exceptions are the recipe book (`RecipeBookUI`, `RecipeBookPageView`) and the inventory screen (`InventoryUI`, `InventorySlotView`), which are uGUI + TextMeshPro — see their design specs in `docs/superpowers/specs/`. `SellUI`, `RequestBookUI` and `DialogueUI` remain IMGUI; do not convert them.
+- **No self-bootstrapping UI.** All uGUI panels must be assembled in the Unity Editor using `[SerializeField]` references, Canvas, and prefabs. Never create UI elements programmatically at runtime. The hierarchy is built in-editor; the code only reads/writes the serialized fields.
 - **No comments in code** unless explicitly requested.
