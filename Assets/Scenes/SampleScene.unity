@@ -1760,7 +1760,7 @@ MonoBehaviour:
   countText: {fileID: 884563435}
   background: {fileID: 344304529}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &344304529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,7 +4113,7 @@ MonoBehaviour:
   countText: {fileID: 1590689576}
   background: {fileID: 830500572}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &830500572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9531,7 +9531,7 @@ MonoBehaviour:
   countText: {fileID: 197206749}
   background: {fileID: 1357164629}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1357164629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10023,7 +10023,7 @@ MonoBehaviour:
   countText: {fileID: 1163707387}
   background: {fileID: 1450397323}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1450397323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92945,7 +92945,7 @@ MonoBehaviour:
   countText: {fileID: 1933977935}
   background: {fileID: 1666087893}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1666087893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94134,7 +94134,7 @@ MonoBehaviour:
   countText: {fileID: 395334011}
   background: {fileID: 1832317247}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1832317247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94930,7 +94930,7 @@ MonoBehaviour:
   countText: {fileID: 38848217}
   background: {fileID: 1971982032}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1971982032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95026,7 +95026,7 @@ MonoBehaviour:
   countText: {fileID: 787301055}
   background: {fileID: 1978952427}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1978952427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95122,7 +95122,7 @@ MonoBehaviour:
   countText: {fileID: 1456828685}
   background: {fileID: 1986789499}
   normalSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
-  selectedSprite: {fileID: 4504551025392128030, guid: 8cddd10090bdcbe4db40b4b1f827f24f, type: 3}
+  selectedSprite: {fileID: -1451578608612305238, guid: bbffe6983a419a6418b38a0cfed509df, type: 3}
 --- !u!114 &1986789499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95770,7 +95770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 175}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125889419
