@@ -7,7 +7,9 @@ public class InventorySlotView : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image iconImage;
     [SerializeField] private TMP_Text countText;
-    [SerializeField] private GameObject highlight;
+    [SerializeField] private Image background;
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite selectedSprite;
 
     private int _index;
     private InventoryUI _parent;
@@ -20,14 +22,15 @@ public class InventorySlotView : MonoBehaviour, IPointerClickHandler
 
     public void Render(InventorySlot slot, bool selected)
     {
-        if (highlight != null) highlight.SetActive(selected);
+        if (background != null)
+            background.sprite = selected ? selectedSprite : normalSprite;
 
         if (slot.IsEmpty)
         {
             if (iconImage != null)
             {
                 iconImage.sprite = null;
-                iconImage.color = new Color(0.2f, 0.2f, 0.2f, 0.5f);
+                iconImage.color = Color.clear;
             }
             if (countText != null) countText.text = "";
             return;
