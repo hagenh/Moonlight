@@ -1,19 +1,22 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class HotbarUI : MonoBehaviour
 {
-    [SerializeField] private Transform slotContainer;
-    [SerializeField] private InventorySlotView slotTemplate;
+    [System.Serializable]
+    private struct HotbarSlotRefs
+    {
+        public InventorySlotView view;
+        public GameObject outline;
+    }
 
-    private readonly List<InventorySlotView> _slotViews = new();
+    [SerializeField] private HotbarSlotRefs[] slots;
+
     private InputSystem_Actions _input;
 
     private void Awake()
     {
         _input = new InputSystem_Actions();
-        BuildSlots();
     }
 
     private void OnEnable()
@@ -33,20 +36,6 @@ public class HotbarUI : MonoBehaviour
         _input.Player.Hotbar.Disable();
     }
 
-    private void BuildSlots()
-    {
-        if (slotContainer == null || slotTemplate == null) return;
-
-        for (int i = 0; i < InventoryManager.HotbarSlotCount; i++)
-        {
-            var view = Instantiate(slotTemplate, slotContainer);
-            view.Initialize(i, null);
-            _slotViews.Add(view);
-        }
-
-        slotTemplate.gameObject.SetActive(false);
-    }
-
     private void OnInventoryChanged(ItemDef def, int oldCount, int newCount) => Refresh();
     private void OnActiveSlotChanged(int index) => Refresh();
 
@@ -61,10 +50,12 @@ public class HotbarUI : MonoBehaviour
     {
         if (InventoryManager.Instance == null) return;
 
-        for (int i = 0; i < _slotViews.Count && i < InventoryManager.HotbarSlotCount; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             var slot = InventoryManager.Instance.Slots[i];
-            _slotViews[i].Render(slot, i == InventoryManager.Instance.ActiveSlotIndex);
+            slots[i].view.Render(slot, false);
+            if (slots[i].outline != null)
+                slots[i].outline.SetActive(i == InventoryManager.Instance.ActiveSlotIndex);
         }
     }
 }
