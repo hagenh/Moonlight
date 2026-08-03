@@ -10,6 +10,7 @@ Sizes: **S**mall, **M**edium, **L**arge
 
 - [x] ~~[S] Footstep SFX — play footstep sounds when the player walks~~
 - [L] SfxManager — singleton that subscribes to GameEvents and plays SFX (coins on CashChanged, UI clicks on menu open/close, item pickup/drop, hammer impacts, book/scroll sounds, etc.)
+- [M] World pickup sprites — DroppedItem currently reuses the small GUI icon (or renders invisible if an item has no icon) when dropped on the ground; needs a proper in-world sprite per item/item category
 
 ## UI
 
