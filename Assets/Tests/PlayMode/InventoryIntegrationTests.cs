@@ -25,6 +25,8 @@ public class InventoryIntegrationTests
             _recorder.Record("InventoryFull", $"{def.displayName}:{overflow}");
         GameEvents.ItemDropped += (idx, def, cnt) =>
             _recorder.Record("ItemDropped", $"{idx}:{def.displayName}:{cnt}");
+        GameEvents.ActiveSlotChanged += (index) =>
+            _recorder.Record("ActiveSlotChanged", index.ToString());
     }
 
     [TearDown]
@@ -126,6 +128,40 @@ public class InventoryIntegrationTests
 
         Assert.IsFalse(result);
         Assert.IsTrue(_recorder.Order.Any(e => e.StartsWith("InventoryFull")));
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator SetActiveSlot_ValidIndex_UpdatesAndFiresEvent()
+    {
+        _inventory.SetActiveSlot(3);
+
+        Assert.AreEqual(3, _inventory.ActiveSlotIndex);
+        Assert.AreEqual(1, _recorder.Count);
+        Assert.AreEqual("ActiveSlotChanged: 3", _recorder.Order[0]);
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator SetActiveSlot_OutOfRange_NoOp()
+    {
+        _inventory.SetActiveSlot(-1);
+        _inventory.SetActiveSlot(InventoryManager.HotbarSlotCount);
+
+        Assert.AreEqual(0, _inventory.ActiveSlotIndex);
+        Assert.AreEqual(0, _recorder.Count);
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator SetActiveSlot_SameIndex_NoEventFires()
+    {
+        _inventory.SetActiveSlot(2);
+        _recorder.Clear();
+
+        _inventory.SetActiveSlot(2);
+
+        Assert.AreEqual(0, _recorder.Count);
         yield return null;
     }
 }

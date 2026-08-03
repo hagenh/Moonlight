@@ -49,6 +49,7 @@ public static class GameEvents
     public static event System.Action InventoryClosed;
     public static event System.Action<ItemDef, int> InventoryFull;
     public static event System.Action<int, ItemDef, int> ItemDropped;
+    public static event System.Action<int> ActiveSlotChanged;
 
     public static void OnToastRequested(string message)
         => ToastRequested?.Invoke(message);
@@ -181,4 +182,7 @@ public static class GameEvents
 
     public static void OnItemDropped(int slotIndex, ItemDef def, int count)
         => ItemDropped?.Invoke(slotIndex, def, count);
+
+    public static void OnActiveSlotChanged(int index)
+        => ActiveSlotChanged?.Invoke(index);
 }
