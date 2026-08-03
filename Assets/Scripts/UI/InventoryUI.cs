@@ -23,10 +23,13 @@ public class InventoryUI : MonoBehaviour
     private readonly List<InventorySlotView> _slotViews = new();
     private int _selectedSlot = -1;
 
+    private InputSystem_Actions _input;
+
     private void Awake()
     {
         if (root != null) root.SetActive(false);
         if (closeButton != null) closeButton.onClick.AddListener(Close);
+        _input = new InputSystem_Actions();
         BuildGrid();
     }
 
@@ -35,6 +38,8 @@ public class InventoryUI : MonoBehaviour
         GameEvents.InventoryOpened += OnInventoryOpened;
         GameEvents.InventoryChanged += OnInventoryChanged;
         GameEvents.MenuCloseRequested += OnMenuCloseRequested;
+        _input.Player.Inventory.performed += OnInventoryToggle;
+        _input.Player.Inventory.Enable();
     }
 
     private void OnDisable()
@@ -42,17 +47,14 @@ public class InventoryUI : MonoBehaviour
         GameEvents.InventoryOpened -= OnInventoryOpened;
         GameEvents.InventoryChanged -= OnInventoryChanged;
         GameEvents.MenuCloseRequested -= OnMenuCloseRequested;
+        _input.Player.Inventory.performed -= OnInventoryToggle;
+        _input.Player.Inventory.Disable();
     }
 
-    private void Update()
+    private void OnInventoryToggle(InputAction.CallbackContext _)
     {
-        if (Keyboard.current.iKey.wasPressedThisFrame)
-        {
-            if (IsOpen) Close();
-            else Open();
-        }
-        if (IsOpen && Keyboard.current.escapeKey.wasPressedThisFrame)
-            Close();
+        if (IsOpen) Close();
+        else Open();
     }
 
     private bool IsOpen => root != null && root.activeSelf;

@@ -48,9 +48,11 @@ public class InventoryTests
         _inventory.TryAdd(_grain, 25);
         var r = _inventory.TryAdd(_grain, 10);
         Assert.IsTrue(r.Success);
-        Assert.AreEqual(5, r.Added);
-        Assert.AreEqual(5, r.Overflow);
-        Assert.AreEqual(30, _inventory.GetCount(_grain));
+        Assert.AreEqual(10, r.Added);
+        Assert.AreEqual(0, r.Overflow);
+        Assert.AreEqual(35, _inventory.GetCount(_grain));
+        Assert.AreEqual(30, _inventory.Slots[0].Count);
+        Assert.AreEqual(5, _inventory.Slots[1].Count);
     }
 
     [Test]
