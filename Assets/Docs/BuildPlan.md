@@ -10,10 +10,10 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 - Fantasy: moonshiner rebuilds a dying town as the perfect front. **You light the town, and the town covers for you.** Day is when you act; night is when the day answers back.
 - One connected exterior map: street (existing 60×20) → near forest (camp, foraging). **Deep woods are not scheduled** — the runs cut removed their only justification and nothing has replaced it (GameDesign.md Part 4, "Smaller open items"). Interiors: Roadhouse + homestead only; rest facade-only.
 - Systems: movement/interaction · building states · staged construction · production (mash → ferment → bottle) · **roadside stand + request book (the primary economy)** · day-night + sleep-save · night beats · conspiracy trust · recruitment beats · public infrastructure · JSON save (built in Phase 9 — see Rules).
-- 8 NPCs: Tormod, Berta, Signe, Aksel, Ingrid, Elias, Mrs. Holt, Constable Aas (antagonist, not recruitable).
+- 8 NPCs: Tormod, Berta, Signe, Aksel, Ingrid, Elias, Mrs. Holt, the miller (placeholder name Runa, vetoable). **Constable Aas cut 2026-08-04** — see LaterIdeas.md for the after-demo revisit item.
 - Cliffhanger: Mill cellar, locked from the inside. Metric: do they ask what's in the cellar?
 - NOT in slice: pathfinding, weather, seasons, quest log, cutscene framework, combat, minimap, co-op, free placement (sockets only), corrupt-deputy arc.
-- CUT, not deferred (2026-07-25): delivery runs, routes, patrols, detection, load-outs, covert forest infrastructure, bait notes. See GameDesign.md Part 4, "The runs decision" and "The cozy decision".
+- CUT, not deferred (2026-07-25): delivery runs, routes, patrols, detection, load-outs, covert forest infrastructure, bait notes. See GameDesign.md Part 4, "The runs decision" and "The cozy decision". **Also cut (2026-08-04):** the police — Constable Aas and all police content. See GameDesign.md, "The Constable."
 
 ## Phase D — Demolition (done)
 - [x] Delete heat/suspicion: meter, tiers, guard-count scaling, sleep raids, heat decay, suspicion pricing, risky buyer.
@@ -46,7 +46,7 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 - [x] SellerInteractable (Tormod): NPC or stall sprite.
 - [x] Constable Aas sprite (originally drawn as the Guard): directional idle/walk animations. The script is deleted; the art is kept and reused.
 - [x] Player: directional idle/walk animations using DirectionalSpriteAnimator.
-- [ ] Building facades (Bakery, General Store, Road House, Mill, Boarding House, Constable): each gets its own facade sprite instead of tinted Square overlay.
+- [ ] Building facades (Bakery, General Store, Road House, Mill, Boarding House): each gets its own facade sprite instead of tinted Square overlay.
 - [ ] Bed, DebrisPile, DeliveryPoint, ExitDoor: verify real sprites assigned in scene.
 - [ ] Fix `Texture2D.whiteTexture` bugs in Crate.Create() and Debris.Create() — use `new Texture2D(16,16)`.
 - [ ] Done: no placeholder colored squares or 4×4 white textures remain. All sprites are real tileset art.
@@ -93,29 +93,48 @@ Design source: GameDesign.md Part 3, "The stand and the request book". **The pri
 - [ ] Quest: "A Deal's a Deal" — talk to Tormod for the first time. Reward: +3 Nails, his gift — the walls need them. *(Rewritten 2026-08-03: selling to Tormod is cut.)*
 - [ ] Quest: "A Roof Over Your Head" — build the Homestead shell to Walls stage. Reward: none (tutorial quest, completion = progress).
 - [ ] Per-NPC conspiracy trust gates function tiers AND dialogue (Signe t1 discounts, t2 sales buff).
-- [ ] Recruitment beats on move-in coroutine tech: Tormod (Act 0), Berta, Signe, Aksel, Ingrid, Elias.
+- [ ] Recruitment beats on move-in coroutine tech: Tormod (Act 0), Berta, Signe, Aksel, Ingrid, Elias. **Berta, Aksel, and Ingrid's move-in destinations retarget from their operated building to their player-built house (2026-08-04 — tech survives, destination changes; see Phase H).** The miller (placeholder Runa) is a new recruitment beat, arriving via the Boarding House.
 - [ ] **Berta's trigger needs a non-jeopardy replacement.** "Catches you, covers unprompted" was built on smuggling and there is nothing left to catch. Open — see GameDesign.md thread #8. Do not invent it here.
 - [ ] Global reputation DIES here: remove rep meter/HUD/recipe gates; replace gates with trust/flags.
-- [ ] 5 fragments = the old operation's story; sources: clearing debris, recruit gifts, milestones.
-- [ ] Done: full Bakery arc — restore → Berta beat → bread-cart cover unlocked → her window lights.
+- [ ] 5 recipe book pages = the old operation's story; sources: milestones (building restorations, the Mill cellar), Mrs. Holt's trust threshold. Replaces the cut fragment system — see `docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md`.
+- [ ] Done: full Bakery arc — restore → hand-produce yeast → Berta beat → build her house → she moves in → hire her → automated yeast + her house window lights.
 
-## Phase N — Night beats and the Constable
-Design source: GameDesign.md Part 4, threads #4 and #3. Depends on Phase 6 for narrative tech. **Mostly a writing job.**
+## Phase N — Night beats
+Design source: GameDesign.md Part 4, thread #4. Depends on Phase 6 for narrative tech. **Mostly a writing job.** Thread #3 (the Constable) is cut, 2026-08-04 — no Constable content in this phase; see LaterIdeas.md for the after-demo revisit item.
 - [ ] Beats wait at the homestead, where sleep already happens: someone sitting at your fire, a note weighted under a stone, a lamp lit in a window that was dark yesterday. **Unmissable by construction** — no telegraphing, no appointment, no scheduling system.
 - [ ] A beat leaves the player knowing something or feeling something. **It never changes their inventory.**
-- [ ] Beat content: a recruit with nowhere else to go · a fragment of the old operation's story · a thank-you for something done days ago and forgotten · the Constable, exactly once and memorably, simply standing in the road.
-- [ ] Constable appearances: daylight, polite, patient, unhurried, always slightly too interested. He never takes cash, goods, progress, standing, or opportunity.
+- [ ] Beat content: a recruit with nowhere else to go · another page of the grandfather's recipe book becomes legible · a thank-you for something done days ago and forgotten.
 - [ ] Most nights are empty and the player simply goes to bed. That is correct, not a shortfall.
 - [ ] **Open numbers, deferred to design:** beat frequency · how beats are authored and triggered (milestone, day count, or hand-placed) · whether empty nights get a small ambient reward · whether the 21:00 sleep floor (`Bed.cs:9`) should move earlier now that night has content worth encountering.
 - [ ] Done: a tester, asked what they remember, describes a night beat unprompted.
 
 ## Phase 7 — Content build-out
-- [ ] Buildings ×7 (front / function / track): Roadhouse (first buyer) · Bakery (yeast, bread-cart cover) · General Store (supply, sales buff) · Smithy & Cooperage (still upgrades, second vat, barrels) · Apothecary (botanicals, recipes) · Boarding House (recruits, rent — **operation role needs redesign**, it previously housed the courier) · Old Mill (bulk grain, cellar, endgame — Holt-gated).
-- [ ] Constable's office: never purchasable. Light always on.
+- [ ] Buildings ×7 (front / function / track): Roadhouse (first buyer) · Bakery (yeast, bread-cart cover) · General Store (supply, sales buff) · Smithy & Cooperage (still upgrades, second vat, barrels) · Apothecary (botanicals, recipes) · Boarding House (Elias's recruitment housing — **operation role settled 2026-08-04**, see Phase H) · Old Mill (bulk grain, cellar, endgame — Holt-gated).
+- [ ] ~~Constable's office: never purchasable. Light always on.~~ **Cut 2026-08-04** — see GameDesign.md, "The Constable."
 - [ ] Quality ladder: berry shine → corn/grain → aged (barrels) → flavored (botanicals).
 - [ ] Mill stage 1 complete → cellar door → locked-from-inside line → title card.
 - [ ] Numbers pass: homestead shell 20–40 min · first stand sale · Mill cliffhanger 4–6 h.
 - [ ] Done: stranger plays start → cliffhanger, zero instructions.
+
+## Phase F — Factories
+Design source: GameDesign.md Part 3, Buildings — "the factory model" (`docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`). Depends on Phase 7 (the four factory buildings restored).
+- [ ] Restoring a factory (Bakery, Smithy & Cooperage, Apothecary, Old Mill) immediately unlocks hand-production of its goods — no resource ever gated behind a person.
+- [ ] Bakery hand-production: yeast (faster ferments).
+- [ ] Smithy & Cooperage hand-production: nails, barrels, still parts (answers the parked Nail Economy item, LaterIdeas.md).
+- [ ] Apothecary hand-production: botanical extracts → flavored recipes.
+- [ ] Old Mill hand-production: bulk grain.
+- [ ] **Open playtest question, deliberately unsettled (2026-08-04):** is hand-production a menu, or a small physical activity at the factory? Do not build gating either way ahead of playtest.
+- [ ] Done: all four factories produce their goods by hand once restored, with no operator hired.
+
+## Phase H — Houses, hiring, and automation
+Design source: GameDesign.md Part 3, Buildings — "the people ladder" (`docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`). Depends on Phase F (factories producing) and Phase 6 (conspiracy trust, for hiring trust thresholds).
+- [ ] Four new player-built house lots: Berta's, Aksel's, Ingrid's, the miller's — built on the homestead build-from-scratch tech (staged builds from gathered materials), same as the homestead shell.
+- [ ] The house is the hiring gate: no house, no hire.
+- [ ] Hiring is named-NPCs-only (2026-08-03) — reaffirmed, no random-hire path.
+- [ ] Wages: hiring an operator switches their factory to automated production, minus a kept share of output (reduced gain) — the player never loses anything held. Share is a playtest number.
+- [ ] The miller (placeholder name Runa, vetoable): arrives via the Boarding House, builds a house, works the player's Mill. The endgame hire.
+- [ ] **Open playtest questions, deliberately unsettled (2026-08-04):** operator wage share %, production rates per factory, house build costs/stages, hiring trust thresholds.
+- [ ] Done: hiring an operator (after their house is built) automates their factory — it produces without the player present — and the player's held goods never decrease as a result.
 
 ## Phase 8 — Audio
 - [ ] Audio ≈ 20 SFX + 2 loops. Priorities: deed stamp (THICK) · lamp-lighting sting (commission if anything) · a night-beat cue — the sound that says something is waiting at the homestead.
