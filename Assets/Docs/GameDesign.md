@@ -54,15 +54,15 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 | 0-3 min | Wakes in a tent with 3 Berry and a campfire pot. No instructions, no tutorial text | **Affordance curiosity.** You have the thing and the place to use it |
 | 3-5 min | Starts a Berry Shine ferment — 3h game time, ~2.3 real minutes | **A timer is running.** You now have a reason to be somewhere later |
 | 5-15 min | Explores while it brews. Berry bushes, stone piles, fallen logs, the road, the town, boarded windows, NPCs | **Spatial discovery**, plus the strongest single image in the game: a dark street of boarded windows. The promise rendered as level geometry — you can see what you'll become |
-| 15-20 min | Dusk. Tormod at the Roadhouse back door. He tastes it and names a price. 2 jars × 15g | First money, and **the recruitment inversion** — he recruits *you*. You aren't asking permission; someone wants what you make |
-| 20-40 min | Forage → ferment → sell, ×3. Gathering Stone and Wood between batches. Builds the homestead **shell** in 3 stages: Foundation (3 Stone) → Frame (3 Wood) → Walls (2 Wood + 3 Nails, the nails a gift from Tormod on first sale) | **A named price and a visible site.** Progress is spatial — the build sign physically changes — not a number in a bar |
+| 15-20 min | Meets Tormod — the first person in town who talks to you. On that first conversation he hands over 3 Nails, *"for the walls, when you get to them"* | **The town notices you.** The gift points at the build before any system explains it *(rewritten 2026-08-03 — he no longer buys; selling happens at the stand)* |
+| 20-40 min | Forage → ferment → stock the stand, ×3. Gathering Stone and Wood between batches. Builds the homestead **shell** in 3 stages: Foundation (3 Stone) → Frame (3 Wood) → Walls (2 Wood + 3 Nails, the nails Tormod's first-conversation gift) | **A named goal and a visible site.** Progress is spatial — the build sign physically changes — not a number in a bar |
 | ~40 min | Shell complete. The prologue closes | **Capability jump** |
 
 **Hard guardrail:** 20-40 real minutes. A playtester still in the tent on day 4 means the numbers are wrong — fix before proceeding.
 
 **Why the tent works:** the player owns land from minute zero. The homestead is an upgrade to ground they already occupy, not a purchase of someone else's building. Smashing boards and clearing debris is cleaning up *their own camp*.
 
-**Tormod is Act 0 only.** He is the tutorial buyer — a flat rate, no decisions, deliberately simple. He should leave at dawn and arrive at dusk, and once the stand opens he stops being the primary channel.
+**Tormod is a greeter, not a buyer (2026-08-03).** The player never sells to him. His Act 0 function is the first conversation in town and the 3 Nails gift it carries; after that he is a character at the Roadhouse, nothing more. The dusk-to-dawn presence machinery below is deleted with the channel.
 
 > **Fixed 2026-07-25 (uncommitted at time of writing).** This document previously recorded a known bug: `tormodLeaveHour = -1` with a one-shot spawn in `Start()`, making Tormod a permanent always-open vending machine. `SellManager` now keeps him to an 18:00-06:00 window via `SellerRules.IsPresent`, which handles the wrap past midnight, and settles presence once at startup so he isn't missing until the clock next ticks. Covered by `Assets/Tests/EditMode/SellerRulesTests.cs`.
 
@@ -70,11 +70,9 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 
 **Not built.** This is the largest new design in this document.
 
-The homestead shell gives the player an **address**, and an address is what a stand requires. You cannot run a business out of a tent in the woods.
+**The request book is the primary economy** for the rest of the game — the book wins over customers in any form (settled 2026-08-03). Full mechanics in Part 3.
 
-**The roadside stand opens**, and with it **the request book**. This is the primary economy for the rest of the game. Full mechanics in Part 3.
-
-> **The stand must be the first site upgrade, and it must be cheap and immediate** — buildable within minutes of the shell completing, not after another long material grind. This is not a tuning preference. Weakness ② is closed only if the new hook arrives *as* the old one runs out; putting a second grind between the shell and the stand re-opens the exact vacuum the stand exists to fill.
+Whether the book runs from day 1 (the build's current state) or opens with the homestead shell is a **playtest question**, deliberately unsettled — see "Channel priority" in Part 3. What playtest must watch: weakness ② says Act 1 needs a new hook arriving *as* the shell-ratchet runs out. If the book has been there since day 1, something else must land here — or the vacuum reopens.
 
 Why this matters more than the price: **it converts production from a routine into a plan.** Before the stand, brewing has no decision content — you make the only recipe you have, as much as you can. After it, brewing is a question: which recipe, how many, for whom, in what order, and what do I start tonight so it's ready Thursday.
 
@@ -165,19 +163,29 @@ What remains in the economy is triage — limited ingredients and limited time a
 
 | Channel | Price/unit | Volume | Constraint | Risk | When |
 |---|---|---|---|---|---|
-| **Tormod at the back door** | 1.0×, flat | Whatever you have | None | None | Act 0 only |
-| **Roadside stand — shelf** | 1.0× | Whatever you stock | None | None | Act 1 onward, passive |
+| ~~Tormod at the back door~~ | — | — | — | — | **Cut 2026-08-03** — Tormod never buys; see below |
+| **Roadside stand — shelf** | 1.0× | Whatever you stock | None | None | Day 1 onward, passive |
 | **Roadside stand — exact request** | **1.8×** | 1-3 batches per note | **Knowing what to make** | None | Act 1 onward, **primary** |
 | **Roadside stand — descriptive request** | **2.2×** | 1-3 batches per note | Knowing your own recipes | None | Act 1 onward |
 | **Town storefront** | Higher | Higher | Same, more of it | Same | Mid-game channel unlock |
 
-**Tormod retires as a channel when the stand opens** (settled 2026-07-26). He is Act 0's buyer and his recruitment beat is the tutorial; after that he is a character, not a price. A capped daily Roadhouse account was previously designed to sit between the shelf and requests — **it is cut.** The shelf already is the zero-effort floor a tired player falls back on, so the Roadhouse was a second copy of that job wearing a cap to stop it competing with the first.
+**Tormod is never a channel (settled 2026-08-03; supersedes the 2026-07-26 "retires when the stand opens").** The player never sells to him. He is the first person the player talks to, and on that first conversation he gives 3 Nails — the walls need them. That is his whole mechanical footprint; everything else about him is character. The back-door delivery point and the `SellManager`/`SellerRules` Tormod flow are deleted with Phase S. A capped daily Roadhouse account was cut earlier (2026-07-26) by the same logic: the shelf is already the zero-effort floor, and every second safe channel is a copy of it.
 
 **Appointments survive, relocated.** Market days, festivals, a buyer visiting town — the "one more day" mechanic now brings demand *to* the player instead of sending them out to it. Nothing is ever permanently missable.
 
 ### The stand and the request book
 
 **Designed 2026-07-25. The single most important system in the game.**
+
+#### Channel priority — the book wins (settled 2026-08-03)
+
+**The request book is the primary economy, and in any conflict between the book and customers — physical, queued, browsing, or implied — the book wins.** That is the one settled thing here, by decision.
+
+**Everything else about the stand's shape is a playtest question, not a design question** (acknowledged 2026-08-03 — these have to be tested to be known):
+
+- **Book timing:** the build has notes arriving from day 1, and that stands until playtest. The variant to test against it: book unlocks with the homestead shell, so it lands as Act 1's new hook (weakness ② is the thing to watch)
+- **The shelf:** does passive shelf income earn its place next to the book, or is book-only cleaner? Test both before believing either
+- **In-person browsing** ("someone may be browsing if you happen to be there") is **cut by default** — it was never built, and it is exactly the customer-flavored thing the book beat. Revive only if the stand feels dead in testing
 
 #### Placement
 
@@ -189,9 +197,9 @@ What remains in the economy is triage — limited ingredients and limited time a
 
 The player is never summoned anywhere. This protects Act 0's proven hook: *start something, then go do something else*.
 
-- **Shelf trade is passive.** Stock the stand, wander off, come back to coins. This is the income floor and needs no supervision
+- **Shelf trade is passive.** Stock the stand, wander off, come back to coins. This is the income floor and needs no supervision — whether it survives next to the book is a playtest question (see "Channel priority" above)
 - **Requests arrive as written notes** in a book by the stand. Nobody arrives on a schedule; nothing expires while you're across the map
-- **In-person trade is opportunistic.** If the player happens to be at the stand, someone may be browsing. Never a summons
+- ~~**In-person trade is opportunistic.** If the player happens to be at the stand, someone may be browsing. Never a summons~~ **Cut by default 2026-08-03** — the book wins over customers in any form; revive only if playtest shows the stand feels dead
 
 **Why written orders beat customers arriving:** a queue of people means *reacting* one at a time. A book means seeing all demand at once and deciding what to brew against it — which is the actual hook. It also fits the fantasy harder: written orders, left quietly, no faces. Discretion is the theme, and the mechanic says so.
 
@@ -274,7 +282,7 @@ Seven purchasable lots plus the homestead. Each has a front, an operation functi
 | Building | Front | Operation function |
 |---|---|---|
 | **Homestead** | Your house | **The site.** Shell ends Act 0; then grows all game — the stand, second vat, storage, interior rooms |
-| **Roadhouse** | Drinks and beds | Act 0's buyer, then Tormod's home ground. **No longer a channel** — see the economy table |
+| **Roadhouse** | Drinks and beds | Tormod's home ground. **Never a channel** (2026-08-03) — see the economy table |
 | **Bakery** | Bread | Yeast (faster ferments) + the bread-cart cover |
 | **General Store** | Dry goods | Ingredient discounts; Signe talks you up, buffing stand traffic |
 | **Smithy & Cooperage** | Tools and barrels | Still upgrades, second vat, charred-oak barrels → aged recipes |
@@ -290,7 +298,7 @@ Seven purchasable lots plus the homestead. Each has a front, an operation functi
 
 | NPC | Day job | Operation role | Recruitment beat |
 |---|---|---|---|
-| **Tormod** | Roadhouse keeper | Act 0 buyer | He recruits *you* — tastes the first batch, names a price |
+| **Tormod** | Roadhouse keeper | None — first contact, tutorial pointer | First person to talk to you; gives 3 Nails on first meeting *(2026-08-03 — no longer a buyer)* |
 | **Berta** | Baker | Bread-cart cover, yeast | Drowning in debt; catches you and covers unprompted — then you talk |
 | **Signe** | Storekeeper | Supply + stand buff | The company store is bleeding her dry; joining is quiet revenge. The "world witnesses you" mirror |
 | **Aksel** | Smith & cooper | Still upgrades, barrels | Recognizes the still's coppersmithing — he built its twin. First thread to the cellar |
@@ -548,11 +556,11 @@ Money versus helping people. Explicitly **not in the slice**.
 
 ### Smaller open items
 
-- **Boarding House** needs a new operation role
+- **Boarding House** needs a new operation role. Candidate parked 2026-08-03 in `LaterIdeas.md`: hired help — **hiring is named-NPCs only** (randoms rejected same day); Elias lodges the newcomers who can become hireable, which is how new names enter the town
 - ~~**`Guard.cs` / `GuardManager`**~~ — **deleted 2026-07-25**, along with `BribeUI`, the three bribe events, `Guard.prefab`, and their scene objects. The sprite is kept for Constable Aas
 - **Deep woods** need a reason to exist, or the world shrinks to town + near forest. **Now more pressing** — the cozy decision removed the last candidate reason (covert night activity), so either thread #5 gives the woods a use or they are cut
 - **The grandfather's recipe book** does not exist yet and should be built, then wired to the cellar — see the correction under weakness ④. **Now higher value:** with hook 6 carrying more of the game's pull, seeding the cellar early matters more than it did
-- ~~**`tormodLeaveHour = -1`**~~ — **fixed 2026-07-25.** Tormod is dusk-to-dawn via `SellerRules`. What remains open is the *design* half: he should also stop being the primary channel once the stand opens, which is Act 1 work
+- ~~**`tormodLeaveHour = -1`**~~ — **fixed 2026-07-25, then mooted 2026-08-03.** The design half is settled: Tormod is never a channel at all. The back-door delivery point, the `SellManager`/`SellerRules` Tormod flow, and its tests are deleted with Phase S; the nails move to his first conversation
 - **Bait notes** stay in `LaterIdeas.md` and are now **out of genre, not merely parked.** Reviving them means overturning guardrail 7 in writing
 - **The 21:00 sleep floor** (`Bed.cs:9`) may want to move now that night has content worth encountering. Open number under thread #4
 
@@ -569,4 +577,5 @@ Money versus helping people. Explicitly **not in the slice**.
 | 2026-07-26 | **Stand numbers settled, and two design changes.** Arrival 2/night, 3 slots growing to 5 then 8, requests sized in batches not units, premium 1.8× exact and 2.2× descriptive — all derived from the shipped clock's 4-5 batch day · **requests never expire**; new notes arrive only into free slots and declining is free, so the occupied slot *is* the cost and the last punishing timer leaves the design · **the capped Roadhouse account is cut** — the shelf already was the zero-effort floor, and Tormod now retires as a channel when the stand opens |
 | 2026-07-26 | **Audit closed out.** `BuildPlan.md` reconciled against this document — header repointed here, slice summary rewritten, Phase 4 tombstoned, Phases 3 and 5 halved, **Phase S** (stand + request book) and **Phase N** (night beats + Constable) added, four broken validation metrics replaced, Berta's trigger and the Boarding House role marked open, the Phase 5/6 reputation contradiction fixed, Phase 1 taught shell-vs-site, guardrails updated to seven · the guard system **deleted** in full: `Guard.cs`, `GuardManager`, `BribeUI`, `Guard.prefab`, the three bribe events, and 37 scene objects |
 | 2026-07-25 | **The cozy decision — the largest revision since the runs cut.** The inherited assumption that the game needs a mechanical edge *somewhere* is **rejected**. Lamplight is a restoration game with a criminal skin; jeopardy is not relocated, it is removed · guardrail 1 widens from "day life" to the whole game · **new guardrail 7: cozy is the genre, not a fallback** · weakness ⑤ closed by decision · the Constable is reframed from a tension system to a recurring character who costs the player nothing (thread #3 unblocked and radically smaller) · `Guard.cs` / `GuardManager` resolve to **delete** · bait notes move from parked to out-of-genre · the moral axis loses its "closed doors" resolution and may not be worth building · **thread #5 (side activities) promoted to core**, since variety is now the only retention mechanism · the game's pull rests entirely on hooks 5 and 6, both unproven |
+| 2026-08-03 | **Tormod is never a buyer.** The Roadhouse back-door channel is cut entirely, superseding the 2026-07-26 "retires when the stand opens" — the stand is the only selling channel, and Tormod becomes the town's first contact: one conversation, 3 Nails, then pure character. The delivery point, `SellManager`/`SellerRules` Tormod flow, and tests are deleted with Phase S · **hiring is named-NPCs only** — the hired-randoms path is rejected; the hired-help idea in `LaterIdeas.md` is rescoped to known characters · **save system deferred to Phase 9** by decision — built right before the first external tester, not from day one · **the book wins**: the request book is the primary channel, and beats customers in any form — in-person browsing cut by default; whether the shelf survives and whether the book runs from day 1 or opens at the shell are **playtest questions**, deliberately left to testing with the current build (shelf + book from day 1) as the working state |
 | 2026-07-25 | **Thread #4 settled — what night is for.** Answer: **night is a scene, not an activity block.** Most nights are empty and the player just sleeps · beats wait at the homestead, making them unmissable by construction without any scheduling system · a beat is warmth, story, or the cellar mystery, and never changes the player's inventory · **the pillar *"day = the front, night = the operation"* is retired** and replaced with *day is when you act; night is when the day answers back* · the day/night cycle survives as pacing and mood, and the lighting system survives on its own merits · **night's real duration recorded for the first time** — ~3.8 real minutes from dusk, ~2.3 genuinely dark, ending in a forced midnight sleep — which required no clock retuning and independently ruled out the covert-activity candidate |
