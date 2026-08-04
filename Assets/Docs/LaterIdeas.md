@@ -15,6 +15,18 @@ Ideas that came up during implementation but are deferred to a future phase or d
 
 - Nails beyond the initial Tormod gift — buying from General Store, crafting, or scavenging in later phases.
 
+## Hired help — parked 2026-08-03 (named NPCs only)
+
+Candidate for two open slots at once: the **Boarding House's vacant operation role** (it lost the courier to the runs cut) and **thread #5's variety problem**. Also feeds the automation and people unlock categories.
+
+**The idea.** The player can hire help — minding the stand, hauling, later more. **Hiring is relationship-gated and named-only: you hire people you know.** An earlier draft added cheap anonymous randoms with character flaws as a second path; **rejected 2026-08-03** — every hireable is a known, named character.
+
+**Personality still does the work.** A named hire brings who they are — quirks and strengths the player learns by talking to them and hearing town gossip *before* any hiring happens. Nothing about a hire is a surprise you couldn't have learned over a conversation; the legibility guardrail is satisfied by construction.
+
+**The guardrail boundary, for whenever this is designed.** Any quirk that subtracts held goods (skimming stock) violates guardrails 1 and 7. Cozy-compatible shapes: **reduced gain** (a quirk eats part of what the worker produces — you never had it, so nothing is subtracted), **opportunity cost** (a slower or capped channel), or **pure character color** in dialogue.
+
+**What it serves:** hook 4 (planning — who minds what while you do something else), the town-as-people fantasy, and possibly the Boarding House: Elias lodges newcomers, which is how new named hireables enter the town and get known.
+
 ## Bait Notes — parked 2026-07-25 (thread #1), then ruled out of genre the same day
 
 > **Update, 2026-07-25 — do not revive without overturning the genre.** These were parked pending thread #4, on the theory that a night system might want a daylight counterpart. Thread #4 answered that Lamplight has **no mechanical edge anywhere** and added guardrail 7 to protect it. Bait notes are therefore not merely deferred; they belong to a different game. Kept below as a record of the reasoning, not as a queued feature.

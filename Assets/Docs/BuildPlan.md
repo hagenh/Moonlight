@@ -9,7 +9,7 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 ## Slice contents
 - Fantasy: moonshiner rebuilds a dying town as the perfect front. **You light the town, and the town covers for you.** Day is when you act; night is when the day answers back.
 - One connected exterior map: street (existing 60×20) → near forest (camp, foraging). **Deep woods are not scheduled** — the runs cut removed their only justification and nothing has replaced it (GameDesign.md Part 4, "Smaller open items"). Interiors: Roadhouse + homestead only; rest facade-only.
-- Systems: movement/interaction · building states · staged construction · production (mash → ferment → bottle) · **roadside stand + request book (the primary economy)** · day-night + sleep-save · night beats · conspiracy trust · recruitment beats · public infrastructure · JSON save.
+- Systems: movement/interaction · building states · staged construction · production (mash → ferment → bottle) · **roadside stand + request book (the primary economy)** · day-night + sleep-save · night beats · conspiracy trust · recruitment beats · public infrastructure · JSON save (built in Phase 9 — see Rules).
 - 8 NPCs: Tormod, Berta, Signe, Aksel, Ingrid, Elias, Mrs. Holt, Constable Aas (antagonist, not recruitable).
 - Cliffhanger: Mill cellar, locked from the inside. Metric: do they ask what's in the cellar?
 - NOT in slice: pathfinding, weather, seasons, quest log, cutscene framework, combat, minimap, co-op, free placement (sockets only), corrupt-deputy arc.
@@ -30,8 +30,8 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 - [x] Berry shine recipe (wild yeast — no yeast ingredient, 3h ferment, always discovered).
 - [x] Day 1 starting inventory: 3 Berry so the player can start fermenting immediately instead of waiting idle.
 - [x] Recipe discovery scaffolding: `RecipeDiscovered` event on GameEvents, hidden/discovered recipe tracking in FermentManager; Berry Shine is exempt and always visible.
-- [x] Roadhouse back door: dusk-only delivery point, Tormod buys, names price (his recruitment beat = tutorial).
-- [x] Tormod keeps dusk-to-dawn hours (18:00–06:00) via `SellerRules.IsPresent`; he is the Act 0 buyer, not a permanent shopfront.
+- [x] ~~Roadhouse back door: dusk-only delivery point, Tormod buys, names price (his recruitment beat = tutorial).~~ **Superseded 2026-08-03** — Tormod is never a buyer. The back-door delivery point is deleted in Phase S; the stand sells, and the nails move to his first conversation.
+- [x] ~~Tormod keeps dusk-to-dawn hours (18:00–06:00) via `SellerRules.IsPresent`; he is the Act 0 buyer, not a permanent shopfront.~~ **Superseded 2026-08-03** — deleted with the channel.
 - [x] Homestead **shell** build-from-scratch: 3 stages (Foundation 3 Stone → Frame 3 Wood → Walls 2 Wood + 3 Nails from Tormod) on the player's own camp clearing; player forages materials between ferment batches. **The shell closes Act 0 — it is not the finished homestead.** Everything after (stand, second vat, storage, interior rooms, eventually a cellar) is ongoing site growth, beginning with Phase S. See GameDesign.md Part 3, "The homestead is a site, not a purchase."
 - [x] Tent persists after move: becomes first stash point.
 - [x] Done: new player reaches the homestead shell in 20–40 min without instructions. HARD gate: still in tent on day 4 = numbers wrong, fix before proceeding.
@@ -66,13 +66,14 @@ Design source: GameDesign.md Part 3, "The stand and the request book". **The pri
 - [x] Stand built on the homestead site, roadside — ongoing site growth, not a one-time purchase.
 - [x] Shelf trade is passive: stock it, wander off, come back to coins. The income floor; never needs tending.
 - [x] Request book by the stand: orders arrive as written notes. No customer queue, no summons, nothing expires while the player is across the map.
+- [ ] **Playtest question, not settled work (2026-08-03): the stand's shape beyond the book.** The book is primary and wins over customers in any form — that part is decided. To test, not to design: book from day 1 (current build) vs. unlocked at the shell · whether the passive shelf earns its place or book-only is cleaner. In-person browsing is cut by default. Do not build gating or cut the shelf ahead of playtest.
 - [x] Most requests exact (product, quantity, date); a minority descriptive — *"something strong, it's for a wedding"* — mapping to several valid answers.
 - [ ] Descriptive requests may ask for what the player cannot make yet, pointing at the next unlock (a request for something aged, before barrels exist).
 - [x] **Requests never expire.** A note stays until filled or declined; new notes arrive only into free slots, so an ignored request costs the slot and nothing else. Declining is free.
 - [ ] Payment *and a reply* on the next visit. Notes are signed; voice arrives through handwriting and phrasing.
 - [ ] Customer mix shifts strangers → mixed → named residents. **This is the progress meter.** Never announced.
 - [ ] Capacity: simultaneously active requests grow through stand upgrades, then the town storefront (mid-game channel unlock).
-- [ ] Tormod retires as a channel once the stand opens. The capped Roadhouse account is **cut** — the shelf already is the zero-effort floor.
+- [ ] **Tormod is never a channel (settled 2026-08-03; supersedes "retires once the stand opens").** The player never sells to him — the stand is the selling channel from the start. Work: delete the Roadhouse back-door delivery point and the `SellManager`/`SellerRules` Tormod flow (and `SellerRulesTests`); grant the 3 Nails on the player's **first conversation** with him instead of first delivery. He stays in the game as the first person the player talks to — a character and a tutorial pointer, never a price. The capped Roadhouse account stays cut.
 - [ ] Appointments relocate here as demand events (market days, festivals, a buyer visiting town). All recur; nothing permanently missable.
 - [ ] Tension is **triage only** — limited ingredients and time. No conflicting requests, no quality-reputation penalties, no bait notes.
 - [x] **Numbers settled 2026-07-26** (GameDesign.md Part 3, "The numbers"): 2 notes per night rising to 3 · requests sized 1-3 batches · 3 active slots → 5 → 8 · shelf 1.0×, exact request 1.8×, descriptive 2.2× · no expiry.
@@ -89,7 +90,7 @@ Design source: GameDesign.md Part 3, "The stand and the request book". **The pri
 - [ ] NarrativeFlags + MilestoneDetector + conditional DialogueResolver per Assets/Docs/NarrativeDesign.md architecture (still valid — reskin meanings only).
 - [ ] Quest system: QuestDef (id, description, trigger event, condition, reward) + QuestTracker that listens to GameEvents, checks conditions, grants rewards. No quest log UI yet — just toast on completion.
 - [ ] Quest: "First Batch" — ferment 1 batch of Berry Shine. Reward: none (tutorial quest, completion = progress).
-- [ ] Quest: "A Deal's a Deal" — sell 1 batch of Berry Shine to Tormod. Reward: +3 Nails from Tormod.
+- [ ] Quest: "A Deal's a Deal" — talk to Tormod for the first time. Reward: +3 Nails, his gift — the walls need them. *(Rewritten 2026-08-03: selling to Tormod is cut.)*
 - [ ] Quest: "A Roof Over Your Head" — build the Homestead shell to Walls stage. Reward: none (tutorial quest, completion = progress).
 - [ ] Per-NPC conspiracy trust gates function tiers AND dialogue (Signe t1 discounts, t2 sales buff).
 - [ ] Recruitment beats on move-in coroutine tech: Tormod (Act 0), Berta, Signe, Aksel, Ingrid, Elias.
@@ -120,14 +121,16 @@ Design source: GameDesign.md Part 4, threads #4 and #3. Depends on Phase 6 for n
 - [ ] Audio ≈ 20 SFX + 2 loops. Priorities: deed stamp (THICK) · lamp-lighting sting (commission if anything) · a night-beat cue — the sound that says something is waiting at the homestead.
 
 ## Phase 9 — Playtest + tune
+- [ ] Build the save system before the first external tester: versioned JSON save/load to `Application.persistentDataPath`, tolerant deserializer, autosave on sleep. (Deferred here by decision 2026-08-03 — see Rules.)
 - [ ] 3 testers, recorded, you silent.
 - [ ] Collect: time to homestead shell (20–40 min) · time to first stand sale · do they notice the request book's customer mix shifting? · stuck >60 s anywhere · unprompted reaction at first lamppost lighting · do they ask what's in the cellar?
+- [ ] Stand-shape questions (deliberately unsettled 2026-08-03, decided here): does the passive shelf earn its place next to the book, or is book-only cleaner? · does the book landing at day 1 leave Act 1 without a new hook (weakness ②)? · does the stand ever feel dead without people at it?
 - [ ] Cut pass: confused 2 of 3 → fix or cut; noticed by nobody → cut. No additions in final week.
 
 ## Rules
 - Still minigame stays deferred — revisit only if a fun design emerges.
 - No frameworks (dialogue/cutscene/quest). Hand-roll; extract patterns in game #2.
 - No art before Phase 2 (was Phase 7, moved up). Juice allowed early.
-- Save versioning + tolerant deserializer from day one.
+- Save system deferred by decision (2026-08-03): none exists and none is needed until strangers play the build. It lands in Phase 9, before the first external tester. When built: versioned JSON + tolerant deserializer + autosave on sleep. Until then, every system should keep its state in plain serializable fields so the eventual save is an extraction job, not a rewrite.
 - Design guardrails (from GameDesign.md Part 3, non-negotiable): never punish the player for playing — no loss anywhere, at any hour · legibility over drama, no hidden dice · Act 0 is a prologue, 20–40 min · appointments create "one more day", never FOMO · beautification is never punished · restoration doubles as defense *in the fiction* · **cozy is the genre, not a fallback**.
 - Every mid-build idea → the LATER note, unexamined. Review once, at playtest.
