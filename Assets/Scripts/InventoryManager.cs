@@ -7,7 +7,10 @@ public class InventoryManager : MonoBehaviour
 
     private readonly Inventory _inventory = new();
 
+    public const int HotbarSlotCount = 9;
+
     public IReadOnlyList<InventorySlot> Slots => _inventory.Slots;
+    public int ActiveSlotIndex { get; private set; }
 
     private void Awake()
     {
@@ -98,6 +101,14 @@ public class InventoryManager : MonoBehaviour
             GameEvents.OnInventoryFull(def, r.Overflow);
 
         return r;
+    }
+
+    public void SetActiveSlot(int index)
+    {
+        if (index < 0 || index >= HotbarSlotCount) return;
+        if (index == ActiveSlotIndex) return;
+        ActiveSlotIndex = index;
+        GameEvents.OnActiveSlotChanged(index);
     }
 
     public Dictionary<ItemDef, int> GetAllItems()

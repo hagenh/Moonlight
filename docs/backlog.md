@@ -15,6 +15,7 @@ Sizes: **S**mall, **M**edium, **L**arge
 ## UI
 
 - [x] ~~[M] Inventory UI — proper screen for viewing/managing inventory items~~
-- [M] Hotbar — bottom bar with item slots, press 1-9 to select active item/tool (like Minecraft / Stardew Valley)
+- [x] ~~[M] Hotbar — bottom bar with item slots, press 1-9 to select active item/tool (like Minecraft / Stardew Valley)~~
+- [S] Hotbar use-action — pressing an action while an item is active in the hotbar should use/consume it (drop? tool use? TBD)
 
 ## Quality of Life

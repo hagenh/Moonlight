@@ -202,6 +202,7 @@ public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     public void OnPrevious(InputAction.CallbackContext context) { }
     public void OnNext(InputAction.CallbackContext context) { }
     public void OnInventory(InputAction.CallbackContext context) { }
+    public void OnHotbar(InputAction.CallbackContext context) { }
 
     public void PickUpDebris(Debris debris)
     {
