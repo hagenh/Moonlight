@@ -13,9 +13,11 @@ Ideas that came up during implementation but are deferred to a future phase or d
 
 ## Nail Economy
 
-- Nails beyond the initial Tormod gift — buying from General Store, crafting, or scavenging in later phases.
+- ~~Nails beyond the initial Tormod gift — buying from General Store, crafting, or scavenging in later phases.~~ **Answered 2026-08-04** — nails are a Smithy & Cooperage factory good (Aksel). See `Assets/Docs/GameDesign.md` Part 3, Buildings, and `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`.
 
-## Hired help — parked 2026-08-03 (named NPCs only)
+## Hired help — absorbed into the people ladder, 2026-08-04
+
+> **Update, 2026-08-04.** This idea is no longer parked — it's built into the factory model as the people ladder (`Assets/Docs/GameDesign.md` Part 3, Buildings; full record `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`). The reduced-gain guardrail below became the wage model verbatim. Kept here as the original reasoning, not as a queued feature — the Boarding House's operation role is now settled separately as Elias's recruitment housing, not hired help itself.
 
 Candidate for two open slots at once: the **Boarding House's vacant operation role** (it lost the courier to the runs cut) and **thread #5's variety problem**. Also feeds the automation and people unlock categories.
 
@@ -42,3 +44,7 @@ Cut from `GameDesign.md` because they were the design's only source of daytime l
 **What would have to be true to revive it.** Guardrail 7 would have to be overturned in writing — a deliberate decision that Lamplight is not a cozy game after all. Short of that, no version works: any cost is either accumulating hidden state or a subtraction from something the player holds, and both are now forbidden game-wide rather than just in daylight.
 
 **Also settles:** `Guard.cs` / `GuardManager` were going to write and collect these notes — the last job anyone had proposed for them. With bait notes out of genre, **they are marked for deletion** in `GameDesign.md`. The Guard sprite survives as Constable Aas.
+
+## Police antagonist — after-demo item, parked 2026-08-04
+
+Constable Aas and the police were cut game-wide ("the police cut", `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`). Revisit only after the demo, and only if the demo feels flat with no antagonist and no unease channel — this is a "for now" cut with acknowledged uncertainty, not a settled genre position.
