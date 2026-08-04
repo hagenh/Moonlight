@@ -23,4 +23,25 @@ public class ItemDefTests
         Assert.AreEqual(0, item.basePrice);
         Assert.IsFalse(item.isBottle);
     }
+
+    [Test]
+    public void PlacementDefaults_AreFalseAndOneByOne()
+    {
+        var item = new ItemDef("id", "Name");
+
+        Assert.IsFalse(item.isPlaceable);
+        Assert.IsNull(item.placedPrefab);
+        Assert.AreEqual(1, item.footprintWidth);
+        Assert.AreEqual(1, item.footprintHeight);
+    }
+
+    [Test]
+    public void Constructor_AssignsPlacementFields()
+    {
+        var item = new ItemDef("bench", "Bench", isPlaceable: true, footprintWidth: 2, footprintHeight: 1);
+
+        Assert.IsTrue(item.isPlaceable);
+        Assert.AreEqual(2, item.footprintWidth);
+        Assert.AreEqual(1, item.footprintHeight);
+    }
 }
