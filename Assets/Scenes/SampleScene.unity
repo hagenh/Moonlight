@@ -9052,6 +9052,7 @@ MonoBehaviour:
   moveInWalkDuration: 4
   moveInLineDelay: 1
   moveInLightDelay: 0.5
+  tormodPosition: {fileID: 1736967719}
 --- !u!4 &1271045660
 Transform:
   m_ObjectHideFlags: 0
@@ -9881,9 +9882,6 @@ MonoBehaviour:
   cartPosition: {fileID: 1949951444}
   cartArriveHour: 10
   cartLeaveHour: 18
-  tormodPosition: {fileID: 1736967719}
-  tormodArriveHour: 18
-  tormodLeaveHour: 6
 --- !u!4 &1397253541
 Transform:
   m_ObjectHideFlags: 0
