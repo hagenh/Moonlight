@@ -9,7 +9,7 @@
 **What it does not own:**
 
 - `Assets/Docs/BuildPlan.md` — build order and phase status. Reconciled against this document on 2026-07-25; see Part 4 for the audit that drove it.
-- `Assets/Docs/NarrativeDesign.md` — narrative implementation architecture (flags, fragments, dialogue resolution). Still valid as tech.
+- `Assets/Docs/NarrativeDesign.md` — narrative implementation architecture (flags, the recipe book, dialogue resolution). Still valid as tech.
 - `AGENTS.md` — code conventions.
 
 **How to use it:** when an idea arrives, ask which hook it serves and which part of the journey it lands in. If neither answer is clear, it goes in `LaterIdeas.md`.
@@ -29,7 +29,7 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 | Core fantasy | Front-town empire: every building a legitimate business on the surface, an operation node underneath |
 | Genre position | **Cozy by design.** No mechanical edge anywhere — not in the day, not at night. Settled 2026-07-25, see Part 4 |
 | The day/night axis | *Day is when you act; night is when the day answers back.* Pacing and mood, not two modes of play. Settled 2026-07-25 (thread #4) |
-| Where danger lives | **Nowhere mechanical.** The Constable is narrative pressure and atmosphere. He is never a loss system |
+| Where danger lives | **Nowhere mechanical — and currently nowhere at all.** The Constable is cut (2026-08-04, "the police cut"); the criminal fantasy has no law anywhere in it right now. After-demo item: revisit a police antagonist |
 | What protects you | **The town.** Neighbors who like you lie for you. Restoration is literally defensive — as fiction and as story, not as a defence stat |
 | Primary economy | The roadside stand and its **request book** — written orders that never expire; the occupied slot is the only cost |
 | NPC role | Co-conspirators: day job (front) + operation role (function) + recruitment beat (story) |
@@ -80,15 +80,14 @@ Why this matters more than the price: **it converts production from a routine in
 
 Tormod pays you. The book tells you what to make. That information is the real unlock.
 
-**Also in Act 1:** the stand's shelf becomes the effortless overflow channel and Tormod stops being a price · the first town building purchase · the Constable notices you for the first time · **the first night beat** — the player comes home to find something waiting at the fire, and learns that nights are sometimes not empty.
+**Also in Act 1:** the stand's shelf becomes the effortless overflow channel and Tormod stops being a price · the first town building purchase · **the first night beat** — the player comes home to find something waiting at the fire, and learns that nights are sometimes not empty.
 
-### Act 2 — The town, the Constable, the Mill (~2-6h)
+### Act 2 — The town and the Mill (~2-6h)
 
 **Not built.**
 
 - **Restoration compounds.** Each building buys recipes, people, and features. Buildings are the progression gate
 - **Recruitment beats.** Berta catches you mid-something and covers for you *unprompted* — then you talk. The best beat in the design, because it demonstrates the thesis instead of stating it
-- **The Constable starts appearing** (see Part 3). Daylight questions, awkward conversations, a man who is always slightly too interested — and who never actually takes anything from you
 - **The town becomes armor** — in the fiction. Neighbours cover for you in dialogue and in story beats. Nothing is being subtracted, so nothing is being defended against
 - **First lamppost.** The street changes because you changed it
 - **The quality ladder** — berry → grain → aged → flavored
@@ -118,7 +117,7 @@ They converge on **ownership of the town** — the feeling that this place is yo
 |---|---|---|---|---|
 | 1 | **Timer** | "Come back at X" | Ferments, dusk window | Shipped |
 | 2 | **Ratchet** | "I'm 30g away" | Cash toward a named price, build stages | Shipped |
-| 3 | **Discovery** | "There's more I haven't seen" | Recipes, map, fragments, NPCs | Partial |
+| 3 | **Discovery** | "There's more I haven't seen" | Recipes, map, the recipe book, NPCs | Partial |
 | 4 | **Planning** | "What do I start tonight?" | **The request book** — read it each morning | Not built |
 | 5 | **Transformation** | "I made this" | Restored buildings, lampposts, the street | Not built |
 | 6 | **Question** | "I need to know" | The cellar | Not built |
@@ -146,6 +145,8 @@ This rule is the mechanism that prevents hook vacuums. It is checkable, which is
 **④ The cellar fires once, at the end, and a free setup is going unbuilt.** The grandfather's ruined recipe book — mostly destroyed, one legible page — would let the player carry a mysterious damaged object from minute zero, seeding hour six's payoff at minute three.
 
 > **Correction, 2026-07-25:** this document previously described the book as existing ("currently pure Act 0 flavor"). **It does not exist** — not in code, not as an asset, not in the scene. It appears only in the superseded 2026-07-22 spec. Thread #9 is therefore *build it, then wire it*, not *wire it*. Still cheap, no longer free.
+
+> **Update, 2026-08-04:** the book now has an architecture, and replaces the cut fragment collectible system as the game's found-object narrative delivery. Full record: `docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md`. Still open: the five page titles/bodies, unwritten.
 
 **⑤ ~~The primary economy has no edge.~~ Resolved 2026-07-25 — by decision, not by design.**
 
@@ -277,39 +278,58 @@ Derived from the shipped clock: the day runs 08:00-24:00 = 16 game hours ≈ 12.
 
 ### Buildings
 
-Seven purchasable lots plus the homestead. Each has a front, an operation function, and a progression track.
+Seven purchasable town lots plus the homestead, now joined by four player-built house lots (the people ladder, below) — eleven buildable sites in total. Each town lot has a front, an operation function, and a progression track.
 
-| Building | Front | Operation function |
+**Two structural rules, settled 2026-08-04 (the factory model):** buildings produce, people automate.
+
+- **A factory is player-operated from the moment it is restored.** Restoring it unlocks hand-production of its goods for the player — no resource is ever gated behind a person.
+- **People are the upgrade, not the key.** Hiring a named NPC automates their factory so it produces without the player present, in exchange for a wage (reduced gain — the player never loses anything held, so guardrails 1 and 7 hold by construction).
+
+**The people ladder** fills the previously empty *automation* unlock category (Part 2): restore factory → produce goods yourself → build the operator's house → they move in → hire them → the factory runs without you. The house is the hiring gate — no house, no hire — built on new lots using the homestead build-from-scratch tech. Hiring stays named-NPCs-only (2026-08-03).
+
+| Kind | Buildings | What it does |
 |---|---|---|
-| **Homestead** | Your house | **The site.** Shell ends Act 0; then grows all game — the stand, second vat, storage, interior rooms |
-| **Roadhouse** | Drinks and beds | Tormod's home ground. **Never a channel** (2026-08-03) — see the economy table |
-| **Bakery** | Bread | Yeast (faster ferments) + the bread-cart cover |
-| **General Store** | Dry goods | Ingredient discounts; Signe talks you up, buffing stand traffic |
-| **Smithy & Cooperage** | Tools and barrels | Still upgrades, second vat, charred-oak barrels → aged recipes |
-| **Apothecary** | Remedies | Botanicals → flavored recipes; buys openly as medicine base |
-| **Boarding House** | Rooms, no questions | Houses recruits; rent income. **Operation role needs redesign** — it previously housed the courier |
-| **The Old Mill** | Grinds the valley's grain | Bulk grain; **the cellar**. Endgame, Holt-gated |
+| **Factory** | Bakery, Smithy & Cooperage, Apothecary, Old Mill | Restore → the player produces its goods by hand. Hire its operator → automation |
+| **Shop** | General Store, Roadhouse | NPC-run services (see NPCs, below) |
+| **Housing** | Boarding House | Elias lodges newcomers until their house is built — the town's front door for new named characters |
+| **NPC houses** | 4 new player-built lots: Berta's, Aksel's, Ingrid's, the miller's | The people ladder. Each house's named NPC is its owner; its aid is the hire it enables |
+| **Player sites** | Homestead; the Mill once bought | The Homestead is only ever the player's — no other resident, ever. The Mill becomes the player's second site at endgame; its cellar is the endgame base |
 
-**The Constable's office is never purchasable.** It sits on the street, light always on — the one window you didn't light. Deliberate exception to "every building aids progression." It is the game's unease rendered as level geometry, and with the cozy decision it is now doing that job almost alone — which makes it *more* important, not less.
+Factory goods: Bakery = yeast (faster ferments) · Smithy = nails, barrels, still parts (answers the parked Nail Economy item in `LaterIdeas.md`) · Apothecary = botanical extracts → flavored recipes · Mill = bulk grain.
+
+~~**The Constable's office is never purchasable.**~~ **Cut with the Constable, 2026-08-04** — see "The Constable" below.
 
 **The homestead is a site, not a purchase.** The shell (3 stages) closes Act 0 on schedule. Everything after — stand, vats, storage, rooms, eventually a cellar of your own — is ongoing. This is the permanent home for capacity unlocks and the reason the plot keeps mattering.
+
+Full record: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`.
 
 ### NPCs
 
 | NPC | Day job | Operation role | Recruitment beat |
 |---|---|---|---|
-| **Tormod** | Roadhouse keeper | None — first contact, tutorial pointer | First person to talk to you; gives 3 Nails on first meeting *(2026-08-03 — no longer a buyer)* |
-| **Berta** | Baker | Bread-cart cover, yeast | Drowning in debt; catches you and covers unprompted — then you talk |
+| **Tormod** | Roadhouse keeper | None — first contact, tutorial pointer. Restored Roadhouse adds rare traveler-brought ingredients + gossip feeding the request book (never a selling channel) | First person to talk to you; gives 3 Nails on first meeting *(2026-08-03 — no longer a buyer)* |
+| **Berta** | Baker | Bakery operator: yeast via hand-production; hire (after her house is built) → automated yeast | Drowning in debt; catches you and covers unprompted — then you talk. Candidate beat, not settled (2026-08-04): she catches you botching a batch and fixes it unprompted, zero jeopardy |
 | **Signe** | Storekeeper | Supply + stand buff | The company store is bleeding her dry; joining is quiet revenge. The "world witnesses you" mirror |
-| **Aksel** | Smith & cooper | Still upgrades, barrels | Recognizes the still's coppersmithing — he built its twin. First thread to the cellar |
-| **Ingrid** | Apothecary | Recipes | Willing from the start; proposes the "medicinal" arrangement herself |
-| **Elias** | Boarding house keeper | Houses recruits; repairs | Shelters people the law calls vagrants; you prove you're the same |
-| **Mrs. Holt** | Owns the deeds | Gates the Mill | Contempt→respect. She knew the original operation and won't sell to a fool who'll repeat its ending |
-| **Constable Aas** | The law | **The antagonist system** | Not recruitable in the slice |
+| **Aksel** | Smith & cooper | Smithy & Cooperage operator: nails, barrels, still parts via hand-production; hire (after his house is built) → automation | Recognizes the still's coppersmithing — he built its twin. First thread to the cellar |
+| **Ingrid** | Apothecary | Apothecary operator: botanical extracts via hand-production; hire (after her house is built) → automation. Her demand is signed notes in the request book, not an open buy channel (2026-08-04 — the book wins, 2026-08-03) | Willing from the start; proposes the arrangement herself |
+| **Elias** | Boarding house keeper | Recruitment housing: newcomers lodge with him until their house is built | Shelters people the law calls vagrants; you prove you're the same |
+| **Mrs. Holt** | Owns the deeds | The deed-holder: every lot and house purchase goes through her, all game — not just the Mill | Contempt→respect. She knew the original operation and won't sell to a fool who'll repeat its ending |
+| **The miller** *(placeholder name **Runa**, vetoable)* | Arrives via the Boarding House | Works the player's Mill: bulk grain via hand-production; hire (after her house is built) → automation. First proof of Elias's newcomer pipeline | New, 2026-08-04 — the endgame hire |
+
+**Constable Aas is cut (2026-08-04).** See "The Constable" below.
 
 **Binding thread:** the town was a moonshine town once. The law ended it, and the town began dying the same year. Every recruit knows a piece of that story.
 
-### The Constable — pressure without stakes
+### The Constable — cut
+
+**Cut 2026-08-04 ("the police cut").** Constable Aas, his office, his daylight beats, and his one night appearance are removed from all aspects of the game, for now — this overturns the 2026-07-25 decision (recorded below, kept as history) that reframed him from a tension system into a recurring character. The game currently has no antagonist and no unease channel; the pull rests entirely on hooks 5 and 6 (transformation, the cellar) until this is revisited.
+
+**After-demo item: revisit a police antagonist.** This is a "for now" cut with acknowledged uncertainty, not a settled genre position — if the demo feels flat, this cut is the first place to look. See `LaterIdeas.md`.
+
+Full record: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`.
+
+<details>
+<summary>Historical record — the Constable as designed 2026-07-25, before the cut</summary>
 
 **Reframed 2026-07-25.** He replaced the delivery-run system; the cozy decision then removed the last reason for him to be a system at all.
 
@@ -337,7 +357,7 @@ His appearances are authored, low-frequency, and **conversational**:
 3. It happens in daylight, in town, in the middle of the cozy part — that is the whole point
 4. It leaves the player *knowing something they did not know*, or *feeling seen*. That is the entire payload
 
-> **Thread #3 is unblocked and radically smaller than it was.** It is no longer "design a tension system." It is "write a recurring character and decide how often he turns up." What remains open: appearance frequency, whether his lines react to restoration progress, and whether he ever appears at night (see thread #4's answer — probably yes, once).
+</details>
 
 ### Infrastructure
 
@@ -374,17 +394,18 @@ Settled so far:
 | **The guardrail contradiction** (#1) | 2026-07-25 | Below — **no.** Day life costs nothing; bait notes cut |
 | **The cozy decision** (tone) | 2026-07-25 | Below — **no mechanical edge anywhere.** The parent decision that settled #4 |
 | **What is night for?** (#4) | 2026-07-25 | Below — **night is a scene, not an activity block** |
+| **The Constable** (#3) | 2026-08-04 | **Cut, not settled** — "the police cut." See "The Constable" in Part 3 and `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`. After-demo item to revisit, tracked in `LaterIdeas.md` |
+| **The factory model / people ladder** | 2026-08-04 | Part 3, Buildings and NPCs — fills the automation unlock category. Full record: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md` |
 
 Still open, in dependency order. **Work them roughly in this sequence** — the ordering reflects real blocking, not preference:
 
 | # | Thread | What's unresolved | Blocks |
 |---|---|---|---|
-| **3** | **The Constable** ← *next* | **Radically reduced by the cozy decision** — no longer a tension system, now a recurring character. Open: how often he appears, whether his lines track restoration progress, his one night appearance. A writing job | — |
 | 5 | **Side activities** | Filter written, candidates unscored, none chosen. **Now more load-bearing** — with no tension, variety is what keeps the middle hours alive | — |
 | 6 | **Homestead site upgrades** | Which upgrades, what order, what cost | #7 |
 | 7 | **Unlock cadence** | The 2-3-visible rule has never been tested against real content | — |
-| 8 | **Berta's recruitment beat** | Her trigger evaporated with the runs, and the cozy decision rules out rebuilding it on danger. **She needs a non-jeopardy version of "catches you and covers unprompted"** — the beat is worth saving; only its trigger is broken | — |
-| 9 | **Recipe book → cellar** | How the grandfather's book seeds the mystery — and the book itself, which **does not exist yet**. Small, self-contained, cheap. **Earliest thing the player would meet (minute 3), and now higher value** since hook 6 carries more of the game's pull | — |
+| 8 | **Berta's recruitment beat** | Her trigger evaporated with the runs, and the cozy decision rules out rebuilding it on danger. **She needs a non-jeopardy version of "catches you and covers unprompted"** — the beat is worth saving; only its trigger is broken. **2026-08-04 candidate, not settled:** she catches the player botching a yeast batch and fixes it unprompted — zero jeopardy | — |
+| 9 | **Recipe book → cellar** | **Now has an architecture** (`docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md`, 2026-08-04) — replaces the cut fragment collectible system. Still open: the five page titles/bodies, unwritten. **Earliest thing the player would meet (minute 3), and higher value** since hook 6 carries more of the game's pull | — |
 | 10 | **The moral axis** | Post-slice. Down to two resolutions after the cozy decision eliminated "closed doors" — and may not be worth building at all | — |
 
 ### The guardrail contradiction (thread #1) — settled 2026-07-25
@@ -507,9 +528,8 @@ This makes them **unmissable by construction** — no telegraphing, no appointme
 Cozy register, matching the tone decision. A beat is **warmth, story, or the cellar mystery** — never a threat and never a bill:
 
 - A recruit is waiting at your fire because they had nowhere else to go
-- A fragment of the old operation's story surfaces — left, found, or remembered
+- Another page of the grandfather's recipe book becomes legible
 - Someone thanks you for something you did days ago and had forgotten
-- The Constable, exactly once and memorably, is simply standing in the road
 
 **A beat leaves the player knowing something, or feeling something. It never changes their inventory.**
 
@@ -538,7 +558,7 @@ Weakness ③. The stand adds decision to brewing but not a second thing to do.
 3. Runs on a **different clock than fermenting**, so it fills brew-waits rather than competing with them
 4. Reinforces *"this is my town"* or *"I know these woods"*
 
-**Unscored candidates:** fishing or trapping in the near forest · NPC favors and requests · decorating and furnishing interiors · mapping the woods as a collection · cooking and meals · hauling contracts for neighbors · the fragment hunt as an actual activity rather than a passive drop.
+**Unscored candidates:** fishing or trapping in the near forest · NPC favors and requests · decorating and furnishing interiors · mapping the woods as a collection · cooking and meals · hauling contracts for neighbors.
 
 Score these against the filter before building any of them.
 
@@ -556,10 +576,10 @@ Money versus helping people. Explicitly **not in the slice**.
 
 ### Smaller open items
 
-- **Boarding House** needs a new operation role. Candidate parked 2026-08-03 in `LaterIdeas.md`: hired help — **hiring is named-NPCs only** (randoms rejected same day); Elias lodges the newcomers who can become hireable, which is how new names enter the town
+- ~~**Boarding House** needs a new operation role.~~ **Settled 2026-08-04** — Elias's role is recruitment housing: newcomers lodge with him until their player-built house is ready. Folds into the people ladder (Part 3, Buildings); the `LaterIdeas.md` hired-help idea is absorbed into that system, not built standalone
 - ~~**`Guard.cs` / `GuardManager`**~~ — **deleted 2026-07-25**, along with `BribeUI`, the three bribe events, `Guard.prefab`, and their scene objects. The sprite is kept for Constable Aas
 - **Deep woods** need a reason to exist, or the world shrinks to town + near forest. **Now more pressing** — the cozy decision removed the last candidate reason (covert night activity), so either thread #5 gives the woods a use or they are cut
-- **The grandfather's recipe book** does not exist yet and should be built, then wired to the cellar — see the correction under weakness ④. **Now higher value:** with hook 6 carrying more of the game's pull, seeding the cellar early matters more than it did
+- ~~**The grandfather's recipe book** does not exist yet~~ — **now has an architecture (2026-08-04)**, replacing the cut fragment collectible system; see weakness ④ and thread #9 above. Still open: the five page titles/bodies, unwritten
 - ~~**`tormodLeaveHour = -1`**~~ — **fixed 2026-07-25, then mooted 2026-08-03.** The design half is settled: Tormod is never a channel at all. The back-door delivery point, the `SellManager`/`SellerRules` Tormod flow, and its tests are deleted with Phase S; the nails move to his first conversation
 - **Bait notes** stay in `LaterIdeas.md` and are now **out of genre, not merely parked.** Reviving them means overturning guardrail 7 in writing
 - **The 21:00 sleep floor** (`Bed.cs:9`) may want to move now that night has content worth encountering. Open number under thread #4
@@ -578,4 +598,5 @@ Money versus helping people. Explicitly **not in the slice**.
 | 2026-07-26 | **Audit closed out.** `BuildPlan.md` reconciled against this document — header repointed here, slice summary rewritten, Phase 4 tombstoned, Phases 3 and 5 halved, **Phase S** (stand + request book) and **Phase N** (night beats + Constable) added, four broken validation metrics replaced, Berta's trigger and the Boarding House role marked open, the Phase 5/6 reputation contradiction fixed, Phase 1 taught shell-vs-site, guardrails updated to seven · the guard system **deleted** in full: `Guard.cs`, `GuardManager`, `BribeUI`, `Guard.prefab`, the three bribe events, and 37 scene objects |
 | 2026-07-25 | **The cozy decision — the largest revision since the runs cut.** The inherited assumption that the game needs a mechanical edge *somewhere* is **rejected**. Lamplight is a restoration game with a criminal skin; jeopardy is not relocated, it is removed · guardrail 1 widens from "day life" to the whole game · **new guardrail 7: cozy is the genre, not a fallback** · weakness ⑤ closed by decision · the Constable is reframed from a tension system to a recurring character who costs the player nothing (thread #3 unblocked and radically smaller) · `Guard.cs` / `GuardManager` resolve to **delete** · bait notes move from parked to out-of-genre · the moral axis loses its "closed doors" resolution and may not be worth building · **thread #5 (side activities) promoted to core**, since variety is now the only retention mechanism · the game's pull rests entirely on hooks 5 and 6, both unproven |
 | 2026-08-03 | **Tormod is never a buyer.** The Roadhouse back-door channel is cut entirely, superseding the 2026-07-26 "retires when the stand opens" — the stand is the only selling channel, and Tormod becomes the town's first contact: one conversation, 3 Nails, then pure character. The delivery point, `SellManager`/`SellerRules` Tormod flow, and tests are deleted with Phase S · **hiring is named-NPCs only** — the hired-randoms path is rejected; the hired-help idea in `LaterIdeas.md` is rescoped to known characters · **save system deferred to Phase 9** by decision — built right before the first external tester, not from day one · **the book wins**: the request book is the primary channel, and beats customers in any form — in-person browsing cut by default; whether the shelf survives and whether the book runs from day 1 or opens at the shell are **playtest questions**, deliberately left to testing with the current build (shelf + book from day 1) as the working state |
+| 2026-08-04 | **NPC roster audited; the factory model established.** Two new rules: every finished building has a named NPC, every NPC's mechanic aids the player · **the people ladder** (restore factory → produce by hand → build the operator's house → hire → automate) fills the previously-empty automation unlock category · Buildings table reworked into Factory/Shop/Housing/NPC-houses/Player-sites · **Constable Aas and all police content cut** ("the police cut") — the game currently has no antagonist, an after-demo item to revisit · Boarding House's operation role settled as Elias's recruitment housing · Mrs. Holt's gate widened to every lot and house purchase, not just the Mill · new miller character (placeholder name Runa, vetoable), the endgame hire · Nail Economy (`LaterIdeas.md`) answered via the Smithy · **the fragment collectible system is cut**, replaced by the grandfather's recipe book (weakness ④/thread #9), which now has an architecture. Full records: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`, `docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md` |
 | 2026-07-25 | **Thread #4 settled — what night is for.** Answer: **night is a scene, not an activity block.** Most nights are empty and the player just sleeps · beats wait at the homestead, making them unmissable by construction without any scheduling system · a beat is warmth, story, or the cellar mystery, and never changes the player's inventory · **the pillar *"day = the front, night = the operation"* is retired** and replaced with *day is when you act; night is when the day answers back* · the day/night cycle survives as pacing and mood, and the lighting system survives on its own merits · **night's real duration recorded for the first time** — ~3.8 real minutes from dusk, ~2.3 genuinely dark, ending in a forced midnight sleep — which required no clock retuning and independently ruled out the covert-activity candidate |
