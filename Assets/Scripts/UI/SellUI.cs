@@ -56,9 +56,7 @@ public class SellUI : MonoBehaviour
     private void OnGUI()
     {
         if (!_visible) return;
-        string title = _currentSeller == SellerType.Tormod
-            ? "Tormod — Buy Ingredients"
-            : "Traveling Cart — Buy Ingredients";
+        string title = "Traveling Cart — Buy Ingredients";
         _windowRect = GUI.Window(2, _windowRect, DrawWindow, title);
     }
 

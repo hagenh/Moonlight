@@ -1,6 +1,7 @@
 using System.Collections;
 using Lamplight.TestSupport;
 using NUnit.Framework;
+using UnityEngine;
 using UnityEngine.TestTools;
 
 public class TormodNailsGrantTests
@@ -19,45 +20,29 @@ public class TormodNailsGrantTests
     }
 
     [UnityTest]
-    public IEnumerator FirstTormodDelivery_GrantsThreeNails()
+    public IEnumerator FirstConversation_GrantsThreeNails()
     {
         var inventory = TestBootstrap.CreateSingleton<InventoryManager>();
-        TestBootstrap.CreateSingleton<GameManager>();
-        TestBootstrap.CreateSingleton<SellManager>();
+        var tormod = new GameObject("Tormod").AddComponent<TormodInteractable>();
 
         yield return null;
 
-        GameEvents.OnDeliveryMade(DeliveryType.Tormod, ContentDb.BerryShine, 1, 15);
+        tormod.Interact();
 
         Assert.AreEqual(3, inventory.GetCount(ContentDb.Nails));
     }
 
     [UnityTest]
-    public IEnumerator SecondTormodDelivery_DoesNotGrantNailsAgain()
+    public IEnumerator SecondConversation_DoesNotGrantNailsAgain()
     {
         var inventory = TestBootstrap.CreateSingleton<InventoryManager>();
-        TestBootstrap.CreateSingleton<GameManager>();
-        TestBootstrap.CreateSingleton<SellManager>();
+        var tormod = new GameObject("Tormod").AddComponent<TormodInteractable>();
 
         yield return null;
 
-        GameEvents.OnDeliveryMade(DeliveryType.Tormod, ContentDb.BerryShine, 1, 15);
-        GameEvents.OnDeliveryMade(DeliveryType.Tormod, ContentDb.BerryShine, 1, 15);
+        tormod.Interact();
+        tormod.Interact();
 
         Assert.AreEqual(3, inventory.GetCount(ContentDb.Nails));
-    }
-
-    [UnityTest]
-    public IEnumerator CartDelivery_DoesNotGrantNails()
-    {
-        var inventory = TestBootstrap.CreateSingleton<InventoryManager>();
-        TestBootstrap.CreateSingleton<GameManager>();
-        TestBootstrap.CreateSingleton<SellManager>();
-
-        yield return null;
-
-        GameEvents.OnDeliveryMade(DeliveryType.Cart, ContentDb.BerryShine, 1, 15);
-
-        Assert.AreEqual(0, inventory.GetCount(ContentDb.Nails));
     }
 }

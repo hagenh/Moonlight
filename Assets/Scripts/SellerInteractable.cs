@@ -14,8 +14,7 @@ public class SellerInteractable : MonoBehaviour, IInteractable
             var crate = PlayerController.Instance.CarriedCrate;
             if (crate != null)
             {
-                DeliveryType type = sellerType == SellerType.Tormod ? DeliveryType.Tormod : DeliveryType.Cart;
-                int price = EconomyRules.GetDeliveryPrice(crate.item, type) * crate.count;
+                int price = EconomyRules.GetDeliveryPrice(crate.item, DeliveryType.Cart) * crate.count;
 
                 if (GameManager.Instance != null)
                 {
@@ -25,7 +24,7 @@ public class SellerInteractable : MonoBehaviour, IInteractable
 
                 Destroy(crate.gameObject);
                 PlayerController.Instance.DropCrate();
-                GameEvents.OnDeliveryMade(type, crate.item, crate.count, price);
+                GameEvents.OnDeliveryMade(DeliveryType.Cart, crate.item, crate.count, price);
                 return;
             }
         }
@@ -43,7 +42,6 @@ public class SellerInteractable : MonoBehaviour, IInteractable
         sr.sprite = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 4, 4), new Vector2(0.5f, 0.5f), 16f);
         sr.color = type switch
         {
-            SellerType.Tormod => new Color(0.9f, 0.8f, 0.3f),
             SellerType.TravelingCart => new Color(0.5f, 0.4f, 0.8f),
             _ => Color.white
         };

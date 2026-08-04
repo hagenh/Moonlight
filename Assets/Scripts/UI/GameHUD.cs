@@ -216,10 +216,13 @@ public class GameHUD : MonoBehaviour
         {
             promptText.text = seller.sellerType switch
             {
-                SellerType.Tormod => "[E] Sell to Tormod",
                 SellerType.TravelingCart => "[E] Visit Cart",
                 _ => "[E] Interact"
             };
+        }
+        else if (interactable is TormodInteractable)
+        {
+            promptText.text = "[E] Talk to Tormod";
         }
         else if (interactable is Bed)
         {
@@ -240,7 +243,6 @@ public class GameHUD : MonoBehaviour
             promptText.text = dp.DeliveryType switch
             {
                 DeliveryType.Cart => "[E] Deliver to Cart",
-                DeliveryType.Tormod => "[E] Sell to Tormod",
                 _ => "[E] Deliver"
             };
         }

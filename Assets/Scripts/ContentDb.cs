@@ -62,6 +62,20 @@ public class ContentDb : MonoBehaviour
         "A fresh start... I can work with this."
     );
 
+    public static readonly ResidentDef Tormod = new ResidentDef(
+        "tormod", "Tormod", "Roadhouse",
+        Color.white,
+        new Color(0.8f, 0.65f, 0.4f),
+        new ScheduleEntry[0],
+        new string[][]
+        {
+            new string[] { "Roadhouse's open, if you're ever short a bed.", "Mind the north path after dark." },
+            new string[] { "Roadhouse's open, if you're ever short a bed.", "Mind the north path after dark." },
+            new string[] { "Roadhouse's open, if you're ever short a bed.", "Mind the north path after dark." },
+        },
+        ""
+    );
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -99,6 +113,7 @@ public class ContentDb : MonoBehaviour
         Register(Stone);
         Register(Wood);
         RegisterResident(Berta);
+        RegisterResident(Tormod);
     }
 
     private void Register(ItemDef def)

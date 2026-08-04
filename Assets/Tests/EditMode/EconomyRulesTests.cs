@@ -45,13 +45,6 @@ public class EconomyRulesTests
     }
 
     [Test]
-    public void IsSellable_TormodBuysNonIngredients()
-    {
-        Assert.IsTrue(EconomyRules.IsSellable(_moonshine, SellerType.Tormod));
-        Assert.IsFalse(EconomyRules.IsSellable(_grain, SellerType.Tormod));
-    }
-
-    [Test]
     public void GetDeliveryPrice_Backwoods_Is1_5x()
     {
         Assert.AreEqual(38, EconomyRules.GetDeliveryPrice(_moonshine, DeliveryType.Backwoods));
@@ -64,29 +57,9 @@ public class EconomyRulesTests
     }
 
     [Test]
-    public void GetDeliveryPrice_Tormod_IsBasePrice()
-    {
-        Assert.AreEqual(25, EconomyRules.GetDeliveryPrice(_moonshine, DeliveryType.Tormod));
-    }
-
-    [Test]
-    public void IsSellable_TormodBuysBerryShine()
-    {
-        var berryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
-        Assert.IsTrue(EconomyRules.IsSellable(berryShine, SellerType.Tormod));
-    }
-
-    [Test]
     public void IsSellable_CartBuysBerryShine()
     {
         var berryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
         Assert.IsTrue(EconomyRules.IsSellable(berryShine, SellerType.TravelingCart));
-    }
-
-    [Test]
-    public void IsSellable_TormodDoesNotBuyIngredients()
-    {
-        var berry = new ItemDef("berry", "Berry", true, 2);
-        Assert.IsFalse(EconomyRules.IsSellable(berry, SellerType.Tormod));
     }
 }

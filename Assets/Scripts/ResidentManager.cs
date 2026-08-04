@@ -18,6 +18,9 @@ public class ResidentManager : MonoBehaviour
     [SerializeField] private float moveInLineDelay = 1f;
     [SerializeField] private float moveInLightDelay = 0.5f;
 
+    [Header("Tormod")]
+    [SerializeField] private Transform tormodPosition;
+
     private readonly Dictionary<string, ResidentDef> _movedInResidents = new();
     private readonly Dictionary<string, Resident> _activeResidents = new();
     private readonly Dictionary<string, Transform> _markers = new();
@@ -38,6 +41,32 @@ public class ResidentManager : MonoBehaviour
         _markers["Berta_Home"] = bertaHomeMarker;
         _markers["Berta_Market"] = bertaMarketMarker;
         _markers["Berta_Well"] = bertaWellMarker;
+    }
+
+    private void Start()
+    {
+        SpawnTormod();
+    }
+
+    private void SpawnTormod()
+    {
+        if (ContentDb.Instance == null || ContentDb.Instance.TormodPrefab == null) return;
+
+        Vector3 pos = tormodPosition != null ? tormodPosition.position : Vector3.zero;
+        var go = Instantiate(ContentDb.Instance.TormodPrefab, pos, Quaternion.identity);
+        go.name = "Tormod";
+        go.layer = LayerMask.NameToLayer("Interactable");
+
+        var oldSeller = go.GetComponent<SellerInteractable>();
+        if (oldSeller != null) Destroy(oldSeller);
+        go.AddComponent<TormodInteractable>();
+
+        var animator = go.GetComponent<DirectionalSpriteAnimator>();
+        if (animator != null)
+        {
+            animator.Initialize();
+            animator.Play("idle");
+        }
     }
 
     private void OnEnable()
