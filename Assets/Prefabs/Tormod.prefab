@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8884553757489969360}
   - component: {fileID: 8273142145836420373}
   - component: {fileID: 4829301457595947806}
-  - component: {fileID: 3980565035348881688}
   m_Layer: 6
   m_Name: Tormod
   m_TagString: Untagged
@@ -182,16 +181,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.2, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &3980565035348881688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558243393956074524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dff5bf3322f7f54f96b64ccb63cf108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Lamplight.Runtime::SellerInteractable
-  sellerType: 0

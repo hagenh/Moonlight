@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class SellUI : MonoBehaviour
 {
     private bool _visible;
-    private SellerType _currentSeller;
     private Vector2 _scrollPos;
     private Rect _windowRect = new Rect(0, 0, 340, 420);
 
@@ -24,7 +23,6 @@ public class SellUI : MonoBehaviour
     private void OnSellMenuRequested(SellerType type)
     {
         _visible = true;
-        _currentSeller = type;
         if (PlayerController.Instance != null)
             PlayerController.Instance.IsMenuOpen = true;
 

@@ -13,10 +13,13 @@ public class TormodInteractable : MonoBehaviour, IInteractable
     {
         if (!_hasTalked)
         {
-            _hasTalked = true;
-            if (InventoryManager.Instance != null)
-                InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
-            GameEvents.OnToastRequested("+3 Nails from Tormod");
+            bool granted = InventoryManager.Instance != null
+                && InventoryManager.Instance.TryAdd(ContentDb.Nails, 3);
+            if (granted)
+            {
+                _hasTalked = true;
+                GameEvents.OnToastRequested("+3 Nails from Tormod");
+            }
             GameEvents.OnDialogueRequested(ContentDb.Tormod, FirstConversationLine);
             return;
         }

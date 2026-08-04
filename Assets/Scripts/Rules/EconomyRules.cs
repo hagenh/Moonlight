@@ -10,7 +10,7 @@ public static class EconomyRules
 
     public static bool IsSellable(ItemDef item, SellerType seller)
     {
-        return seller == SellerType.TravelingCart ? item.isBottle : !item.isIngredient;
+        return item.isBottle;
     }
 
     public static int GetDeliveryPrice(ItemDef item, DeliveryType type)

@@ -63,7 +63,7 @@ public class ContentDb : MonoBehaviour
     );
 
     public static readonly ResidentDef Tormod = new ResidentDef(
-        "tormod", "Tormod", "Roadhouse",
+        "tormod", "Tormod", "",
         Color.white,
         new Color(0.8f, 0.65f, 0.4f),
         new ScheduleEntry[0],
