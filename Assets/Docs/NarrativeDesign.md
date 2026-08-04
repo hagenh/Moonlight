@@ -1,11 +1,11 @@
 # LAMPLIGHT — Narrative System Design
 
 ## Philosophy
-Story comes from people, found items, milestones, and actions — not just from smashing debris. A blended system where NPCs, world events, and collectibles all feed into a shared journal and drive dialogue progression.
+Story comes from people and from the one found object — not from a general collectible system. A blended system where NPCs and world events feed into dialogue progression and the grandfather's recipe book.
 
 **Rule: No frameworks.** Hand-roll everything. Extract patterns in game #2.
 
-## Three Pillars
+## Two Pillars
 
 ### 1. NPC Relationships
 - Per-NPC trust value (integer, keyed by resident ID)
@@ -18,26 +18,19 @@ Story comes from people, found items, milestones, and actions — not just from 
 - First-time events detected from existing game systems
 - Examples: first sale, first batch produced, first building restored, Berta moved in, 4 buildings restored
 - Detected by `MilestoneDetector` subscribing to existing `GameEvents`
-- Each milestone sets a narrative flag that can gate dialogue, fragments, or world state
+- Each milestone sets a narrative flag that can gate dialogue, a recipe book page, or world state
 - Logged in journal with day stamp
-
-### 3. Collectibles (Fragments)
-- Story pieces discovered from multiple sources, not just debris
-- Trigger types: `SmashDebris` (from renovation), `Milestone` (from flag), `NPCGift` (from dialogue)
-- Each fragment: title + ~120 word body
-- Displayed as letter overlay when found, stored in journal
-- 5 fragments for the slice, each revealing a piece of the village's story
 
 ---
 
-## Architecture
+### Architecture
 
 ### NarrativeFlags — Global boolean state
 ```
 Static class, HashSet<string>
 IsSet(flag) / Set(flag) / Clear(flag) / AllFlags
 Set() fires GameEvents.OnFlagSet(flag)
-Flags: bakery_restored, first_sale, berta_moved_in, bakery_fragment_found, etc.
+Flags: bakery_restored, first_sale, berta_moved_in, smithy_restored, etc.
 ```
 
 ### MilestoneDetector — Event → Flag bridge
@@ -46,28 +39,30 @@ MonoBehaviour, subscribes to GameEvents
 BuildingStateChanged → {building}_restored, four_buildings_restored
 InventoryChanged (bottle) → first_batch_produced
 ResidentMovedIn → {resident}_moved_in
-FlagSet → check for milestone-triggered fragments
+FlagSet → check for milestone-triggered recipe book pages
 ```
 
-### FragmentDef — Story fragment data
+### RecipeBookPageDef — Story page data
 ```
 Plain C# class (follows ItemDef pattern)
-id, title, body, triggerType (SmashDebris/Milestone/NPCGift), sourceId
-5 definitions registered in ContentDb
+id, title, body (~120 words, the grandfather's voice), triggerFlag, page order
+5 definitions registered in ContentDb — one owned from Act 0 minute 3, no trigger;
+the rest gated behind triggerFlag (see "Recipe Book Content" below)
 ```
 
-### FragmentUI — Letter overlay
+### RecipeBookUI — Page-reveal overlay
 ```
-OnGUI overlay: parchment background, title, body text
-Subscribes to FragmentFound event
-On close: adds to journal, sets narrative flag
+OnGUI overlay: "a page is legible now", title, body text
+Subscribes to RecipeBookState's reveal event
+No flip-through viewer yet — data layer only
 ```
 
-### JournalState — Collection tracker
+### RecipeBookState — Legible-page tracker
 ```
-List<FragmentDef> collected, List<string> milestone log
-AddFragment(), AddMilestone()
-Subscribes to FragmentFound and FlagSet
+List<RecipeBookPageDef> legible pages, List<string> milestone log
+RevealPage(), AddMilestone()
+Subscribes to FlagSet (checks each undiscovered page's triggerFlag) and to trust-threshold
+crossings for the one trust-gated page
 Data layer only — no viewer UI yet
 ```
 
@@ -89,7 +84,7 @@ Static resolver:
 ### Per-NPC Trust
 ```
 Dictionary<string, int> on GameManager or ResidentManager
-Trust increments on dialogue interaction (+1), quest completion (+5), building restored (+10)
+Trust increments on dialogue interaction (+1), quest completion (+5), building's home restored (+10)
 Feeds into DialogueResolver alongside global reputation
 ```
 
@@ -103,13 +98,11 @@ GameEvents (existing)
     ├─→ MilestoneDetector ─→ NarrativeFlags
     │                              │
     │                              ├─→ DialogueResolver
-    │                              ├─→ JournalState
+    │                              ├─→ RecipeBookState ─→ RecipeBookUI
     │                              └─→ Building/NPC gates
     │
     ├─→ Resident.Interact() ─→ DialogueResolver ─→ DialogueUI
     │                                              └─→ On close: trust++, set flags
-    │
-    ├─→ BuildingManager.SmashHit ─→ Fragment check ─→ FragmentUI
     │
     └─→ SleepManager pipeline ─→ Narrative checkpoint
                                        ├─→ Day-gated events
@@ -118,15 +111,19 @@ GameEvents (existing)
 
 ---
 
-## Fragment Content (Slice — 5 fragments)
+## Recipe Book Content (Slice — 5 pages)
 
-| # | Title | Trigger | Source |
-|---|---|---|---|
-| 1 | The Baker's Last Loaf | SmashDebris | Bakery (mid-clearing) |
-| 2 | A Carpenter's Ledger | SmashDebris | Boarding House (mid-clearing) |
-| 3 | The Constable's Report | Milestone | `constable_restored` flag |
-| 4 | A Merchant's Confession | NPCGift | Signe dialogue (trust ≥ 10) |
-| 5 | The Mill Cellar | Milestone | `mill_stage1_complete` flag |
+**Replaces the fragment collectible system (cut 2026-08-04).** One object, owned from Act 0 minute 3, mostly ruined — legible pages accumulate over the game instead of new objects being found. Full design: `docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md`.
+
+| # | Trigger | Why |
+|---|---|---|
+| 1 | Owned from Act 0, minute 3 — no trigger | The one legible page from the start |
+| 2 | `bakery_restored` | Reuses an existing flag already used elsewhere in this doc |
+| 3 | `smithy_restored` | Aksel — "he built the still's twin," the existing first-cellar-thread |
+| 4 | Mrs. Holt trust threshold | She "knew the original operation" (`GameDesign.md` Part 3, NPCs) |
+| 5 | `mill_stage1_complete` | The cellar door beat |
+
+Titles and bodies are not written yet — placeholder, matching the miller's vetoable-name treatment elsewhere in the design. A sixth page (e.g. `boarding_house_restored`) is a straightforward future addition, not a cap.
 
 ---
 
@@ -134,25 +131,21 @@ GameEvents (existing)
 
 ### Berta (Bakery)
 - **One-shot:** First meeting greeting, move-in thanks
-- **Conditional:** "The oven's warm" (bakery_restored), "Heard someone's been dealing shady..." (heat > 40)
+- **Conditional:** "The oven's warm" (bakery_restored)
 - **Pool:** 3 tiers by trust (same as current rep tiers)
 
 ### Signe (General Store)
-- **Flag-referencing:** "Owns the bakery now, do you?" (bakery_restored), "Word is you're running hot..." (heat > 40), "Four buildings lit up!" (four_buildings_restored)
+- **Flag-referencing:** "Owns the bakery now, do you?" (bakery_restored), "Four buildings lit up!" (four_buildings_restored)
 - **Biggest line count** — she's the "world witnesses you" mirror
 
 ### Mrs. Holt
 - **Arc:** Contempt → respect (trust-gated, not just rep)
 - **Low trust:** Dismissive, refuses Mill deed
-- **High trust:** Opens up, grants Mill access
+- **High trust:** Opens up, grants Mill access; a recipe book page becomes legible (see above)
 
 ### Elias (Boarding House)
 - **Functional:** Hire dialogue, repair reports
-- **Story:** Fragment about the old village
-
-### Aas (Constable)
-- **Functional:** Heat management dialogue, shift schedules
-- **Story:** The constable's report (fragment)
+- **Story:** A dialogue line about the old village
 
 ---
 
@@ -161,7 +154,7 @@ GameEvents (existing)
 - No quest log UI (BuildPlan explicitly excludes)
 - No dialogue node editor or visual tool
 - No branching dialogue with player choices
-- No journal viewer UI (data layer only for now)
+- No recipe book viewer UI (data layer only for now)
 - No cutscene framework (keep using coroutines)
 - No save/load integration yet (flags are in-memory)
 - No per-NPC save format beyond simple dictionaries
@@ -171,10 +164,9 @@ GameEvents (existing)
 ## Implementation Order
 
 1. `NarrativeFlags` + `GameEvents` additions (foundation)
-2. `FragmentDef` + `ContentDb` registration
+2. `RecipeBookPageDef` + `ContentDb` registration
 3. `MilestoneDetector`
-4. Fragment discovery in `BuildingManager` smash pipeline
-5. `FragmentUI` + `JournalState`
-6. `DialogueLine` struct + `DialogueResolver`
-7. `ResidentDef` upgrade + `Resident` trust
-8. Berta conditional lines
+4. `RecipeBookState` + `RecipeBookUI`
+5. `DialogueLine` struct + `DialogueResolver`
+6. `ResidentDef` upgrade + `Resident` trust
+7. Berta conditional lines
