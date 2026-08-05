@@ -2881,6 +2881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Lamplight.Runtime::PlacementGrid
   grid: {fileID: 1149874967}
+  cellSizeMultiplier: 0.5
 --- !u!1001 &606747612
 PrefabInstance:
   m_ObjectHideFlags: 0

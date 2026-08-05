@@ -6,6 +6,7 @@ public class PlacementGrid : MonoBehaviour
     public static PlacementGrid Instance { get; private set; }
 
     [SerializeField] private Grid grid;
+    [SerializeField] private float cellSizeMultiplier = 1f;
 
     private readonly Dictionary<Vector3Int, PlacedInfrastructure> _occupied = new();
 
@@ -17,11 +18,25 @@ public class PlacementGrid : MonoBehaviour
         Instance = this;
     }
 
-    public Vector3Int WorldToCell(Vector3 worldPos) => grid.WorldToCell(worldPos);
+    // The Grid's own cellSize doesn't match the game's actual tile size here:
+    // Ground/Collision/SurfaceMap render at half that size via their own transform
+    // scale (see FootstepPlayer, which reads tiles through that same 0.5 scale).
+    // cellSizeMultiplier corrects for that so placement snaps to real tiles.
+    public Vector3 CellSize => grid.cellSize * cellSizeMultiplier;
 
-    public Vector3 CellCenterWorld(Vector3Int cell) => grid.GetCellCenterWorld(cell);
+    public Vector3Int WorldToCell(Vector3 worldPos)
+    {
+        Vector3 local = grid.transform.InverseTransformPoint(worldPos);
+        Vector3 size = CellSize;
+        return new Vector3Int(Mathf.FloorToInt(local.x / size.x), Mathf.FloorToInt(local.y / size.y), 0);
+    }
 
-    public Vector3 CellSize => grid.cellSize;
+    public Vector3 CellCenterWorld(Vector3Int cell)
+    {
+        Vector3 size = CellSize;
+        Vector3 local = new Vector3((cell.x + 0.5f) * size.x, (cell.y + 0.5f) * size.y, 0f);
+        return grid.transform.TransformPoint(local);
+    }
 
     public bool IsAreaFree(Vector3Int origin, int width, int height)
     {
@@ -32,8 +47,8 @@ public class PlacementGrid : MonoBehaviour
                 var cell = origin + new Vector3Int(x, y, 0);
                 if (_occupied.ContainsKey(cell)) return false;
 
-                Vector2 center = grid.GetCellCenterWorld(cell);
-                Vector2 size = (Vector2)grid.cellSize * 0.8f;
+                Vector2 center = CellCenterWorld(cell);
+                Vector2 size = (Vector2)CellSize * 0.8f;
                 var hits = Physics2D.OverlapBoxAll(center, size, 0f);
                 foreach (var hit in hits)
                     if (!hit.isTrigger) return false;
