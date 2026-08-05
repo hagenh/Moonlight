@@ -1218,6 +1218,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BuildMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""d4e5f6a7-1234-4b5c-8d9e-0f1a2b3c4d5e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1240,6 +1249,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""RecipeBook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5f6a7b8-2345-4c6d-9e0f-1a2b3c4d5e6f"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""BuildMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1337,6 +1357,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Menus
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_RecipeBook = m_Menus.FindAction("RecipeBook", throwIfNotFound: true);
+        m_Menus_BuildMenu = m_Menus.FindAction("BuildMenu", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1821,6 +1842,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menus;
     private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
     private readonly InputAction m_Menus_RecipeBook;
+    private readonly InputAction m_Menus_BuildMenu;
     /// <summary>
     /// Provides access to input actions defined in input action map "Menus".
     /// </summary>
@@ -1836,6 +1858,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Menus/RecipeBook".
         /// </summary>
         public InputAction @RecipeBook => m_Wrapper.m_Menus_RecipeBook;
+        /// <summary>
+        /// Provides access to the underlying input action "Menus/BuildMenu".
+        /// </summary>
+        public InputAction @BuildMenu => m_Wrapper.m_Menus_BuildMenu;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1865,6 +1891,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @RecipeBook.started += instance.OnRecipeBook;
             @RecipeBook.performed += instance.OnRecipeBook;
             @RecipeBook.canceled += instance.OnRecipeBook;
+            @BuildMenu.started += instance.OnBuildMenu;
+            @BuildMenu.performed += instance.OnBuildMenu;
+            @BuildMenu.canceled += instance.OnBuildMenu;
         }
 
         /// <summary>
@@ -1879,6 +1908,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @RecipeBook.started -= instance.OnRecipeBook;
             @RecipeBook.performed -= instance.OnRecipeBook;
             @RecipeBook.canceled -= instance.OnRecipeBook;
+            @BuildMenu.started -= instance.OnBuildMenu;
+            @BuildMenu.performed -= instance.OnBuildMenu;
+            @BuildMenu.canceled -= instance.OnBuildMenu;
         }
 
         /// <summary>
@@ -2154,5 +2186,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRecipeBook(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BuildMenu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBuildMenu(InputAction.CallbackContext context);
     }
 }

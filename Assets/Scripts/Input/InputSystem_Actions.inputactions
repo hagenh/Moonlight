@@ -1132,6 +1132,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "BuildMenu",
+                    "type": "Button",
+                    "id": "d4e5f6a7-1234-4b5c-8d9e-0f1a2b3c4d5e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1154,6 +1163,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "RecipeBook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5f6a7b8-2345-4c6d-9e0f-1a2b3c4d5e6f",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "BuildMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
