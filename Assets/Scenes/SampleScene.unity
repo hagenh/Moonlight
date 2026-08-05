@@ -1251,6 +1251,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232335102}
   m_CullTransparentMesh: 1
+--- !u!1 &258409079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258409080}
+  - component: {fileID: 258409081}
+  m_Layer: 0
+  m_Name: BuildModeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &258409080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258409079}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.70882, y: 50.41674, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1081628749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258409081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258409079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645d2507994dc94439674c85ce24ce7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Lamplight.Runtime::BuildModeController
+  validColor: {r: 0.4, g: 1, b: 0.4, a: 0.6}
+  invalidColor: {r: 1, g: 0.4, b: 0.4, a: 0.6}
 --- !u!1 &269745884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,6 +2836,51 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!1 &584937993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584937994}
+  - component: {fileID: 584937995}
+  m_Layer: 0
+  m_Name: PlacementGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &584937994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584937993}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.70882, y: 50.41674, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1081628749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &584937995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584937993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcd4977830ab634880f9ff3624dbb4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Lamplight.Runtime::PlacementGrid
+  grid: {fileID: 1149874967}
 --- !u!1001 &606747612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4994,6 +5085,9 @@ Transform:
   - {fileID: 1906643350}
   - {fileID: 990000003}
   - {fileID: 1804657823}
+  - {fileID: 584937994}
+  - {fileID: 1157299916}
+  - {fileID: 258409080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082026045
@@ -8101,6 +8195,50 @@ Transform:
   - {fileID: 1082026046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1157299915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157299916}
+  - component: {fileID: 1157299917}
+  m_Layer: 0
+  m_Name: InfrastructureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157299916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157299915}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.70882, y: 50.41674, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1081628749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157299917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157299915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e601c17d49b5c24195b8b6923f27153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Lamplight.Runtime::InfrastructureManager
 --- !u!1001 &1162731592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93575,6 +93713,7 @@ GameObject:
   - component: {fileID: 1764439217}
   - component: {fileID: 1764439219}
   - component: {fileID: 1764439220}
+  - component: {fileID: 1764439221}
   m_Layer: 5
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -93721,6 +93860,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e5f5cad77e38d46b739afa64eb3bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Lamplight.Runtime::RequestBookUI
+--- !u!114 &1764439221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764439212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc50c78e2c5806408a2293a361684fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Lamplight.Runtime::BuildMenuUI
 --- !u!1 &1789782754
 GameObject:
   m_ObjectHideFlags: 0
@@ -94351,6 +94502,16 @@ MonoBehaviour:
   berryShineIcon: {fileID: 4334669314444855571, guid: 0e9222d1a23f7c9499f1adb7d12530b0, type: 3}
   stoneIcon: {fileID: -3345859350612279821, guid: dd1d6db6d74ca0c41b24aec9a34b08de, type: 3}
   woodIcon: {fileID: -3865672261414493713, guid: a215543ac9a306143893a3ee416fd224, type: 3}
+  lamppostIcon: {fileID: 7482667652216324306, guid: ff311b00632ccb84098d88c805f6815c, type: 3}
+  plankSidewalkIcon: {fileID: 0}
+  benchIcon: {fileID: 0}
+  flowerBoxIcon: {fileID: 0}
+  signIcon: {fileID: 0}
+  lamppostPrefab: {fileID: 5123908257447523404, guid: 8d6cdbb7f1952704088107e9b0454c19, type: 3}
+  plankSidewalkPrefab: {fileID: 0}
+  benchPrefab: {fileID: 0}
+  flowerBoxPrefab: {fileID: 0}
+  signPrefab: {fileID: 0}
 --- !u!4 &1885688117
 Transform:
   m_ObjectHideFlags: 0

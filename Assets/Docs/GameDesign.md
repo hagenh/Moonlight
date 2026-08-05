@@ -33,7 +33,7 @@ You are a moonshiner rebuilding a dying town as the perfect front. Every busines
 | What protects you | **The town.** Neighbors who like you lie for you. Restoration is literally defensive — as fiction and as story, not as a defence stat |
 | Primary economy | The roadside stand and its **request book** — written orders that never expire; the occupied slot is the only cost |
 | NPC role | Co-conspirators: day job (front) + operation role (function) + recruitment beat (story) |
-| Town agency | Player-placed public infrastructure in predefined sockets |
+| Town agency | Player-placed public infrastructure, freely placed on the town grid |
 | Narrative | Recruitment beats, conspiracy trust, the Mill cellar |
 | World | One connected exterior scene; interiors separate small spaces |
 
@@ -361,11 +361,11 @@ His appearances are authored, low-frequency, and **conversational**:
 
 ### Infrastructure
 
-**Public sockets** (street): lampposts, plank sidewalks, benches, flower boxes, signs. Night light, stand-traffic buffs at beauty thresholds, NPC dialogue reactions. **Pure positives — beautification is never punished.**
+**Public infrastructure** (street): lampposts, plank sidewalks, benches, flower boxes, signs. Night light, stand-traffic buffs at beauty thresholds, NPC dialogue reactions. **Pure positives — beautification is never punished.**
 
 Covert forest sockets (stash barrels, trail markers, shortcut planks) **are cut** — they existed to serve delivery runs.
 
-Placement is into predefined sockets. No free placement system.
+Placement is free: any unobstructed cell on the town's grid is a legal spot, chosen with a mouse-driven ghost cursor from the build menu (see `docs/superpowers/specs/2026-08-04-infrastructure-grid-placement-design.md`). No curated socket list.
 
 ### Guardrails — non-negotiable
 
