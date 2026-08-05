@@ -88,6 +88,17 @@ public class PlacementGridTests
     }
 
     [UnityTest]
+    public IEnumerator IsAreaFree_ColliderInAdjacentCell_DoesNotBlockThisCell()
+    {
+        var obstacle = TestBootstrap.CreateGameObject("Obstacle");
+        obstacle.transform.position = _placementGrid.CellCenterWorld(new Vector3Int(10, 10, 0));
+        obstacle.AddComponent<BoxCollider2D>();
+        yield return null;
+
+        Assert.IsTrue(_placementGrid.IsAreaFree(new Vector3Int(11, 10, 0), 1, 1));
+    }
+
+    [UnityTest]
     public IEnumerator WorldToCell_RoundTripsWithCellCenterWorld()
     {
         yield return null;

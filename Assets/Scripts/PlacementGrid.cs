@@ -21,6 +21,8 @@ public class PlacementGrid : MonoBehaviour
 
     public Vector3 CellCenterWorld(Vector3Int cell) => grid.GetCellCenterWorld(cell);
 
+    public Vector3 CellSize => grid.cellSize;
+
     public bool IsAreaFree(Vector3Int origin, int width, int height)
     {
         for (int x = 0; x < width; x++)
@@ -31,7 +33,7 @@ public class PlacementGrid : MonoBehaviour
                 if (_occupied.ContainsKey(cell)) return false;
 
                 Vector2 center = grid.GetCellCenterWorld(cell);
-                Vector2 size = grid.cellSize;
+                Vector2 size = (Vector2)grid.cellSize * 0.8f;
                 var hits = Physics2D.OverlapBoxAll(center, size, 0f);
                 foreach (var hit in hits)
                     if (!hit.isTrigger) return false;

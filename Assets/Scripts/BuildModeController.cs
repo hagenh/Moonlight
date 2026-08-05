@@ -32,8 +32,33 @@ public class BuildModeController : MonoBehaviour
         CurrentItem = item;
         IsActive = true;
         _ghostRenderer.sprite = item.icon;
+        _ghostRenderer.transform.localScale = GhostScaleFor(item);
         _ghostRenderer.gameObject.SetActive(true);
     }
+
+    private Vector3 GhostScaleFor(ItemDef item)
+    {
+        if (item.icon == null || PlacementGrid.Instance == null) return Vector3.one;
+
+        Vector3 iconSize = item.icon.bounds.size;
+        if (iconSize.x <= 0f || iconSize.y <= 0f) return Vector3.one;
+
+        Vector3 cellSize = PlacementGrid.Instance.CellSize;
+        return new Vector3(
+            item.footprintWidth * cellSize.x / iconSize.x,
+            item.footprintHeight * cellSize.y / iconSize.y,
+            1f);
+    }
+
+    private Vector3 FootprintCenterWorld(Vector3Int origin, int width, int height)
+    {
+        Vector3 cellSize = PlacementGrid.Instance.CellSize;
+        Vector3 originCenter = PlacementGrid.Instance.CellCenterWorld(origin);
+        return originCenter + new Vector3((width - 1) * cellSize.x / 2f, (height - 1) * cellSize.y / 2f, 0f);
+    }
+
+    private static bool IsPlayerMenuOpen() =>
+        PlayerController.Instance != null && PlayerController.Instance.IsMenuOpen;
 
     public void Cancel()
     {
@@ -45,6 +70,7 @@ public class BuildModeController : MonoBehaviour
     public bool TryConfirmAt(Vector3Int cell)
     {
         if (!IsActive || CurrentItem == null) return false;
+        if (IsPlayerMenuOpen()) return false;
         if (PlacementGrid.Instance == null || InfrastructureManager.Instance == null) return false;
 
         int width = CurrentItem.footprintWidth;
@@ -52,7 +78,7 @@ public class BuildModeController : MonoBehaviour
         if (!PlacementGrid.Instance.IsAreaFree(cell, width, height)) return false;
         if (!InfrastructureManager.Instance.TryConsume(CurrentItem)) return false;
 
-        Vector3 worldPos = PlacementGrid.Instance.CellCenterWorld(cell);
+        Vector3 worldPos = FootprintCenterWorld(cell, width, height);
         GameObject instanceGo = CurrentItem.placedPrefab != null
             ? Instantiate(CurrentItem.placedPrefab, worldPos, Quaternion.identity)
             : new GameObject(CurrentItem.displayName);
@@ -69,6 +95,7 @@ public class BuildModeController : MonoBehaviour
 
     private void Update()
     {
+        if (IsPlayerMenuOpen()) return;
         if (!IsActive) return;
 
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -104,8 +131,10 @@ public class BuildModeController : MonoBehaviour
 
     private void UpdateGhost(Vector3Int cell)
     {
-        _ghostRenderer.transform.position = PlacementGrid.Instance.CellCenterWorld(cell);
-        bool free = PlacementGrid.Instance.IsAreaFree(cell, CurrentItem.footprintWidth, CurrentItem.footprintHeight);
+        int width = CurrentItem.footprintWidth;
+        int height = CurrentItem.footprintHeight;
+        _ghostRenderer.transform.position = FootprintCenterWorld(cell, width, height);
+        bool free = PlacementGrid.Instance.IsAreaFree(cell, width, height);
         _ghostRenderer.color = free ? validColor : invalidColor;
     }
 }

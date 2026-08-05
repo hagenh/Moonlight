@@ -113,4 +113,42 @@ public class BuildModeControllerTests
 
         Assert.IsFalse(_controller.TryConfirmAt(new Vector3Int(0, 0, 0)));
     }
+
+    [UnityTest]
+    public IEnumerator TryConfirmAt_WhilePlayerMenuOpen_ReturnsFalseAndDoesNotConsume()
+    {
+        var player = TestBootstrap.CreateSingleton<PlayerController>();
+        _controller.Enter(TestItem);
+        player.IsMenuOpen = true;
+        yield return null;
+
+        bool result = _controller.TryConfirmAt(new Vector3Int(3, 3, 0));
+
+        Assert.IsFalse(result);
+        Assert.AreEqual(2, _infraManager.Book.Available(TestItem));
+        Assert.IsTrue(_placementGrid.IsAreaFree(new Vector3Int(3, 3, 0), 1, 1));
+    }
+
+    [UnityTest]
+    public IEnumerator TryConfirmAt_TwoByOneItem_PlacesInstanceAtFootprintCenter()
+    {
+        var bench = new ItemDef("test_bench_2x1", "TestBench2x1", isPlaceable: true, footprintWidth: 2, footprintHeight: 1);
+        _infraManager.Book.Add(bench, 1);
+        var origin = new Vector3Int(12, 4, 0);
+
+        _controller.Enter(bench);
+        yield return null;
+
+        Assert.IsTrue(_controller.TryConfirmAt(origin));
+
+        var placed = GameObject.Find("TestBench2x1");
+        Assert.IsNotNull(placed);
+        TestBootstrap.Track(placed);
+
+        Vector3 expected = (_placementGrid.CellCenterWorld(origin)
+            + _placementGrid.CellCenterWorld(origin + new Vector3Int(1, 0, 0))) / 2f;
+
+        Assert.AreEqual(expected.x, placed.transform.position.x, 0.0001f);
+        Assert.AreEqual(expected.y, placed.transform.position.y, 0.0001f);
+    }
 }
