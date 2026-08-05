@@ -27,6 +27,20 @@ public class ContentDb : MonoBehaviour
     [SerializeField] private Sprite stoneIcon;
     [SerializeField] private Sprite woodIcon;
 
+    [Header("Infrastructure Icons")]
+    [SerializeField] private Sprite lamppostIcon;
+    [SerializeField] private Sprite plankSidewalkIcon;
+    [SerializeField] private Sprite benchIcon;
+    [SerializeField] private Sprite flowerBoxIcon;
+    [SerializeField] private Sprite signIcon;
+
+    [Header("Infrastructure Prefabs")]
+    [SerializeField] private GameObject lamppostPrefab;
+    [SerializeField] private GameObject plankSidewalkPrefab;
+    [SerializeField] private GameObject benchPrefab;
+    [SerializeField] private GameObject flowerBoxPrefab;
+    [SerializeField] private GameObject signPrefab;
+
     public static readonly ItemDef Grain = new ItemDef("grain", "Grain", true, 5);
     public static readonly ItemDef Sugar = new ItemDef("sugar", "Sugar", true, 5);
     public static readonly ItemDef Yeast = new ItemDef("yeast", "Yeast", true, 8);
@@ -41,6 +55,12 @@ public class ContentDb : MonoBehaviour
     public static readonly ItemDef BerryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
     public static readonly ItemDef Stone = new ItemDef("stone", "Stone", true, 1);
     public static readonly ItemDef Wood = new ItemDef("wood", "Wood", true, 2);
+
+    public static readonly ItemDef Lamppost = new ItemDef("lamppost", "Lamppost", isIngredient: false, isPlaceable: true, footprintWidth: 1, footprintHeight: 1);
+    public static readonly ItemDef PlankSidewalk = new ItemDef("plank_sidewalk", "Plank Sidewalk", isIngredient: false, isPlaceable: true, footprintWidth: 1, footprintHeight: 1);
+    public static readonly ItemDef Bench = new ItemDef("bench", "Bench", isIngredient: false, isPlaceable: true, footprintWidth: 2, footprintHeight: 1);
+    public static readonly ItemDef FlowerBox = new ItemDef("flower_box", "Flower Box", isIngredient: false, isPlaceable: true, footprintWidth: 1, footprintHeight: 1);
+    public static readonly ItemDef Sign = new ItemDef("sign", "Sign", isIngredient: false, isPlaceable: true, footprintWidth: 1, footprintHeight: 1);
 
     public static readonly ResidentDef Berta = new ResidentDef(
         "berta", "Berta", "Bakery",
@@ -98,6 +118,16 @@ public class ContentDb : MonoBehaviour
         BerryShine.icon = berryShineIcon;
         Stone.icon = stoneIcon;
         Wood.icon = woodIcon;
+        Lamppost.icon = lamppostIcon;
+        Lamppost.placedPrefab = lamppostPrefab;
+        PlankSidewalk.icon = plankSidewalkIcon;
+        PlankSidewalk.placedPrefab = plankSidewalkPrefab;
+        Bench.icon = benchIcon;
+        Bench.placedPrefab = benchPrefab;
+        FlowerBox.icon = flowerBoxIcon;
+        FlowerBox.placedPrefab = flowerBoxPrefab;
+        Sign.icon = signIcon;
+        Sign.placedPrefab = signPrefab;
         Register(Grain);
         Register(Sugar);
         Register(Yeast);
@@ -112,6 +142,11 @@ public class ContentDb : MonoBehaviour
         Register(BerryShine);
         Register(Stone);
         Register(Wood);
+        Register(Lamppost);
+        Register(PlankSidewalk);
+        Register(Bench);
+        Register(FlowerBox);
+        Register(Sign);
         RegisterResident(Berta);
         RegisterResident(Tormod);
     }
