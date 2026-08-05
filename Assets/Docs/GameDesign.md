@@ -138,7 +138,7 @@ This rule is the mechanism that prevents hook vacuums. It is checkable, which is
 
 **① Everything past minute 40 is a hypothesis.** The game currently ends where Act 0 ends. Hooks 4, 5, and 6 — planning, transformation, and the question — have never been played by anyone. The build order is right; the honesty is the point.
 
-**② The 40-75 minute vacuum — now answered, but unproven.** Previously this stretch ran on ratchet alone, the same hook Act 0 had just spent twenty minutes on, only with a bigger number. The stand is the fix: a genuinely new hook arrives exactly when the old one runs out. **This is the single most important thing to prototype next**, because the whole mid-game rests on it.
+**② The 40-75 minute vacuum — now answered, but unproven.** Previously this stretch ran on ratchet alone, the same hook Act 0 had just spent twenty minutes on, only with a bigger number. The stand is the fix: a genuinely new hook arrives exactly when the old one runs out. **This is the single most important thing to prototype next**, because the whole mid-game rests on it. *(A second answer landed 2026-08-05: the homestead tree's foraged-material projects — storeroom crates, fire ring, the shed's first stages — are all startable the moment the shell closes. See Part 3, "The homestead site.")*
 
 **③ The daily loop still has one verb.** Foraging feeds brewing; building spends brewing income. Everything routes through moonshine. The stand adds *decision* to that verb, which helps a great deal — but it does not add a second thing to do. See Part 4.
 
@@ -299,9 +299,32 @@ Factory goods: Bakery = yeast (faster ferments) · Smithy = nails, barrels, stil
 
 ~~**The Constable's office is never purchasable.**~~ **Cut with the Constable, 2026-08-04** — see "The Constable" below.
 
-**The homestead is a site, not a purchase.** The shell (3 stages) closes Act 0 on schedule. Everything after — stand, vats, storage, rooms, eventually a cellar of your own — is ongoing. This is the permanent home for capacity unlocks and the reason the plot keeps mattering.
+**The homestead is a site, not a purchase.** The shell (3 stages) closes Act 0 on schedule. Everything after is ongoing — and is now designed: see "The homestead site" below.
 
 Full record: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`.
+
+### The homestead site — the upgrade tree
+
+**Settled 2026-08-05 (thread #6).** Full record: `docs/superpowers/specs/2026-08-05-homestead-upgrades-design.md`.
+
+**A project is a physical spot on the plot** with its own staged build, exactly like the shell — walk up, spend materials, watch it advance. **Costs are materials only** (homestead growth is built, never bought; cash stays exclusively Mrs. Holt's), and **the material list is the gate**: Stone and Wood are foraged from day one, while Nails, Barrels, and Still Parts exist only once the Smithy is restored. A project can be *started* on foraged materials before it can be *finished* — the half-built shed is the signpost pointing at the town, which is the central fusion expressed in crafting costs.
+
+Five tracks, seven projects:
+
+| Track | Project (stages) | Effect |
+|---|---|---|
+| **Stand** | Stand II: Shelves (Wood) → Awning & board (Wood + Nails) | Request slots 3→5, arrivals 2→3/night — the settled "first stand upgrade" numbers get their home |
+| **Production** | Brewing shed: Footing (Stone) → Frame (Wood) → Fit-out (Nails + Still Parts) | Vat #2 — parallel ferments |
+| **Production** | Vat #3: Shed extension (Wood + Still Parts) | Late relief valve once aged batches park in the pipeline |
+| **Aging** | The cellar: Dig & line (Stone) → Shore & stairs (Wood + Nails) → Racks (Wood + Barrels) | Barrel aging — the "aged" rung's home. Lands **before** the Mill reveal, so the player knows exactly what a locked cellar means |
+| **Storage** | Storeroom: Crates (Wood) → Shelving (Wood + Nails) | Home stash; stockpiling for bigger brewing plans. Crates are the cheapest post-shell project |
+| **Hearth** | Porch & fire: Fire ring (Stone) → Bench (Wood) → Lamp (Nails) · Furnished rooms (Wood, Nails, town goods) | No mechanics — expression, and the furniture night beats stage on |
+
+**Triage co-scaling — the choice stays alive (decision, 2026-08-05):** at every tree state, the average day leaves at least one order unfilled. Vat #2 lands with Stand II automatically (both nail-gated) so supply and demand double together; the cellar adds a *slow lane* (barrels age 2-3 game days on strictly limited racks) plus aged requests, not more daily batches; request size drifts upward as slots grow. Extra vats buy parallelism across recipe speeds, never surplus.
+
+**Not in the tree:** a garden (parked in `LaterIdeas.md` — competes with foraging and the Apothecary) · the town storefront (a town channel) · any bed/sleep mechanics.
+
+**Tuning left to implementation:** stage quantities · aged ferment duration (proposal: 2-3 game days) · rack capacity (2-4 barrels) · the request-size drift curve.
 
 ### NPCs
 
@@ -396,14 +419,14 @@ Settled so far:
 | **What is night for?** (#4) | 2026-07-25 | Below — **night is a scene, not an activity block** |
 | **The Constable** (#3) | 2026-08-04 | **Cut, not settled** — "the police cut." See "The Constable" in Part 3 and `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`. After-demo item to revisit, tracked in `LaterIdeas.md` |
 | **The factory model / people ladder** | 2026-08-04 | Part 3, Buildings and NPCs — fills the automation unlock category. Full record: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md` |
+| **Homestead site upgrades** (#6) | 2026-08-05 | Part 3, "The homestead site" — five tracks, seven projects, materials-only costs, triage co-scaling. Unblocks #7. Full record: `docs/superpowers/specs/2026-08-05-homestead-upgrades-design.md` |
 
 Still open, in dependency order. **Work them roughly in this sequence** — the ordering reflects real blocking, not preference:
 
 | # | Thread | What's unresolved | Blocks |
 |---|---|---|---|
-| 5 | **Side activities** | Filter written, candidates unscored, none chosen. **Now more load-bearing** — with no tension, variety is what keeps the middle hours alive | — |
-| 6 | **Homestead site upgrades** | Which upgrades, what order, what cost | #7 |
-| 7 | **Unlock cadence** | The 2-3-visible rule has never been tested against real content | — |
+| 5 | **Side activities** | Filter written, candidates unscored, none chosen. **Now more load-bearing** — with no tension, variety is what keeps the middle hours alive. *(Decorating interiors left the candidate list 2026-08-05 — absorbed into the homestead tree's hearth track)* | — |
+| 7 | **Unlock cadence** | The 2-3-visible rule has never been tested against real content. **Unblocked 2026-08-05** — the homestead tree gives it content, and the spec's cadence walkthrough is its first paper test | — |
 | 8 | **Berta's recruitment beat** | Her trigger evaporated with the runs, and the cozy decision rules out rebuilding it on danger. **She needs a non-jeopardy version of "catches you and covers unprompted"** — the beat is worth saving; only its trigger is broken. **2026-08-04 candidate, not settled:** she catches the player botching a yeast batch and fixes it unprompted — zero jeopardy | — |
 | 9 | **Recipe book → cellar** | **Now has an architecture** (`docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md`, 2026-08-04) — replaces the cut fragment collectible system. Still open: the five page titles/bodies, unwritten. **Earliest thing the player would meet (minute 3), and higher value** since hook 6 carries more of the game's pull | — |
 | 10 | **The moral axis** | Post-slice. Down to two resolutions after the cozy decision eliminated "closed doors" — and may not be worth building at all | — |
@@ -558,7 +581,7 @@ Weakness ③. The stand adds decision to brewing but not a second thing to do.
 3. Runs on a **different clock than fermenting**, so it fills brew-waits rather than competing with them
 4. Reinforces *"this is my town"* or *"I know these woods"*
 
-**Unscored candidates:** fishing or trapping in the near forest · NPC favors and requests · decorating and furnishing interiors · mapping the woods as a collection · cooking and meals · hauling contracts for neighbors.
+**Unscored candidates:** fishing or trapping in the near forest · NPC favors and requests · ~~decorating and furnishing interiors~~ *(absorbed into the homestead tree's hearth track, 2026-08-05)* · mapping the woods as a collection · cooking and meals · hauling contracts for neighbors.
 
 Score these against the filter before building any of them.
 
@@ -599,4 +622,5 @@ Money versus helping people. Explicitly **not in the slice**.
 | 2026-07-25 | **The cozy decision — the largest revision since the runs cut.** The inherited assumption that the game needs a mechanical edge *somewhere* is **rejected**. Lamplight is a restoration game with a criminal skin; jeopardy is not relocated, it is removed · guardrail 1 widens from "day life" to the whole game · **new guardrail 7: cozy is the genre, not a fallback** · weakness ⑤ closed by decision · the Constable is reframed from a tension system to a recurring character who costs the player nothing (thread #3 unblocked and radically smaller) · `Guard.cs` / `GuardManager` resolve to **delete** · bait notes move from parked to out-of-genre · the moral axis loses its "closed doors" resolution and may not be worth building · **thread #5 (side activities) promoted to core**, since variety is now the only retention mechanism · the game's pull rests entirely on hooks 5 and 6, both unproven |
 | 2026-08-03 | **Tormod is never a buyer.** The Roadhouse back-door channel is cut entirely, superseding the 2026-07-26 "retires when the stand opens" — the stand is the only selling channel, and Tormod becomes the town's first contact: one conversation, 3 Nails, then pure character. The delivery point, `SellManager`/`SellerRules` Tormod flow, and tests are deleted with Phase S · **hiring is named-NPCs only** — the hired-randoms path is rejected; the hired-help idea in `LaterIdeas.md` is rescoped to known characters · **save system deferred to Phase 9** by decision — built right before the first external tester, not from day one · **the book wins**: the request book is the primary channel, and beats customers in any form — in-person browsing cut by default; whether the shelf survives and whether the book runs from day 1 or opens at the shell are **playtest questions**, deliberately left to testing with the current build (shelf + book from day 1) as the working state |
 | 2026-08-04 | **NPC roster audited; the factory model established.** Two new rules: every finished building has a named NPC, every NPC's mechanic aids the player · **the people ladder** (restore factory → produce by hand → build the operator's house → hire → automate) fills the previously-empty automation unlock category · Buildings table reworked into Factory/Shop/Housing/NPC-houses/Player-sites · **Constable Aas and all police content cut** ("the police cut") — the game currently has no antagonist, an after-demo item to revisit · Boarding House's operation role settled as Elias's recruitment housing · Mrs. Holt's gate widened to every lot and house purchase, not just the Mill · new miller character, Runa, the endgame hire · Nail Economy (`LaterIdeas.md`) answered via the Smithy · **the fragment collectible system is cut**, replaced by the grandfather's recipe book (weakness ④/thread #9), which now has an architecture. Full records: `docs/superpowers/specs/2026-08-04-npc-roster-and-factory-model-design.md`, `docs/superpowers/specs/2026-08-04-recipe-book-narrative-redesign-design.md` |
+| 2026-08-05 | **Thread #6 settled — the homestead site upgrade tree.** Five tracks, seven projects, each a physical staged build on the plot (reusing the shell's tech) · **materials only** — homestead growth is built, never bought, and the material list *is* the gate (Stone/Wood foraged from day one; Nails/Barrels/Still Parts wait for the Smithy, so town restoration feeds homestead growth with no artificial locks) · projects can be started before they can be finished — the half-built shed points at the town · **the choice stays alive**: demand co-scales with supply at every tree state, vats buy parallelism not surplus, the cellar adds a slow aging lane rather than daily batches · **the player's own cellar lands mid-game, before the Mill reveal**, teaching the image the Mill's locked door weaponizes · interiors are in the tree, decoration included — thread #5 loses its decorating candidate · thread #7 unblocked · garden parked in `LaterIdeas.md`. Full record: `docs/superpowers/specs/2026-08-05-homestead-upgrades-design.md` |
 | 2026-07-25 | **Thread #4 settled — what night is for.** Answer: **night is a scene, not an activity block.** Most nights are empty and the player just sleeps · beats wait at the homestead, making them unmissable by construction without any scheduling system · a beat is warmth, story, or the cellar mystery, and never changes the player's inventory · **the pillar *"day = the front, night = the operation"* is retired** and replaced with *day is when you act; night is when the day answers back* · the day/night cycle survives as pacing and mood, and the lighting system survives on its own merits · **night's real duration recorded for the first time** — ~3.8 real minutes from dusk, ~2.3 genuinely dark, ending in a forced midnight sleep — which required no clock retuning and independently ruled out the covert-activity candidate |

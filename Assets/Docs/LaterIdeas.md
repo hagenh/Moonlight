@@ -9,7 +9,11 @@ Ideas that came up during implementation but are deferred to a future phase or d
 
 ## Homestead Interior
 
-- Interior construction stages for the Homestead (separate from the exterior build). Could gate interior rooms behind materials/crafting.
+- ~~Interior construction stages for the Homestead (separate from the exterior build). Could gate interior rooms behind materials/crafting.~~ **Absorbed 2026-08-05** into the homestead upgrade tree — functional rooms (storeroom, brewing shed fit-out) and pure-expression furnished rooms both. See `Assets/Docs/GameDesign.md` Part 3, "The homestead site", and `docs/superpowers/specs/2026-08-05-homestead-upgrades-design.md`.
+
+## Homestead Garden — parked 2026-08-05, unexamined
+
+Growing berries or botanicals on the homestead plot. Came up during the homestead-tree design and was deliberately left out: it competes with the foraging loop (the reason to walk the map between brews) and with the Apothecary's botanical role. Parked per the build rules — review once, at playtest.
 
 ## Nail Economy
 
