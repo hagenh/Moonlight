@@ -32,11 +32,11 @@ public class BuildModeController : MonoBehaviour
         CurrentItem = item;
         IsActive = true;
         _ghostRenderer.sprite = item.icon;
-        _ghostRenderer.transform.localScale = GhostScaleFor(item);
+        _ghostRenderer.transform.localScale = FootprintScaleFor(item);
         _ghostRenderer.gameObject.SetActive(true);
     }
 
-    private Vector3 GhostScaleFor(ItemDef item)
+    private Vector3 FootprintScaleFor(ItemDef item)
     {
         if (item.icon == null || PlacementGrid.Instance == null) return Vector3.one;
 
@@ -83,6 +83,7 @@ public class BuildModeController : MonoBehaviour
             ? Instantiate(CurrentItem.placedPrefab, worldPos, Quaternion.identity)
             : new GameObject(CurrentItem.displayName);
         instanceGo.transform.position = worldPos;
+        instanceGo.transform.localScale = FootprintScaleFor(CurrentItem);
 
         var marker = instanceGo.GetComponent<PlacedInfrastructure>();
         if (marker == null) marker = instanceGo.AddComponent<PlacedInfrastructure>();
