@@ -12,7 +12,7 @@ Phase numbers are identifiers, not a sequence — Phase D came first and Phase 4
 - Systems: movement/interaction · building states · staged construction · production (mash → ferment → bottle) · **roadside stand + request book (the primary economy)** · day-night + sleep-save · night beats · conspiracy trust · recruitment beats · public infrastructure · JSON save (built in Phase 9 — see Rules).
 - 8 NPCs: Tormod, Berta, Signe, Aksel, Ingrid, Elias, Mrs. Holt, Runa (the miller). **Constable Aas cut 2026-08-04** — see LaterIdeas.md for the after-demo revisit item.
 - Cliffhanger: Mill cellar, locked from the inside. Metric: do they ask what's in the cellar?
-- NOT in slice: pathfinding, weather, seasons, quest log, cutscene framework, combat, minimap, co-op, free placement (sockets only), corrupt-deputy arc.
+- NOT in slice: pathfinding, weather, seasons, quest log, cutscene framework, combat, minimap, co-op, corrupt-deputy arc.
 - CUT, not deferred (2026-07-25): delivery runs, routes, patrols, detection, load-outs, covert forest infrastructure, bait notes. See GameDesign.md Part 4, "The runs decision" and "The cozy decision". **Also cut (2026-08-04):** the police — Constable Aas and all police content. See GameDesign.md, "The Constable."
 
 ## Phase D — Demolition (done)
@@ -82,9 +82,11 @@ Design source: GameDesign.md Part 3, "The stand and the request book". **The pri
 **Phase S is partly done, not done.** Built 2026-07-26: the request domain (`Rules/StandRequest`, `RequestBook`, `RequestBookRules`, `RequestArrivalRules`), `StandManager` bridging clock and inventory, the `Stand` interactable and the IMGUI `RequestBookUI`. All three are placed in SampleScene — `StandManager` at root, `RequestBookUI` on `HUDCanvas` beside the other panels, `Stand` on the camp clearing at `(-17.25, 8)`. Still open, each its own later plan: replies and the correspondence voice (notes carry placeholder signatures only), the strangers → residents customer mix, descriptive requests pointing past what the player can brew, slot upgrades beyond the starting 3 (`RequestBook.SetSlotCount` exists but nothing grants it), the town storefront, retiring Tormod as a channel, and appointments as demand events. `RequestArrivalRules.DescriptiveInN = 4` is an **invented** tuning number — GameDesign.md says only "a minority are descriptive" and does not fix the fraction.
 
 ## Phase 5 — Public infrastructure
-- [ ] Public sockets (street): lamppost, plank sidewalk, bench, flower box, sign. Effects: night light, small stand buff at beauty thresholds, dialogue reactions. Never any downside.
+- [ ] Public infrastructure (street): lamppost, plank sidewalk, bench, flower box, sign. Effects: night light, small stand buff at beauty thresholds, dialogue reactions. Never any downside.
 - [ ] Covert forest sockets (stash barrel, trail marker, shortcut plank, lookout perch) are **cut** — they existed to serve delivery runs.
 - [ ] Done: a player who beautifies the street feels it is "mine", and sees the stand busier for it.
+
+**Phase 5 is partly done, not done.** Built 2026-08-05: free grid-based placement, replacing the earlier curated-socket model (`docs/superpowers/specs/2026-08-04-infrastructure-grid-placement-design.md`). `BuildBook`/`InfrastructureManager` track availability (placeholder seed count of 5 per item, real acquisition rules are later work), `PlacementGrid` wraps the scene's `Grid` for cell math and obstacle checks, `BuildModeController` drives a mouse-tracked ghost cursor (`B` opens the build menu; `R` still opens the recipe book), and all 5 items (lamppost, plank sidewalk, bench, flower box, sign) are placeable in `SampleScene` with placeholder art (tinted squares — no real sprites yet). Still open: night light, stand-traffic buffs at beauty thresholds, NPC dialogue reactions — none of the actual beautification payoffs exist yet, only the placement mechanism. No placement-bounds check either (spec gap, tracked, not blocking).
 
 ## Phase 6 — Narrative: conspiracy trust + recruitment
 - [ ] NarrativeFlags + MilestoneDetector + conditional DialogueResolver per Assets/Docs/NarrativeDesign.md architecture (still valid — reskin meanings only).
