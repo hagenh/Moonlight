@@ -27,6 +27,10 @@ public class ContentDb : MonoBehaviour
     [SerializeField] private Sprite stoneIcon;
     [SerializeField] private Sprite woodIcon;
 
+    [Header("Tool Icons")]
+    [SerializeField] private Sprite pickaxeIcon;
+    [SerializeField] private Sprite handAxeIcon;
+
     [Header("Infrastructure Icons")]
     [SerializeField] private Sprite lamppostIcon;
     [SerializeField] private Sprite plankSidewalkIcon;
@@ -55,6 +59,9 @@ public class ContentDb : MonoBehaviour
     public static readonly ItemDef BerryShine = new ItemDef("berry_shine", "Berry Shine", false, 15, true);
     public static readonly ItemDef Stone = new ItemDef("stone", "Stone", true, 1);
     public static readonly ItemDef Wood = new ItemDef("wood", "Wood", true, 2);
+
+    public static readonly ItemDef Pickaxe = new ItemDef("pickaxe", "Pickaxe", isIngredient: false);
+    public static readonly ItemDef HandAxe = new ItemDef("hand_axe", "Hand Axe", isIngredient: false);
 
     public static readonly ItemDef Lamppost = new ItemDef("lamppost", "Lamppost", isIngredient: false, isPlaceable: true, footprintWidth: 1, footprintHeight: 1);
     public static readonly ItemDef PlankSidewalk = new ItemDef("plank_sidewalk", "Plank Sidewalk", isIngredient: false, isPlaceable: true, footprintWidth: 1, footprintHeight: 1);
@@ -118,6 +125,8 @@ public class ContentDb : MonoBehaviour
         BerryShine.icon = berryShineIcon;
         Stone.icon = stoneIcon;
         Wood.icon = woodIcon;
+        Pickaxe.icon = pickaxeIcon;
+        HandAxe.icon = handAxeIcon;
         Lamppost.icon = lamppostIcon;
         Lamppost.placedPrefab = lamppostPrefab;
         PlankSidewalk.icon = plankSidewalkIcon;
@@ -142,6 +151,8 @@ public class ContentDb : MonoBehaviour
         Register(BerryShine);
         Register(Stone);
         Register(Wood);
+        Register(Pickaxe);
+        Register(HandAxe);
         Register(Lamppost);
         Register(PlankSidewalk);
         Register(Bench);

@@ -25,7 +25,11 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         if (TimeManager.Instance != null && TimeManager.Instance.Day == 1)
+        {
             TryAdd(ContentDb.Berry, 3);
+            TryAdd(ContentDb.Pickaxe, 1);
+            TryAdd(ContentDb.HandAxe, 1);
+        }
     }
 
     public int GetCount(ItemDef def)

@@ -31,6 +31,19 @@ public class StartingInventoryTests
     }
 
     [UnityTest]
+    public IEnumerator Day1_GrantsPickaxeAndHandAxe()
+    {
+        TestBootstrap.CreateSingleton<TimeManager>();
+        var inventory = TestBootstrap.CreateSingleton<InventoryManager>();
+
+        yield return null;
+        yield return null;
+
+        Assert.AreEqual(1, inventory.GetCount(ContentDb.Pickaxe));
+        Assert.AreEqual(1, inventory.GetCount(ContentDb.HandAxe));
+    }
+
+    [UnityTest]
     public IEnumerator NotDay1_GrantsNoBerry()
     {
         var timeManager = TestBootstrap.CreateSingleton<TimeManager>();
