@@ -46,11 +46,11 @@ public class StandFlowTests
     }
 
     [UnityTest]
-    public IEnumerator DayEnded_PostsTwoNotes()
+    public IEnumerator DayEnded_FillsBookToCapacity()
     {
         GameEvents.OnDayEnded(1);
 
-        Assert.AreEqual(2, _stand.Book.Active.Count);
+        Assert.AreEqual(3, _stand.Book.Active.Count);
         yield return null;
     }
 
@@ -78,7 +78,7 @@ public class StandFlowTests
         Assert.IsTrue(filled);
         Assert.AreEqual(cashBefore + 108, _game.Cash);
         Assert.AreEqual(0, _inventory.GetCount(ContentDb.BerryShine));
-        Assert.AreEqual(0, _stand.Book.Active.Count);
+        Assert.AreEqual(2, _stand.Book.Active.Count);
         yield return null;
     }
 
@@ -94,7 +94,7 @@ public class StandFlowTests
         Assert.IsFalse(filled);
         Assert.AreEqual(cashBefore, _game.Cash);
         Assert.AreEqual(2, _inventory.GetCount(ContentDb.BerryShine));
-        Assert.AreEqual(1, _stand.Book.Active.Count);
+        Assert.AreEqual(3, _stand.Book.Active.Count);
         yield return null;
     }
 
@@ -119,7 +119,7 @@ public class StandFlowTests
         bool declined = _stand.Decline("a");
 
         Assert.IsTrue(declined);
-        Assert.AreEqual(0, _stand.Book.Active.Count);
+        Assert.AreEqual(2, _stand.Book.Active.Count);
         Assert.AreEqual(cashBefore, _game.Cash);
         Assert.AreEqual(4, _inventory.GetCount(ContentDb.BerryShine));
         yield return null;

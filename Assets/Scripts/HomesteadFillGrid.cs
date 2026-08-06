@@ -11,10 +11,14 @@ public class HomesteadFillGrid : MonoBehaviour
 
     private SpriteRenderer[] _cells;
 
-    public int CellCount => _cells.Length;
+    public int CellCount => EnsureCells().Length;
 
-    private void Awake()
+    private void Awake() => EnsureCells();
+
+    private SpriteRenderer[] EnsureCells()
     {
+        if (_cells != null) return _cells;
+
         _cells = new SpriteRenderer[Columns * Rows];
         float spacingX = GridWidth / Columns;
         float spacingY = GridHeight / Rows;
@@ -33,14 +37,17 @@ public class HomesteadFillGrid : MonoBehaviour
             sr.enabled = false;
             _cells[i] = sr;
         }
+
+        return _cells;
     }
 
     public void SetFilled(int filledCount, Sprite sprite)
     {
-        for (int i = 0; i < _cells.Length; i++)
+        var cells = EnsureCells();
+        for (int i = 0; i < cells.Length; i++)
         {
-            _cells[i].sprite = sprite;
-            _cells[i].enabled = i < filledCount;
+            cells[i].sprite = sprite;
+            cells[i].enabled = i < filledCount;
         }
     }
 }

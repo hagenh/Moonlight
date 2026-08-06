@@ -67,6 +67,7 @@ public class TryEnterForageStateTests
         _inventory.TryAdd(ContentDb.Pickaxe, 1);
         _inventory.SetActiveSlot(0);
         _player.CurrentInteractable = _target;
+        _recorder.Clear();
 
         InvokeInteract();
 
@@ -95,6 +96,7 @@ public class TryEnterForageStateTests
         _inventory.TryAdd(ContentDb.Pickaxe, 1);
         _inventory.SetActiveSlot(1);
         _player.CurrentInteractable = _target;
+        _recorder.Clear();
 
         InvokeInteract();
 

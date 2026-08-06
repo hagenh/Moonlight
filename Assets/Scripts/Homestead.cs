@@ -23,6 +23,7 @@ public class Homestead : MonoBehaviour, IInteractable
     private BuildStage _stage;
     private int _stoneDeposited;
     private int _woodDeposited;
+    private bool _initialized;
 
     private static readonly Color[] _stageColors = {
         new Color(0.7f, 0.6f, 0.4f),
@@ -38,8 +39,13 @@ public class Homestead : MonoBehaviour, IInteractable
     public InteractType InteractType => InteractType.Building;
     public bool CanInteract => true;
 
-    private void Awake()
+    private void Awake() => EnsureInitialized();
+
+    private void EnsureInitialized()
     {
+        if (_initialized) return;
+        _initialized = true;
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (doorTrigger != null)
             doorTrigger.enabled = false;
@@ -53,6 +59,7 @@ public class Homestead : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        EnsureInitialized();
         if (InventoryManager.Instance == null) return;
 
         switch (_stage)
