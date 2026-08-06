@@ -29,6 +29,7 @@ public class StandManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         _book = new RequestBook(startingSlots);
+        PostNightNotes(0);
     }
 
     private void OnEnable()

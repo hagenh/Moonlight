@@ -39,6 +39,13 @@ public class StandFlowTests
     }
 
     [UnityTest]
+    public IEnumerator Awake_SeedsOrdersImmediately()
+    {
+        Assert.AreEqual(2, _stand.Book.Active.Count);
+        yield return null;
+    }
+
+    [UnityTest]
     public IEnumerator DayEnded_PostsTwoNotes()
     {
         GameEvents.OnDayEnded(1);
