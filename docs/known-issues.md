@@ -42,6 +42,11 @@ Same issue — `SellerInteractable.Create()` builds a white 4x4 texture tinted b
 
 **Files:** `Assets/Scripts/SellerInteractable.cs:43`
 
+### Dropped items are oversized and use the wrong sprite
+`DroppedItem.Create()` reuses `item.icon` — the small GUI hotbar/inventory icon — as the in-world sprite, and only applies a `localScale` of `(0.5, 0.5, 1)`. GUI icons aren't imported with world-appropriate pixels-per-unit, so on the ground they render far larger than the item's collider (also `0.5x0.5`) suggests. Needs a dedicated in-world pickup sprite per item/category, sized correctly (see also the "World pickup sprites" backlog item).
+
+**Files:** `Assets/Scripts/DroppedItem.cs:27-35`
+
 ## Design / Placeholder
 
 ### FermentVats in the Bakery are temporary
