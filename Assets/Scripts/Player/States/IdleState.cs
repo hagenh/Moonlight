@@ -33,6 +33,7 @@ public class IdleState : PlayerState
     {
         if (controller.CurrentInteractable == null) return;
         if (TryEnterHammerState()) return;
+        if (TryEnterForageState()) return;
         ChangeState(new InteractState(controller));
     }
 }

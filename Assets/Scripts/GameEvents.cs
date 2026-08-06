@@ -29,6 +29,10 @@ public static class GameEvents
     public static event System.Action<Building, float> HammerProgress;
     public static event System.Action<Building, int, int> RepairPointCompleted;
 
+    public static event System.Action<IForageable> ForageStarted;
+    public static event System.Action<IForageable> ForageEnded;
+    public static event System.Action<IForageable, float> ForageProgress;
+
     public static event System.Action<ResidentDef, int> ResidentTeleported;
     public static event System.Action<ResidentDef> ResidentVisible;
     public static event System.Action<ResidentDef> ResidentHidden;
@@ -128,6 +132,15 @@ public static class GameEvents
 
     public static void OnRepairPointCompleted(Building b, int done, int total)
         => RepairPointCompleted?.Invoke(b, done, total);
+
+    public static void OnForageStarted(IForageable target)
+        => ForageStarted?.Invoke(target);
+
+    public static void OnForageEnded(IForageable target)
+        => ForageEnded?.Invoke(target);
+
+    public static void OnForageProgress(IForageable target, float progress)
+        => ForageProgress?.Invoke(target, progress);
 
     public static void OnResidentTeleported(ResidentDef def, int hour)
         => ResidentTeleported?.Invoke(def, hour);

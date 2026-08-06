@@ -52,4 +52,22 @@ public abstract class PlayerState
 
         return false;
     }
+
+    protected bool TryEnterForageState()
+    {
+        if (controller.CurrentInteractable is IForageable forageable && !forageable.IsHarvested)
+        {
+            if (forageable.RequiredTool != null
+                && (InventoryManager.Instance == null || !InventoryManager.Instance.Has(forageable.RequiredTool, 1)))
+            {
+                GameEvents.OnToastRequested($"Need a {forageable.RequiredTool.displayName}");
+                return true;
+            }
+
+            ChangeState(new ForageState(controller, forageable));
+            return true;
+        }
+
+        return false;
+    }
 }
