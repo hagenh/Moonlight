@@ -57,11 +57,14 @@ public abstract class PlayerState
     {
         if (controller.CurrentInteractable is IForageable forageable && !forageable.IsHarvested)
         {
-            if (forageable.RequiredTool != null
-                && (InventoryManager.Instance == null || !InventoryManager.Instance.Has(forageable.RequiredTool, 1)))
+            if (forageable.RequiredTool != null)
             {
-                GameEvents.OnToastRequested($"Need a {forageable.RequiredTool.displayName}");
-                return true;
+                var inv = InventoryManager.Instance;
+                if (inv == null || !IsHoldingTool(inv, forageable.RequiredTool))
+                {
+                    GameEvents.OnToastRequested($"Need {forageable.RequiredTool.displayName} equipped");
+                    return true;
+                }
             }
 
             ChangeState(new ForageState(controller, forageable));
@@ -69,5 +72,13 @@ public abstract class PlayerState
         }
 
         return false;
+    }
+
+    private bool IsHoldingTool(InventoryManager inv, ItemDef tool)
+    {
+        var slots = inv.Slots;
+        int active = inv.ActiveSlotIndex;
+        if (active < 0 || active >= slots.Count) return false;
+        return slots[active].Item == tool;
     }
 }

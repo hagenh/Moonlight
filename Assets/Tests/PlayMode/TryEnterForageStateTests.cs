@@ -10,7 +10,7 @@ public class TryEnterForageStateTests
     private class FakeForageable : MonoBehaviour, IInteractable, IForageable
     {
         public bool IsHarvested { get; set; }
-        public float SwingDuration => 3f;
+        public float SwingDuration => 1.5f;
         public ItemDef RequiredTool { get; set; }
         public int SwingsCompleted { get; private set; }
 
@@ -61,10 +61,11 @@ public class TryEnterForageStateTests
     }
 
     [UnityTest]
-    public IEnumerator EntersForageState_WhenPlayerHasRequiredTool()
+    public IEnumerator EntersForageState_WhenToolInActiveSlot()
     {
         _target.RequiredTool = ContentDb.Pickaxe;
         _inventory.TryAdd(ContentDb.Pickaxe, 1);
+        _inventory.SetActiveSlot(0);
         _player.CurrentInteractable = _target;
 
         InvokeInteract();
@@ -75,9 +76,24 @@ public class TryEnterForageStateTests
     }
 
     [UnityTest]
-    public IEnumerator FiresNeedToolToast_WhenToolMissing()
+    public IEnumerator FiresNeedToolToast_WhenToolNotEquipped()
     {
         _target.RequiredTool = ContentDb.Pickaxe;
+        _player.CurrentInteractable = _target;
+
+        InvokeInteract();
+
+        Assert.AreEqual(1, _recorder.Count);
+        Assert.IsTrue(_recorder.Order[0].StartsWith("ToastRequested"));
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator FiresNeedToolToast_WhenToolInWrongSlot()
+    {
+        _target.RequiredTool = ContentDb.Pickaxe;
+        _inventory.TryAdd(ContentDb.Pickaxe, 1);
+        _inventory.SetActiveSlot(1);
         _player.CurrentInteractable = _target;
 
         InvokeInteract();
