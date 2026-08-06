@@ -5,6 +5,7 @@ public class SfxManager : MonoBehaviour
     public static SfxManager Instance { get; private set; }
 
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource loopAudioSource;
 
     [SerializeField] internal AudioClip[] coinClips;
     [SerializeField] internal AudioClip[] pickupClips;
@@ -19,6 +20,7 @@ public class SfxManager : MonoBehaviour
     private IRng _rng = UnityRng.Instance;
 
     internal AudioClip LastPlayedClip { get; private set; }
+    internal bool IsForageLoopPlaying { get; private set; }
 
     internal void SetRng(IRng rng) => _rng = rng;
 
@@ -40,6 +42,8 @@ public class SfxManager : MonoBehaviour
         GameEvents.InventoryClosed += OnInventoryClosed;
         GameEvents.SellMenuRequested += OnSellMenuRequested;
         GameEvents.MenuCloseRequested += OnMenuCloseRequested;
+        GameEvents.ForageStarted += OnForageStarted;
+        GameEvents.ForageEnded += OnForageEnded;
     }
 
     private void OnDisable()
@@ -54,6 +58,9 @@ public class SfxManager : MonoBehaviour
         GameEvents.InventoryClosed -= OnInventoryClosed;
         GameEvents.SellMenuRequested -= OnSellMenuRequested;
         GameEvents.MenuCloseRequested -= OnMenuCloseRequested;
+        GameEvents.ForageStarted -= OnForageStarted;
+        GameEvents.ForageEnded -= OnForageEnded;
+        StopForageLoop();
     }
 
     private void OnCashChanged(int newCash) => Play(coinClips);
@@ -71,6 +78,26 @@ public class SfxManager : MonoBehaviour
     private void OnInventoryClosed() => Play(bagCloseClips);
     private void OnSellMenuRequested(SellerType type) => Play(selectClips);
     private void OnMenuCloseRequested() => Play(buttonClips);
+
+    private void OnForageStarted(IForageable target)
+    {
+        var clip = PickClip(hammerClips);
+        LastPlayedClip = clip;
+        IsForageLoopPlaying = clip != null;
+        if (clip == null || loopAudioSource == null) return;
+        loopAudioSource.clip = clip;
+        loopAudioSource.loop = true;
+        loopAudioSource.Play();
+    }
+
+    private void OnForageEnded(IForageable target) => StopForageLoop();
+
+    private void StopForageLoop()
+    {
+        IsForageLoopPlaying = false;
+        if (loopAudioSource != null)
+            loopAudioSource.Stop();
+    }
 
     internal AudioClip PickClip(AudioClip[] clips)
     {

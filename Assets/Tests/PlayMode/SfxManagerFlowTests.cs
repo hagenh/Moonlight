@@ -156,4 +156,30 @@ public class SfxManagerFlowTests
 
         Assert.AreEqual(clip, _sfx.LastPlayedClip);
     }
+
+    [UnityTest]
+    public IEnumerator ForageStarted_StartsHammerLoop()
+    {
+        var clip = AudioClip.Create("hammer", 1, 1, 44100, false);
+        _sfx.hammerClips = new[] { clip };
+        yield return null;
+
+        GameEvents.OnForageStarted(null);
+
+        Assert.IsTrue(_sfx.IsForageLoopPlaying);
+        Assert.AreEqual(clip, _sfx.LastPlayedClip);
+    }
+
+    [UnityTest]
+    public IEnumerator ForageEnded_StopsHammerLoop()
+    {
+        var clip = AudioClip.Create("hammer", 1, 1, 44100, false);
+        _sfx.hammerClips = new[] { clip };
+        yield return null;
+
+        GameEvents.OnForageStarted(null);
+        GameEvents.OnForageEnded(null);
+
+        Assert.IsFalse(_sfx.IsForageLoopPlaying);
+    }
 }
