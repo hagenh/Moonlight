@@ -3,9 +3,14 @@
 ## Visual
 
 ### FallenLog instances have the wrong sprite
-FallenLog scene instances are showing placeholder sprites from placeable infrastructure items (e.g. bench sprites) instead of the intended fallen-log sprite. The correct sprite exists in the `Grassland Spring@128x128` tileset (sub-sprite `_115`), but some scene instances were wired to wrong sprites. Additionally, these foraging nodes are placed as bare GameObjects in the scene rather than prefabs, making them harder to maintain and prone to this kind of wiring mistake. They should be converted to prefabs so sprite/collider setup is managed in one place.
+FallenLog scene instances are showing placeholder sprites from placeable infrastructure items (e.g. bench sprites) instead of the intended fallen-log sprite. The correct sprite exists in the `Grassland Spring@128x128` tileset (sub-sprite `_115`), but some scene instances were wired to wrong sprites.
 
 **Files:** `Assets/Scripts/FallenLog.cs`, `Assets/Scenes/SampleScene.unity`
+
+### Placeable infrastructure items (B key) are bare sprites, not prefabs
+Items placed via the infrastructure menu (lampposts, benches, plank sidewalks, flower boxes, signs) are spawned as plain sprites with no associated prefab. They should be prefabs so that collider setup, sorting order, and any future component additions are managed in one place instead of scattered across `ContentDb` and `InfrastructureManager` logic.
+
+**Files:** `Assets/Scripts/InfrastructureManager.cs`, `Assets/Scripts/ContentDb.cs`
 
 ### Errant DeliveryPoint in the scene
 A `DeliveryPoint` GameObject is present in `SampleScene` but should not be — delivery points are created dynamically by `SellManager` when the cart arrives. The static scene instance should be removed.
