@@ -4567,17 +4567,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 59080255ca2baf643bf6df7009ca9cf8, type: 3}
   - {fileID: 8300000, guid: 5193a867277ec564eb924534c0353de8, type: 3}
   pickupClips:
-  - {fileID: 8300000, guid: 77969da4d7b632745a83ce03bdb44575, type: 3}
   - {fileID: 8300000, guid: 12861462655a8f8408d8f4838ea42b47, type: 3}
-  - {fileID: 8300000, guid: 25324627853ab234cbb4e0aa4ac33547, type: 3}
-  - {fileID: 8300000, guid: 64772986a6d6e4845a6facca335df433, type: 3}
-  - {fileID: 8300000, guid: 80981fc36e9b2ba41a095cf477a9bc21, type: 3}
   dropClips:
-  - {fileID: 8300000, guid: 77969da4d7b632745a83ce03bdb44575, type: 3}
   - {fileID: 8300000, guid: 12861462655a8f8408d8f4838ea42b47, type: 3}
-  - {fileID: 8300000, guid: 25324627853ab234cbb4e0aa4ac33547, type: 3}
-  - {fileID: 8300000, guid: 64772986a6d6e4845a6facca335df433, type: 3}
-  - {fileID: 8300000, guid: 80981fc36e9b2ba41a095cf477a9bc21, type: 3}
   hammerClips:
   - {fileID: 8300000, guid: 06fd64da0be704749bfd9e3343753f4a, type: 3}
   - {fileID: 8300000, guid: cf96126a272f4a64595d913c57215116, type: 3}
