@@ -22,17 +22,17 @@ public class BerryBush : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        GameEvents.DayEnded += OnDayEnded;
+        GameEvents.HourChanged += OnHourChanged;
     }
 
     private void OnDisable()
     {
-        GameEvents.DayEnded -= OnDayEnded;
+        GameEvents.HourChanged -= OnHourChanged;
     }
 
-    private void OnDayEnded(int day)
+    private void OnHourChanged(int hour, int day)
     {
-        if (_harvested)
+        if (_harvested && hour >= 12)
             SetHarvested(false);
     }
 
