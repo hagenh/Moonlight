@@ -25,20 +25,8 @@ public class StonePileTests
     }
 
     [Test]
-    public void CompleteSwing_BeforeThirdSwing_YieldsNothing()
+    public void CompleteSwing_AddsStoneAndMarksHarvested()
     {
-        _pile.CompleteSwing();
-        _pile.CompleteSwing();
-
-        Assert.AreEqual(0, _inventory.GetCount(ContentDb.Stone));
-        Assert.IsFalse(_pile.IsHarvested);
-    }
-
-    [Test]
-    public void CompleteSwing_ThirdSwing_AddsStoneAndMarksHarvested()
-    {
-        _pile.CompleteSwing();
-        _pile.CompleteSwing();
         _pile.CompleteSwing();
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
@@ -49,9 +37,6 @@ public class StonePileTests
     public void CompleteSwing_AfterHarvested_DoesNothing()
     {
         _pile.CompleteSwing();
-        _pile.CompleteSwing();
-        _pile.CompleteSwing();
-
         _pile.CompleteSwing();
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
@@ -64,8 +49,8 @@ public class StonePileTests
     }
 
     [Test]
-    public void SwingsNeeded_IsThree()
+    public void SwingDuration_IsOneAndAHalfSeconds()
     {
-        Assert.AreEqual(3, _pile.SwingsNeeded);
+        Assert.AreEqual(1.5f, _pile.SwingDuration);
     }
 }

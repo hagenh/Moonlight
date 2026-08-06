@@ -25,20 +25,8 @@ public class FallenLogTests
     }
 
     [Test]
-    public void CompleteSwing_BeforeThirdSwing_YieldsNothing()
+    public void CompleteSwing_AddsWoodAndMarksHarvested()
     {
-        _log.CompleteSwing();
-        _log.CompleteSwing();
-
-        Assert.AreEqual(0, _inventory.GetCount(ContentDb.Wood));
-        Assert.IsFalse(_log.IsHarvested);
-    }
-
-    [Test]
-    public void CompleteSwing_ThirdSwing_AddsWoodAndMarksHarvested()
-    {
-        _log.CompleteSwing();
-        _log.CompleteSwing();
         _log.CompleteSwing();
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
@@ -49,9 +37,6 @@ public class FallenLogTests
     public void CompleteSwing_AfterHarvested_DoesNothing()
     {
         _log.CompleteSwing();
-        _log.CompleteSwing();
-        _log.CompleteSwing();
-
         _log.CompleteSwing();
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
@@ -64,8 +49,8 @@ public class FallenLogTests
     }
 
     [Test]
-    public void SwingsNeeded_IsThree()
+    public void SwingDuration_IsOneAndAHalfSeconds()
     {
-        Assert.AreEqual(3, _log.SwingsNeeded);
+        Assert.AreEqual(1.5f, _log.SwingDuration);
     }
 }

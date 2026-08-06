@@ -290,13 +290,13 @@ public class GameHUD : MonoBehaviour
         {
             promptText.text = pile.IsHarvested
                 ? "Picked"
-                : $"[Hold E] Mine Stone ({pile.SwingsDone}/{pile.SwingsNeeded})";
+                : "[Hold E] Mine Stone";
         }
         else if (interactable is FallenLog log)
         {
             promptText.text = log.IsHarvested
                 ? "Picked"
-                : $"[Hold E] Chop Wood ({log.SwingsDone}/{log.SwingsNeeded})";
+                : "[Hold E] Chop Wood";
         }
         else if (interactable is Resident resident)
         {

@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class StonePile : MonoBehaviour, IInteractable, IForageable
 {
-    private const int SwingsRequired = 3;
-    private const float SwingSeconds = 3f;
+    private const float SwingSeconds = 1.5f;
 
     private SpriteRenderer _spriteRenderer;
     private bool _harvested;
-    private int _swingsDone;
 
     public InteractType InteractType => InteractType.Forage;
     public bool CanInteract => true;
@@ -15,8 +13,6 @@ public class StonePile : MonoBehaviour, IInteractable, IForageable
 
     public float SwingDuration => SwingSeconds;
     public ItemDef RequiredTool => ContentDb.Pickaxe;
-    public int SwingsDone => _swingsDone;
-    public int SwingsNeeded => SwingsRequired;
 
     private void Awake()
     {
@@ -46,9 +42,6 @@ public class StonePile : MonoBehaviour, IInteractable, IForageable
     {
         if (_harvested) return;
 
-        _swingsDone++;
-        if (_swingsDone < SwingsRequired) return;
-
         if (InventoryManager.Instance != null)
             InventoryManager.Instance.TryAdd(ContentDb.Stone, 1);
         SetHarvested(true);
@@ -57,7 +50,6 @@ public class StonePile : MonoBehaviour, IInteractable, IForageable
     private void SetHarvested(bool harvested)
     {
         _harvested = harvested;
-        _swingsDone = 0;
         if (_spriteRenderer != null)
             _spriteRenderer.enabled = !harvested;
         foreach (var c in GetComponents<Collider2D>())

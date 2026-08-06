@@ -45,14 +45,10 @@ public class ForageRespawnFlowTests
         yield return null;
 
         log.CompleteSwing();
-        log.CompleteSwing();
-        log.CompleteSwing();
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
 
         GameEvents.OnDayEnded(1);
 
-        log.CompleteSwing();
-        log.CompleteSwing();
         log.CompleteSwing();
         Assert.AreEqual(2, _inventory.GetCount(ContentDb.Wood));
     }
@@ -64,14 +60,10 @@ public class ForageRespawnFlowTests
         yield return null;
 
         pile.CompleteSwing();
-        pile.CompleteSwing();
-        pile.CompleteSwing();
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
 
         GameEvents.OnDayEnded(1);
 
-        pile.CompleteSwing();
-        pile.CompleteSwing();
         pile.CompleteSwing();
         Assert.AreEqual(2, _inventory.GetCount(ContentDb.Stone));
     }
