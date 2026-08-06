@@ -2,6 +2,16 @@
 
 ## Visual
 
+### FallenLog instances have the wrong sprite
+FallenLog scene instances are showing placeholder sprites from placeable infrastructure items (e.g. bench sprites) instead of the intended fallen-log sprite. The correct sprite exists in the `Grassland Spring@128x128` tileset (sub-sprite `_115`), but some scene instances were wired to wrong sprites. Additionally, these foraging nodes are placed as bare GameObjects in the scene rather than prefabs, making them harder to maintain and prone to this kind of wiring mistake. They should be converted to prefabs so sprite/collider setup is managed in one place.
+
+**Files:** `Assets/Scripts/FallenLog.cs`, `Assets/Scenes/SampleScene.unity`
+
+### Errant DeliveryPoint in the scene
+A `DeliveryPoint` GameObject is present in `SampleScene` but should not be — delivery points are created dynamically by `SellManager` when the cart arrives. The static scene instance should be removed.
+
+**Files:** `Assets/Scenes/SampleScene.unity`
+
 ### FermentVat has no sprite
 FermentVats currently render as a colored square (tinted via `vatRenderer.color` in `FermentVat.cs:84`) with no actual sprite assigned. The `CampfirePot` (interior tileset sprite from the kitchen/campfire set) has a pot visual that would work as a stand-in for the vat.
 
