@@ -7,13 +7,17 @@ using UnityEngine.TestTools;
 
 public class TryEnterForageStateTests
 {
-    private class FakeForageable : MonoBehaviour, IForageable
+    private class FakeForageable : MonoBehaviour, IInteractable, IForageable
     {
         public bool IsHarvested { get; set; }
         public float SwingDuration => 3f;
         public ItemDef RequiredTool { get; set; }
         public int SwingsCompleted { get; private set; }
 
+        public InteractType InteractType => InteractType.Forage;
+        public bool CanInteract => true;
+
+        public void Interact() { }
         public void CompleteSwing() => SwingsCompleted++;
     }
 
