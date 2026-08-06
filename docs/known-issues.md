@@ -2,18 +2,18 @@
 
 ## Visual
 
-### FallenLog instances have the wrong sprite
-FallenLog scene instances are showing placeholder sprites from placeable infrastructure items (e.g. bench sprites) instead of the intended fallen-log sprite. The correct sprite exists in the `Grassland Spring@128x128` tileset (sub-sprite `_115`), but some scene instances were wired to wrong sprites.
+### ~~FallenLog instances have the wrong sprite~~ (Fixed)
+All 12 FallenLog scene instances now use the correct sub-sprite `Grassland Spring@128x128_62` from the Grassland tileset.
 
 **Files:** `Assets/Scripts/FallenLog.cs`, `Assets/Scenes/SampleScene.unity`
 
-### Placeable infrastructure items (B key) are bare sprites, not prefabs
-Items placed via the infrastructure menu (lampposts, benches, plank sidewalks, flower boxes, signs) are spawned as plain sprites with no associated prefab. They should be prefabs so that collider setup, sorting order, and any future component additions are managed in one place instead of scattered across `ContentDb` and `InfrastructureManager` logic. Existing bare-sprite instances already placed in the scene should be removed — these items are meant to be player-placed at runtime, not pre-positioned by the designer.
+### ~~Placeable infrastructure items (B key) are bare sprites, not prefabs~~ (Fixed)
+Placeholder prefabs (`LamppostPlaceholder`, `BenchPlaceholder`, etc.) now include `BoxCollider2D` components. `ContentDb` `[SerializeField]` fields are wired to these prefabs, and `BuildModeController` instantiates them when placing. No bare-sprite instances remain in the scene.
 
-**Files:** `Assets/Scripts/InfrastructureManager.cs`, `Assets/Scripts/ContentDb.cs`
+**Files:** `Assets/Scripts/InfrastructureManager.cs`, `Assets/Scripts/ContentDb.cs`, `Assets/Prefabs/*Placeholder.prefab`
 
-### Errant DeliveryPoint in the scene
-A `DeliveryPoint` GameObject is present in `SampleScene` but should not be — delivery points are created dynamically by `SellManager` when the cart arrives. The static scene instance should be removed.
+### ~~Errant DeliveryPoint in the scene~~ (Fixed)
+No `DeliveryPoint` GameObject found in `SampleScene` — already removed or was never present. Delivery points are created dynamically by `SellManager` when the cart arrives.
 
 **Files:** `Assets/Scenes/SampleScene.unity`
 
