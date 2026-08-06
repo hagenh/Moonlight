@@ -14,9 +14,12 @@ public class Homestead : MonoBehaviour, IInteractable
     public const int FrameCost = 12;
 
     [SerializeField] private Sprite builtSprite;
+    [SerializeField] private Sprite stoneFillSprite;
+    [SerializeField] private Sprite woodFillSprite;
     [SerializeField] internal Collider2D signTrigger;
     [SerializeField] internal Collider2D doorTrigger;
     private SpriteRenderer _spriteRenderer;
+    private HomesteadFillGrid _fillGrid;
     private BuildStage _stage;
     private int _stoneDeposited;
     private int _woodDeposited;
@@ -42,6 +45,10 @@ public class Homestead : MonoBehaviour, IInteractable
             doorTrigger.enabled = false;
         if (_spriteRenderer != null)
             _spriteRenderer.color = _stageColors[0];
+
+        var fillGo = new GameObject("FillGrid");
+        fillGo.transform.SetParent(transform, false);
+        _fillGrid = fillGo.AddComponent<HomesteadFillGrid>();
     }
 
     public void Interact()
@@ -62,6 +69,8 @@ public class Homestead : MonoBehaviour, IInteractable
                 }
                 InventoryManager.Instance.TryRemove(ContentDb.Stone, toDeposit);
                 _stoneDeposited += toDeposit;
+                if (_fillGrid != null)
+                    _fillGrid.SetFilled(_stoneDeposited, stoneFillSprite);
                 if (_stoneDeposited >= FoundationCost)
                     AdvanceStage(BuildStage.Foundation, "Foundation built!");
                 break;
@@ -79,6 +88,8 @@ public class Homestead : MonoBehaviour, IInteractable
                 }
                 InventoryManager.Instance.TryRemove(ContentDb.Wood, toDeposit);
                 _woodDeposited += toDeposit;
+                if (_fillGrid != null)
+                    _fillGrid.SetFilled(_woodDeposited, woodFillSprite);
                 if (_woodDeposited >= FrameCost)
                     AdvanceStage(BuildStage.Frame, "Frame built!");
                 break;
