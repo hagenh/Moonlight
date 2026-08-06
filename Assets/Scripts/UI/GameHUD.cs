@@ -47,6 +47,9 @@ public class GameHUD : MonoBehaviour
         GameEvents.HammerStarted += OnHammerStarted;
         GameEvents.HammerProgress += OnHammerProgress;
         GameEvents.HammerEnded += OnHammerEnded;
+        GameEvents.ForageStarted += OnForageStarted;
+        GameEvents.ForageProgress += OnForageProgress;
+        GameEvents.ForageEnded += OnForageEnded;
     }
 
     private void OnDisable()
@@ -62,6 +65,9 @@ public class GameHUD : MonoBehaviour
         GameEvents.HammerStarted -= OnHammerStarted;
         GameEvents.HammerProgress -= OnHammerProgress;
         GameEvents.HammerEnded -= OnHammerEnded;
+        GameEvents.ForageStarted -= OnForageStarted;
+        GameEvents.ForageProgress -= OnForageProgress;
+        GameEvents.ForageEnded -= OnForageEnded;
     }
 
     private void Update()
@@ -124,6 +130,24 @@ public class GameHUD : MonoBehaviour
     }
 
     private void OnHammerEnded(Building b)
+    {
+        if (hammerProgressText != null)
+            hammerProgressText.gameObject.SetActive(false);
+    }
+
+    private void OnForageStarted(IForageable target)
+    {
+        if (hammerProgressText != null)
+            hammerProgressText.gameObject.SetActive(true);
+    }
+
+    private void OnForageProgress(IForageable target, float progress)
+    {
+        if (hammerProgressText != null)
+            hammerProgressText.text = $"Foraging... {progress * 100:F0}%";
+    }
+
+    private void OnForageEnded(IForageable target)
     {
         if (hammerProgressText != null)
             hammerProgressText.gameObject.SetActive(false);
@@ -195,8 +219,8 @@ public class GameHUD : MonoBehaviour
         {
             promptText.text = homestead.Stage switch
             {
-                BuildStage.Site => $"[E] Homestead Site (need 3 Stone)",
-                BuildStage.Foundation => $"[E] Build Frame (need 3 Wood)",
+                BuildStage.Site => $"[E] Deposit Stone ({homestead.StoneDeposited}/{Homestead.FoundationCost})",
+                BuildStage.Foundation => $"[E] Deposit Wood ({homestead.WoodDeposited}/{Homestead.FrameCost})",
                 BuildStage.Frame => $"[E] Build Walls (need 2 Wood, 3 Nails)",
                 BuildStage.Walls => $"[E] Homestead",
                 _ => $"[E] Homestead Site"
@@ -261,6 +285,18 @@ public class GameHUD : MonoBehaviour
         else if (interactable is BerryBush bush)
         {
             promptText.text = bush.IsHarvested ? "Picked" : "[E] Forage";
+        }
+        else if (interactable is StonePile pile)
+        {
+            promptText.text = pile.IsHarvested
+                ? "Picked"
+                : $"[Hold E] Mine Stone ({pile.SwingsDone}/{pile.SwingsNeeded})";
+        }
+        else if (interactable is FallenLog log)
+        {
+            promptText.text = log.IsHarvested
+                ? "Picked"
+                : $"[Hold E] Chop Wood ({log.SwingsDone}/{log.SwingsNeeded})";
         }
         else if (interactable is Resident resident)
         {
