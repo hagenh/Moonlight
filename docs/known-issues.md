@@ -8,7 +8,7 @@ FallenLog scene instances are showing placeholder sprites from placeable infrast
 **Files:** `Assets/Scripts/FallenLog.cs`, `Assets/Scenes/SampleScene.unity`
 
 ### Placeable infrastructure items (B key) are bare sprites, not prefabs
-Items placed via the infrastructure menu (lampposts, benches, plank sidewalks, flower boxes, signs) are spawned as plain sprites with no associated prefab. They should be prefabs so that collider setup, sorting order, and any future component additions are managed in one place instead of scattered across `ContentDb` and `InfrastructureManager` logic.
+Items placed via the infrastructure menu (lampposts, benches, plank sidewalks, flower boxes, signs) are spawned as plain sprites with no associated prefab. They should be prefabs so that collider setup, sorting order, and any future component additions are managed in one place instead of scattered across `ContentDb` and `InfrastructureManager` logic. Existing bare-sprite instances already placed in the scene should be removed — these items are meant to be player-placed at runtime, not pre-positioned by the designer.
 
 **Files:** `Assets/Scripts/InfrastructureManager.cs`, `Assets/Scripts/ContentDb.cs`
 
