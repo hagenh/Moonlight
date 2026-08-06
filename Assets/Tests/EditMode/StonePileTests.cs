@@ -25,19 +25,47 @@ public class StonePileTests
     }
 
     [Test]
-    public void Interact_AddsStoneToInventory()
+    public void CompleteSwing_BeforeThirdSwing_YieldsNothing()
     {
-        _pile.Interact();
+        _pile.CompleteSwing();
+        _pile.CompleteSwing();
+
+        Assert.AreEqual(0, _inventory.GetCount(ContentDb.Stone));
+        Assert.IsFalse(_pile.IsHarvested);
+    }
+
+    [Test]
+    public void CompleteSwing_ThirdSwing_AddsStoneAndMarksHarvested()
+    {
+        _pile.CompleteSwing();
+        _pile.CompleteSwing();
+        _pile.CompleteSwing();
+
+        Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
+        Assert.IsTrue(_pile.IsHarvested);
+    }
+
+    [Test]
+    public void CompleteSwing_AfterHarvested_DoesNothing()
+    {
+        _pile.CompleteSwing();
+        _pile.CompleteSwing();
+        _pile.CompleteSwing();
+
+        _pile.CompleteSwing();
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
     }
 
     [Test]
-    public void Interact_Twice_OnlyAddsOnce()
+    public void RequiredTool_IsPickaxe()
     {
-        _pile.Interact();
-        _pile.Interact();
+        Assert.AreEqual(ContentDb.Pickaxe, _pile.RequiredTool);
+    }
 
-        Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
+    [Test]
+    public void SwingsNeeded_IsThree()
+    {
+        Assert.AreEqual(3, _pile.SwingsNeeded);
     }
 }

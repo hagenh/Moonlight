@@ -25,19 +25,47 @@ public class FallenLogTests
     }
 
     [Test]
-    public void Interact_AddsWoodToInventory()
+    public void CompleteSwing_BeforeThirdSwing_YieldsNothing()
     {
-        _log.Interact();
+        _log.CompleteSwing();
+        _log.CompleteSwing();
+
+        Assert.AreEqual(0, _inventory.GetCount(ContentDb.Wood));
+        Assert.IsFalse(_log.IsHarvested);
+    }
+
+    [Test]
+    public void CompleteSwing_ThirdSwing_AddsWoodAndMarksHarvested()
+    {
+        _log.CompleteSwing();
+        _log.CompleteSwing();
+        _log.CompleteSwing();
+
+        Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
+        Assert.IsTrue(_log.IsHarvested);
+    }
+
+    [Test]
+    public void CompleteSwing_AfterHarvested_DoesNothing()
+    {
+        _log.CompleteSwing();
+        _log.CompleteSwing();
+        _log.CompleteSwing();
+
+        _log.CompleteSwing();
 
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
     }
 
     [Test]
-    public void Interact_Twice_OnlyAddsOnce()
+    public void RequiredTool_IsHandAxe()
     {
-        _log.Interact();
-        _log.Interact();
+        Assert.AreEqual(ContentDb.HandAxe, _log.RequiredTool);
+    }
 
-        Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
+    [Test]
+    public void SwingsNeeded_IsThree()
+    {
+        Assert.AreEqual(3, _log.SwingsNeeded);
     }
 }

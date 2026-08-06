@@ -39,32 +39,40 @@ public class ForageRespawnFlowTests
     }
 
     [UnityTest]
-    public IEnumerator FallenLog_Interact_AfterDayEnded_YieldsAgain()
+    public IEnumerator FallenLog_CompleteSwing_AfterDayEnded_YieldsAgain()
     {
         var log = TestBootstrap.CreateGameObject("TestLog").AddComponent<FallenLog>();
         yield return null;
 
-        log.Interact();
+        log.CompleteSwing();
+        log.CompleteSwing();
+        log.CompleteSwing();
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Wood));
 
         GameEvents.OnDayEnded(1);
 
-        log.Interact();
+        log.CompleteSwing();
+        log.CompleteSwing();
+        log.CompleteSwing();
         Assert.AreEqual(2, _inventory.GetCount(ContentDb.Wood));
     }
 
     [UnityTest]
-    public IEnumerator StonePile_Interact_AfterDayEnded_YieldsAgain()
+    public IEnumerator StonePile_CompleteSwing_AfterDayEnded_YieldsAgain()
     {
         var pile = TestBootstrap.CreateGameObject("TestPile").AddComponent<StonePile>();
         yield return null;
 
-        pile.Interact();
+        pile.CompleteSwing();
+        pile.CompleteSwing();
+        pile.CompleteSwing();
         Assert.AreEqual(1, _inventory.GetCount(ContentDb.Stone));
 
         GameEvents.OnDayEnded(1);
 
-        pile.Interact();
+        pile.CompleteSwing();
+        pile.CompleteSwing();
+        pile.CompleteSwing();
         Assert.AreEqual(2, _inventory.GetCount(ContentDb.Stone));
     }
 }
