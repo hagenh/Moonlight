@@ -32,26 +32,6 @@ public class HomesteadTests
     }
 
     [Test]
-    public void SetBuilt_SwapsSpriteToBuiltSprite()
-    {
-        var builtTex = new Texture2D(16, 16);
-        builtTex.SetPixel(0, 0, Color.red);
-        builtTex.Apply();
-        var builtSprite = Sprite.Create(builtTex, new Rect(0, 0, 16, 16), new Vector2(0.5f, 0.5f), 16f);
-
-        _homestead.SetBuiltSpriteForTest(builtSprite);
-        _inventory.TryAdd(ContentDb.Stone, 3);
-        _homestead.Interact();
-        _inventory.TryAdd(ContentDb.Wood, 3);
-        _homestead.Interact();
-        _inventory.TryAdd(ContentDb.Wood, 2);
-        _inventory.TryAdd(ContentDb.Nails, 3);
-        _homestead.Interact();
-
-        Assert.AreEqual(builtSprite, _go.GetComponent<SpriteRenderer>().sprite);
-    }
-
-    [Test]
     public void InteractType_IsBuilding()
     {
         Assert.AreEqual(InteractType.Building, _homestead.InteractType);
@@ -62,38 +42,83 @@ public class HomesteadTests
     {
         _homestead.Interact();
         Assert.AreEqual(BuildStage.Site, _homestead.Stage);
+        Assert.AreEqual(0, _homestead.StoneDeposited);
     }
 
     [Test]
-    public void Interact_WithStone_AdvancesToFoundation()
+    public void Interact_PartialStone_DepositsButStaysAtSite()
     {
-        _inventory.TryAdd(ContentDb.Stone, 3);
+        _inventory.TryAdd(ContentDb.Stone, 5);
         _homestead.Interact();
-        Assert.AreEqual(BuildStage.Foundation, _homestead.Stage);
+
+        Assert.AreEqual(BuildStage.Site, _homestead.Stage);
+        Assert.AreEqual(5, _homestead.StoneDeposited);
         Assert.AreEqual(0, _inventory.GetCount(ContentDb.Stone));
     }
 
     [Test]
-    public void Interact_WithWood_AdvancesToFrame()
+    public void Interact_StoneAcrossTwoDeposits_AdvancesOnceCostIsMet()
     {
-        _inventory.TryAdd(ContentDb.Stone, 3);
+        _inventory.TryAdd(ContentDb.Stone, 12);
         _homestead.Interact();
-        _inventory.TryAdd(ContentDb.Wood, 3);
+        Assert.AreEqual(BuildStage.Site, _homestead.Stage);
+
+        _inventory.TryAdd(ContentDb.Stone, 8);
         _homestead.Interact();
+
+        Assert.AreEqual(BuildStage.Foundation, _homestead.Stage);
+        Assert.AreEqual(20, _homestead.StoneDeposited);
+    }
+
+    [Test]
+    public void Interact_MoreStoneThanNeeded_OnlyConsumesRemainingNeed()
+    {
+        _inventory.TryAdd(ContentDb.Stone, 25);
+        _homestead.Interact();
+
+        Assert.AreEqual(BuildStage.Foundation, _homestead.Stage);
+        Assert.AreEqual(5, _inventory.GetCount(ContentDb.Stone));
+    }
+
+    [Test]
+    public void Interact_WithWood_AdvancesToFrame_AfterFoundationComplete()
+    {
+        _inventory.TryAdd(ContentDb.Stone, 20);
+        _homestead.Interact();
+        _inventory.TryAdd(ContentDb.Wood, 12);
+        _homestead.Interact();
+
         Assert.AreEqual(BuildStage.Frame, _homestead.Stage);
         Assert.AreEqual(0, _inventory.GetCount(ContentDb.Wood));
     }
 
     [Test]
+    public void Interact_WoodAcrossTwoDeposits_AdvancesOnceCostIsMet()
+    {
+        _inventory.TryAdd(ContentDb.Stone, 20);
+        _homestead.Interact();
+        _inventory.TryAdd(ContentDb.Wood, 7);
+        _homestead.Interact();
+        Assert.AreEqual(BuildStage.Foundation, _homestead.Stage);
+
+        _inventory.TryAdd(ContentDb.Wood, 5);
+        _homestead.Interact();
+
+        Assert.AreEqual(BuildStage.Frame, _homestead.Stage);
+        Assert.AreEqual(12, _homestead.WoodDeposited);
+    }
+
+    [Test]
     public void Interact_WithWoodAndNails_AdvancesToWalls()
     {
-        _inventory.TryAdd(ContentDb.Stone, 3);
+        _inventory.TryAdd(ContentDb.Stone, 20);
         _homestead.Interact();
-        _inventory.TryAdd(ContentDb.Wood, 3);
+        _inventory.TryAdd(ContentDb.Wood, 12);
         _homestead.Interact();
         _inventory.TryAdd(ContentDb.Wood, 2);
         _inventory.TryAdd(ContentDb.Nails, 3);
         _homestead.Interact();
+
         Assert.AreEqual(BuildStage.Walls, _homestead.Stage);
         Assert.AreEqual(0, _inventory.GetCount(ContentDb.Wood));
         Assert.AreEqual(0, _inventory.GetCount(ContentDb.Nails));
@@ -102,26 +127,48 @@ public class HomesteadTests
     [Test]
     public void Interact_FrameWithoutNails_StaysAtFrame()
     {
-        _inventory.TryAdd(ContentDb.Stone, 3);
+        _inventory.TryAdd(ContentDb.Stone, 20);
         _homestead.Interact();
-        _inventory.TryAdd(ContentDb.Wood, 3);
+        _inventory.TryAdd(ContentDb.Wood, 12);
         _homestead.Interact();
         _inventory.TryAdd(ContentDb.Wood, 2);
         _homestead.Interact();
+
         Assert.AreEqual(BuildStage.Frame, _homestead.Stage);
     }
 
     [Test]
     public void Interact_CompleteBuild_SetsIsBuilt()
     {
-        _inventory.TryAdd(ContentDb.Stone, 3);
+        _inventory.TryAdd(ContentDb.Stone, 20);
         _homestead.Interact();
-        _inventory.TryAdd(ContentDb.Wood, 3);
+        _inventory.TryAdd(ContentDb.Wood, 12);
         _homestead.Interact();
         _inventory.TryAdd(ContentDb.Wood, 2);
         _inventory.TryAdd(ContentDb.Nails, 3);
         _homestead.Interact();
+
         Assert.IsTrue(_homestead.IsBuilt);
+    }
+
+    [Test]
+    public void SetBuilt_SwapsSpriteToBuiltSprite()
+    {
+        var builtTex = new Texture2D(16, 16);
+        builtTex.SetPixel(0, 0, Color.red);
+        builtTex.Apply();
+        var builtSprite = Sprite.Create(builtTex, new Rect(0, 0, 16, 16), new Vector2(0.5f, 0.5f), 16f);
+
+        _homestead.SetBuiltSpriteForTest(builtSprite);
+        _inventory.TryAdd(ContentDb.Stone, 20);
+        _homestead.Interact();
+        _inventory.TryAdd(ContentDb.Wood, 12);
+        _homestead.Interact();
+        _inventory.TryAdd(ContentDb.Wood, 2);
+        _inventory.TryAdd(ContentDb.Nails, 3);
+        _homestead.Interact();
+
+        Assert.AreEqual(builtSprite, _go.GetComponent<SpriteRenderer>().sprite);
     }
 
     [Test]
@@ -129,7 +176,7 @@ public class HomesteadTests
     {
         int firedStage = -1;
         GameEvents.HomesteadBuildStageChanged += s => firedStage = s;
-        _inventory.TryAdd(ContentDb.Stone, 3);
+        _inventory.TryAdd(ContentDb.Stone, 20);
         _homestead.Interact();
         Assert.AreEqual(1, firedStage);
     }

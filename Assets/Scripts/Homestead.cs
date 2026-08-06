@@ -10,11 +10,16 @@ public enum BuildStage
 
 public class Homestead : MonoBehaviour, IInteractable
 {
+    public const int FoundationCost = 20;
+    public const int FrameCost = 12;
+
     [SerializeField] private Sprite builtSprite;
     [SerializeField] internal Collider2D signTrigger;
     [SerializeField] internal Collider2D doorTrigger;
     private SpriteRenderer _spriteRenderer;
     private BuildStage _stage;
+    private int _stoneDeposited;
+    private int _woodDeposited;
 
     private static readonly Color[] _stageColors = {
         new Color(0.7f, 0.6f, 0.4f),
@@ -25,6 +30,8 @@ public class Homestead : MonoBehaviour, IInteractable
 
     public bool IsBuilt { get; private set; }
     public BuildStage Stage => _stage;
+    public int StoneDeposited => _stoneDeposited;
+    public int WoodDeposited => _woodDeposited;
     public InteractType InteractType => InteractType.Building;
     public bool CanInteract => true;
 
@@ -44,24 +51,38 @@ public class Homestead : MonoBehaviour, IInteractable
         switch (_stage)
         {
             case BuildStage.Site:
-                if (!InventoryManager.Instance.Has(ContentDb.Stone, 3))
+            {
+                int needed = FoundationCost - _stoneDeposited;
+                int carried = InventoryManager.Instance.GetCount(ContentDb.Stone);
+                int toDeposit = Mathf.Min(needed, carried);
+                if (toDeposit <= 0)
                 {
-                    GameEvents.OnToastRequested("Need 3 Stone to build the foundation");
+                    GameEvents.OnToastRequested("Need Stone to keep building");
                     return;
                 }
-                InventoryManager.Instance.TryRemove(ContentDb.Stone, 3);
-                AdvanceStage(BuildStage.Foundation, "Foundation built!");
+                InventoryManager.Instance.TryRemove(ContentDb.Stone, toDeposit);
+                _stoneDeposited += toDeposit;
+                if (_stoneDeposited >= FoundationCost)
+                    AdvanceStage(BuildStage.Foundation, "Foundation built!");
                 break;
+            }
 
             case BuildStage.Foundation:
-                if (!InventoryManager.Instance.Has(ContentDb.Wood, 3))
+            {
+                int needed = FrameCost - _woodDeposited;
+                int carried = InventoryManager.Instance.GetCount(ContentDb.Wood);
+                int toDeposit = Mathf.Min(needed, carried);
+                if (toDeposit <= 0)
                 {
-                    GameEvents.OnToastRequested("Need 3 Wood to build the frame");
+                    GameEvents.OnToastRequested("Need Wood to keep building");
                     return;
                 }
-                InventoryManager.Instance.TryRemove(ContentDb.Wood, 3);
-                AdvanceStage(BuildStage.Frame, "Frame built!");
+                InventoryManager.Instance.TryRemove(ContentDb.Wood, toDeposit);
+                _woodDeposited += toDeposit;
+                if (_woodDeposited >= FrameCost)
+                    AdvanceStage(BuildStage.Frame, "Frame built!");
                 break;
+            }
 
             case BuildStage.Frame:
                 if (!InventoryManager.Instance.Has(ContentDb.Wood, 2) ||
