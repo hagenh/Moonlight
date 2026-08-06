@@ -27,6 +27,11 @@ FermentVats currently render as a colored square (tinted via `vatRenderer.color`
 
 **Files:** `Assets/Scripts/Homestead.cs:13`, `Assets/Sprite/HomesteadBuilt.png`, `Assets/Sprite/BuildingFacade.png`
 
+### Homestead built stage is half the expected size
+When the Homestead reaches the final built stage, it appears at roughly half the size it should be. Likely a `localScale` or sprite import pixels-per-unit mismatch — the built sprite needs to be displayed at 2x the current scale to match the surrounding buildings and expected visual footprint.
+
+**Files:** `Assets/Scripts/Homestead.cs`, `Assets/Scenes/SampleScene.unity`
+
 ### Homestead middle build stages lack dedicated sprites
 First (Site) and final (Walls/built) stages have proper sprites, but Foundation and Frame stages just recolor the existing sprite via `_stageColors`. Needs dedicated construction-stage art when available.
 
@@ -46,6 +51,11 @@ Same issue — `SellerInteractable.Create()` builds a white 4x4 texture tinted b
 `DroppedItem.Create()` reuses `item.icon` — the small GUI hotbar/inventory icon — as the in-world sprite, and only applies a `localScale` of `(0.5, 0.5, 1)`. GUI icons aren't imported with world-appropriate pixels-per-unit, so on the ground they render far larger than the item's collider (also `0.5x0.5`) suggests. Needs a dedicated in-world pickup sprite per item/category, sized correctly (see also the "World pickup sprites" backlog item).
 
 **Files:** `Assets/Scripts/DroppedItem.cs:27-35`
+
+### Crate is invisible on the ground and when carried
+`Crate.Create()` has two paths — prefab (requires `ContentDb.CratePrefab` wired in Inspector) and fallback (tiny green square from `Texture2D.whiteTexture`). If the prefab field isn't assigned, the fallback is nearly invisible at 0.25 world units. When carried, `ShowCarrySprite()` copies the crate's sprite to the player's `carrySpriteRenderer`, but the Player prefab's CarrySprite child has no material assigned and no default sprite, so it renders invisible in URP even when a sprite is set. The vat now collects directly to inventory (`TryCollectBatch`), so crates are no longer spawned in normal gameplay — but the underlying visibility issues remain if crates are used in the future.
+
+**Files:** `Assets/Scripts/Crate.cs`, `Assets/Scripts/Player/PlayerController.cs:252-265`, `Assets/Prefabs/Player.prefab`
 
 ## Design / Placeholder
 

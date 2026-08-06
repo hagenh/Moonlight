@@ -10,8 +10,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI toastText;
     [SerializeField] private TMPro.TextMeshProUGUI repText;
     [SerializeField] private TMPro.TextMeshProUGUI clockText;
-    [SerializeField] private TMPro.TextMeshProUGUI inventoryText;
-    [SerializeField] private TMPro.TextMeshProUGUI cartStatusText;
+
     [SerializeField] private TMPro.TextMeshProUGUI hammerProgressText;
     [SerializeField] private float toastDuration = 2f;
 
@@ -31,7 +30,6 @@ public class GameHUD : MonoBehaviour
         if (dayText != null) dayText.text = "Day 1";
         if (cashText != null && GameManager.Instance != null)
             cashText.text = $"{GameManager.Instance.Cash}g";
-        if (inventoryText != null) inventoryText.text = "";
     }
 
     private void OnEnable()
@@ -41,9 +39,6 @@ public class GameHUD : MonoBehaviour
         GameEvents.HourChanged += OnHourChanged;
         GameEvents.CashChanged += OnCashChanged;
         GameEvents.RepChanged += OnRepChanged;
-        GameEvents.InventoryChanged += OnInventoryChanged;
-        GameEvents.SellerArrived += OnSellerArrived;
-        GameEvents.SellerLeft += OnSellerLeft;
         GameEvents.HammerStarted += OnHammerStarted;
         GameEvents.HammerProgress += OnHammerProgress;
         GameEvents.HammerEnded += OnHammerEnded;
@@ -59,9 +54,6 @@ public class GameHUD : MonoBehaviour
         GameEvents.HourChanged -= OnHourChanged;
         GameEvents.CashChanged -= OnCashChanged;
         GameEvents.RepChanged -= OnRepChanged;
-        GameEvents.InventoryChanged -= OnInventoryChanged;
-        GameEvents.SellerArrived -= OnSellerArrived;
-        GameEvents.SellerLeft -= OnSellerLeft;
         GameEvents.HammerStarted -= OnHammerStarted;
         GameEvents.HammerProgress -= OnHammerProgress;
         GameEvents.HammerEnded -= OnHammerEnded;
@@ -102,21 +94,6 @@ public class GameHUD : MonoBehaviour
         if (repText != null) repText.text = $"Rep: {newRep}";
     }
 
-    private void OnInventoryChanged(ItemDef def, int oldCount, int newCount)
-    {
-        UpdateInventoryDisplay();
-    }
-
-    private void OnSellerArrived(SellerType type)
-    {
-        UpdateCartStatus();
-    }
-
-    private void OnSellerLeft(SellerType type)
-    {
-        UpdateCartStatus();
-    }
-
     private void OnHammerStarted(Building b)
     {
         if (hammerProgressText != null)
@@ -151,29 +128,6 @@ public class GameHUD : MonoBehaviour
     {
         if (hammerProgressText != null)
             hammerProgressText.gameObject.SetActive(false);
-    }
-
-    private void UpdateCartStatus()
-    {
-        if (cartStatusText == null) return;
-        if (SellManager.Instance != null && SellManager.Instance.IsCartInTown)
-        {
-            cartStatusText.gameObject.SetActive(true);
-            cartStatusText.text = "Cart in town";
-        }
-        else
-        {
-            cartStatusText.gameObject.SetActive(false);
-        }
-    }
-
-    private void UpdateInventoryDisplay()
-    {
-        if (inventoryText == null || InventoryManager.Instance == null) return;
-        var sb = new System.Text.StringBuilder();
-        foreach (var kvp in InventoryManager.Instance.GetAllItems())
-            sb.AppendLine($"{kvp.Key.displayName}: {kvp.Value}");
-        inventoryText.text = sb.ToString();
     }
 
     private void UpdateInteractPrompt()
@@ -238,11 +192,7 @@ public class GameHUD : MonoBehaviour
         }
         else if (interactable is SellerInteractable seller)
         {
-            promptText.text = seller.sellerType switch
-            {
-                SellerType.TravelingCart => "[E] Visit Cart",
-                _ => "[E] Interact"
-            };
+            promptText.text = "[E] Buy Ingredients";
         }
         else if (interactable is TormodInteractable)
         {
@@ -264,11 +214,7 @@ public class GameHUD : MonoBehaviour
         }
         else if (interactable is DeliveryPoint dp)
         {
-            promptText.text = dp.DeliveryType switch
-            {
-                DeliveryType.Cart => "[E] Deliver to Cart",
-                _ => "[E] Deliver"
-            };
+            promptText.text = "[E] Deliver";
         }
         else if (interactable is Debris)
         {

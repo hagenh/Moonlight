@@ -149,4 +149,29 @@ public class FermentationFlowTests
         Assert.AreEqual(VatState.Fermenting, _vat.State);
         yield return null;
     }
+
+    [UnityTest]
+    public IEnumerator Interact_ReadyVat_CollectsToInventory()
+    {
+        _inventory.TryAdd(ContentDb.Grain, 1);
+        _inventory.TryAdd(ContentDb.Water, 1);
+        _inventory.TryAdd(ContentDb.Yeast, 1);
+
+        _fermentManager.TryStartBatch(_vat, _recipe);
+
+        _timeManager.SetTime(
+            _timeManager.Day + 1,
+            _timeManager.Hour,
+            _timeManager.Minute);
+
+        for (int i = 0; i < 5; i++)
+            yield return null;
+
+        Assert.AreEqual(VatState.Ready, _vat.State);
+
+        _vat.Interact();
+
+        Assert.AreEqual(VatState.Empty, _vat.State);
+        Assert.AreEqual(2, _inventory.GetCount(ContentDb.BasicMoonshine));
+    }
 }

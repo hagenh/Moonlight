@@ -54,7 +54,7 @@ public class SellUI : MonoBehaviour
     private void OnGUI()
     {
         if (!_visible) return;
-        string title = "Traveling Cart — Buy Ingredients";
+        string title = "Buy Ingredients";
         _windowRect = GUI.Window(2, _windowRect, DrawWindow, title);
     }
 

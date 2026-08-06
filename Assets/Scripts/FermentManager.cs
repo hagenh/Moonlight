@@ -145,12 +145,15 @@ public class FermentManager : MonoBehaviour
         if (vat.State != VatState.Ready) return false;
         if (vat.CurrentBatch == null) return false;
 
+        var recipe = vat.CurrentBatch.Recipe;
+        int bottles = recipe.outputCount;
+
         var oldState = vat.State;
-        int bottles = vat.CurrentBatch.Recipe.outputCount;
-        InventoryManager.Instance.TryAdd(vat.CurrentBatch.Recipe.outputItem, bottles);
+        InventoryManager.Instance.TryAdd(recipe.outputItem, bottles);
         vat.ClearBatch();
 
         GameEvents.OnVatStateChanged(vat, oldState, vat.State);
+        GameEvents.OnToastRequested($"Collected {bottles} {recipe.outputItem.displayName}");
         return true;
     }
 

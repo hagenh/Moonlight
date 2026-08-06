@@ -43,10 +43,7 @@ public class FermentVat : MonoBehaviour, IInteractable
                     $"Fermenting... {CurrentBatch?.Progress * 100:F0}%");
                 break;
             case VatState.Ready:
-                if (PlayerController.Instance != null && PlayerController.Instance.IsCarryingAnything)
-                    GameEvents.OnToastRequested("Already carrying something");
-                else
-                    FermentManager.Instance.TryCollectBatchAsCrate(this);
+                FermentManager.Instance.TryCollectBatch(this);
                 break;
         }
     }
